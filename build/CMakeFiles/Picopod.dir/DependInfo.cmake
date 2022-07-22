@@ -73,7 +73,6 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
 
 # The include file search paths:
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
-  ".././lib/src"
   "/home/jirka/programovani/pico/pico-sdk/src/common/pico_stdlib/include"
   "/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/include"
   "/home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include"
@@ -119,8 +118,8 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_flash/include"
   "/home/jirka/programovani/pico/pico-sdk/src/common/pico_usb_reset_interface/include"
   "/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/include"
-  "/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/include"
   "/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/include"
+  "/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/include"
   "../lib/voltage"
   "/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/include"
   )
@@ -193,9 +192,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/jirka/programovani/pico/Picopod/build/lib/pico-lora/src/CMakeFiles/LoRa_pico_lib.dir/DependInfo.cmake"
   "/home/jirka/programovani/pico/Picopod/build/lib/voltage/CMakeFiles/sensors_voltage.dir/DependInfo.cmake"
-  "/home/jirka/programovani/pico/Picopod/build/lib/pico-lora/src/CMakeFiles/LoRa_print.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

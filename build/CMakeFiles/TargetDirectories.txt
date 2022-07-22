@@ -156,12 +156,6 @@
 /home/jirka/programovani/pico/Picopod/build/pico-sdk/docs/CMakeFiles/rebuild_cache.dir
 /home/jirka/programovani/pico/Picopod/build/lib/CMakeFiles/edit_cache.dir
 /home/jirka/programovani/pico/Picopod/build/lib/CMakeFiles/rebuild_cache.dir
-/home/jirka/programovani/pico/Picopod/build/lib/pico-lora/CMakeFiles/edit_cache.dir
-/home/jirka/programovani/pico/Picopod/build/lib/pico-lora/CMakeFiles/rebuild_cache.dir
-/home/jirka/programovani/pico/Picopod/build/lib/pico-lora/src/CMakeFiles/LoRa_pico_lib.dir
-/home/jirka/programovani/pico/Picopod/build/lib/pico-lora/src/CMakeFiles/LoRa_print.dir
-/home/jirka/programovani/pico/Picopod/build/lib/pico-lora/src/CMakeFiles/edit_cache.dir
-/home/jirka/programovani/pico/Picopod/build/lib/pico-lora/src/CMakeFiles/rebuild_cache.dir
 /home/jirka/programovani/pico/Picopod/build/lib/voltage/CMakeFiles/sensors_voltage.dir
 /home/jirka/programovani/pico/Picopod/build/lib/voltage/CMakeFiles/edit_cache.dir
 /home/jirka/programovani/pico/Picopod/build/lib/voltage/CMakeFiles/rebuild_cache.dir

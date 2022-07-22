@@ -1038,24 +1038,10 @@ CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hard
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.s"
 	/usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c -o CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.s
 
-CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: CMakeFiles/Picopod.dir/flags.make
-CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c
-CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: CMakeFiles/Picopod.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj"
-	/usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj -MF CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj.d -o CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c
-
-CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i"
-	/usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c > CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
-
-CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s"
-	/usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c -o CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
-
 CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj: CMakeFiles/Picopod.dir/flags.make
 CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c
 CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj: CMakeFiles/Picopod.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj"
 	/usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj -MF CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj.d -o CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c
 
 CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.i: cmake_force
@@ -1065,6 +1051,20 @@ CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hard
 CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.s"
 	/usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c -o CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.s
+
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: CMakeFiles/Picopod.dir/flags.make
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: CMakeFiles/Picopod.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj"
+	/usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj -MF CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj.d -o CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c
+
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i"
+	/usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c > CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s"
+	/usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c -o CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
 
 CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: CMakeFiles/Picopod.dir/flags.make
 CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c
@@ -1152,8 +1152,8 @@ Picopod_OBJECTS = \
 "CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj" \
 "CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj" \
 "CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj" \
-"CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj" \
 "CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj" \
+"CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj" \
 "CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj"
 
 # External object files for target Picopod
@@ -1229,13 +1229,11 @@ Picopod.elf: CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp
 Picopod.elf: CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
 Picopod.elf: CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
 Picopod.elf: CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj
-Picopod.elf: CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 Picopod.elf: CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj
+Picopod.elf: CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 Picopod.elf: CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
 Picopod.elf: CMakeFiles/Picopod.dir/build.make
-Picopod.elf: lib/pico-lora/src/libLoRa_pico_lib.a
 Picopod.elf: lib/voltage/libsensors_voltage.a
-Picopod.elf: lib/pico-lora/src/libLoRa_print.a
 Picopod.elf: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 Picopod.elf: CMakeFiles/Picopod.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Linking CXX executable Picopod.elf"

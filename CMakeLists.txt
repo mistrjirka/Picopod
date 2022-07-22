@@ -12,14 +12,13 @@ set(PICO_CXX_ENABLE_EXCEPTIONS 1)
 set(PICO_SDK_PATH "/home/jirka/programovani/pico/pico-sdk")
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
-include(pico_sdk_import.cmake)
 
 project(Picopod C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
-include(example_auto_set_url.cmake)
 
+include(example_auto_set_url.cmake)
 
 # Add executable. Default name is the project name, version 0.1
 
@@ -32,9 +31,7 @@ pico_enable_stdio_uart(Picopod 0)
 pico_enable_stdio_usb(Picopod 1)
 add_subdirectory(lib)
 
-target_include_directories(Picopod PUBLIC ./lib/src)
-target_link_directories(Picopod PUBLIC ./lib/src)
-target_link_libraries(Picopod pico_stdlib )
+target_link_libraries(Picopod pico_stdlib)
 # Add the standard library to the build
 add_compile_options(-Wall
         -Wno-format          # int != int32_t as far as the compiler is concerned because gcc has int32_t as long int
@@ -46,10 +43,16 @@ target_link_libraries(Picopod
         hardware_spi
         hardware_timer
         hardware_watchdog
+        hardware_interp
         hardware_i2c
         LoRa_pico_lib
         sensors_voltage
+        string
+        pico_string
+        LoRa_pico_lib
+        
         )
+
 
 pico_add_extra_outputs(Picopod)
 

@@ -39,7 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/jirka/programovani/pico/Picopod/build/lib/pico-lora/cmake_install.cmake")
   include("/home/jirka/programovani/pico/Picopod/build/lib/voltage/cmake_install.cmake")
 
 endif()
