@@ -1,0 +1,2 @@
+/usr/sbin/arm-none-eabi-ar qc libLoRa_print.a CMakeFiles/LoRa_print.dir/Print.cpp.obj
+/usr/sbin/arm-none-eabi-ranlib libLoRa_print.a
