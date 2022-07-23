@@ -3,7 +3,7 @@
 #include "hardware/spi.h"
 #include "lib/voltage/voltage.h"
 #include "string.h"
-//#include "lib/lora/LoRa-RP2040.h"
+#include "lib/lora/LoRa-RP2040.h"
 
 #define SPI_PORT spi1
 #define PIN_MISO 12
