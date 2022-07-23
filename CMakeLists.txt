@@ -21,13 +21,14 @@ include(example_auto_set_url.cmake)
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Picopod Picopod.c )
+add_executable(Picopod Picopod.cpp )
 
 pico_set_program_name(Picopod "Picopod")
 pico_set_program_version(Picopod "0.1")
 
-pico_enable_stdio_uart(Picopod 0)
+
 pico_enable_stdio_usb(Picopod 1)
+pico_enable_stdio_uart(Picopod 0)
 add_subdirectory(lib)
 target_link_libraries(Picopod pico_stdlib)
 
@@ -37,9 +38,11 @@ target_link_libraries(Picopod
         hardware_timer
         hardware_watchdog
         hardware_interp
+        hardware_flash
         hardware_i2c
-        sensors_voltage
+        hardware_uart
         LoRa_pico_lib
+        sensors_voltage
 )
 
 

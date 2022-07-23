@@ -1,4 +1,14 @@
 #pragma once
+class VoltageClass{
+    private:
+        int voltage_divider = 2;
+        int pin = 26;
+        int pin_adc = 0;
+        int calc_adcin(int pin);
 
-void initVoltage(int pin, int divider);
-float getVoltage();
+    public:
+        void initVoltage(int pin, int divider);
+        float getVoltage(void);
+};
+
+extern VoltageClass Voltage;

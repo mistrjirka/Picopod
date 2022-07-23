@@ -1,4 +1,4 @@
-# Install script for directory: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog
+# Install script for directory: /usr/share/pico-sdk/src/rp2_common/hardware_watchdog
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

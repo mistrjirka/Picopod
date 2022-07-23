@@ -1,4 +1,4 @@
-# Install script for directory: /home/jirka/programovani/pico/pico-sdk/tools
+# Install script for directory: /usr/share/pico-sdk/tools
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

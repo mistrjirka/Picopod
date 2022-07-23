@@ -1,4 +1,4 @@
-# Install script for directory: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float
+# Install script for directory: /usr/share/pico-sdk/src/rp2_common/pico_float
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

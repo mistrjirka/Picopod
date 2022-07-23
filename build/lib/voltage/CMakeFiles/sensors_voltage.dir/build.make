@@ -69,753 +69,753 @@ include lib/voltage/CMakeFiles/sensors_voltage.dir/progress.make
 # Include the compile flags for this target's objects.
 include lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
 
-lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.c.obj: ../lib/voltage/voltage.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.c.obj -MF CMakeFiles/sensors_voltage.dir/voltage.c.obj.d -o CMakeFiles/sensors_voltage.dir/voltage.c.obj -c /home/jirka/programovani/pico/Picopod/lib/voltage/voltage.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/voltage.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/Picopod/lib/voltage/voltage.c > CMakeFiles/sensors_voltage.dir/voltage.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/voltage.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/Picopod/lib/voltage/voltage.c -o CMakeFiles/sensors_voltage.dir/voltage.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj   -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj -MF CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj.d -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj -c /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.i"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c > CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
-
-lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.s"
-	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c -o CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
+lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.cpp.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.cpp.obj: ../lib/voltage/voltage.cpp
+lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.cpp.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.cpp.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.cpp.obj -MF CMakeFiles/sensors_voltage.dir/voltage.cpp.obj.d -o CMakeFiles/sensors_voltage.dir/voltage.cpp.obj -c /home/jirka/programovani/pico/Picopod/lib/voltage/voltage.cpp
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sensors_voltage.dir/voltage.cpp.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jirka/programovani/pico/Picopod/lib/voltage/voltage.cpp > CMakeFiles/sensors_voltage.dir/voltage.cpp.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sensors_voltage.dir/voltage.cpp.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jirka/programovani/pico/Picopod/lib/voltage/voltage.cpp -o CMakeFiles/sensors_voltage.dir/voltage.cpp.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj: /usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj   -c /usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj: /usr/share/pico-sdk/src/common/pico_time/time.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj -c /usr/share/pico-sdk/src/common/pico_time/time.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/common/pico_time/time.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/common/pico_time/time.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj: /usr/share/pico-sdk/src/common/pico_time/timeout_helper.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj -c /usr/share/pico-sdk/src/common/pico_time/timeout_helper.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/common/pico_time/timeout_helper.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/common/pico_time/timeout_helper.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj: /usr/share/pico-sdk/src/common/pico_sync/sem.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj -c /usr/share/pico-sdk/src/common/pico_sync/sem.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/common/pico_sync/sem.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/common/pico_sync/sem.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj: /usr/share/pico-sdk/src/common/pico_sync/lock_core.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj -c /usr/share/pico-sdk/src/common/pico_sync/lock_core.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/common/pico_sync/lock_core.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/common/pico_sync/lock_core.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj: /usr/share/pico-sdk/src/common/pico_sync/mutex.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj -c /usr/share/pico-sdk/src/common/pico_sync/mutex.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/common/pico_sync/mutex.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/common/pico_sync/mutex.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj: /usr/share/pico-sdk/src/common/pico_sync/critical_section.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj -c /usr/share/pico-sdk/src/common/pico_sync/critical_section.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/common/pico_sync/critical_section.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/common/pico_sync/critical_section.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj: /usr/share/pico-sdk/src/common/pico_util/datetime.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj -c /usr/share/pico-sdk/src/common/pico_util/datetime.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/common/pico_util/datetime.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/common/pico_util/datetime.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj: /usr/share/pico-sdk/src/common/pico_util/pheap.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj -c /usr/share/pico-sdk/src/common/pico_util/pheap.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/common/pico_util/pheap.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/common/pico_util/pheap.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj: /usr/share/pico-sdk/src/common/pico_util/queue.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj -c /usr/share/pico-sdk/src/common/pico_util/queue.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/common/pico_util/queue.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/common/pico_util/queue.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj: /usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj   -c /usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj: /usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj   -c /usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.obj: /usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.obj   -c /usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj: /usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj   -c /usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj: /usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj   -c /usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj: /usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj   -c /usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj: /usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj   -c /usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj: /usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj   -c /usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj: /usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj   -c /usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj: /usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building ASM object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj   -c /usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing ASM source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling ASM source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj -c /usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj -c /usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/flags.make
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: lib/voltage/CMakeFiles/sensors_voltage.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj -MF CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj.d -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj -c /usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.i"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c > CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
+
+lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.s"
+	cd /home/jirka/programovani/pico/Picopod/build/lib/voltage && /usr/sbin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c -o CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
 
 # Object files for target sensors_voltage
 sensors_voltage_OBJECTS = \
-"CMakeFiles/sensors_voltage.dir/voltage.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj" \
-"CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj"
+"CMakeFiles/sensors_voltage.dir/voltage.cpp.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj" \
+"CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj"
 
 # External object files for target sensors_voltage
 sensors_voltage_EXTERNAL_OBJECTS =
 
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/voltage.cpp.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
 lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/build.make
 lib/voltage/libsensors_voltage.a: lib/voltage/CMakeFiles/sensors_voltage.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Linking CXX static library libsensors_voltage.a"

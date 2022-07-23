@@ -1,4 +1,4 @@
-# Install script for directory: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart
+# Install script for directory: /usr/share/pico-sdk/src/rp2_common/pico_stdio_uart
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -70,7 +70,7 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_as
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default_padded_checksummed.S"
-	cd /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2 && /home/jirka/.platformio/penv/bin/python3.10 /home/jirka/programovani/pico/pico-sdk/src/rp2_common/boot_stage2/pad_checksum -s 0xffffffff /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
+	cd /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2 && /home/jirka/.platformio/penv/bin/python3.10 /usr/share/pico-sdk/src/rp2_common/boot_stage2/pad_checksum -s 0xffffffff /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating bs2_default.bin"
@@ -91,6 +91,6 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_as
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/clean
 
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/depend:
-	cd /home/jirka/programovani/pico/Picopod/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jirka/programovani/pico/Picopod /home/jirka/programovani/pico/pico-sdk/src/rp2_common/boot_stage2 /home/jirka/programovani/pico/Picopod/build /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2 /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jirka/programovani/pico/Picopod/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jirka/programovani/pico/Picopod /usr/share/pico-sdk/src/rp2_common/boot_stage2 /home/jirka/programovani/pico/Picopod/build /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2 /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/depend
 
