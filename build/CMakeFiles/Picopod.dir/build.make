@@ -1234,7 +1234,9 @@ Picopod.elf: CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp
 Picopod.elf: CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
 Picopod.elf: CMakeFiles/Picopod.dir/build.make
 Picopod.elf: lib/voltage/libsensors_voltage.a
+Picopod.elf: lib/lora/libLoRa_pico_lib.a
 Picopod.elf: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
+Picopod.elf: lib/lora/libLoRa_print.a
 Picopod.elf: CMakeFiles/Picopod.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Linking CXX executable Picopod.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Picopod.dir/link.txt --verbose=$(VERBOSE)

@@ -130,6 +130,20 @@ LoRa_pico_lib/fast:
 	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/lora/CMakeFiles/LoRa_pico_lib.dir/build.make lib/lora/CMakeFiles/LoRa_pico_lib.dir/build
 .PHONY : LoRa_pico_lib/fast
 
+# Convenience name for target.
+lib/lora/CMakeFiles/LoRa_print.dir/rule:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/lora/CMakeFiles/LoRa_print.dir/rule
+.PHONY : lib/lora/CMakeFiles/LoRa_print.dir/rule
+
+# Convenience name for target.
+LoRa_print: lib/lora/CMakeFiles/LoRa_print.dir/rule
+.PHONY : LoRa_print
+
+# fast build rule for target.
+LoRa_print/fast:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/lora/CMakeFiles/LoRa_print.dir/build.make lib/lora/CMakeFiles/LoRa_print.dir/build
+.PHONY : LoRa_print/fast
+
 LoRa-RP2040.obj: LoRa-RP2040.cpp.obj
 .PHONY : LoRa-RP2040.obj
 
@@ -153,6 +167,30 @@ LoRa-RP2040.s: LoRa-RP2040.cpp.s
 LoRa-RP2040.cpp.s:
 	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/lora/CMakeFiles/LoRa_pico_lib.dir/build.make lib/lora/CMakeFiles/LoRa_pico_lib.dir/LoRa-RP2040.cpp.s
 .PHONY : LoRa-RP2040.cpp.s
+
+Print.obj: Print.cpp.obj
+.PHONY : Print.obj
+
+# target to build an object file
+Print.cpp.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/lora/CMakeFiles/LoRa_print.dir/build.make lib/lora/CMakeFiles/LoRa_print.dir/Print.cpp.obj
+.PHONY : Print.cpp.obj
+
+Print.i: Print.cpp.i
+.PHONY : Print.i
+
+# target to preprocess a source file
+Print.cpp.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/lora/CMakeFiles/LoRa_print.dir/build.make lib/lora/CMakeFiles/LoRa_print.dir/Print.cpp.i
+.PHONY : Print.cpp.i
+
+Print.s: Print.cpp.s
+.PHONY : Print.s
+
+# target to generate assembly for a file
+Print.cpp.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/lora/CMakeFiles/LoRa_print.dir/build.make lib/lora/CMakeFiles/LoRa_print.dir/Print.cpp.s
+.PHONY : Print.cpp.s
 
 home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj: home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
 .PHONY : home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj
@@ -1667,9 +1705,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... LoRa_pico_lib"
+	@echo "... LoRa_print"
 	@echo "... LoRa-RP2040.obj"
 	@echo "... LoRa-RP2040.i"
 	@echo "... LoRa-RP2040.s"
+	@echo "... Print.obj"
+	@echo "... Print.i"
+	@echo "... Print.s"
 	@echo "... home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj"
 	@echo "... home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i"
 	@echo "... home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s"

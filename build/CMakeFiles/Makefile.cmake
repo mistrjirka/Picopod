@@ -16,6 +16,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "pico-sdk/src/rp2_common/cyw43_driver/pioasm/tmp/PioasmBuild-mkdirs.cmake"
   "../example_auto_set_url.cmake"
   "../lib/CMakeLists.txt"
+  "../lib/lora/CMakeLists.txt"
   "../lib/voltage/CMakeLists.txt"
   "../pico_sdk_import.cmake"
   "/home/jirka/programovani/pico/pico-sdk/CMakeLists.txt"
@@ -231,6 +232,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "pico-sdk/docs/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/voltage/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lib/lora/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -244,4 +246,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/PioasmBuild.dir/DependInfo.cmake"
   "pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/cyw43_driver_picow_cyw43_bus_pio_spi_pio_h.dir/DependInfo.cmake"
   "lib/voltage/CMakeFiles/sensors_voltage.dir/DependInfo.cmake"
+  "lib/lora/CMakeFiles/LoRa_pico_lib.dir/DependInfo.cmake"
+  "lib/lora/CMakeFiles/LoRa_print.dir/DependInfo.cmake"
   )

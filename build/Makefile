@@ -233,6 +233,32 @@ sensors_voltage/fast:
 	$(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/build
 .PHONY : sensors_voltage/fast
 
+#=============================================================================
+# Target rules for targets named LoRa_pico_lib
+
+# Build rule for target.
+LoRa_pico_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LoRa_pico_lib
+.PHONY : LoRa_pico_lib
+
+# fast build rule for target.
+LoRa_pico_lib/fast:
+	$(MAKE) $(MAKESILENT) -f lib/lora/CMakeFiles/LoRa_pico_lib.dir/build.make lib/lora/CMakeFiles/LoRa_pico_lib.dir/build
+.PHONY : LoRa_pico_lib/fast
+
+#=============================================================================
+# Target rules for targets named LoRa_print
+
+# Build rule for target.
+LoRa_print: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LoRa_print
+.PHONY : LoRa_print
+
+# fast build rule for target.
+LoRa_print/fast:
+	$(MAKE) $(MAKESILENT) -f lib/lora/CMakeFiles/LoRa_print.dir/build.make lib/lora/CMakeFiles/LoRa_print.dir/build
+.PHONY : LoRa_print/fast
+
 Picopod.obj: Picopod.c.obj
 .PHONY : Picopod.obj
 
@@ -1823,6 +1849,8 @@ help:
 	@echo "... bs2_default_padded_checksummed_asm"
 	@echo "... cyw43_driver_picow_cyw43_bus_pio_spi_pio_h"
 	@echo "... cyw43_firmware_package"
+	@echo "... LoRa_pico_lib"
+	@echo "... LoRa_print"
 	@echo "... Picopod"
 	@echo "... bs2_default"
 	@echo "... sensors_voltage"

@@ -242,6 +242,126 @@ DOXYGEN_DOT_EXECUTABLE:FILEPATH=/usr/sbin/dot
 //Doxygen documentation generation tool (http://www.doxygen.org)
 DOXYGEN_EXECUTABLE:FILEPATH=/usr/sbin/doxygen
 
+//Path to a library.
+LIB_LORA_PICO_LIB:FILEPATH=LIB_LORA_PICO_LIB-NOTFOUND
+
+//Value Computed by CMake
+LoRa-RP2040_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora
+
+//Value Computed by CMake
+LoRa-RP2040_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRa-RP2040_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora
+
+//Value Computed by CMake
+LoRaDumpRegisters_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaDumpRegisters
+
+//Value Computed by CMake
+LoRaDumpRegisters_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaDumpRegisters_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaDumpRegisters
+
+//Value Computed by CMake
+LoRaDuplexCallback_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaDuplexCallback
+
+//Value Computed by CMake
+LoRaDuplexCallback_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaDuplexCallback_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaDuplexCallback
+
+//Value Computed by CMake
+LoRaDuplex_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaDuplex
+
+//Value Computed by CMake
+LoRaDuplex_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaDuplex_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaDuplex
+
+//Value Computed by CMake
+LoRaReceiverCallback_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaReceiverCallback
+
+//Value Computed by CMake
+LoRaReceiverCallback_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaReceiverCallback_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaReceiverCallback
+
+//Value Computed by CMake
+LoRaReceiver_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaReceiver
+
+//Value Computed by CMake
+LoRaReceiver_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaReceiver_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaReceiver
+
+//Value Computed by CMake
+LoRaSenderNonBlockingCallback_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaSenderNonBlockingCallback
+
+//Value Computed by CMake
+LoRaSenderNonBlockingCallback_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaSenderNonBlockingCallback_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaSenderNonBlockingCallback
+
+//Value Computed by CMake
+LoRaSenderNonBlocking_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaSenderNonBlocking
+
+//Value Computed by CMake
+LoRaSenderNonBlocking_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaSenderNonBlocking_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaSenderNonBlocking
+
+//Value Computed by CMake
+LoRaSender_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaSender
+
+//Value Computed by CMake
+LoRaSender_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaSender_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaSender
+
+//Value Computed by CMake
+LoRaSetSpread_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaSetSpread
+
+//Value Computed by CMake
+LoRaSetSpread_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaSetSpread_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaSetSpread
+
+//Value Computed by CMake
+LoRaSetSyncWord_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaSetSyncWord
+
+//Value Computed by CMake
+LoRaSetSyncWord_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaSetSyncWord_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaSetSyncWord
+
+//Value Computed by CMake
+LoRaSimpleGateway_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaSimpleGateway
+
+//Value Computed by CMake
+LoRaSimpleGateway_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaSimpleGateway_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaSimpleGateway
+
+//Value Computed by CMake
+LoRaSimpleNode_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/external/pico-lora/examples/LoRaSimpleNode
+
+//Value Computed by CMake
+LoRaSimpleNode_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+LoRaSimpleNode_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/Picopod/external/pico-lora/examples/LoRaSimpleNode
+
 //PICO target board (e.g. pico)
 PICO_BOARD:STRING=pico
 
@@ -435,7 +555,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=76
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=77
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -489,7 +609,7 @@ PICO_BOOT_STAGE2_DIR:INTERNAL=/home/jirka/programovani/pico/pico-sdk/src/rp2_com
 PICO_CMAKE_PRELOAD_PLATFORM_DIR:INTERNAL=/home/jirka/programovani/pico/pico-sdk/cmake/preload/platforms
 PICO_CMAKE_PRELOAD_PLATFORM_FILE:INTERNAL=/home/jirka/programovani/pico/pico-sdk/cmake/preload/platforms/rp2040.cmake
 PICO_COMPILER_ASM:INTERNAL=/usr/sbin/arm-none-eabi-gcc
-PICO_DOXYGEN_EXCLUDE_PATHS:INTERNAL= /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs
+PICO_DOXYGEN_EXCLUDE_PATHS:INTERNAL= /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs
 PICO_DOXYGEN_PATHS:INTERNAL= /home/jirka/programovani/pico/pico-sdk/src/common /home/jirka/programovani/pico/pico-sdk/lib/cyw43-driver/src /home/jirka/programovani/pico/pico-sdk/src/rp2_common /home/jirka/programovani/pico/pico-sdk/src/rp2040
 PICO_NO_HARDWARE:INTERNAL=0
 PICO_ON_DEVICE:INTERNAL=1

@@ -8,6 +8,13 @@ bcb5a10f197ca2d542dadaeb3573cb3c CMakeFiles/ELF2UF2Build-complete
 9fdc32a8dce6a47157a3d5423c4e7ade elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir
 f6b07ad2479ae6b7b3b27bb85d6325fe elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch
 5b8f4833b48eb36228f3d42ae7e44545 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update
+9f2da089816ec1fe5b5acbb9096d1baf external/pico-lora/examples/LoRaReceiver/CMakeFiles/ELF2UF2Build-complete
+0f2f7ed249544020f7606805f3b0d683 external/pico-lora/examples/LoRaReceiver/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure
+50fb6fcc6e67729dd20dfecc7b6de153 external/pico-lora/examples/LoRaReceiver/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download
+aa01bd310e4fbd0b6c778c907d831333 external/pico-lora/examples/LoRaReceiver/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-install
+ddcee1d515e86d5cb1a0651a3ca14236 external/pico-lora/examples/LoRaReceiver/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir
+1f9f6025b174e36b424b03363279c289 external/pico-lora/examples/LoRaReceiver/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch
+01a1d5db3285a67decbd3980cb997615 external/pico-lora/examples/LoRaReceiver/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update
 f6cf241686d7e749d861c90bbedcd606 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin
 f6cf241686d7e749d861c90bbedcd606 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm
 14a4dc6cc18e330e063514116775de72 pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
