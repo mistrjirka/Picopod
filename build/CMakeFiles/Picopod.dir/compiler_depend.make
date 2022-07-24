@@ -31,10 +31,10 @@ CMakeFiles/Picopod.dir/Picopod.cpp.obj: ../Picopod.cpp \
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/c++/9.3.1/cassert \
   /usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/c++config.h \
@@ -46,41 +46,46 @@ CMakeFiles/Picopod.dir/Picopod.cpp.obj: ../Picopod.cpp \
   /usr/arm-none-eabi/include/stdint.h \
   /usr/arm-none-eabi/include/sys/_intsup.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h \
   ../lib/voltage/voltage.h \
   ../lib/lora/LoRa-RP2040.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
   /usr/arm-none-eabi/include/string.h \
   /usr/arm-none-eabi/include/sys/_locale.h \
   /usr/arm-none-eabi/include/strings.h \
@@ -158,16 +163,16 @@ CMakeFiles/Picopod.dir/Picopod.cpp.obj: ../Picopod.cpp \
   /usr/arm-none-eabi/include/errno.h \
   /usr/arm-none-eabi/include/sys/errno.h \
   /usr/arm-none-eabi/include/c++/9.3.1/bits/basic_string.tcc \
-  /usr/share/pico-sdk/src/rp2_common/hardware_flash/include/hardware/flash.h
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_flash/include/hardware/flash.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -183,24 +188,26 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/audio/audio_devi
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -216,17 +223,19 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
   /usr/arm-none-eabi/include/string.h \
   /usr/arm-none-eabi/include/sys/reent.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -250,38 +259,36 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -297,24 +304,26 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -330,24 +339,26 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_devic
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -363,24 +374,26 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -396,24 +409,26 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/midi/midi_device
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -429,24 +444,26 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -462,24 +479,26 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_de
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -495,24 +514,26 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -528,24 +549,26 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_de
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -561,24 +584,26 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/vendor/vendor_de
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/class/video/video_device.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -594,19 +619,21 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/class/video/video_devi
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
@@ -644,52 +671,52 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/arm-none-eabi/include/assert.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/device/usbd.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -705,17 +732,19 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: /us
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
   /usr/arm-none-eabi/include/string.h \
   /usr/arm-none-eabi/include/sys/reent.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -739,45 +768,43 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/device/usbd.c.obj: /us
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/dcd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/dcd_attr.h
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/dcd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/dcd_attr.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/device/usbd_control.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -793,17 +820,19 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/device/usbd_control.c.
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
   /usr/arm-none-eabi/include/string.h \
   /usr/arm-none-eabi/include/sys/reent.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -827,44 +856,42 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/device/usbd_control.c.
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/dcd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/dcd_attr.h
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/dcd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/dcd_attr.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -880,17 +907,19 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/r
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
   /usr/arm-none-eabi/include/string.h \
   /usr/arm-none-eabi/include/sys/reent.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -914,45 +943,43 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/r
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/usb.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/usb.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/dcd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/dcd_attr.h
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/dcd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/dcd_attr.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -968,15 +995,17 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/r
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
   /usr/arm-none-eabi/include/stdlib.h \
   /usr/arm-none-eabi/include/sys/reent.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -985,8 +1014,8 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/r
   /usr/arm-none-eabi/include/sys/lock.h \
   /usr/arm-none-eabi/include/machine/stdlib.h \
   /usr/arm-none-eabi/include/alloca.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
   /usr/arm-none-eabi/include/string.h \
   /usr/arm-none-eabi/include/sys/_locale.h \
   /usr/arm-none-eabi/include/strings.h \
@@ -1005,30 +1034,29 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/r
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/usb.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/usb.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/tusb.c.obj: /usr/share/pico-sdk/lib/tinyusb/src/tusb.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj: /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1044,17 +1072,19 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/tusb.c.obj: /usr/share
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
   /usr/arm-none-eabi/include/string.h \
   /usr/arm-none-eabi/include/sys/reent.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1078,41 +1108,39 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/lib/tinyusb/src/tusb.c.obj: /usr/share
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj: /usr/share/pico-sdk/src/common/pico_sync/critical_section.c \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1128,29 +1156,29 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj: /usr/share/pico-sdk/src/common/pico_sync/lock_core.c \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1166,30 +1194,30 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj: 
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj: /usr/share/pico-sdk/src/common/pico_sync/mutex.c \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1205,30 +1233,30 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj: /usr
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj: /usr/share/pico-sdk/src/common/pico_sync/sem.c \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1244,25 +1272,25 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj: /usr/s
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj: /usr/share/pico-sdk/src/common/pico_time/time.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include-fixed/limits.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include-fixed/syslimits.h \
   /usr/arm-none-eabi/include/limits.h \
@@ -1304,41 +1332,41 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj: /usr/
   /usr/arm-none-eabi/include/stdlib.h \
   /usr/arm-none-eabi/include/machine/stdlib.h \
   /usr/arm-none-eabi/include/alloca.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/common/pico_util/include/pico/util/pheap.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sync.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/include/pico/util/pheap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj: /usr/share/pico-sdk/src/common/pico_time/timeout_helper.c \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/timeout_helper.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/timeout_helper.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1354,26 +1382,27 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj: /usr/share/pico-sdk/src/common/pico_util/datetime.c \
-  /usr/share/pico-sdk/src/common/pico_util/include/pico/util/datetime.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/include/pico/util/datetime.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1389,15 +1418,17 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj: /
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
   /usr/arm-none-eabi/include/stdio.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdarg.h \
   /usr/arm-none-eabi/include/sys/reent.h \
@@ -1418,7 +1449,7 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj: /
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj: /usr/share/pico-sdk/src/common/pico_util/pheap.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c \
   /usr/arm-none-eabi/include/stdio.h \
   /usr/arm-none-eabi/include/_ansi.h \
   /usr/arm-none-eabi/include/newlib.h \
@@ -1451,26 +1482,28 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj: /usr
   /usr/arm-none-eabi/include/stdlib.h \
   /usr/arm-none-eabi/include/machine/stdlib.h \
   /usr/arm-none-eabi/include/alloca.h \
-  /usr/share/pico-sdk/src/common/pico_util/include/pico/util/pheap.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/include/pico/util/pheap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
   /usr/arm-none-eabi/include/sys/_intsup.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj: /usr/share/pico-sdk/src/common/pico_util/queue.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj: /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c \
   /usr/arm-none-eabi/include/stdlib.h \
   /usr/arm-none-eabi/include/machine/ieeefp.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1492,10 +1525,10 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj: /usr
   /usr/arm-none-eabi/include/sys/_locale.h \
   /usr/arm-none-eabi/include/strings.h \
   /usr/arm-none-eabi/include/sys/string.h \
-  /usr/share/pico-sdk/src/common/pico_util/include/pico/util/queue.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_util/include/pico/util/queue.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
@@ -1503,72 +1536,28 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj: /usr
   /usr/arm-none-eabi/include/sys/_intsup.h \
   /usr/arm-none-eabi/include/sys/_stdint.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
-  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
-  /usr/arm-none-eabi/include/assert.h \
-  /usr/arm-none-eabi/include/_ansi.h \
-  /usr/arm-none-eabi/include/newlib.h \
-  /usr/arm-none-eabi/include/_newlib_version.h \
-  /usr/arm-none-eabi/include/sys/config.h \
-  /usr/arm-none-eabi/include/machine/ieeefp.h \
-  /usr/arm-none-eabi/include/sys/features.h \
-  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
-  /usr/arm-none-eabi/include/stdint.h \
-  /usr/arm-none-eabi/include/machine/_default_types.h \
-  /usr/arm-none-eabi/include/sys/_intsup.h \
-  /usr/arm-none-eabi/include/sys/_stdint.h \
-  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
-  generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
-  generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_adc/include/hardware/adc.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/adc.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/adc.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h
-
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1584,24 +1573,40 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/include/hardware/adc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/adc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/adc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1617,44 +1622,24 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/watchdog.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/watchdog.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_pll/include/hardware/pll.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pll.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pll.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_xosc/include/hardware/xosc.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/xosc.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/xosc.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_flash/flash.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_flash/include/hardware/flash.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1670,28 +1655,46 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_flash/flash.c.
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/ssi.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/ssi.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/ioqspi.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_qspi.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/watchdog.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/watchdog.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/include/hardware/pll.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pll.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pll.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/include/hardware/xosc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/xosc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/xosc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_flash/include/hardware/flash.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1707,34 +1710,29 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.ob
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/ssi.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/ssi.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/ioqspi.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_qspi.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_i2c/i2c.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1750,37 +1748,34 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj:
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/timeout_helper.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_interp/interp.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_interp/include/hardware/interp.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1796,28 +1791,38 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_interp/interp.
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/timeout_helper.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/include/hardware/interp.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1833,34 +1838,28 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj:
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/scb.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1876,31 +1875,35 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj:
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_pll/include/hardware/pll.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pll.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pll.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/scb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_spi/spi.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1916,36 +1919,32 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj:
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/include/hardware/pll.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pll.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pll.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1961,25 +1960,37 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.ob
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -1995,31 +2006,25 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -2035,34 +2040,31 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.ob
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -2078,22 +2080,67 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.ob
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_vreg/include/hardware/vreg.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/vreg_and_chip_reset.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/vreg_and_chip_reset.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
+  /usr/arm-none-eabi/include/assert.h \
+  /usr/arm-none-eabi/include/_ansi.h \
+  /usr/arm-none-eabi/include/newlib.h \
+  /usr/arm-none-eabi/include/_newlib_version.h \
+  /usr/arm-none-eabi/include/sys/config.h \
+  /usr/arm-none-eabi/include/machine/ieeefp.h \
+  /usr/arm-none-eabi/include/sys/features.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
+  /usr/arm-none-eabi/include/stdint.h \
+  /usr/arm-none-eabi/include/machine/_default_types.h \
+  /usr/arm-none-eabi/include/sys/_intsup.h \
+  /usr/arm-none-eabi/include/sys/_stdint.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
+  generated/pico_base/pico/version.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
+  generated/pico_base/pico/config_autogen.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /usr/arm-none-eabi/include/sys/cdefs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/include/hardware/vreg.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/vreg_and_chip_reset.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/vreg_and_chip_reset.h
+
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c \
   /usr/arm-none-eabi/include/stdio.h \
   /usr/arm-none-eabi/include/_ansi.h \
   /usr/arm-none-eabi/include/newlib.h \
@@ -2123,73 +2170,36 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watch
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
   /usr/arm-none-eabi/include/sys/_intsup.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/watchdog.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/watchdog.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/psm.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/psm.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/watchdog.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/watchdog.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/psm.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/psm.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: /usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
-  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
-  /usr/arm-none-eabi/include/assert.h \
-  /usr/arm-none-eabi/include/_ansi.h \
-  /usr/arm-none-eabi/include/newlib.h \
-  /usr/arm-none-eabi/include/_newlib_version.h \
-  /usr/arm-none-eabi/include/sys/config.h \
-  /usr/arm-none-eabi/include/machine/ieeefp.h \
-  /usr/arm-none-eabi/include/sys/features.h \
-  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
-  /usr/arm-none-eabi/include/stdint.h \
-  /usr/arm-none-eabi/include/machine/_default_types.h \
-  /usr/arm-none-eabi/include/sys/_intsup.h \
-  /usr/arm-none-eabi/include/sys/_stdint.h \
-  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
-  generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
-  generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/xosc.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_xosc/include/hardware/xosc.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/xosc.h
-
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c \
-  /usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -2205,17 +2215,58 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/xosc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/include/hardware/xosc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/xosc.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
+  /usr/arm-none-eabi/include/assert.h \
+  /usr/arm-none-eabi/include/_ansi.h \
+  /usr/arm-none-eabi/include/newlib.h \
+  /usr/arm-none-eabi/include/_newlib_version.h \
+  /usr/arm-none-eabi/include/sys/config.h \
+  /usr/arm-none-eabi/include/machine/ieeefp.h \
+  /usr/arm-none-eabi/include/sys/features.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
+  /usr/arm-none-eabi/include/stdint.h \
+  /usr/arm-none-eabi/include/machine/_default_types.h \
+  /usr/arm-none-eabi/include/sys/_intsup.h \
+  /usr/arm-none-eabi/include/sys/_stdint.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
+  generated/pico_base/pico/version.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
+  generated/pico_base/pico/config_autogen.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /usr/arm-none-eabi/include/sys/cdefs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h
+
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c \
   /usr/arm-none-eabi/include/string.h \
   /usr/arm-none-eabi/include/_ansi.h \
   /usr/arm-none-eabi/include/newlib.h \
@@ -2234,10 +2285,10 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init
   /usr/arm-none-eabi/include/sys/_locale.h \
   /usr/arm-none-eabi/include/strings.h \
   /usr/arm-none-eabi/include/sys/string.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
@@ -2245,17 +2296,19 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init
   /usr/arm-none-eabi/include/sys/_intsup.h \
   /usr/arm-none-eabi/include/sys/_stdint.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c \
   /usr/arm-none-eabi/include/math.h \
   /usr/arm-none-eabi/include/sys/reent.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -2271,23 +2324,25 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math
   /usr/arm-none-eabi/include/sys/lock.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
   /usr/arm-none-eabi/include/_ansi.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
   /usr/arm-none-eabi/include/sys/_intsup.h \
   /usr/arm-none-eabi/include/sys/_stdint.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_double/include/pico/double.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/include/pico/double.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -2303,34 +2358,37 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_dev
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/usb.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/usb.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/include/pico/fix/rp2040_usb_device_enumeration.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/include/pico/fix/rp2040_usb_device_enumeration.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c \
   /usr/arm-none-eabi/include/string.h \
   /usr/arm-none-eabi/include/_ansi.h \
   /usr/arm-none-eabi/include/newlib.h \
@@ -2349,10 +2407,10 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_r
   /usr/arm-none-eabi/include/sys/_locale.h \
   /usr/arm-none-eabi/include/strings.h \
   /usr/arm-none-eabi/include/sys/string.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
@@ -2360,19 +2418,21 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_r
   /usr/arm-none-eabi/include/sys/_intsup.h \
   /usr/arm-none-eabi/include/sys/_stdint.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -2387,7 +2447,7 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c
   /usr/arm-none-eabi/include/sys/_intsup.h \
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_float/include/pico/float.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/include/pico/float.h \
   /usr/arm-none-eabi/include/math.h \
   /usr/arm-none-eabi/include/sys/reent.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -2396,11 +2456,13 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c
   /usr/arm-none-eabi/include/sys/lock.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/float.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c \
   /usr/arm-none-eabi/include/stdlib.h \
   /usr/arm-none-eabi/include/machine/ieeefp.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -2433,29 +2495,31 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
   /usr/arm-none-eabi/include/sys/_intsup.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_malloc/include/pico/malloc.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/include/pico/malloc.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -2471,21 +2535,22 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/tbman.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sysinfo.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/tbman.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sysinfo.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
@@ -2519,23 +2584,25 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.ob
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/arm-none-eabi/include/assert.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_printf/include/pico/printf.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/include/pico/printf.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/float.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c \
   /usr/arm-none-eabi/include/stdio.h \
   /usr/arm-none-eabi/include/_ansi.h \
   /usr/arm-none-eabi/include/newlib.h \
@@ -2565,52 +2632,52 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
   /usr/arm-none-eabi/include/sys/_intsup.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/mpu.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/scb.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_printf/include/pico/printf.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/mpu.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/scb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/include/pico/printf.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
   /usr/arm-none-eabi/include/machine/_default_types.h \
@@ -2618,10 +2685,10 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/bina
   /usr/arm-none-eabi/include/_newlib_version.h \
   /usr/arm-none-eabi/include/sys/_intsup.h \
   /usr/arm-none-eabi/include/sys/_stdint.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -2630,21 +2697,46 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/bina
   /usr/arm-none-eabi/include/machine/ieeefp.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/boot_stage2/include/boot_stage2/config.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/boot_stage2/include/boot_stage2/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp \
+  /usr/arm-none-eabi/include/c++/9.3.1/cstdlib \
+  /usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/c++config.h \
+  /usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/os_defines.h \
+  /usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/cpu_defines.h \
+  /usr/arm-none-eabi/include/c++/9.3.1/pstl/pstl_config.h \
+  /usr/arm-none-eabi/include/stdlib.h \
+  /usr/arm-none-eabi/include/machine/ieeefp.h \
+  /usr/arm-none-eabi/include/_ansi.h \
+  /usr/arm-none-eabi/include/newlib.h \
+  /usr/arm-none-eabi/include/_newlib_version.h \
+  /usr/arm-none-eabi/include/sys/config.h \
+  /usr/arm-none-eabi/include/sys/features.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
+  /usr/arm-none-eabi/include/sys/reent.h \
+  /usr/arm-none-eabi/include/_ansi.h \
+  /usr/arm-none-eabi/include/sys/_types.h \
+  /usr/arm-none-eabi/include/machine/_types.h \
+  /usr/arm-none-eabi/include/machine/_default_types.h \
+  /usr/arm-none-eabi/include/sys/lock.h \
+  /usr/arm-none-eabi/include/sys/cdefs.h \
+  /usr/arm-none-eabi/include/machine/stdlib.h \
+  /usr/arm-none-eabi/include/alloca.h \
+  /usr/arm-none-eabi/include/c++/9.3.1/bits/std_abs.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c \
   /usr/arm-none-eabi/include/string.h \
   /usr/arm-none-eabi/include/_ansi.h \
   /usr/arm-none-eabi/include/newlib.h \
@@ -2678,132 +2770,41 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj:
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
   /usr/arm-none-eabi/include/sys/_intsup.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_printf/include/pico/printf.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio/driver.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/include/pico/printf.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio/driver.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
-  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
-  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
-  /usr/arm-none-eabi/include/stdint.h \
-  /usr/arm-none-eabi/include/machine/_default_types.h \
-  /usr/arm-none-eabi/include/sys/features.h \
-  /usr/arm-none-eabi/include/_newlib_version.h \
-  /usr/arm-none-eabi/include/sys/_intsup.h \
-  /usr/arm-none-eabi/include/sys/_stdint.h \
-  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
-  /usr/arm-none-eabi/include/string.h \
-  /usr/arm-none-eabi/include/_ansi.h \
-  /usr/arm-none-eabi/include/newlib.h \
-  /usr/arm-none-eabi/include/sys/config.h \
-  /usr/arm-none-eabi/include/machine/ieeefp.h \
-  /usr/arm-none-eabi/include/sys/reent.h \
-  /usr/arm-none-eabi/include/_ansi.h \
-  /usr/arm-none-eabi/include/sys/_types.h \
-  /usr/arm-none-eabi/include/machine/_types.h \
-  /usr/arm-none-eabi/include/sys/lock.h \
-  /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/arm-none-eabi/include/sys/_locale.h \
-  /usr/arm-none-eabi/include/strings.h \
-  /usr/arm-none-eabi/include/sys/string.h \
-  /usr/arm-none-eabi/include/stdio.h \
-  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdarg.h \
-  /usr/arm-none-eabi/include/sys/types.h \
-  /usr/arm-none-eabi/include/machine/endian.h \
-  /usr/arm-none-eabi/include/machine/_endian.h \
-  /usr/arm-none-eabi/include/sys/select.h \
-  /usr/arm-none-eabi/include/sys/_sigset.h \
-  /usr/arm-none-eabi/include/sys/_timeval.h \
-  /usr/arm-none-eabi/include/sys/timespec.h \
-  /usr/arm-none-eabi/include/sys/_timespec.h \
-  /usr/arm-none-eabi/include/sys/_pthreadtypes.h \
-  /usr/arm-none-eabi/include/sys/sched.h \
-  /usr/arm-none-eabi/include/machine/types.h \
-  /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
-  /usr/arm-none-eabi/include/assert.h \
-  generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
-  generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h \
-  /usr/share/pico-sdk/src/common/pico_usb_reset_interface/include/pico/usb_reset_interface.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/watchdog.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/watchdog.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h
-
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
@@ -2841,61 +2842,60 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_us
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/arm-none-eabi/include/assert.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio/driver.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_usb_reset_interface/include/pico/usb_reset_interface.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/watchdog.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/watchdog.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
   /usr/arm-none-eabi/include/stdint.h \
@@ -2933,58 +2933,151 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_us
   /usr/arm-none-eabi/include/sys/sched.h \
   /usr/arm-none-eabi/include/machine/types.h \
   /usr/arm-none-eabi/include/sys/stdio.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/arm-none-eabi/include/assert.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
-  /usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/device/usbd.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
-  /usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h \
-  /usr/share/pico-sdk/src/common/pico_usb_reset_interface/include/pico/usb_reset_interface.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_unique_id/include/pico/unique_id.h
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio/driver.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c \
-  /usr/share/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h \
+  /usr/arm-none-eabi/include/stdint.h \
+  /usr/arm-none-eabi/include/machine/_default_types.h \
+  /usr/arm-none-eabi/include/sys/features.h \
+  /usr/arm-none-eabi/include/_newlib_version.h \
+  /usr/arm-none-eabi/include/sys/_intsup.h \
+  /usr/arm-none-eabi/include/sys/_stdint.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
+  /usr/arm-none-eabi/include/string.h \
+  /usr/arm-none-eabi/include/_ansi.h \
+  /usr/arm-none-eabi/include/newlib.h \
+  /usr/arm-none-eabi/include/sys/config.h \
+  /usr/arm-none-eabi/include/machine/ieeefp.h \
+  /usr/arm-none-eabi/include/sys/reent.h \
+  /usr/arm-none-eabi/include/_ansi.h \
+  /usr/arm-none-eabi/include/sys/_types.h \
+  /usr/arm-none-eabi/include/machine/_types.h \
+  /usr/arm-none-eabi/include/sys/lock.h \
+  /usr/arm-none-eabi/include/sys/cdefs.h \
+  /usr/arm-none-eabi/include/sys/_locale.h \
+  /usr/arm-none-eabi/include/strings.h \
+  /usr/arm-none-eabi/include/sys/string.h \
+  /usr/arm-none-eabi/include/stdio.h \
+  /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdarg.h \
+  /usr/arm-none-eabi/include/sys/types.h \
+  /usr/arm-none-eabi/include/machine/endian.h \
+  /usr/arm-none-eabi/include/machine/_endian.h \
+  /usr/arm-none-eabi/include/sys/select.h \
+  /usr/arm-none-eabi/include/sys/_sigset.h \
+  /usr/arm-none-eabi/include/sys/_timeval.h \
+  /usr/arm-none-eabi/include/sys/timespec.h \
+  /usr/arm-none-eabi/include/sys/_timespec.h \
+  /usr/arm-none-eabi/include/sys/_pthreadtypes.h \
+  /usr/arm-none-eabi/include/sys/sched.h \
+  /usr/arm-none-eabi/include/machine/types.h \
+  /usr/arm-none-eabi/include/sys/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
+  /usr/arm-none-eabi/include/assert.h \
+  generated/pico_base/pico/version.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
+  generated/pico_base/pico/config_autogen.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal_pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h \
+  /home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_usb_reset_interface/include/pico/usb_reset_interface.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_unique_id/include/pico/unique_id.h
+
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -3000,49 +3093,54 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.ob
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
-  /usr/share/pico-sdk/src/common/pico_time/include/pico/time.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_pll/include/hardware/pll.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pll.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pll.h \
-  /usr/share/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
-  /usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/include/hardware/pll.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pll.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pll.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h
 
-CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj: /usr/share/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c \
-  /usr/share/pico-sdk/src/rp2_common/hardware_flash/include/hardware/flash.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h \
+CMakeFiles/Picopod.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj: /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_flash/include/hardware/flash.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h \
   /usr/arm-none-eabi/include/assert.h \
   /usr/arm-none-eabi/include/_ansi.h \
@@ -3058,87 +3156,79 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_unique_id/unique_i
   /usr/arm-none-eabi/include/sys/_stdint.h \
   /usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h \
   generated/pico_base/pico/version.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/config.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
   generated/pico_base/pico/config_autogen.h \
-  /usr/share/pico-sdk/src/boards/include/boards/pico.h \
-  /usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
-  /usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   /usr/arm-none-eabi/include/sys/cdefs.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/types.h \
-  /usr/share/pico-sdk/src/common/pico_base/include/pico/error.h \
-  /usr/share/pico-sdk/src/rp2_common/pico_unique_id/include/pico/unique_id.h
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+  /home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+  /home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_unique_id/include/pico/unique_id.h
 
 
-/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c:
 
-/usr/share/pico-sdk/src/rp2_common/pico_unique_id/include/pico/unique_id.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c:
 
-/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h:
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_usb_reset_interface/include/pico/usb_reset_interface.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio/driver.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/boot_stage2/include/boot_stage2/config.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c:
 
-/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/mpu.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c:
 
-/usr/share/pico-sdk/src/rp2_common/pico_printf/include/pico/printf.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/include/pico/printf.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/tbman.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sysinfo.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/tbman.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c:
 
-/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c:
+/usr/lib/gcc/arm-none-eabi/9.3.1/include/float.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_malloc/include/pico/malloc.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c:
 
-/usr/share/pico-sdk/src/rp2_common/pico_float/include/pico/float.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c:
 
-/usr/share/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/include/pico/fix/rp2040_usb_device_enumeration.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/include/pico/fix/rp2040_usb_device_enumeration.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c:
 
-/usr/arm-none-eabi/include/math.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c:
 
-/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/psm.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/psm.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/psm.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/psm.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_vreg/include/hardware/vreg.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/vreg_and_chip_reset.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_spi/spi.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/scb.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/scb.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c:
-
-/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/c++config.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/clocale:
-
-/usr/share/pico-sdk/src/rp2_common/boot_stage2/include/boot_stage2/config.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/bits/ptr_traits.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/ssi.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c:
 
 /usr/arm-none-eabi/include/c++/9.3.1/bits/hash_bytes.h:
 
-/usr/share/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h:
 
 ../lib/voltage/voltage.h:
 
@@ -3146,55 +3236,67 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_unique_id/unique_i
 
 /usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/c++allocator.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_flash/flash.c:
-
 /usr/arm-none-eabi/include/c++/9.3.1/bits/allocator.h:
 
-/usr/share/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c:
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/watchdog.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c:
 
-/usr/arm-none-eabi/include/c++/9.3.1/cwchar:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c:
 
-/usr/arm-none-eabi/include/c++/9.3.1/bits/string_view.tcc:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c:
 
 /usr/arm-none-eabi/include/c++/9.3.1/bits/postypes.h:
 
-/usr/arm-none-eabi/include/c++/9.3.1/bits/stl_iterator_base_types.h:
+/usr/arm-none-eabi/include/c++/9.3.1/debug/assertions.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h:
+/usr/arm-none-eabi/include/c++/9.3.1/typeinfo:
+
+/usr/arm-none-eabi/include/c++/9.3.1/bits/stl_iterator_base_funcs.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio/driver.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/bits/stl_iterator_base_types.h:
 
 /usr/arm-none-eabi/include/c++/9.3.1/type_traits:
 
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c:
+
 /usr/arm-none-eabi/include/c++/9.3.1/bits/cpp_type_traits.h:
-
-../lib/lora/LoRa-RP2040.h:
-
-/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c:
 
 /usr/arm-none-eabi/include/c++/9.3.1/bits/stl_algobase.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/watchdog.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h:
 
 /usr/arm-none-eabi/include/c++/9.3.1/bits/memoryfwd.h:
 
-/usr/arm-none-eabi/include/inttypes.h:
+/usr/arm-none-eabi/include/sys/sched.h:
 
-/usr/arm-none-eabi/include/machine/_endian.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/adc.h:
 
-/usr/arm-none-eabi/include/strings.h:
+/usr/arm-none-eabi/include/c++/9.3.1/debug/debug.h:
 
-/usr/arm-none-eabi/include/sys/_locale.h:
+/usr/arm-none-eabi/include/c++/9.3.1/bits/stl_iterator.h:
 
-/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/c++locale.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp:
 
-/usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c:
 
-/usr/share/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h:
+
+/usr/arm-none-eabi/include/sys/_intsup.h:
 
 /usr/arm-none-eabi/include/c++/9.3.1/bits/std_abs.h:
 
@@ -3202,39 +3304,53 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_unique_id/unique_i
 
 /usr/arm-none-eabi/include/wchar.h:
 
-/usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h:
 
-/usr/arm-none-eabi/include/c++/9.3.1/cstdint:
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/structure.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h:
+/usr/arm-none-eabi/include/c++/9.3.1/string_view:
 
-/usr/share/pico-sdk/lib/tinyusb/src/device/usbd_control.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/vreg_and_chip_reset.h:
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h:
+/usr/arm-none-eabi/include/c++/9.3.1/cwchar:
 
-/usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h:
+/usr/arm-none-eabi/include/c++/9.3.1/bits/string_view.tcc:
 
-/usr/arm-none-eabi/include/sys/reent.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c:
 
-/usr/share/pico-sdk/src/common/pico_sync/include/pico/lock_core.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h:
 
-/usr/arm-none-eabi/include/c++/9.3.1/exception:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_error.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/bits/stl_pair.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/bits/cxxabi_forced.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h:
 
 /usr/arm-none-eabi/include/c++/9.3.1/bits/predefined_ops.h:
 
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h:
+
 ../lib/lora/Print.h:
 
-/usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h:
+/usr/arm-none-eabi/include/sys/_timeval.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h:
 
 /usr/arm-none-eabi/include/c++/9.3.1/ext/type_traits.h:
 
@@ -3242,235 +3358,249 @@ CMakeFiles/Picopod.dir/usr/share/pico-sdk/src/rp2_common/pico_unique_id/unique_i
 
 /usr/arm-none-eabi/include/_ansi.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/spi.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb_option.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c:
+/usr/arm-none-eabi/include/sys/config.h:
 
-/usr/arm-none-eabi/include/c++/9.3.1/string:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c:
 
-/usr/arm-none-eabi/include/sys/stdio.h:
+/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/c++config.h:
 
-/usr/share/pico-sdk/src/common/pico_sync/critical_section.c:
-
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/spi.h:
+/usr/arm-none-eabi/include/c++/9.3.1/cctype:
 
 /usr/arm-none-eabi/include/c++/9.3.1/bits/move.h:
 
 /usr/arm-none-eabi/include/sys/_timespec.h:
 
-/usr/arm-none-eabi/include/sys/_timeval.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h:
+/usr/arm-none-eabi/include/c++/9.3.1/bits/functexcept.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_interp/interp.c:
+/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/c++locale.h:
 
-/usr/arm-none-eabi/include/sys/_stdint.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h:
 
-/usr/arm-none-eabi/include/sys/types.h:
+/usr/arm-none-eabi/include/c++/9.3.1/bits/basic_string.tcc:
 
-/usr/arm-none-eabi/include/sys/lock.h:
+/usr/arm-none-eabi/include/machine/_endian.h:
 
-/usr/arm-none-eabi/include/c++/9.3.1/typeinfo:
-
-/usr/arm-none-eabi/include/c++/9.3.1/bits/stl_iterator_base_funcs.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h:
-
-/usr/arm-none-eabi/include/ctype.h:
-
-/usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h:
-
-/usr/share/pico-sdk/src/rp2_common/pico_double/include/pico/double.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/ext/string_conversions.h:
-
-/usr/share/pico-sdk/src/common/pico_base/include/pico.h:
-
-/usr/arm-none-eabi/include/limits.h:
-
-/usr/share/pico-sdk/src/common/pico_base/include/pico/config.h:
-
-/usr/arm-none-eabi/include/sys/select.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/cpu_defines.h:
-
-/usr/arm-none-eabi/include/sys/features.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/backward/binders.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/osal/osal_pico.h:
-
-/usr/arm-none-eabi/include/machine/_types.h:
-
-../Picopod.cpp:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/vreg_and_chip_reset.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/device/dcd_attr.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/bits/stringfwd.h:
-
-/usr/arm-none-eabi/include/stdio.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/tusb_option.h:
-
-/usr/arm-none-eabi/include/sys/cdefs.h:
-
-/usr/arm-none-eabi/include/sys/timespec.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/cstdio:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/bits/exception_defines.h:
-
-/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c:
-
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pll.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c:
-
-/usr/arm-none-eabi/include/stdint.h:
-
-/usr/arm-none-eabi/include/sys/_types.h:
-
-/usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h:
-
-/usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h:
-
-/usr/arm-none-eabi/include/machine/endian.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/new:
-
-/usr/arm-none-eabi/include/newlib.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/gthr.h:
-
-/usr/lib/gcc/arm-none-eabi/9.3.1/include-fixed/syslimits.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h:
-
-/usr/arm-none-eabi/include/sys/syslimits.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/gthr-default.h:
-
-/usr/arm-none-eabi/include/sys/_pthreadtypes.h:
-
-/usr/share/pico-sdk/src/common/pico_util/include/pico/util/queue.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/ext/new_allocator.h:
-
-/usr/arm-none-eabi/include/machine/ieeefp.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/iosfwd:
-
-/usr/arm-none-eabi/include/machine/_default_types.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/watchdog.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/cassert:
-
-/usr/share/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/bits/nested_exception.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/debug/assertions.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c:
-
-/usr/arm-none-eabi/include/c++/9.3.1/bits/stl_iterator.h:
-
-/usr/share/pico-sdk/src/common/pico_base/include/pico/types.h:
-
-/usr/share/pico-sdk/src/boards/include/boards/pico.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h:
-
-/usr/share/pico-sdk/src/common/pico_usb_reset_interface/include/pico/usb_reset_interface.h:
-
-/usr/arm-none-eabi/include/sys/string.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/os_defines.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/bits/concept_check.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/cerrno:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/include/hardware/watchdog.h:
-
-/usr/arm-none-eabi/include/sys/_intsup.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c:
-
-generated/pico_base/pico/version.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/bits/stl_pair.h:
-
-/usr/arm-none-eabi/include/machine/types.h:
-
-generated/pico_base/pico/config_autogen.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/debug/debug.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/video/video_device.c:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c:
-
-/usr/share/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/limits:
-
-/usr/arm-none-eabi/include/assert.h:
-
-/usr/arm-none-eabi/include/sys/errno.h:
-
-/usr/arm-none-eabi/include/locale.h:
-
-/usr/share/pico-sdk/src/common/pico_time/include/pico/time.h:
-
-/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c:
-
-/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c:
-
-/usr/share/pico-sdk/lib/tinyusb/src/common/tusb_verify.h:
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c:
 
 /usr/arm-none-eabi/include/c++/9.3.1/ext/numeric_traits.h:
 
 /usr/arm-none-eabi/include/c++/9.3.1/bits/stl_function.h:
 
-/usr/share/pico-sdk/src/common/pico_time/include/pico/timeout_helper.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_types.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h:
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/time.h:
 
-/usr/arm-none-eabi/include/c++/9.3.1/bits/localefwd.h:
+/usr/arm-none-eabi/include/c++/9.3.1/string:
+
+/usr/arm-none-eabi/include/sys/_stdint.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/bits/ptr_traits.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/clocale:
+
+/usr/arm-none-eabi/include/sys/types.h:
+
+/usr/arm-none-eabi/include/sys/features.h:
+
+/usr/arm-none-eabi/include/machine/_types.h:
+
+../Picopod.cpp:
+
+/usr/arm-none-eabi/include/stdio.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sysinfo.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_unique_id/include/pico/unique_id.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h:
+
+/usr/arm-none-eabi/include/sys/timespec.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/bits/exception_defines.h:
+
+/usr/arm-none-eabi/include/_newlib_version.h:
+
+/usr/arm-none-eabi/include/stdint.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c:
+
+/usr/arm-none-eabi/include/sys/select.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/cpu_defines.h:
+
+/usr/arm-none-eabi/include/sys/_types.h:
+
+/usr/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/include/pico/malloc.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/spi.c:
+
+/usr/lib/gcc/arm-none-eabi/9.3.1/include/stdint.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/include/hardware/pll.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/bits/exception_ptr.h:
+
+/usr/lib/gcc/arm-none-eabi/9.3.1/include/stdarg.h:
+
+/usr/arm-none-eabi/include/machine/endian.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/new:
+
+/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/gthr.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/boards/include/boards/pico.h:
+
+/usr/arm-none-eabi/include/math.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/error.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/defs.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/include/hardware/interp.h:
 
 /usr/arm-none-eabi/include/c++/9.3.1/bits/char_traits.h:
 
+/usr/arm-none-eabi/include/c++/9.3.1/bits/localefwd.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/types.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd_pvt.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/bits/nested_exception.h:
+
+generated/pico_base/pico/version.h:
+
+/usr/arm-none-eabi/include/sys/string.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/os_defines.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/bits/concept_check.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/ssi.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_stdlib/include/pico/stdlib.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/usb.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/cerrno:
+
+/usr/arm-none-eabi/include/string.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c:
+
+/usr/arm-none-eabi/include/inttypes.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/config.h:
+
+/usr/arm-none-eabi/include/stdlib.h:
+
+/usr/arm-none-eabi/include/sys/_locale.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h:
+
+/usr/arm-none-eabi/include/machine/_default_types.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/iosfwd:
+
+/usr/arm-none-eabi/include/machine/types.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/include/hardware/claim.h:
+
+generated/pico_base/pico/config_autogen.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/include/hardware/vreg.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/vreg_and_chip_reset.h:
+
+/usr/arm-none-eabi/include/sys/lock.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/usb.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/cstdint:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/include/pico/timeout_helper.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/watchdog.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h:
+
+/usr/arm-none-eabi/include/sys/reent.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/ext/string_conversions.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h:
+
+../lib/lora/LoRa-RP2040.h:
+
+/usr/arm-none-eabi/include/locale.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/pll.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h:
+
+/usr/arm-none-eabi/include/sys/stdio.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h:
+
+/usr/lib/gcc/arm-none-eabi/9.3.1/include/stdbool.h:
+
+/usr/arm-none-eabi/include/ctype.h:
+
+/usr/arm-none-eabi/include/sys/_pthreadtypes.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/gthr-default.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico/assert.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c:
+
 /usr/arm-none-eabi/include/c++/9.3.1/bits/ostream_insert.h:
 
-/usr/arm-none-eabi/include/c++/9.3.1/bits/cxxabi_forced.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c:
-
-/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c:
-
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/xosc.h:
-
 /usr/arm-none-eabi/include/c++/9.3.1/bits/range_access.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c:
 
 /usr/arm-none-eabi/include/c++/9.3.1/ext/atomicity.h:
 
@@ -3486,200 +3616,170 @@ generated/pico_base/pico/config_autogen.h:
 
 /usr/arm-none-eabi/include/machine/stdlib.h:
 
-/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:
 
 /usr/arm-none-eabi/include/c++/9.3.1/ext/alloc_traits.h:
 
-/usr/arm-none-eabi/include/c++/9.3.1/string_view:
+/usr/arm-none-eabi/include/c++/9.3.1/limits:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_interp/include/hardware/interp.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/include/hardware/xosc.h:
+
+/usr/arm-none-eabi/include/assert.h:
+
+/usr/arm-none-eabi/include/sys/errno.h:
 
 /usr/arm-none-eabi/include/c++/9.3.1/bits/functional_hash.h:
-
-/usr/arm-none-eabi/include/stdlib.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/tusb.c:
-
-/usr/arm-none-eabi/include/errno.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/bits/basic_string.tcc:
-
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/ioqspi.h:
-
-/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_flash/include/hardware/flash.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c:
-
-/usr/share/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h:
-
-/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c:
-
-/usr/arm-none-eabi/include/sys/sched.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/device/usbd.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c:
-
-/usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c:
-
-/usr/share/pico-sdk/src/common/pico_sync/include/pico/mutex.h:
-
-/usr/share/pico-sdk/src/common/pico_base/include/pico/assert.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/common/tusb_common.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h:
-
-/usr/arm-none-eabi/include/string.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/common/tusb_error.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h:
-
-/usr/share/pico-sdk/src/common/pico_sync/include/pico/sem.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c:
-
-/usr/share/pico-sdk/src/common/pico_sync/include/pico/critical_section.h:
-
-/usr/share/pico-sdk/src/common/pico_util/datetime.c:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.h:
-
-/usr/arm-none-eabi/include/sys/config.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c:
-
-/usr/share/pico-sdk/lib/tinyusb/src/osal/osal.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c:
-
-/usr/share/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c:
-
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/mpu.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/tusb.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/cctype:
-
-/usr/share/pico-sdk/lib/tinyusb/src/device/dcd.h:
-
-/usr/lib/gcc/arm-none-eabi/9.3.1/include/float.h:
-
-/usr/share/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.h:
-
-/usr/arm-none-eabi/include/c++/9.3.1/bits/exception_ptr.h:
-
-/usr/lib/gcc/arm-none-eabi/9.3.1/include/stdarg.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/usb.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/usb.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h:
-
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h:
-
-/usr/share/pico-sdk/src/common/pico_sync/lock_core.c:
-
-/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c:
-
-/usr/share/pico-sdk/src/common/pico_sync/mutex.c:
-
-/usr/share/pico-sdk/src/common/pico_sync/sem.c:
-
-/usr/lib/gcc/arm-none-eabi/9.3.1/include-fixed/limits.h:
-
-/usr/share/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h:
-
-/usr/share/pico-sdk/src/common/pico_util/include/pico/util/pheap.h:
-
-/usr/share/pico-sdk/src/common/pico_sync/include/pico/sync.h:
-
-/usr/share/pico-sdk/src/common/pico_util/pheap.c:
-
-/usr/share/pico-sdk/src/common/pico_util/include/pico/util/datetime.h:
-
-/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c:
-
-/usr/share/pico-sdk/lib/tinyusb/src/device/usbd.c:
-
-/usr/share/pico-sdk/src/common/pico_util/queue.c:
 
 /usr/arm-none-eabi/include/c++/9.3.1/pstl/pstl_config.h:
 
 /usr/arm-none-eabi/include/alloca.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_adc/include/hardware/adc.h:
+/usr/arm-none-eabi/include/errno.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/adc.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_flash/include/hardware/flash.h:
 
-/usr/share/pico-sdk/src/common/pico_base/include/pico/error.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/adc.h:
+/usr/arm-none-eabi/include/c++/9.3.1/cstdio:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c:
 
-/usr/arm-none-eabi/include/c++/9.3.1/bits/functexcept.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_verify.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c:
 
-/usr/share/pico-sdk/lib/tinyusb/src/common/tusb_types.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_i2c/i2c.c:
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h:
 
-/usr/arm-none-eabi/include/_newlib_version.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_timeout.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sem.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_pll/include/hardware/pll.h:
+/usr/arm-none-eabi/include/c++/9.3.1/cassert:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pll.h:
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h:
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h:
 
-/usr/share/pico-sdk/src/rp2_common/hardware_xosc/include/hardware/xosc.h:
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/critical_section.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/xosc.h:
+/usr/arm-none-eabi/include/sys/cdefs.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/ssi.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.h:
 
-/usr/share/pico-sdk/src/common/pico_time/time.c:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c:
 
-/usr/share/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_qspi.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h:
+/usr/arm-none-eabi/include/newlib.h:
 
-/usr/share/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h:
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/usbd.c:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/dcd.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/device/dcd_attr.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/common/tusb_common.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h:
+
+/usr/arm-none-eabi/include/strings.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/resets.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/exception:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/resets.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/include/pico/double.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/tusb.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/adc.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c:
+
+/usr/lib/gcc/arm-none-eabi/9.3.1/include-fixed/limits.h:
+
+/home/jirka/programovani/pico/pico-sdk/lib/tinyusb/src/osal/osal_pico.h:
+
+/usr/arm-none-eabi/include/limits.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/include/pico/util/datetime.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c:
+
+/usr/arm-none-eabi/include/sys/syslimits.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/include/pico/util/pheap.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_base/include/pico.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/include/pico/sync.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/include/pico/float.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/include/pico/util/queue.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/include/hardware/adc.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c:
+
+/usr/arm-none-eabi/include/c++/9.3.1/backward/binders.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/clocks.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/clocks.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pll.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/xosc.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/ext/new_allocator.h:
+
+/usr/arm-none-eabi/include/machine/ieeefp.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/xosc.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/ssi.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/ioqspi.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_qspi.h:
+
+/usr/lib/gcc/arm-none-eabi/9.3.1/include-fixed/syslimits.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h:
+
+/usr/arm-none-eabi/include/c++/9.3.1/bits/stringfwd.h:
+
+/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_interp/interp.c:

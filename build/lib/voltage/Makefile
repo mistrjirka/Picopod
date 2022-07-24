@@ -130,933 +130,933 @@ sensors_voltage/fast:
 	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/build
 .PHONY : sensors_voltage/fast
 
-usr/share/pico-sdk/src/common/pico_sync/critical_section.obj: usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/critical_section.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.obj: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/critical_section.c.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
 
-usr/share/pico-sdk/src/common/pico_sync/critical_section.i: usr/share/pico-sdk/src/common/pico_sync/critical_section.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/critical_section.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.i: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/common/pico_sync/critical_section.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/critical_section.c.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.i
 
-usr/share/pico-sdk/src/common/pico_sync/critical_section.s: usr/share/pico-sdk/src/common/pico_sync/critical_section.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/critical_section.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.s: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/common/pico_sync/critical_section.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/critical_section.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/critical_section.c.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.c.s
 
-usr/share/pico-sdk/src/common/pico_sync/lock_core.obj: usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/lock_core.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.obj: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/lock_core.c.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
 
-usr/share/pico-sdk/src/common/pico_sync/lock_core.i: usr/share/pico-sdk/src/common/pico_sync/lock_core.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/lock_core.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.i: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/common/pico_sync/lock_core.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/lock_core.c.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.i
 
-usr/share/pico-sdk/src/common/pico_sync/lock_core.s: usr/share/pico-sdk/src/common/pico_sync/lock_core.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/lock_core.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.s: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/common/pico_sync/lock_core.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/lock_core.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/lock_core.c.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.c.s
 
-usr/share/pico-sdk/src/common/pico_sync/mutex.obj: usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/mutex.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.obj: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/mutex.c.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
 
-usr/share/pico-sdk/src/common/pico_sync/mutex.i: usr/share/pico-sdk/src/common/pico_sync/mutex.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/mutex.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.i: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/common/pico_sync/mutex.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/mutex.c.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.i
 
-usr/share/pico-sdk/src/common/pico_sync/mutex.s: usr/share/pico-sdk/src/common/pico_sync/mutex.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/mutex.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.s: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/common/pico_sync/mutex.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/mutex.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/mutex.c.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.c.s
 
-usr/share/pico-sdk/src/common/pico_sync/sem.obj: usr/share/pico-sdk/src/common/pico_sync/sem.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/sem.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.obj: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/common/pico_sync/sem.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/sem.c.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.obj
 
-usr/share/pico-sdk/src/common/pico_sync/sem.i: usr/share/pico-sdk/src/common/pico_sync/sem.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/sem.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.i: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/common/pico_sync/sem.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/sem.c.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.i
 
-usr/share/pico-sdk/src/common/pico_sync/sem.s: usr/share/pico-sdk/src/common/pico_sync/sem.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/sem.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.s: home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/common/pico_sync/sem.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_sync/sem.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_sync/sem.c.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.c.s
 
-usr/share/pico-sdk/src/common/pico_time/time.obj: usr/share/pico-sdk/src/common/pico_time/time.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_time/time.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.obj: home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/common/pico_time/time.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_time/time.c.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.obj
 
-usr/share/pico-sdk/src/common/pico_time/time.i: usr/share/pico-sdk/src/common/pico_time/time.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_time/time.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.i: home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/common/pico_time/time.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_time/time.c.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.i
 
-usr/share/pico-sdk/src/common/pico_time/time.s: usr/share/pico-sdk/src/common/pico_time/time.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_time/time.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.s: home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/common/pico_time/time.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/time.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_time/time.c.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.c.s
 
-usr/share/pico-sdk/src/common/pico_time/timeout_helper.obj: usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_time/timeout_helper.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.obj: home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 
-usr/share/pico-sdk/src/common/pico_time/timeout_helper.i: usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_time/timeout_helper.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.i: home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
 
-usr/share/pico-sdk/src/common/pico_time/timeout_helper.s: usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_time/timeout_helper.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.s: home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_time/timeout_helper.c.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
 
-usr/share/pico-sdk/src/common/pico_util/datetime.obj: usr/share/pico-sdk/src/common/pico_util/datetime.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_util/datetime.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.obj: home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/common/pico_util/datetime.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_util/datetime.c.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.obj
 
-usr/share/pico-sdk/src/common/pico_util/datetime.i: usr/share/pico-sdk/src/common/pico_util/datetime.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_util/datetime.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.i: home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/common/pico_util/datetime.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_util/datetime.c.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.i
 
-usr/share/pico-sdk/src/common/pico_util/datetime.s: usr/share/pico-sdk/src/common/pico_util/datetime.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_util/datetime.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.s: home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/common/pico_util/datetime.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/datetime.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_util/datetime.c.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.c.s
 
-usr/share/pico-sdk/src/common/pico_util/pheap.obj: usr/share/pico-sdk/src/common/pico_util/pheap.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_util/pheap.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.obj: home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/common/pico_util/pheap.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_util/pheap.c.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.obj
 
-usr/share/pico-sdk/src/common/pico_util/pheap.i: usr/share/pico-sdk/src/common/pico_util/pheap.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_util/pheap.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.i: home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/common/pico_util/pheap.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_util/pheap.c.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.i
 
-usr/share/pico-sdk/src/common/pico_util/pheap.s: usr/share/pico-sdk/src/common/pico_util/pheap.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_util/pheap.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.s: home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/common/pico_util/pheap.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/pheap.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_util/pheap.c.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.c.s
 
-usr/share/pico-sdk/src/common/pico_util/queue.obj: usr/share/pico-sdk/src/common/pico_util/queue.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_util/queue.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.obj: home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/common/pico_util/queue.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.obj
-.PHONY : usr/share/pico-sdk/src/common/pico_util/queue.c.obj
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.obj
 
-usr/share/pico-sdk/src/common/pico_util/queue.i: usr/share/pico-sdk/src/common/pico_util/queue.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_util/queue.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.i: home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/common/pico_util/queue.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.i
-.PHONY : usr/share/pico-sdk/src/common/pico_util/queue.c.i
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.i
 
-usr/share/pico-sdk/src/common/pico_util/queue.s: usr/share/pico-sdk/src/common/pico_util/queue.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_util/queue.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.s: home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/common/pico_util/queue.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/common/pico_util/queue.c.s
-.PHONY : usr/share/pico-sdk/src/common/pico_util/queue.c.s
+home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.obj: usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.i: usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.s: usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.obj: usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.i: usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.s: usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.obj: usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.obj
-
-# target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
-
-usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj
+
+# target to build an object file
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.obj: usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.i: usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.s: usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj
-
-# target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
-
-usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.obj: usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.i: usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj
+
+# target to build an object file
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.s: usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.obj: usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.i: usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.s: usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.obj: usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.i: usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.s: usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.obj: usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.i: usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.s: usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 
-usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
 
-usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 
-usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj
-
-# target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-
-usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj
+
+# target to build an object file
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_divider/divider.obj: usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_divider/divider.obj
-
-# target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-
-usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj: usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj: usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.i: usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj
+
+# target to build an object file
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.s: usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_double/double_math.obj: usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_math.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_double/double_math.i: usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_math.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_double/double_math.s: usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_math.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj: usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj
-
-# target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-
-usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj: usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.i: usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj
+
+# target to build an object file
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.s: usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_float/float_math.obj: usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_math.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_float/float_math.i: usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_math.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_float/float_math.s: usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_math.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj: usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj
-
-# target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-
-usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj: usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj: usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i: usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj
+
+# target to build an object file
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s: usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj
-
-# target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-
-usr/share/pico-sdk/src/rp2_common/pico_platform/platform.obj: usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_platform/platform.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_platform/platform.i: usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_platform/platform.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.obj
+
+# target to build an object file
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_platform/platform.s: usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_platform/platform.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_platform/platform.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_printf/printf.obj: usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_printf/printf.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_printf/printf.i: usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_printf/printf.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_printf/printf.s: usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_printf/printf.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.i: usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.s: usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj: usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i: usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s: usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj: usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj
-
-# target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
-
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj: usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i: usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj
+
+# target to build an object file
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
 
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s: usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
 
-usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.i: usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.s: usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 
-usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj
 
 # target to build an object file
-usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 
-usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i
 
 # target to preprocess a source file
-usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 
-usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s
 
 # target to generate assembly for a file
-usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
-	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
-.PHONY : usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
+	cd /home/jirka/programovani/pico/Picopod/build && $(MAKE) $(MAKESILENT) -f lib/voltage/CMakeFiles/sensors_voltage.dir/build.make lib/voltage/CMakeFiles/sensors_voltage.dir/home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+.PHONY : home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 
 voltage.obj: voltage.cpp.obj
 .PHONY : voltage.obj
@@ -1091,122 +1091,122 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sensors_voltage"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/critical_section.obj"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/critical_section.i"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/critical_section.s"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/lock_core.obj"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/lock_core.i"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/lock_core.s"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/mutex.obj"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/mutex.i"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/mutex.s"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/sem.obj"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/sem.i"
-	@echo "... usr/share/pico-sdk/src/common/pico_sync/sem.s"
-	@echo "... usr/share/pico-sdk/src/common/pico_time/time.obj"
-	@echo "... usr/share/pico-sdk/src/common/pico_time/time.i"
-	@echo "... usr/share/pico-sdk/src/common/pico_time/time.s"
-	@echo "... usr/share/pico-sdk/src/common/pico_time/timeout_helper.obj"
-	@echo "... usr/share/pico-sdk/src/common/pico_time/timeout_helper.i"
-	@echo "... usr/share/pico-sdk/src/common/pico_time/timeout_helper.s"
-	@echo "... usr/share/pico-sdk/src/common/pico_util/datetime.obj"
-	@echo "... usr/share/pico-sdk/src/common/pico_util/datetime.i"
-	@echo "... usr/share/pico-sdk/src/common/pico_util/datetime.s"
-	@echo "... usr/share/pico-sdk/src/common/pico_util/pheap.obj"
-	@echo "... usr/share/pico-sdk/src/common/pico_util/pheap.i"
-	@echo "... usr/share/pico-sdk/src/common/pico_util/pheap.s"
-	@echo "... usr/share/pico-sdk/src/common/pico_util/queue.obj"
-	@echo "... usr/share/pico-sdk/src/common/pico_util/queue.i"
-	@echo "... usr/share/pico-sdk/src/common/pico_util/queue.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_adc/adc.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_claim/claim.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_clocks/clocks.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_divider/divider.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_gpio/gpio.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_irq/irq.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_pll/pll.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_sync/sync.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_timer/timer.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_uart/uart.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_vreg/vreg.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/hardware_xosc/xosc.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_divider/divider.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_double/double_init_rom.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_double/double_math.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_double/double_math.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_double/double_math.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_float/float_init_rom.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_float/float_math.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_float/float_math.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_float/float_math.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_platform/platform.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_platform/platform.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_platform/platform.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_printf/printf.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_printf/printf.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_printf/printf.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_runtime/runtime.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_stdio/stdio.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i"
-	@echo "... usr/share/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/critical_section.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/lock_core.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/mutex.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_sync/sem.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_time/time.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_time/timeout_helper.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_util/datetime.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_util/pheap.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/common/pico_util/queue.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_adc/adc.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_claim/claim.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_divider/divider.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_pll/pll.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_sync/sync.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_timer/timer.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_uart/uart.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_divider/divider.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_math.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_math.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_platform/platform.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_printf/printf.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i"
+	@echo "... home/jirka/programovani/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s"
 	@echo "... voltage.obj"
 	@echo "... voltage.i"
 	@echo "... voltage.s"

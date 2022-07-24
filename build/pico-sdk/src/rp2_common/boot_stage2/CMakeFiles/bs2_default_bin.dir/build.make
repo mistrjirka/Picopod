@@ -86,6 +86,6 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/clean:
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/clean
 
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/depend:
-	cd /home/jirka/programovani/pico/Picopod/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jirka/programovani/pico/Picopod /usr/share/pico-sdk/src/rp2_common/boot_stage2 /home/jirka/programovani/pico/Picopod/build /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2 /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jirka/programovani/pico/Picopod/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jirka/programovani/pico/Picopod /home/jirka/programovani/pico/pico-sdk/src/rp2_common/boot_stage2 /home/jirka/programovani/pico/Picopod/build /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2 /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/depend
 

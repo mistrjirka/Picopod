@@ -4,7 +4,7 @@
 # compile CXX with /usr/sbin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/share/pico-sdk/src/common/boot_uf2/include
+CXX_INCLUDES = -I/home/jirka/programovani/pico/pico-sdk/src/common/boot_uf2/include
 
 CXX_FLAGS = -std=gnu++14
 

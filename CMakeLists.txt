@@ -5,13 +5,12 @@ include(pico_sdk_import.cmake)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
-set(PICO_CXX_ENABLE_EXCEPTIONS 1)
 
 # Initialise pico_sdk from installed location
 # (note this can come from environment, CMake cache etc)
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
-
+set(PICO_SDK_PATH "/home/jirka/programovani/pico/pico-sdk")
 project(Picopod C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
