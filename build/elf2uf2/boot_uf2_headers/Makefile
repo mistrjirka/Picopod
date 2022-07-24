@@ -57,7 +57,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jirka/programovani/pico/pico-sdk/tools/elf2uf2
+CMAKE_SOURCE_DIR = /usr/share/pico-sdk/tools/elf2uf2
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/jirka/programovani/pico/Picopod/build/elf2uf2

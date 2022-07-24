@@ -1,5 +1,5 @@
 CMakeFiles/pioasm.dir/python_output.cpp.o: \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/python_output.cpp \
+ /usr/share/pico-sdk/tools/pioasm/python_output.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/12.1.0/array \
  /usr/include/c++/12.1.0/compare /usr/include/c++/12.1.0/initializer_list \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -147,7 +147,7 @@ CMakeFiles/pioasm.dir/python_output.cpp.o: \
  /usr/include/c++/12.1.0/bits/locale_facets_nonio.tcc \
  /usr/include/c++/12.1.0/bits/locale_conv.h \
  /usr/include/c++/12.1.0/iostream \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/output_format.h \
+ /usr/share/pico-sdk/tools/pioasm/output_format.h \
  /usr/include/c++/12.1.0/vector \
  /usr/include/c++/12.1.0/bits/stl_uninitialized.h \
  /usr/include/c++/12.1.0/bits/stl_vector.h \
@@ -170,4 +170,4 @@ CMakeFiles/pioasm.dir/python_output.cpp.o: \
  /usr/include/c++/12.1.0/bits/atomic_base.h \
  /usr/include/c++/12.1.0/bits/atomic_lockfree_defines.h \
  /usr/include/c++/12.1.0/backward/auto_ptr.h \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/pio_disassembler.h
+ /usr/share/pico-sdk/tools/pioasm/pio_disassembler.h

@@ -10,7 +10,6 @@ set(CMAKE_CXX_STANDARD 17)
 # (note this can come from environment, CMake cache etc)
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
-set(PICO_SDK_PATH "/home/jirka/programovani/pico/pico-sdk")
 project(Picopod C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK

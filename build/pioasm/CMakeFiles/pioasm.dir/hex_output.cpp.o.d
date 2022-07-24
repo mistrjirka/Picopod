@@ -1,7 +1,7 @@
 CMakeFiles/pioasm.dir/hex_output.cpp.o: \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/hex_output.cpp \
+ /usr/share/pico-sdk/tools/pioasm/hex_output.cpp \
  /usr/include/stdc-predef.h \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/output_format.h \
+ /usr/share/pico-sdk/tools/pioasm/output_format.h \
  /usr/include/c++/12.1.0/vector \
  /usr/include/c++/12.1.0/bits/stl_algobase.h \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/c++config.h \

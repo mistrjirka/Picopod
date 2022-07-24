@@ -1,6 +1,6 @@
 CMakeFiles/pioasm.dir/main.cpp.o: \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/12.1.0/iostream \
+ /usr/share/pico-sdk/tools/pioasm/main.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/12.1.0/iostream \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -129,21 +129,21 @@ CMakeFiles/pioasm.dir/main.cpp.o: \
  /usr/include/c++/12.1.0/bits/basic_ios.tcc \
  /usr/include/c++/12.1.0/bits/ostream.tcc /usr/include/c++/12.1.0/istream \
  /usr/include/c++/12.1.0/bits/istream.tcc \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/pio_assembler.h \
+ /usr/share/pico-sdk/tools/pioasm/pio_assembler.h \
  /usr/include/c++/12.1.0/algorithm \
  /usr/include/c++/12.1.0/bits/stl_algo.h \
  /usr/include/c++/12.1.0/bits/algorithmfwd.h \
  /usr/include/c++/12.1.0/bits/stl_heap.h \
  /usr/include/c++/12.1.0/bits/stl_tempbuf.h \
  /usr/include/c++/12.1.0/bits/uniform_int_dist.h \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/gen/parser.hpp \
+ /usr/share/pico-sdk/tools/pioasm/gen/parser.hpp \
  /usr/include/c++/12.1.0/fstream /usr/include/c++/12.1.0/bits/codecvt.h \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/12.1.0/bits/fstream.tcc /usr/include/c++/12.1.0/sstream \
  /usr/include/c++/12.1.0/bits/sstream.tcc \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/pio_types.h \
- /usr/include/c++/12.1.0/map /usr/include/c++/12.1.0/bits/stl_tree.h \
+ /usr/share/pico-sdk/tools/pioasm/pio_types.h /usr/include/c++/12.1.0/map \
+ /usr/include/c++/12.1.0/bits/stl_tree.h \
  /usr/include/c++/12.1.0/ext/aligned_buffer.h \
  /usr/include/c++/12.1.0/bits/stl_map.h /usr/include/c++/12.1.0/tuple \
  /usr/include/c++/12.1.0/bits/uses_allocator.h \
@@ -168,7 +168,7 @@ CMakeFiles/pioasm.dir/main.cpp.o: \
  /usr/include/c++/12.1.0/bits/atomic_base.h \
  /usr/include/c++/12.1.0/bits/atomic_lockfree_defines.h \
  /usr/include/c++/12.1.0/backward/auto_ptr.h \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/gen/location.h \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/gen/location.h \
+ /usr/share/pico-sdk/tools/pioasm/gen/location.h \
+ /usr/share/pico-sdk/tools/pioasm/gen/location.h \
  /usr/include/c++/12.1.0/cassert /usr/include/assert.h \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/output_format.h
+ /usr/share/pico-sdk/tools/pioasm/output_format.h

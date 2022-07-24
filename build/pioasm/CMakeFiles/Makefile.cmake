@@ -9,7 +9,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "CMakeFiles/3.23.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.23.2/CMakeSystem.cmake"
-  "/home/jirka/programovani/pico/pico-sdk/tools/pioasm/CMakeLists.txt"
   "/usr/share/cmake/Modules/CMakeCXXCompiler.cmake.in"
   "/usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp"
   "/usr/share/cmake/Modules/CMakeCXXInformation.cmake"
@@ -80,6 +79,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake/Modules/Platform/Linux-GNU.cmake"
   "/usr/share/cmake/Modules/Platform/Linux.cmake"
   "/usr/share/cmake/Modules/Platform/UnixPaths.cmake"
+  "/usr/share/pico-sdk/tools/pioasm/CMakeLists.txt"
   )
 
 # The corresponding makefile is:

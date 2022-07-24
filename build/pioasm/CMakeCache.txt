@@ -193,7 +193,7 @@ pioasm_BINARY_DIR:STATIC=/home/jirka/programovani/pico/Picopod/build/pioasm
 pioasm_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-pioasm_SOURCE_DIR:STATIC=/home/jirka/programovani/pico/pico-sdk/tools/pioasm
+pioasm_SOURCE_DIR:STATIC=/usr/share/pico-sdk/tools/pioasm
 
 
 ########################
@@ -266,7 +266,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/jirka/programovani/pico/pico-sdk/tools/pioasm
+CMAKE_HOME_DIRECTORY:INTERNAL=/usr/share/pico-sdk/tools/pioasm
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=0
 //ADVANCED property for variable: CMAKE_LINKER

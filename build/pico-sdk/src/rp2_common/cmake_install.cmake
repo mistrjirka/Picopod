@@ -1,4 +1,4 @@
-# Install script for directory: /home/jirka/programovani/pico/pico-sdk/src/rp2_common
+# Install script for directory: /usr/share/pico-sdk/src/rp2_common
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -83,6 +83,9 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cmsis/cmake_install.cmake")
   include("/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/tinyusb/cmake_install.cmake")
   include("/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/pico_stdio_usb/cmake_install.cmake")
+  include("/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cyw43_driver/cmake_install.cmake")
+  include("/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/pico_lwip/cmake_install.cmake")
+  include("/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/pico_cyw43_arch/cmake_install.cmake")
   include("/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/pico_stdlib/cmake_install.cmake")
   include("/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/pico_cxx_options/cmake_install.cmake")
   include("/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/pico_standard_link/cmake_install.cmake")

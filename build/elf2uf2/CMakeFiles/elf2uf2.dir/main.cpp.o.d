@@ -1,6 +1,6 @@
 CMakeFiles/elf2uf2.dir/main.cpp.o: \
- /home/jirka/programovani/pico/pico-sdk/tools/elf2uf2/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/12.1.0/cstdio \
+ /usr/share/pico-sdk/tools/elf2uf2/main.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/12.1.0/cstdio \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -90,8 +90,8 @@ CMakeFiles/elf2uf2.dir/main.cpp.o: \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-float.h /usr/include/c++/12.1.0/bits/std_abs.h \
- /home/jirka/programovani/pico/pico-sdk/src/common/boot_uf2/include/boot/uf2.h \
+ /usr/share/pico-sdk/src/common/boot_uf2/include/boot/uf2.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/12.1.0/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/wchar.h \
  /usr/include/bits/stdint-uintn.h /usr/include/assert.h \
- /home/jirka/programovani/pico/pico-sdk/tools/elf2uf2/elf.h
+ /usr/share/pico-sdk/tools/elf2uf2/elf.h

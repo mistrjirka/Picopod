@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "/home/jirka/programovani/pico/pico-sdk/tools/pioasm"
+  "/usr/share/pico-sdk/tools/pioasm"
   "/home/jirka/programovani/pico/Picopod/build/pioasm"
   "/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm"
   "/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/tmp"

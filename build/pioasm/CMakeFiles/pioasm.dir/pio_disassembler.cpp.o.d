@@ -1,5 +1,5 @@
 CMakeFiles/pioasm.dir/pio_disassembler.cpp.o: \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/pio_disassembler.cpp \
+ /usr/share/pico-sdk/tools/pioasm/pio_disassembler.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/12.1.0/array \
  /usr/include/c++/12.1.0/compare /usr/include/c++/12.1.0/initializer_list \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -140,4 +140,4 @@ CMakeFiles/pioasm.dir/pio_disassembler.cpp.o: \
  /usr/include/libintl.h /usr/include/c++/12.1.0/bits/codecvt.h \
  /usr/include/c++/12.1.0/bits/locale_facets_nonio.tcc \
  /usr/include/c++/12.1.0/bits/locale_conv.h \
- /home/jirka/programovani/pico/pico-sdk/tools/pioasm/pio_disassembler.h
+ /usr/share/pico-sdk/tools/pioasm/pio_disassembler.h

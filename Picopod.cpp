@@ -40,18 +40,28 @@ bool send_telemtery = true;
 int ID = 2;
 int target_device = 1;
 
-int spreading_factor = 11;
+int spreading_factor = 8;
 int power_level = 20;
 int bandwidth = 41.7E3;
 
-int time_before_confirmation_failed_ms = 600;
+int time_before_confirmation_failed_ms = 10;
 int attempts_before_failing = 3;
+
+//working values
+
+string message;
+float voltage;
+
 uint8_t msgCount = 0; // count of outgoing messages
 
 int RSSI = 0;
 int SNR = 0;
+
 string recieved_message = "";
 bool recieving = false;
+
+int random_break = 200;
+
 // We're going to erase and reprogram a region 256k from the start of flash.
 // Once done, we can access this at XIP_BASE + 256k.
 /*#define FLASH_TARGET_OFFSET (256 * 1024)
@@ -138,21 +148,20 @@ void LORASendOKMessage()
 
     LoRa.print("ok"); //                 // add payload
     LoRa.endPacket();
-    LoRa.receive();
 }
 int LORAReceive(int packetSize = -1)
 {
     if (LoRa.parsePacket() == 0 && packetSize == -1)
     {
-        return ERROR_NO_MESSAGE; // if there's no packet, return
         recieving = false;
+        return ERROR_NO_MESSAGE; // if there's no packet, return
     }
     if (packetSize == -1)
     {
         packetSize = LoRa.parsePacket();
     }
     recieving = true;
-    gpio_put(LED_PIN, 1);
+    //gpio_put(LED_PIN, 1);
 
     // read packet header uint8_ts:
     int recipient = LoRa.read();          // recipient address
@@ -171,6 +180,7 @@ int LORAReceive(int packetSize = -1)
     if (recipient != ID && recipient != 0)
     {
         printf("This message is not for me.\n");
+        recieving = false;
         gpio_put(LED_PIN, 0);
         return ERROR_NO_MESSAGE; // if there's no packet,'skip rest of function
     }
@@ -195,8 +205,9 @@ int LORAReceive(int packetSize = -1)
     string toSend = "";
     BluetoothSend("Received from: 0x" + std::to_string(sender) + "\n Message type:" + std::to_string(incomingType) + "\n packetSize:" + std::to_string(packetSize) + "\n RSSI:" + std::to_string(RSSI) + "dbm\n SNR: " + std::to_string(SNR) + "\nMessage content" + incoming);
 
-    gpio_put(LED_PIN, 0);
+    //gpio_put(LED_PIN, 0);
     recieving = false;
+    LoRa.receive();
     return incomingType;
 }
 bool LORASendMessage(string message, int8_t message_type, bool confirmation, bool ignore_trafic)
@@ -213,6 +224,7 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
             printf("Failed to send a message, too much RF traffic.\n");
             break;
         }
+        printf("Parse Packet: %d recieveing %d ignore %d together %d", LoRa.parsePacket(), recieving, ignore_trafic, ((LoRa.parsePacket() == 0 && recieving == false) || ignore_trafic));
         if ((LoRa.parsePacket() == 0 && recieving == false) || ignore_trafic)
         {
 
@@ -220,6 +232,7 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
             int n = message.length();
             char messageToSend[n + 1];
             strcpy(messageToSend, message.c_str());
+            gpio_put(LED_PIN, 1);
             LoRa.beginPacket();                    // start packet
             LoRa.write(target_device);             // add destination address
             LoRa.write(ID);                        // add sender address
@@ -230,6 +243,7 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
             LoRa.write(confirmation);  // add message confirmation
             LoRa.print(messageToSend); //                 // add payload
             LoRa.endPacket();          // finish packet and send it
+            gpio_put(LED_PIN, 0);
 
             if (confirmation)
             {
@@ -245,7 +259,6 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
                         sent = true;
                         break;
                     }
-                    sleep_ms(1);
                 }
                 if (sent)
                 {
@@ -262,11 +275,16 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
             }
             failed_attempts++;
             printf("random Break %d", random_break * 20);
-            sleep_ms(random_break * 25);
+            for (int i = 0; random_break * 25 > i; i++)
+            {
+
+                LORAReceive();
+            }
             random_break = LoRa.random();
         }
         else
         {
+            //printf("rf traffic");
             failed_attempts++;
             LORAReceive();
         }
@@ -276,7 +294,18 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
 }
 void LORARecieveCallback(int packetsize)
 {
-    LORAReceive();
+    printf("callback");
+    LORAReceive(packetsize);
+}
+
+bool sendTelemetry(struct repeating_timer *t)
+{
+    voltage = Voltage.getVoltage();
+    //message = "\n voltages: " + std::to_string(voltage);
+    //printf("lol");
+    //LORASendMessage(message, STRING_TELEMETRY_MESSAGE, true, false);
+    printf("lol");
+    return true;
 }
 int main()
 {
@@ -288,7 +317,12 @@ int main()
     LORASetup();
     printf("settingup bluetooth");
     BluetoothSetup();
-    int random_break = LoRa.random();
+
+    if (send_telemtery)
+    {
+        struct repeating_timer telemetry_timer;
+        add_repeating_timer_ms(1000, sendTelemetry, NULL, &telemetry_timer);
+    }
     /* if (!LoRa.begin(433.05E6)) {  }
     Voltage.initVoltage(26,2);
      if(flash_target_contents[FLASH_TARGET_OFFSET+CONFIGSET_OFFSET] != 0xf5){
@@ -311,25 +345,14 @@ int main()
             printf("\nSAVED\n");
 
         }*/
-    LoRa.onReceive(LORARecieveCallback);
-    LoRa.receive(); // recieve mode
-    string message;
-    float voltage;
+    /* LoRa.onReceive(LORARecieveCallback);
+    LoRa.receive(); // recieve mode*/
+
     while (true)
     {
 
-        if (send_telemtery)
-        {
-            voltage = Voltage.getVoltage();
-            message = "\n voltages: " + std::to_string(voltage);
-            printf("lol");
-            LORASendMessage(message, STRING_TELEMETRY_MESSAGE, true, false);
-
-            sleep_ms(random_break * 55);
-            random_break = LoRa.random();
-        }
-
         tight_loop_contents();
+        //LORAReceive();
     }
     return 0;
 }

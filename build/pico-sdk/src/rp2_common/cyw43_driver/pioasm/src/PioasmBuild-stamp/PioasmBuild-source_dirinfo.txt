@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=/home/jirka/programovani/pico/pico-sdk/tools/pioasm
+source_dir=/usr/share/pico-sdk/tools/pioasm
 work_dir=
 

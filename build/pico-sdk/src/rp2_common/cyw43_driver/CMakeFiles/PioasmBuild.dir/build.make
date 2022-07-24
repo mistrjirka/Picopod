@@ -89,7 +89,7 @@ pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-co
 pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-configure: pico-sdk/src/rp2_common/cyw43_driver/pioasm/tmp/PioasmBuild-cache-Release.cmake
 pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-configure: pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-patch
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/jirka/programovani/pico/Picopod/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Performing configure step for 'PioasmBuild'"
-	cd /home/jirka/programovani/pico/Picopod/build/pioasm && /usr/bin/cmake "-GUnix Makefiles" -C/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/tmp/PioasmBuild-cache-Release.cmake /home/jirka/programovani/pico/pico-sdk/tools/pioasm
+	cd /home/jirka/programovani/pico/Picopod/build/pioasm && /usr/bin/cmake "-GUnix Makefiles" -C/home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/tmp/PioasmBuild-cache-Release.cmake /usr/share/pico-sdk/tools/pioasm
 	cd /home/jirka/programovani/pico/Picopod/build/pioasm && /usr/bin/cmake -E touch /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-configure
 
 pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-download: pico-sdk/src/rp2_common/cyw43_driver/pioasm/src/PioasmBuild-stamp/PioasmBuild-source_dirinfo.txt
@@ -139,6 +139,6 @@ pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/PioasmBuild.dir/clean:
 .PHONY : pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/PioasmBuild.dir/clean
 
 pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/PioasmBuild.dir/depend:
-	cd /home/jirka/programovani/pico/Picopod/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jirka/programovani/pico/Picopod /home/jirka/programovani/pico/pico-sdk/src/rp2_common/cyw43_driver /home/jirka/programovani/pico/Picopod/build /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cyw43_driver /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/PioasmBuild.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jirka/programovani/pico/Picopod/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jirka/programovani/pico/Picopod /usr/share/pico-sdk/src/rp2_common/cyw43_driver /home/jirka/programovani/pico/Picopod/build /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cyw43_driver /home/jirka/programovani/pico/Picopod/build/pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/PioasmBuild.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : pico-sdk/src/rp2_common/cyw43_driver/CMakeFiles/PioasmBuild.dir/depend
 
