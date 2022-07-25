@@ -36,15 +36,15 @@ static int BL_chars_rxed = 0;
 
 const uint LED_PIN = 25;
 
-bool send_telemtery = false;
+bool send_telemtery = true;
 int ID = 2;
 int target_device = 1;
 
-int spreading_factor = 8;
+int spreading_factor = 10;
 int power_level = 20;
 int bandwidth = 41.7E3;
 
-int time_before_confirmation_failed_ms = 10;
+int time_before_confirmation_failed_ms = 1200;
 int attempts_before_failing = 3;
 
 int telemetry_update = 2000;
@@ -60,11 +60,15 @@ uint8_t msgCount = 0; // count of outgoing messages
 
 int RSSI = 0;
 int SNR = 0;
+int noise_floor = -120;
+int number_of_measurements = 20;
+int time_between_measurements = 10;
+int discriminate_measurments = 4;
 
 string recieved_message = "";
 bool recieving = false;
 
-int random_break = 200;
+int8_t random_break = 200;
 
 int waiting_ok_id = 0;
 bool ok_recieved = false;
@@ -78,44 +82,83 @@ int alarm_id = 0;
 const uint8_t *flash_target_contents = (const uint8_t *) (XIP_BASE +
 FLASH_TARGET_OFFSET);
 */
-void BluetoothUARTRX()
+void swap(int &a, int &b)
 {
-    printf("nice");
-    while (uart_is_readable(UART_ID))
-    {
-        uint8_t ch = uart_getc(UART_ID);
-        printf("%c", ch);
-        // Can we send it back?
-        /*if (uart_is_writable(UART_ID)) {
-            // Change it slightly first!
-            ch++;
-            uart_putc(UART_ID, ch);
-        }*/
-        BL_chars_rxed++;
-    }
+    int t = a;
+    a = b;
+    b = t;
 }
-void BluetoothSetup(void)
+int partition(int arr[], int start, int end)
 {
-    uart_init(UART_ID, UART_BAUD_RATE);
 
-    // Set the TX and RX pins by using the function select on the GPIO
-    // Set datasheet for more information on function select
-    gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
-    gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
-    uart_set_format(UART_ID, DATA_BITS, STOP_BITS, PARITY);
+    int pivot = arr[start];
 
-    int UART_IRQ = UART_ID == uart0 ? UART0_IRQ : UART1_IRQ;
+    int count = 0;
+    for (int i = start + 1; i <= end; i++)
+    {
+        if (arr[i] <= pivot)
+            count++;
+    }
 
-    // And set up and enable the interrupt handlers
-    irq_set_exclusive_handler(UART_IRQ, BluetoothUARTRX);
-    irq_set_enabled(UART_IRQ, true);
+    // Giving pivot element its correct position
+    int pivotIndex = start + count;
+    swap(arr[pivotIndex], arr[start]);
 
-    // Now enable the UART to send interrupts - RX only
-    uart_set_irq_enables(UART_ID, true, false);
+    // Sorting left and right parts of the pivot element
+    int i = start, j = end;
+
+    while (i < pivotIndex && j > pivotIndex)
+    {
+
+        while (arr[i] <= pivot)
+        {
+            i++;
+        }
+
+        while (arr[j] > pivot)
+        {
+            j--;
+        }
+
+        if (i < pivotIndex && j > pivotIndex)
+        {
+            swap(arr[i++], arr[j--]);
+        }
+    }
+
+    return pivotIndex;
+}
+void quickSort(int arr[], int start, int end)
+{
+
+    // base case
+    if (start >= end)
+        return;
+
+    // partitioning the array
+    int p = partition(arr, start, end);
+
+    // Sorting the left part
+    quickSort(arr, start, p - 1);
+
+    // Sorting the right part
+    quickSort(arr, p + 1, end);
 }
 void BluetoothSend(string message)
 {
     uart_puts(UART_ID, message.c_str());
+}
+
+void LORANoiseFloorCalibrate()
+{
+    int noise_measurements[number_of_measurements];
+
+    for (int i = 0; i < number_of_measurements; i++)
+    {
+        noise_measurements[i] = LoRa.rssi();
+    }
+    int discriminate_noise_measurments[number_of_measurements - discriminate_measurments];
+    quickSort(noise_measurements, 0, number_of_measurements - 1)
 }
 
 void LORASetup(void)
@@ -186,13 +229,13 @@ int LORAReceive(int packetSize = -1)
     {
         incoming += (char)LoRa.read();
     }
-    BluetoothSend("messageRecived\n");
     if (sender == waiting_ok_id && incomingType == OK_MESSAGE)
     {
         ok_recieved = true;
         printf("received message");
         ready_to_send_telemetry = true;
         cancel_alarm(alarm_id);
+        sent_packets++;
         BluetoothSend("Response recieved\n");
     }
     if (recipient != ID && recipient != 0)
@@ -221,29 +264,40 @@ int LORAReceive(int packetSize = -1)
     printf("RSSI: %d\n", RSSI);
     printf("Snr: %d\n", SNR);
     string toSend = "";
-    BluetoothSend("Received from: 0x" + std::to_string(sender) + "\n Message type:" + std::to_string(incomingType) + "\n packetSize:" + std::to_string(packetSize) + "\n RSSI:" + std::to_string(RSSI) + "dbm\n SNR: " + std::to_string(SNR) + "\nMessage content" + incoming);
-
+    if (incomingType == OK_MESSAGE)
+    {
+    }
+    else
+    {
+        BluetoothSend("\nReceived from: 0x" + std::to_string(sender) + "\n Message type:" + std::to_string(incomingType) + "\n packetSize:" + std::to_string(packetSize) + "\n RSSI:" + std::to_string(RSSI) + "dbm\n SNR: " + std::to_string(SNR) + "\nMessage content" + incoming + "\n");
+    }
     // gpio_put(LED_PIN, 0);
     recieving = false;
     LoRa.receive();
     return incomingType;
 }
+int64_t readyTelemetryTimer(alarm_id_t id, void *user_data)
+{
+    ready_to_send_telemetry = true;
+    return 0;
+}
 int64_t setOvertime(alarm_id_t id, void *user_data)
 {
-    printf("overtime: \n");
+    printf("overtime \n");
     waiting_overtime = true;
-    lost_packets++; //
-    ready_to_send_telemetry = true;
+    lost_packets += 1; //
     cancel_alarm(alarm_id);
-    BluetoothSend("Response timout\n");
+    random_break = LoRa.random() * 5;
+    add_alarm_in_ms(random_break, readyTelemetryTimer, NULL, false);
+    // BluetoothSend("Response timout\n");
     return 0;
 }
 bool LORASendMessage(string message, int8_t message_type, bool confirmation, bool ignore_trafic)
 {
-    printf("sending message type %d, configrmation %d\n", message_type, confirmation);
+    // printf("sending message type %d, configrmation %d\n", message_type, confirmation);
     int failed_attempts = 0;
     bool sent = false;
-    int random_break = LoRa.random();
+    random_break = LoRa.random();
     while (!sent)
     {
         printf("failed attempts %d\n", failed_attempts);
@@ -348,8 +402,17 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
     }
     LoRa.receive();
     printf("ready to send: %d", ready_to_send_telemetry);
-    BluetoothSend("ready to send: " + std::to_string(ready_to_send_telemetry));
-    /* BluetoothSend("\n packetloss: " + std::to_string((lost_packets / (lost_packets + sent_packets) * 100)) + "% sent packets: " + std::to_string(lost_packets + sent_packets) + "\n");*/
+    float packetloss;
+    if ((lost_packets + sent_packets) != 0)
+    {
+        packetloss = (float(lost_packets) / float(sent_packets + lost_packets)) * 100;
+    }
+    else
+    {
+        packetloss = 2;
+    }
+    printf("packetloss: %f", packetloss);
+    BluetoothSend("\n packetloss:  " + std::to_string(packetloss) + " sent packets: " + std::to_string(sent_packets) + "\n lost packets: " + std::to_string(lost_packets) + "\n");
     return sent;
 }
 void LORARecieveCallback(int packetsize)
@@ -362,8 +425,8 @@ bool sendTelemetry(struct repeating_timer *t)
 {
     if (ready_to_send_telemetry == true)
     {
-        // voltage = Voltage.getVoltage();
-        // message = "\n voltages: " + std::to_string(voltage);
+        voltage = Voltage.getVoltage();
+        message = "\n voltages: " + std::to_string(voltage);
         //  printf("lol");
         LORASendMessage(message, STRING_TELEMETRY_MESSAGE, true, false);
         printf("lol\n");
@@ -376,6 +439,46 @@ bool sendTelemetry(struct repeating_timer *t)
     return true;
 }
 
+void BluetoothUARTRX()
+{
+    printf("nice");
+    string message;
+    BluetoothSend("nice");
+    while (uart_is_readable(UART_ID))
+    {
+        uint8_t ch = uart_getc(UART_ID);
+        printf("%c", ch);
+        message += ch;
+        // Can we send it back?
+        /*if (uart_is_writable(UART_ID)) {
+            // Change it slightly first!
+            ch++;
+            uart_putc(UART_ID, ch);
+        }*/
+        BL_chars_rxed++;
+    }
+    printf(message.c_str());
+    LORASendMessage(message, STRING_MESSAGE, true, false);
+}
+void BluetoothSetup(void)
+{
+    uart_init(UART_ID, UART_BAUD_RATE);
+
+    // Set the TX and RX pins by using the function select on the GPIO
+    // Set datasheet for more information on function select
+    gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+    gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+    uart_set_format(UART_ID, DATA_BITS, STOP_BITS, PARITY);
+
+    int UART_IRQ = UART_ID == uart0 ? UART0_IRQ : UART1_IRQ;
+
+    // And set up and enable the interrupt handlers
+    irq_set_exclusive_handler(UART_IRQ, BluetoothUARTRX);
+    irq_set_enabled(UART_IRQ, true);
+
+    // Now enable the UART to send interrupts - RX only
+    uart_set_irq_enables(UART_ID, true, false);
+}
 int main()
 {
     stdio_init_all();
@@ -421,6 +524,8 @@ int main()
     {
 
         tight_loop_contents();
+        /* printf("RSSI: %d\n", LoRa.rssi());
+         sleep_ms(100);*/
         // LORAReceive();
     }
     return 0;
