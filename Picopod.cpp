@@ -36,9 +36,9 @@ static int BL_chars_rxed = 0;
 
 const uint LED_PIN = 25;
 
-bool send_telemtery = true;
-int ID = 1;
-int target_device = 2;
+bool send_telemtery = false;
+int ID = 2;
+int target_device = 1;
 
 int spreading_factor = 8;
 int power_level = 20;
@@ -47,7 +47,7 @@ int bandwidth = 41.7E3;
 int time_before_confirmation_failed_ms = 10;
 int attempts_before_failing = 3;
 
-int telemetry_update = 200;
+int telemetry_update = 2000;
 
 // working values
 int lost_packets = 0;
@@ -70,7 +70,7 @@ int waiting_ok_id = 0;
 bool ok_recieved = false;
 bool waiting_overtime = false;
 bool ready_to_send_telemetry = true;
-struct alarm_pool *toDestroyTimer;
+int alarm_id = 0;
 // We're going to erase and reprogram a region 256k from the start of flash.
 // Once done, we can access this at XIP_BASE + 256k.
 /*#define FLASH_TARGET_OFFSET (256 * 1024)
@@ -192,7 +192,7 @@ int LORAReceive(int packetSize = -1)
         ok_recieved = true;
         printf("received message");
         ready_to_send_telemetry = true;
-        alarm_pool_destroy(toDestroyTimer);
+        cancel_alarm(alarm_id);
         BluetoothSend("Response recieved\n");
     }
     if (recipient != ID && recipient != 0)
@@ -234,7 +234,7 @@ int64_t setOvertime(alarm_id_t id, void *user_data)
     waiting_overtime = true;
     lost_packets++; //
     ready_to_send_telemetry = true;
-    alarm_pool_destroy(toDestroyTimer);
+    cancel_alarm(alarm_id);
     BluetoothSend("Response timout\n");
     return 0;
 }
@@ -292,9 +292,7 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
                 waiting_overtime = false;
                 waiting_ok_id = target_device;
 
-                /*toDestroyTimer = alarm_pool_create(0, 1);*/
-
-                // alarm_pool_add_alarm_in_ms(toDestroyTimer, time_before_confirmation_failed_ms, setOvertime, NULL, false);
+                alarm_id = add_alarm_in_ms(time_before_confirmation_failed_ms, setOvertime, NULL, false);
                 ready_to_send_telemetry = false;
                 // BluetoothSend("waiting for response\n");
                 /* while (true)
@@ -369,6 +367,10 @@ bool sendTelemetry(struct repeating_timer *t)
         //  printf("lol");
         LORASendMessage(message, STRING_TELEMETRY_MESSAGE, true, false);
         printf("lol\n");
+    }
+    else
+    {
+        printf("lol no\n");
     }
 
     return true;
