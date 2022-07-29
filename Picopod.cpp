@@ -36,18 +36,18 @@ static int BL_chars_rxed = 0;
 
 const uint LED_PIN = 25;
 
-bool send_telemtery = true;
-int ID = 1;
-int target_device = 2;
+bool send_telemtery = false;
+int ID = 2;
+int target_device = 1;
 
 int spreading_factor = 12;
 int power_level = 20;
 int bandwidth = 41.7E3;
 
-int time_before_confirmation_failed_ms = 1350;
+int time_before_confirmation_failed_ms = 2000;
 int attempts_before_failing = 10;
 
-int telemetry_update = 4000;
+int telemetry_update = 6000;
 
 // working values
 int lost_packets = 0;
@@ -256,6 +256,7 @@ int LORAReceive(int packetSize = -1)
         printf("This message is not for me.\n");
         recieving = false;
         gpio_put(LED_PIN, 0);
+        ready_to_send_telemetry = true;
         return ERROR_NO_MESSAGE; // if there's no packet,'skip rest of function
     }
     if (confirmation)
@@ -282,10 +283,11 @@ int LORAReceive(int packetSize = -1)
     }
     else
     {
-        BluetoothSend("\nReceived from: 0x" + std::to_string(sender) + "\n Message type:" + std::to_string(incomingType) + "\n packetSize:" + std::to_string(packetSize) + "\n RSSI:" + std::to_string(RSSI) + "dbm\n SNR: " + std::to_string(SNR) + "\nMessage content" + incoming + "\n");
     }
+    BluetoothSend("\nReceived from: 0x" + std::to_string(sender) + "\n Message type:" + std::to_string(incomingType) + "\n packetSize:" + std::to_string(packetSize) + "\n RSSI:" + std::to_string(RSSI) + "dbm\n SNR: " + std::to_string(SNR) + "\nMessage content" + incoming + "\n");
     // gpio_put(LED_PIN, 0);
     recieving = false;
+    ready_to_send_telemetry = true;
     LoRa.receive();
     return incomingType;
 }
@@ -377,9 +379,11 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
         {
             printf("rf traffic");
             failed_attempts++;
-            LORAReceive();
+            // LORAReceive();
+            LoRa.receive();
         }
     }
+    // LoRa.receive();
     LoRa.receive();
     printf("ready to send: %d", ready_to_send_telemetry);
     float packetloss;
@@ -403,6 +407,17 @@ void LORARecieveCallback(int packetsize)
 
 bool sendTelemetry(struct repeating_timer *t)
 {
+    float packetloss;
+    if ((lost_packets + sent_packets) != 0)
+    {
+        packetloss = (float(lost_packets) / float(sent_packets + lost_packets)) * 100;
+    }
+    else
+    {
+        packetloss = 2;
+    }
+    printf(("\n send telemetry packetloss:  " + std::to_string(packetloss) + " sent packets: " + std::to_string(sent_packets) + "\n lost packets: " + std::to_string(lost_packets) + "\n").c_str());
+    BluetoothSend("\n packetloss:  " + std::to_string(packetloss) + " sent packets: " + std::to_string(sent_packets) + "\n lost packets: " + std::to_string(lost_packets) + "\n");
     if (ready_to_send_telemetry == true)
     {
         voltage = Voltage.getVoltage();
