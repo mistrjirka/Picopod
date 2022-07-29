@@ -40,14 +40,14 @@ bool send_telemtery = true;
 int ID = 2;
 int target_device = 1;
 
-int spreading_factor = 10;
+int spreading_factor = 8;
 int power_level = 20;
 int bandwidth = 41.7E3;
 
 int time_before_confirmation_failed_ms = 1200;
 int attempts_before_failing = 3;
 
-int telemetry_update = 2000;
+int telemetry_update = 3000;
 
 // working values
 int lost_packets = 0;
@@ -60,9 +60,9 @@ uint8_t msgCount = 0; // count of outgoing messages
 
 int RSSI = 0;
 int SNR = 0;
-int noise_floor = -120;
+float noise_floor = -120;
 int number_of_measurements = 20;
-int time_between_measurements = 10;
+int time_between_measurements = 50;
 int discriminate_measurments = 4;
 
 string recieved_message = "";
@@ -156,9 +156,19 @@ void LORANoiseFloorCalibrate()
     for (int i = 0; i < number_of_measurements; i++)
     {
         noise_measurements[i] = LoRa.rssi();
+        sleep_ms(time_between_measurements);
     }
     int discriminate_noise_measurments[number_of_measurements - discriminate_measurments];
-    quickSort(noise_measurements, 0, number_of_measurements - 1)
+    quickSort(noise_measurements, 0, number_of_measurements - 1);
+    float average = 0;
+    for (int i = 0; i < (number_of_measurements - discriminate_measurments); i++)
+    {
+        average += noise_measurements[i];
+        discriminate_noise_measurments[i] = noise_measurements[i];
+    }
+    average = average / (number_of_measurements - discriminate_measurments);
+    noise_floor = average;
+    // BluetoothSend("RSSI floor: " + std::to_string(noise_floor) + "dbm");
 }
 
 void LORASetup(void)
@@ -177,6 +187,7 @@ void LORASetup(void)
     LoRa.setTxPower(power_level);
     LoRa.setSpreadingFactor(spreading_factor);
     LoRa.setSignalBandwidth(bandwidth);
+    LORANoiseFloorCalibrate();
 }
 void LORAchangePowerLevel(int powerLevel)
 {
@@ -428,7 +439,7 @@ bool sendTelemetry(struct repeating_timer *t)
         voltage = Voltage.getVoltage();
         message = "\n voltages: " + std::to_string(voltage);
         //  printf("lol");
-        LORASendMessage(message, STRING_TELEMETRY_MESSAGE, true, false);
+        LORASendMessage(message, STRING_TELEMETRY_MESSAGE, false, false);
         printf("lol\n");
     }
     else
@@ -487,14 +498,15 @@ int main()
     gpio_put(LED_PIN, 0);
     Voltage.initVoltage(26, 2);
     LORASetup();
-    printf("settingup bluetooth");
     BluetoothSetup();
 
-    if (send_telemtery)
-    {
-        struct repeating_timer telemetry_timer;
-        add_repeating_timer_ms(telemetry_update, sendTelemetry, NULL, &telemetry_timer);
-    }
+    printf("settingup bluetooth");
+
+    /* if (send_telemtery)
+      {
+          struct repeating_timer telemetry_timer;
+          add_repeating_timer_ms(telemetry_update, sendTelemetry, NULL, &telemetry_timer);
+      }
     /* if (!LoRa.begin(433.05E6)) {  }
     Voltage.initVoltage(26,2);
      if(flash_target_contents[FLASH_TARGET_OFFSET+CONFIGSET_OFFSET] != 0xf5){
@@ -517,8 +529,8 @@ int main()
             printf("\nSAVED\n");
 
         }*/
-    LoRa.onReceive(LORARecieveCallback);
-    LoRa.receive(); // recieve mode*/
+    /*  LoRa.onReceive(LORARecieveCallback);
+      LoRa.receive(); // recieve mode*/
 
     while (true)
     {
@@ -527,6 +539,13 @@ int main()
         /* printf("RSSI: %d\n", LoRa.rssi());
          sleep_ms(100);*/
         // LORAReceive();
+        /*RSSI = LoRa.rssi();
+        if (RSSI > noise_floor)
+        {
+            printf("someone is transmitting %d noisefloor: %f\n", RSSI, noise_floor);
+            BluetoothSend("someone is transmitting" + std::to_string(RSSI) + " noise_floor" + std::to_string(noise_floor) + "\n");
+        }
+        printf("floor %f current: %d\n", noise_floor, RSSI);*/
     }
     return 0;
 }
