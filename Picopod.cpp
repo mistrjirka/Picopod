@@ -37,17 +37,17 @@ static int BL_chars_rxed = 0;
 const uint LED_PIN = 25;
 
 bool send_telemtery = true;
-int ID = 2;
-int target_device = 1;
+int ID = 1;
+int target_device = 2;
 
-int spreading_factor = 8;
+int spreading_factor = 12;
 int power_level = 20;
 int bandwidth = 41.7E3;
 
-int time_before_confirmation_failed_ms = 1200;
+int time_before_confirmation_failed_ms = 1350;
 int attempts_before_failing = 10;
 
-int telemetry_update = 3000;
+int telemetry_update = 4000;
 
 // working values
 int lost_packets = 0;
@@ -248,7 +248,7 @@ int LORAReceive(int packetSize = -1)
         printf("received message");
         ready_to_send_telemetry = true;
         cancel_alarm(alarm_id);
-        sent_packets++;
+        sent_packets += 1;
         BluetoothSend("Response recieved\n");
     }
     if (recipient != ID && recipient != 0)
@@ -300,6 +300,7 @@ int64_t setOvertime(alarm_id_t id, void *user_data)
     printf("overtime \n");
     waiting_overtime = true;
     lost_packets += 1; //
+    printf("hello there %d\n", lost_packets);
     cancel_alarm(alarm_id);
     random_break = LoRa.random() * 5;
     add_alarm_in_ms(random_break, readyTelemetryTimer, NULL, false);
@@ -349,52 +350,13 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
             {
                 printf("confirmation true\n");
                 int RecieveType = 0;
-                /*for (int i = 0; time_before_confirmation_failed_ms > i; i++)
-                {
 
-                    RecieveType = LORAReceive();
-                    if (RecieveType == OK_MESSAGE)
-                    {
-                        printf("recieved OK message\n");
-                        sent_packets += 1;
-                        sent = true;
-                        break;
-                    }
-                }*/
                 waiting_overtime = false;
                 waiting_ok_id = target_device;
 
                 alarm_id = add_alarm_in_ms(time_before_confirmation_failed_ms, setOvertime, NULL, false);
                 ready_to_send_telemetry = false;
-                // BluetoothSend("waiting for response\n");
-                /* while (true)
-                 {
-                 }
-                 /*while (!waiting_overtime)
-                 {
-                     tight_loop_contents();
-                     if (ok_recieved)
-                     {
-                         printf("recieved OK message\n");
-                         sent_packets += 1;
-                         sent = true;
-                         // alarm_pool_destroy(toDestroyTimer);
-                         break;
-                     }
-                     sleep_ms(1);
-                 }*/
 
-                /* lost_packets += 1;
-                 if (sent)
-                 {
-                     printf("success_breaking\n");
-                     break;
-                 }
-                 else
-                 {
-                     // alarm_pool_destroy(toDestroyTimer);
-                     lost_packets += 1;
-                 }*/
                 printf("Waiting for response breaking\n");
                 break;
             }
@@ -429,7 +391,7 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
     {
         packetloss = 2;
     }
-    printf("packetloss: %f", packetloss);
+    printf(("\n packetloss:  " + std::to_string(packetloss) + " sent packets: " + std::to_string(sent_packets) + "\n lost packets: " + std::to_string(lost_packets) + "\n").c_str());
     BluetoothSend("\n packetloss:  " + std::to_string(packetloss) + " sent packets: " + std::to_string(sent_packets) + "\n lost packets: " + std::to_string(lost_packets) + "\n");
     return sent;
 }
@@ -445,9 +407,7 @@ bool sendTelemetry(struct repeating_timer *t)
     {
         voltage = Voltage.getVoltage();
         message = "\n voltages: " + std::to_string(voltage);
-        //  printf("lol");
-        LORASendMessage(message, STRING_TELEMETRY_MESSAGE, false, false);
-        printf("lol\n");
+        LORASendMessage(message, STRING_TELEMETRY_MESSAGE, true, false);
     }
     else
     {
@@ -467,12 +427,7 @@ void BluetoothUARTRX()
         uint8_t ch = uart_getc(UART_ID);
         printf("%c", ch);
         message += ch;
-        // Can we send it back?
-        /*if (uart_is_writable(UART_ID)) {
-            // Change it slightly first!
-            ch++;
-            uart_putc(UART_ID, ch);
-        }*/
+
         BL_chars_rxed++;
     }
     printf(message.c_str());
@@ -514,30 +469,7 @@ int main()
         struct repeating_timer telemetry_timer;
         add_repeating_timer_ms(telemetry_update, sendTelemetry, NULL, &telemetry_timer);
     }
-    printf("dalej");
 
-    /* if (!LoRa.begin(433.05E6)) {  }
-    Voltage.initVoltage(26,2);
-     if(flash_target_contents[FLASH_TARGET_OFFSET+CONFIGSET_OFFSET] != 0xf5){
-
-            flash_range_erase(FLASH_TARGET_OFFSET, CONFIG_SIZE);
-            uint8_t id = 0;
-            uint8_t target = 0;
-            printf("\nPlease input this device ID:");
-           id = getchar();
-            /*printf("\nOK");
-            printf("\nPlease enter the target device ID:");
-            target = getchar();
-            printf("\nOK \n SAVING...\n");
-            uint8_t data[CONFIG_SIZE];
-            data[CONFIGSET_OFFSET] = 0xf5;
-            data[CONFIGID_OFFSET] = id;
-            data[CONFIGTARGET_OFFSET] = target;
-            flash_range_erase(FLASH_TARGET_OFFSET, CONFIG_SIZE);
-            flash_range_program(FLASH_TARGET_OFFSET, data, CONFIG_SIZE);
-            printf("\nSAVED\n");
-
-        }*/
     LoRa.onReceive(LORARecieveCallback);
 
     while (true)
