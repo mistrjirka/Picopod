@@ -45,7 +45,7 @@ int power_level = 20;
 int bandwidth = 41.7E3;
 
 int time_before_confirmation_failed_ms = 1200;
-int attempts_before_failing = 3;
+int attempts_before_failing = 10;
 
 int telemetry_update = 3000;
 
@@ -60,10 +60,11 @@ uint8_t msgCount = 0; // count of outgoing messages
 
 int RSSI = 0;
 int SNR = 0;
-float noise_floor = -120;
-int number_of_measurements = 20;
-int time_between_measurements = 50;
-int discriminate_measurments = 4;
+float noise_floor = -164;
+int number_of_measurements = 40;
+int time_between_measurements = 40;
+int discriminate_measurments = 0;
+float squelch = +10;
 
 string recieved_message = "";
 bool recieving = false;
@@ -151,6 +152,7 @@ void BluetoothSend(string message)
 
 void LORANoiseFloorCalibrate()
 {
+    LoRa.receive();
     int noise_measurements[number_of_measurements];
 
     for (int i = 0; i < number_of_measurements; i++)
@@ -167,7 +169,7 @@ void LORANoiseFloorCalibrate()
         discriminate_noise_measurments[i] = noise_measurements[i];
     }
     average = average / (number_of_measurements - discriminate_measurments);
-    noise_floor = average;
+    noise_floor = average + squelch;
     // BluetoothSend("RSSI floor: " + std::to_string(noise_floor) + "dbm");
 }
 
@@ -290,6 +292,7 @@ int LORAReceive(int packetSize = -1)
 int64_t readyTelemetryTimer(alarm_id_t id, void *user_data)
 {
     ready_to_send_telemetry = true;
+    printf("overtime fired\n");
     return 0;
 }
 int64_t setOvertime(alarm_id_t id, void *user_data)
@@ -317,15 +320,19 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
             printf("Failed to send a message, too much RF traffic.\n");
             break;
         }
-        printf("Parse Packet: %d recieveing %d ignore %d together %d", LoRa.parsePacket(), recieving, ignore_trafic, ((LoRa.parsePacket() == 0 && recieving == false) || ignore_trafic));
-        if ((LoRa.parsePacket() == 0 && recieving == false) || ignore_trafic)
+        RSSI = LoRa.rssi();
+        printf("\n\nParse Packet: %d recieveing %d ignore %d together %d RSSI %d noise: %f\n\n", noise_floor <= RSSI, recieving, ignore_trafic, ((RSSI <= noise_floor && recieving == false) || ignore_trafic), RSSI, noise_floor);
+
+        if ((RSSI <= noise_floor && recieving == false) || ignore_trafic)
         {
 
             printf("rf sending\n");
             int n = message.length();
             char messageToSend[n + 1];
             strcpy(messageToSend, message.c_str());
+
             gpio_put(LED_PIN, 1);
+            printf("writing packet");
             LoRa.beginPacket();                    // start packet
             LoRa.write(target_device);             // add destination address
             LoRa.write(ID);                        // add sender address
@@ -406,7 +413,7 @@ bool LORASendMessage(string message, int8_t message_type, bool confirmation, boo
         }
         else
         {
-            // printf("rf traffic");
+            printf("rf traffic");
             failed_attempts++;
             LORAReceive();
         }
@@ -502,11 +509,13 @@ int main()
 
     printf("settingup bluetooth");
 
-    /* if (send_telemtery)
-      {
-          struct repeating_timer telemetry_timer;
-          add_repeating_timer_ms(telemetry_update, sendTelemetry, NULL, &telemetry_timer);
-      }
+    if (send_telemtery)
+    {
+        struct repeating_timer telemetry_timer;
+        add_repeating_timer_ms(telemetry_update, sendTelemetry, NULL, &telemetry_timer);
+    }
+    printf("dalej");
+
     /* if (!LoRa.begin(433.05E6)) {  }
     Voltage.initVoltage(26,2);
      if(flash_target_contents[FLASH_TARGET_OFFSET+CONFIGSET_OFFSET] != 0xf5){
@@ -529,23 +538,12 @@ int main()
             printf("\nSAVED\n");
 
         }*/
-    /*  LoRa.onReceive(LORARecieveCallback);
-      LoRa.receive(); // recieve mode*/
+    LoRa.onReceive(LORARecieveCallback);
 
     while (true)
     {
 
         tight_loop_contents();
-        /* printf("RSSI: %d\n", LoRa.rssi());
-         sleep_ms(100);*/
-        // LORAReceive();
-        /*RSSI = LoRa.rssi();
-        if (RSSI > noise_floor)
-        {
-            printf("someone is transmitting %d noisefloor: %f\n", RSSI, noise_floor);
-            BluetoothSend("someone is transmitting" + std::to_string(RSSI) + " noise_floor" + std::to_string(noise_floor) + "\n");
-        }
-        printf("floor %f current: %d\n", noise_floor, RSSI);*/
     }
     return 0;
 }
