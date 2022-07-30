@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include "Picopod.h"
+#include "lib/mathextension/mathextension.h"
 #include "pico/stdlib.h"
 #include "hardware/spi.h"
 #include "hardware/uart.h"
@@ -36,7 +38,7 @@ static int BL_chars_rxed = 0;
 
 const uint LED_PIN = 25;
 
-bool send_telemtery = false;
+bool send_telemtery = true;
 int ID = 2;
 int target_device = 1;
 
@@ -83,68 +85,7 @@ int alarm_id = 0;
 const uint8_t *flash_target_contents = (const uint8_t *) (XIP_BASE +
 FLASH_TARGET_OFFSET);
 */
-void swap(int &a, int &b)
-{
-    int t = a;
-    a = b;
-    b = t;
-}
-int partition(int arr[], int start, int end)
-{
 
-    int pivot = arr[start];
-
-    int count = 0;
-    for (int i = start + 1; i <= end; i++)
-    {
-        if (arr[i] <= pivot)
-            count++;
-    }
-
-    // Giving pivot element its correct position
-    int pivotIndex = start + count;
-    swap(arr[pivotIndex], arr[start]);
-
-    // Sorting left and right parts of the pivot element
-    int i = start, j = end;
-
-    while (i < pivotIndex && j > pivotIndex)
-    {
-
-        while (arr[i] <= pivot)
-        {
-            i++;
-        }
-
-        while (arr[j] > pivot)
-        {
-            j--;
-        }
-
-        if (i < pivotIndex && j > pivotIndex)
-        {
-            swap(arr[i++], arr[j--]);
-        }
-    }
-
-    return pivotIndex;
-}
-void quickSort(int arr[], int start, int end)
-{
-
-    // base case
-    if (start >= end)
-        return;
-
-    // partitioning the array
-    int p = partition(arr, start, end);
-
-    // Sorting the left part
-    quickSort(arr, start, p - 1);
-
-    // Sorting the right part
-    quickSort(arr, p + 1, end);
-}
 void BluetoothSend(string message)
 {
     uart_puts(UART_ID, message.c_str());
@@ -161,7 +102,7 @@ void LORANoiseFloorCalibrate()
         sleep_ms(time_between_measurements);
     }
     int discriminate_noise_measurments[number_of_measurements - discriminate_measurments];
-    quickSort(noise_measurements, 0, number_of_measurements - 1);
+    MathExtension.quickSort(noise_measurements, 0, number_of_measurements - 1);
     float average = 0;
     for (int i = 0; i < (number_of_measurements - discriminate_measurments); i++)
     {
