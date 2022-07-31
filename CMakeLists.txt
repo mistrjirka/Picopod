@@ -33,8 +33,8 @@ add_compile_options(-Wall
         -Wno-maybe-uninitialized
         )
 
-pico_enable_stdio_usb(Picopod 1)
-pico_enable_stdio_uart(Picopod 0)
+pico_enable_stdio_usb(Picopod 0)
+pico_enable_stdio_uart(Picopod 1)
 add_subdirectory(lib)
 target_link_libraries(Picopod pico_stdlib)
 
@@ -50,6 +50,7 @@ target_link_libraries(Picopod
         LoRa_pico_lib
         sensors_voltage
         mathextension
+        loramessenger
 )
 
 

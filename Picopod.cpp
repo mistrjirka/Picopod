@@ -7,7 +7,7 @@
 #include "hardware/irq.h"
 #include "lib/bluetooth/bluetooth.h"
 #include "lib/voltage/voltage.h"
-#include "lib/lora/LoRa-RP2040.h"
+#include "lib/loramessenger/loramessenger.h"
 #include <hardware/flash.h>
 
 // We're going to erase and reprogram a region 256k from the start of flash.
@@ -63,11 +63,17 @@ int main()
         add_repeating_timer_ms(telemetry_update, sendTelemetry, NULL, &telemetry_timer);
     }*/
 
-    //LoRa.onReceive(LORARecieveCallback);
+    // LoRa.onReceive(LORARecieveCallback);
+    LoraMessenger.LORASetup();
+    int result[15];
 
     while (true)
     {
-
+        LoraMessenger.LORANoiseCalibrateAllChannels(result);
+        for (int i = 0; i < 15; i++)
+        {
+            printf("noise on channel %d: %d  \n", i + 1, result[i]);
+        }
         tight_loop_contents();
     }
     return 0;

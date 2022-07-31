@@ -11,7 +11,6 @@ irq_handler_t BluetoothClass::BluetoothUARTRX()
 {
     printf("nice");
     char *message;
-    BluetoothSend("nice");
     while (uart_is_readable(UART_ID))
     {
         uint8_t ch = uart_getc(UART_ID);
@@ -21,6 +20,7 @@ irq_handler_t BluetoothClass::BluetoothUARTRX()
         BL_chars_rxed++;
     }
     printf(message);
+    return 0;
 }
 
 void BluetoothClass::BluetoothSetup(irq_handler_t bluetoothUartrx)

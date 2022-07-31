@@ -3,41 +3,65 @@
 #include "../mathextension/mathextension.h"
 #include "loramessenger.h"
 #include <stdio.h>
-void LoraMessengerClass::LORANoiseFloorCalibrate()
-{
-    LoRa.receive();
-    int noise_measurements[number_of_measurements];
+#include <math.h>
 
-    for (int i = 0; i < number_of_measurements; i++)
+double LoraMessengerClass::channels[15] =
+    {433.05e6, 433.175e6, 433.3e6, 433.425e6, 433.55e6, 433.675e6, 433.8e6, 433.925e6, 434.05e6, 434.175e6, 434.3e6, 434.425e6, 434.55e6, 434.675e6, 434.8e6};
+int LoraMessengerClass::num_of_channels = NUM_OF_CHANNELS;
+float LoraMessengerClass::noise_floor_per_channel[15] = {-100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0};
+int LoraMessengerClass::current_channel = DEFAULT_CHANNEL;
+
+int LoraMessengerClass::time_between_measurements = TIME_BETWEEN_MEASUREMENTS;
+int LoraMessengerClass::squelch = DEFAULT_SQUELCH;
+int LoraMessengerClass::LORANoiseFloorCalibrate(int channel, bool save /* = true */)
+{
+    LoRa.idle();
+
+    LoRa.setFrequency(channels[channel]);
+    LoRa.receive();
+    int noise_measurements[NUMBER_OF_MEASUREMENTS];
+
+    for (int i = 0; i < NUMBER_OF_MEASUREMENTS; i++)
     {
         noise_measurements[i] = LoRa.rssi();
         sleep_ms(time_between_measurements);
     }
-    int discriminate_noise_measurments[number_of_measurements - discriminate_measurments];
-    MathExtension.quickSort(noise_measurements, 0, number_of_measurements - 1);
-    float average = 0;
-    for (int i = 0; i < (number_of_measurements - discriminate_measurments); i++)
+
+    MathExtension.quickSort(noise_measurements, 0, NUMBER_OF_MEASUREMENTS - 1);
+    int average = 0;
+    for (int i = 0; i < (NUMBER_OF_MEASUREMENTS - DISCRIMINATE_MEASURMENTS); i++)
     {
         average += noise_measurements[i];
-        discriminate_noise_measurments[i] = noise_measurements[i];
     }
-    average = average / (number_of_measurements - discriminate_measurments);
-    noise_floor = average + squelch;
-    // BluetoothSend("RSSI floor: " + std::to_string(noise_floor) + "dbm");
+    average = average / (NUMBER_OF_MEASUREMENTS - DISCRIMINATE_MEASURMENTS);
+    if (save)
+    {
+        noise_floor_per_channel[channel] = (int)(average + squelch);
+    }
+    return (int)(average + squelch);
 }
-bool LoraMessengerClass::LORASetup(int default_channel = DEFAULT_CHANNEL, int default_spreading_factor = DEFAULT_SPREADING_FACTOR, int default_bandwidth = DEFAULT_SPREADING_FACTOR, int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER)
+void LoraMessengerClass::LORANoiseCalibrateAllChannels(int to_save[NUM_OF_CHANNELS], bool save /*= true*/)
 {
-    if (!LoRa.begin(default_channel))
+    for (int i = 0; i < NUM_OF_CHANNELS; i++)
+    {
+        to_save[i] = LORANoiseFloorCalibrate(i, save);
+    }
+}
+bool LoraMessengerClass::LORASetup(int default_channel /* = DEFAULT_CHANNEL*/, int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/, int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/, int squelch /*= DEFAULT_SQUELCH*/, int default_power /* = DEFAULT_POWER*/)
+{
+    if (!LoRa.begin(channels[default_channel]))
     { // initialize ratio at 915 MHz
         printf("LoRa init failed. Check your connections.\n");
         return false;
     }
+    current_channel = default_channel;
     LoRa.setTxPower(default_power);
     LoRa.setSpreadingFactor(default_spreading_factor);
     LoRa.setSignalBandwidth(default_bandwidth);
-    LORANoiseFloorCalibrate();
+    LORANoiseFloorCalibrate(default_channel);
     return true;
 }
+LoraMessengerClass LoraMessenger;
 
 /*
 const uint LED_PIN = 25;
