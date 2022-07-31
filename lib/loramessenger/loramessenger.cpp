@@ -13,6 +13,15 @@ int LoraMessengerClass::current_channel = DEFAULT_CHANNEL;
 
 int LoraMessengerClass::time_between_measurements = TIME_BETWEEN_MEASUREMENTS;
 int LoraMessengerClass::squelch = DEFAULT_SQUELCH;
+
+void LoraSendHailingRequest(int channel, int target_device)
+{
+    LoRa.beginPacket();        // start packet
+    LoRa.write(target_device); // add destination address
+    LoRa.write(ID);            // add sender address
+    LoRa.write(COMMUNICATION_HAILING);
+}
+
 int LoraMessengerClass::LORANoiseFloorCalibrate(int channel, bool save /* = true */)
 {
     LoRa.idle();
