@@ -3,7 +3,11 @@
 #include "../mathextension/mathextension.h"
 #include "loramessenger.h"
 #include <stdio.h>
+#include <functional>
+#include <stdlib.h>
 #include <math.h>
+
+void (*onRecieve)(Packet);
 
 double LoraMessengerClass::channels[15] =
     {433.05e6, 433.175e6, 433.3e6, 433.425e6, 433.55e6, 433.675e6, 433.8e6, 433.925e6, 434.05e6, 434.175e6, 434.3e6, 434.425e6, 434.55e6, 434.675e6, 434.8e6};
@@ -13,13 +17,61 @@ int LoraMessengerClass::current_channel = DEFAULT_CHANNEL;
 
 int LoraMessengerClass::time_between_measurements = TIME_BETWEEN_MEASUREMENTS;
 int LoraMessengerClass::squelch = DEFAULT_SQUELCH;
+std::vector<Packet> LoraMessengerClass::responseQueue = {};
 
-void LoraSendHailingRequest(int channel, int target_device)
+std::vector<Packet> LoraMessengerClass::sendingQueue = {};
+
+int64_t timeoutPacket(alarm_id_t id, void *user_data)
+{
+    Packet packet = *(Packet *)user_data;
+    int index = -1;
+    int tmp_index = 0;
+    for (Packet tmp : LoraMessengerClass::responseQueue)
+    {
+        if (tmp.id == packet.id)
+        {
+            index = tmp_index;
+            break;
+        }
+        tmp_index++;
+    }
+}
+bool LBTHandlerCallback(struct repeating_timer *rt)
+{
+    Packet packet = *(Packet *)rt->user_data;
+    LoRa.receive();
+    int RSSI = LoRa.rssi();
+    if (RSSI <= LoraMessengerClass::noise_floor_per_channel[packet.channel])
+    {
+        LoRa.endPacket();
+    }
+    if (packet.confirmation == true)
+    {
+        add_alarm_in_ms(packet.timeout, timeoutPacket, &packet, true);
+    }
+    return 0;
+}
+void LoraSendPacketLBT(Packet packet) // number one open hailing frequencie!:)
+{
+
+    struct repeating_timer timer;
+
+    add_repeating_timer_ms(50, LBTHandlerCallback, &packet, &timer);
+}
+
+void LoraSendPairingRequest(int target_device, int channel) // number one open hailing frequencie!:)
 {
     LoRa.beginPacket();        // start packet
     LoRa.write(target_device); // add destination address
     LoRa.write(ID);            // add sender address
-    LoRa.write(COMMUNICATION_HAILING);
+    LoRa.write(COMMUNICATION_PAIRING);
+}
+void LoraAcceptPairingRequest(int target_device, int channel)
+{
+    LoRa.beginPacket();        // start packet
+    LoRa.write(target_device); // add destination address
+    LoRa.write(ID);            // add sender address
+    LoRa.write(COMMUNICATION_APPROVED);
 }
 
 int LoraMessengerClass::LORANoiseFloorCalibrate(int channel, bool save /* = true */)
@@ -53,23 +105,105 @@ void LoraMessengerClass::LORANoiseCalibrateAllChannels(int to_save[NUM_OF_CHANNE
 {
     for (int i = 0; i < NUM_OF_CHANNELS; i++)
     {
-        to_save[i] = LORANoiseFloorCalibrate(i, save);
+        to_save[i] = this->LORANoiseFloorCalibrate(i, save);
     }
 }
-bool LoraMessengerClass::LORASetup(int default_channel /* = DEFAULT_CHANNEL*/, int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/, int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/, int squelch /*= DEFAULT_SQUELCH*/, int default_power /* = DEFAULT_POWER*/)
+void LoraRecieve(int packetSize)
+{
+    if (packetSize == -1)
+    {
+        return; // if there's no packet, return
+    }
+
+    // gpio_put(LED_PIN, 1);
+
+    // read packet header uint8_ts:
+    int recipient = LoRa.read();        // recipient address
+    uint8_t sender = LoRa.read();       // sender address
+    uint8_t incomingType = LoRa.read(); // incoming msg type
+    if (recipient == ID)
+    {
+        if (incomingType == COMMUNICATION_PAIRING)
+        {
+            LoraAcceptPairingRequest(sender, LoraMessengerClass::current_channel);
+        }
+        else
+        {
+
+            /*char *incoming = "";
+
+            while (LoRa.available())
+            {
+                incoming += (char)LoRa.read();
+            }
+            if (sender == waiting_ok_id && incomingType == OK_MESSAGE)
+            {
+                ok_recieved = true;
+                printf("received message");
+                ready_to_send_telemetry = true;
+                cancel_alarm(alarm_id);
+                sent_packets += 1;
+            }
+            if (recipient != ID && recipient != 0)
+            {
+                printf("This message is not for me.\n");
+                recieving = false;
+                gpio_put(LED_PIN, 0);
+                ready_to_send_telemetry = true;
+                return ERROR_NO_MESSAGE; // if there's no packet,'skip rest of function
+            }
+            if (confirmation)
+            {
+                printf("sending ok");
+                LORASendOKMessage();
+            }
+            recieved_message = incoming;
+            RSSI = LoRa.packetRssi();
+            SNR = LoRa.packetSnr();
+
+            printf("Received from: 0x%x\n", sender);
+            printf("Sent to: 0x%x\n", recipient);
+            printf("Message ID: %d\n", incomingMsgId);
+            printf("Message length: %d\n", incomingLength);
+            printf("Message Type: %d\n", incomingType);
+            printf("Message confirmation: %d\n", confirmation);
+            printf(("Message content: " + incoming + "\n").c_str());
+            printf("RSSI: %d\n", RSSI);
+            printf("Snr: %d\n", SNR);
+            char *toSend = "";
+            if (incomingType == OK_MESSAGE)
+            {
+            }
+            else
+            {
+            }
+            // BluetoothSend("\nReceived from: 0x" + std::to_string(sender) + "\n Message type:" + std::to_string(incomingType) + "\n packetSize:" + std::to_string(packetSize) + "\n RSSI:" + std::to_string(RSSI) + "dbm\n SNR: " + std::to_string(SNR) + "\nMessage content" + incoming + "\n");
+            //  gpio_put(LED_PIN, 0);
+            recieving = false;
+            */
+        }
+    }
+    LoRa.receive();
+}
+
+bool LoraMessengerClass::LORASetup(void (*onRecieveCallback)(Packet), int default_channel /* = DEFAULT_CHANNEL*/, int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/, int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/, int squelch /*= DEFAULT_SQUELCH*/, int default_power /* = DEFAULT_POWER*/)
 {
     if (!LoRa.begin(channels[default_channel]))
     { // initialize ratio at 915 MHz
         printf("LoRa init failed. Check your connections.\n");
         return false;
     }
-    current_channel = default_channel;
+    this->current_channel = default_channel;
     LoRa.setTxPower(default_power);
     LoRa.setSpreadingFactor(default_spreading_factor);
     LoRa.setSignalBandwidth(default_bandwidth);
-    LORANoiseFloorCalibrate(default_channel);
+    this->LORANoiseFloorCalibrate(default_channel);
+    LoRa.onReceive(LoraRecieve);
+
+    onRecieve = *onRecieveCallback;
     return true;
 }
+
 LoraMessengerClass LoraMessenger;
 
 /*

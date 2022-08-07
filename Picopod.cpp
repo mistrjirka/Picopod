@@ -45,6 +45,10 @@ bool sendTelemetry(struct repeating_timer *t)
     return true;
 }
 */
+void lol(Packet nice)
+{
+}
+
 int main()
 {
     stdio_init_all();
@@ -64,7 +68,7 @@ int main()
     }*/
 
     // LoRa.onReceive(LORARecieveCallback);
-    LoraMessenger.LORASetup();
+    LoraMessenger.LORASetup(lol);
     int result[15];
 
     while (true)
