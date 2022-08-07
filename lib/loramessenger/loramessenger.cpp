@@ -6,6 +6,7 @@
 #include <functional>
 #include <stdlib.h>
 #include <math.h>
+#include <vector>
 
 void (*onRecieve)(Packet);
 
@@ -35,6 +36,11 @@ int64_t timeoutPacket(alarm_id_t id, void *user_data)
         }
         tmp_index++;
     }
+    if (index != -1)
+    {
+        LoraMessengerClass::responseQueue.erase(LoraMessengerClass::responseQueue.begin() + index);
+    }
+    return 0;
 }
 bool LBTHandlerCallback(struct repeating_timer *rt)
 {
@@ -47,6 +53,7 @@ bool LBTHandlerCallback(struct repeating_timer *rt)
     }
     if (packet.confirmation == true)
     {
+        LoraMessengerClass::responseQueue.push_back(packet);
         add_alarm_in_ms(packet.timeout, timeoutPacket, &packet, true);
     }
     return 0;
@@ -123,13 +130,93 @@ void LoraRecieve(int packetSize)
     uint8_t incomingType = LoRa.read(); // incoming msg type
     if (recipient == ID)
     {
-        if (incomingType == COMMUNICATION_PAIRING)
+        int index = -1;
+        int tmp_index = 0;
+        for (Packet tmp : LoraMessengerClass::responseQueue)
         {
-            LoraAcceptPairingRequest(sender, LoraMessengerClass::current_channel);
+            if (sender == tmp.sender && incomingType == tmp.incomingType)
+            {
+                index = tmp_index;
+                break;
+            }
+            tmp_index++;
+        }
+
+        if (index != -1)
+        {
+            switch (incomingType)
+            {
+            case COMMUNICATION_APPROVED:
+                LoraMessengerClass::addressBook.push_back(sender);
+                char *message = "";
+                while (LoRa.available())
+                {
+                    message += (char)LoRa.read();
+                }
+
+                Packet packetToSend;
+                packetToSend.content = message;
+                packetToSend.type = incomingType;
+                packetToSend.channel = LoraMessengerClass::current_channel;
+                packetToSend.sender = sender;
+                (*onRecieve)(packetToSend);
+                break;
+            case COMMUNICATION_OK_MESSAGE:
+                char *message = "";
+                while (LoRa.available())
+                {
+                    message += (char)LoRa.read();
+                }
+
+                Packet packetToSend;
+                packetToSend.content = message;
+                packetToSend.type = incomingType;
+                packetToSend.channel = LoraMessengerClass::current_channel;
+                packetToSend.sender = sender;
+                (*onRecieve)(packetToSend);
+                break;
+            }
         }
         else
         {
+            switch (incomingType)
+            {
+            case COMMUNICATION_PAIRING:
 
+                LoraAcceptPairingRequest(sender, LoraMessengerClass::current_channel);
+                char *message = "";
+                while (LoRa.available())
+                {
+                    message += (char)LoRa.read();
+                }
+
+                Packet packetToSend;
+                packetToSend.content = message;
+                packetToSend.type = incomingType;
+                packetToSend.channel = LoraMessengerClass::current_channel;
+                packetToSend.sender = sender;
+                char *message = "";
+                while (LoRa.available())
+                {
+                    message += (char)LoRa.read();
+                }
+                (*onRecieve)(packetToSend);
+                break;
+            case COMMUNICATION_STRING_MESSAGE:
+                char *message = "";
+                while (LoRa.available())
+                {
+                    message += (char)LoRa.read();
+                }
+                Packet packetToSend;
+                packetToSend.content = message;
+                packetToSend.type = incomingType;
+                packetToSend.channel = LoraMessengerClass::current_channel;
+                packetToSend.sender = sender;
+
+                (*onRecieve)(packetToSend);
+                break;
+            }
             /*char *incoming = "";
 
             while (LoRa.available())

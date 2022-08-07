@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 #define SPI_PORT spi1
 #define PIN_MISO 12
@@ -23,8 +24,8 @@
 
 #define ERROR_NO_MESSAGE 0
 #define ERROR_INVALID_RECIPIENT 1
-#define OK_MESSAGE 2
-#define STRING_MESSAGE 3
+#define COMMUNICATION_OK_MESSAGE 2
+#define COMMUNICATION_STRING_MESSAGE 3
 #define COMMUNICATION_PAIRING 4
 #define COMMUNICATION_APPROVED 5
 #define COMMUNICATION_DECLINED 6
@@ -39,14 +40,14 @@ struct Packet
 {
     int type;
     int sender;
-    int timeout;
-    char *content;
-    bool confirmation;
-    int expecedReturn;
+    int timeout = 1000;
+    char *content = "";
+    bool confirmation = true;
+    int incomingType;
     int channel;
-    int id;
-    int timer_id;
-    bool sent;
+    int id = -1;
+    int timer_id = -1;
+    bool sent = true;
 };
 
 class LoraMessengerClass
@@ -68,6 +69,7 @@ public:
     static int current_channel;
     static std::vector<Packet> responseQueue;
     static std::vector<Packet> sendingQueue;
+    static std::vector<int> addressBook;
     static int time_between_measurements;
     static int squelch;
     void LoraSendPacketLBT(Packet packet);
