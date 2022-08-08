@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
+#include <string.h>
+#include <stdlib.h>
 #include "Picopod.h"
 #include "lib/mathextension/mathextension.h"
 #include "hardware/spi.h"
@@ -9,7 +11,8 @@
 #include "lib/voltage/voltage.h"
 #include "lib/loramessenger/loramessenger.h"
 #include <hardware/flash.h>
-
+#define L 20
+unsigned char str[L + 1];
 // We're going to erase and reprogram a region 256k from the start of flash.
 // Once done, we can access this at XIP_BASE + 256k.
 /*#define FLASH_TARGET_OFFSET (256 * 1024)
@@ -47,8 +50,17 @@ bool sendTelemetry(struct repeating_timer *t)
 */
 void lol(Packet nice)
 {
+    printf("%d", nice.incomingType);
 }
+unsigned char *readLine()
+{
 
+    unsigned char u, *p;
+    for (p = str, u = getchar(); u != '\r' && p - str < L; u = getchar())
+        putchar(*p++ = u);
+    *p = 0;
+    return str;
+}
 int main()
 {
     stdio_init_all();
@@ -69,14 +81,14 @@ int main()
 
     // LoRa.onReceive(LORARecieveCallback);
     LoraMessenger.LORASetup(lol);
+
     int result[15];
 
     while (true)
     {
-        LoraMessenger.LORANoiseCalibrateAllChannels(result);
-        for (int i = 0; i < 15; i++)
+        char *message = readLine();
+        if (strstr(message))
         {
-            printf("noise on channel %d: %d  \n", i + 1, result[i]);
         }
         tight_loop_contents();
     }

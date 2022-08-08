@@ -21,12 +21,14 @@ int LoraMessengerClass::squelch = DEFAULT_SQUELCH;
 std::vector<Packet> LoraMessengerClass::responseQueue = {};
 
 std::vector<Packet> LoraMessengerClass::sendingQueue = {};
+std::vector<int> LoraMessengerClass::addressBook = {};
 
 int64_t timeoutPacket(alarm_id_t id, void *user_data)
 {
     Packet packet = *(Packet *)user_data;
     int index = -1;
     int tmp_index = 0;
+    cancel_repeating_timer(packet.repeating_timer_id);
     for (Packet tmp : LoraMessengerClass::responseQueue)
     {
         if (tmp.id == packet.id)
@@ -50,12 +52,15 @@ bool LBTHandlerCallback(struct repeating_timer *rt)
     if (RSSI <= LoraMessengerClass::noise_floor_per_channel[packet.channel])
     {
         LoRa.endPacket();
+        cancel_repeating_timer(rt);
+        if (packet.confirmation == true)
+        {
+            LoraMessengerClass::responseQueue.push_back(packet);
+            cancel_alarm(packet.timer_id);
+            packet.timer_id = add_alarm_in_ms(packet.timeout, timeoutPacket, &packet, true);
+        }
     }
-    if (packet.confirmation == true)
-    {
-        LoraMessengerClass::responseQueue.push_back(packet);
-        add_alarm_in_ms(packet.timeout, timeoutPacket, &packet, true);
-    }
+
     return 0;
 }
 void LoraSendPacketLBT(Packet packet) // number one open hailing frequencie!:)
@@ -63,22 +68,44 @@ void LoraSendPacketLBT(Packet packet) // number one open hailing frequencie!:)
 
     struct repeating_timer timer;
 
+    packet.repeating_timer_id = &timer;
+    packet.timer_id = add_alarm_in_ms(packet.timeout, timeoutPacket, &packet, true);
     add_repeating_timer_ms(50, LBTHandlerCallback, &packet, &timer);
 }
 
 void LoraSendPairingRequest(int target_device, int channel) // number one open hailing frequencie!:)
 {
+    Packet packet;
+    packet.target = target_device;
+    packet.type = COMMUNICATION_PAIRING;
+    packet.confirmation = true;
+    packet.incomingType = COMMUNICATION_APPROVED;
+    packet.channel = channel;
+    packet.id = 0;
+    packet.sent = false;
+    packet.timeout = 10000;
     LoRa.beginPacket();        // start packet
-    LoRa.write(target_device); // add destination address
+    LoRa.write(packet.target); // add destination address
     LoRa.write(ID);            // add sender address
     LoRa.write(COMMUNICATION_PAIRING);
+    LoraSendPacketLBT(packet);
 }
 void LoraAcceptPairingRequest(int target_device, int channel)
 {
+    Packet packet;
+    packet.target = target_device;
+    packet.type = COMMUNICATION_PAIRING;
+    packet.confirmation = false;
+    packet.incomingType = COMMUNICATION_NO_MESSAGE;
+    packet.channel = channel;
+    packet.id = 0;
+    packet.sent = false;
+    packet.timeout = 10000;
     LoRa.beginPacket();        // start packet
     LoRa.write(target_device); // add destination address
     LoRa.write(ID);            // add sender address
     LoRa.write(COMMUNICATION_APPROVED);
+    LoraSendPacketLBT(packet);
 }
 
 int LoraMessengerClass::LORANoiseFloorCalibrate(int channel, bool save /* = true */)
@@ -123,18 +150,21 @@ void LoraRecieve(int packetSize)
     }
 
     // gpio_put(LED_PIN, 1);
+    char *message = "";
 
     // read packet header uint8_ts:
     int recipient = LoRa.read();        // recipient address
     uint8_t sender = LoRa.read();       // sender address
     uint8_t incomingType = LoRa.read(); // incoming msg type
+
     if (recipient == ID)
     {
+        Packet packetToSend;
         int index = -1;
         int tmp_index = 0;
         for (Packet tmp : LoraMessengerClass::responseQueue)
         {
-            if (sender == tmp.sender && incomingType == tmp.incomingType)
+            if (sender == tmp.target && incomingType == tmp.incomingType)
             {
                 index = tmp_index;
                 break;
@@ -148,31 +178,28 @@ void LoraRecieve(int packetSize)
             {
             case COMMUNICATION_APPROVED:
                 LoraMessengerClass::addressBook.push_back(sender);
-                char *message = "";
                 while (LoRa.available())
                 {
                     message += (char)LoRa.read();
                 }
 
-                Packet packetToSend;
                 packetToSend.content = message;
                 packetToSend.type = incomingType;
                 packetToSend.channel = LoraMessengerClass::current_channel;
-                packetToSend.sender = sender;
+                packetToSend.target = sender;
                 (*onRecieve)(packetToSend);
                 break;
             case COMMUNICATION_OK_MESSAGE:
-                char *message = "";
                 while (LoRa.available())
                 {
                     message += (char)LoRa.read();
                 }
 
-                Packet packetToSend;
                 packetToSend.content = message;
                 packetToSend.type = incomingType;
                 packetToSend.channel = LoraMessengerClass::current_channel;
-                packetToSend.sender = sender;
+                packetToSend.target = sender;
+
                 (*onRecieve)(packetToSend);
                 break;
             }
@@ -184,35 +211,27 @@ void LoraRecieve(int packetSize)
             case COMMUNICATION_PAIRING:
 
                 LoraAcceptPairingRequest(sender, LoraMessengerClass::current_channel);
-                char *message = "";
                 while (LoRa.available())
                 {
                     message += (char)LoRa.read();
                 }
 
-                Packet packetToSend;
                 packetToSend.content = message;
                 packetToSend.type = incomingType;
                 packetToSend.channel = LoraMessengerClass::current_channel;
-                packetToSend.sender = sender;
-                char *message = "";
-                while (LoRa.available())
-                {
-                    message += (char)LoRa.read();
-                }
+                packetToSend.target = sender;
+
                 (*onRecieve)(packetToSend);
                 break;
             case COMMUNICATION_STRING_MESSAGE:
-                char *message = "";
                 while (LoRa.available())
                 {
                     message += (char)LoRa.read();
                 }
-                Packet packetToSend;
                 packetToSend.content = message;
                 packetToSend.type = incomingType;
                 packetToSend.channel = LoraMessengerClass::current_channel;
-                packetToSend.sender = sender;
+                packetToSend.target = sender;
 
                 (*onRecieve)(packetToSend);
                 break;

@@ -22,7 +22,7 @@
 
 #define TIME_BETWEEN_MEASUREMENTS 15
 
-#define ERROR_NO_MESSAGE 0
+#define COMMUNICATION_NO_MESSAGE 0
 #define ERROR_INVALID_RECIPIENT 1
 #define COMMUNICATION_OK_MESSAGE 2
 #define COMMUNICATION_STRING_MESSAGE 3
@@ -39,7 +39,7 @@
 struct Packet
 {
     int type;
-    int sender;
+    int target;
     int timeout = 1000;
     char *content = "";
     bool confirmation = true;
@@ -47,7 +47,8 @@ struct Packet
     int channel;
     int id = -1;
     int timer_id = -1;
-    bool sent = true;
+    repeating_timer_t *repeating_timer_id;
+    bool sent = false;
 };
 
 class LoraMessengerClass
