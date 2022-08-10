@@ -92,7 +92,7 @@ bool LBTHandlerCallback(struct repeating_timer *rt)
         }
     }
 
-    return 0;
+    return true;
 }
 
 void LoraSendPacketLBT() // number one open hailing frequencie!:)
@@ -106,7 +106,7 @@ void LoraSendPacketLBT() // number one open hailing frequencie!:)
     // struct repeating_timer timer;
 
     // LBTHandlerCallback(&timer);
-    add_repeating_timer_ms(5000, LBTHandlerCallback, NULL, &LoraMessengerClass::LBTTimer);
+    add_repeating_timer_ms(200, LBTHandlerCallback, NULL, &LoraMessengerClass::LBTTimer);
 }
 
 void LoraSendPairingRequest() // number one open hailing frequencie!:)
@@ -201,7 +201,7 @@ void LoraMessengerClass::LORANoiseCalibrateAllChannels(int to_save[NUM_OF_CHANNE
         to_save[i] = this->LORANoiseFloorCalibrate(i, save);
     }
 }
-void LORASendPacket(Packet packet)
+void LoraMessengerClass::LORASendPacket(Packet packet)
 {
     LoraMessengerClass::sendingQueue.push_back(packet);
 };
@@ -327,7 +327,7 @@ void LoraRecieve(int packetSize)
                 acceptPacket.type = COMMUNICATION_APPROVED;
                 acceptPacket.channel = LoraMessengerClass::current_channel;
 
-                LORASendPacket(acceptPacket);
+                LoraMessengerClass::LORASendPacket(acceptPacket);
                 while (LoRa.available())
                 {
                     message += (char)LoRa.read();
@@ -378,6 +378,7 @@ bool LORASendingDeamon(struct repeating_timer *rt)
         {
         }
     }
+    return true;
 }
 
 bool LoraMessengerClass::LORASetup(void (*onRecieveCallback)(Packet), int default_channel /* = DEFAULT_CHANNEL*/, int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/, int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/, int squelch /*= DEFAULT_SQUELCH*/, int default_power /* = DEFAULT_POWER*/, int default_coding_rate /*DEFAULT_CODING_RATE*/)

@@ -91,8 +91,12 @@ int main()
         char ch = getchar_timeout_us(0);
         if (ch == 's')
         {
-
-            test();
+            Packet packet;
+            packet.target = 2;
+            packet.channel = LoraMessengerClass::current_channel;
+            packet.type = COMMUNICATION_PAIRING;
+            LoraMessengerClass::LORASendPacket(packet);
+            //test();
             // LoraSendPacketLBT();
             //  LoraMessenger.LoraSendPairingRequest(2, LoraMessengerClass::current_channel);
         }
