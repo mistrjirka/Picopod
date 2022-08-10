@@ -48,6 +48,7 @@ bool sendTelemetry(struct repeating_timer *t)
     return true;
 }
 */
+
 void lol(Packet nice)
 {
     printf("%d", nice.incomingType);
@@ -61,6 +62,7 @@ unsigned char *readLine()
     *p = 0;
     return str;
 }
+
 int main()
 {
     stdio_init_all();
@@ -86,9 +88,13 @@ int main()
 
     while (true)
     {
-        char *message = readLine();
-        if (strstr(message))
+        char ch = getchar_timeout_us(0);
+        if (ch == 's')
         {
+
+            test();
+            // LoraSendPacketLBT();
+            //  LoraMessenger.LoraSendPairingRequest(2, LoraMessengerClass::current_channel);
         }
         tight_loop_contents();
     }

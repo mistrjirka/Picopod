@@ -5,4 +5,5 @@ target_link_libraries(loramessenger
     LoRa_pico_lib
     mathextension
     bluetooth
+    hardware_timer
 )
