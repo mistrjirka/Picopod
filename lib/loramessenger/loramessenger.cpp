@@ -18,7 +18,7 @@ int LoraMessengerClass::current_channel = DEFAULT_CHANNEL;
 
 int LoraMessengerClass::time_between_measurements = TIME_BETWEEN_MEASUREMENTS;
 int LoraMessengerClass::squelch = DEFAULT_SQUELCH;
-std::vector<Packet> LoraMessengerClass::responseQueue = {};
+//std::vector<Packet> LoraMessengerClass::responseQueue = {};
 
 std::vector<Packet> LoraMessengerClass::sendingQueue = {};
 std::vector<PairedDevice> LoraMessengerClass::addressBook = {};
@@ -27,17 +27,25 @@ int LoraMessengerClass::current_power = DEFAULT_POWER;
 int LoraMessengerClass::current_bandwidth = DEFAULT_BANDWIDTH;
 int LoraMessengerClass::current_spreading_factor = DEFAULT_SPREADING_FACTOR;
 bool LoraMessengerClass::sending = false;
+int LoraMessengerClass::packetId = 0;
 struct repeating_timer LoraMessengerClass::LBTTimer;
+struct repeating_timer LoraMessengerClass::ProcessingTimer;
 struct Packet LoraMessengerClass::current_packet;
+
+int LoraMessengerClass::LORAGetId()
+{
+    LoraMessengerClass::packetId++;
+    return LoraMessengerClass::packetId;
+}
 int64_t timeoutPacket(alarm_id_t id, void *user_data)
 {
-    Packet packet = *(Packet *)user_data;
+
     int index = -1;
     int tmp_index = 0;
     cancel_repeating_timer(&LoraMessengerClass::LBTTimer);
-    for (Packet tmp : LoraMessengerClass::responseQueue)
+    for (Packet tmp : LoraMessengerClass::sendingQueue)
     {
-        if (tmp.id == packet.id)
+        if (tmp.id == LoraMessengerClass::current_packet.id)
         {
             index = tmp_index;
             break;
@@ -46,15 +54,15 @@ int64_t timeoutPacket(alarm_id_t id, void *user_data)
     }
     if (index != -1)
     {
-        LoraMessengerClass::responseQueue.erase(LoraMessengerClass::responseQueue.begin() + index);
+        LoraMessengerClass::sendingQueue.erase(LoraMessengerClass::sendingQueue.begin() + index);
     }
-    if (packet.type == COMMUNICATION_PAIRING)
+    if (LoraMessengerClass::current_packet.type == COMMUNICATION_PAIRING)
     {
         index = -1;
         tmp_index = 0;
         for (PairedDevice tmp : LoraMessengerClass::addressBook)
         {
-            if (tmp.id == packet.id)
+            if (tmp.id == LoraMessengerClass::current_packet.id)
             {
                 index = tmp_index;
                 break;
@@ -71,55 +79,50 @@ int64_t timeoutPacket(alarm_id_t id, void *user_data)
 }
 bool LBTHandlerCallback(struct repeating_timer *rt)
 {
-    Packet packet = *(Packet *)rt->user_data;
     LoRa.receive();
     int RSSI = LoRa.rssi();
-    if (RSSI <= LoraMessengerClass::noise_floor_per_channel[packet.channel])
+    if (RSSI <= LoraMessengerClass::noise_floor_per_channel[LoraMessengerClass::current_packet.channel])
     {
         LoRa.endPacket();
         cancel_repeating_timer(rt);
-        if (packet.confirmation == true)
+        if (LoraMessengerClass::current_packet.confirmation == true)
         {
-            LoraMessengerClass::responseQueue.push_back(packet);
-            cancel_alarm(packet.timer_id);
-            packet.timer_id = add_alarm_in_ms(packet.timeout, timeoutPacket, &packet, true);
+            cancel_alarm(LoraMessengerClass::current_packet.timer_id);
+            LoraMessengerClass::current_packet.timer_id = add_alarm_in_ms(LoraMessengerClass::current_packet.timeout, timeoutPacket, NULL, true);
         }
     }
 
     return 0;
 }
 
-void LoraSendPacketLBT(Packet packet) // number one open hailing frequencie!:)
+void LoraSendPacketLBT() // number one open hailing frequencie!:)
 {
 
-    if (packet.confirmation == true)
+    if (LoraMessengerClass::current_packet.confirmation == true)
     {
-        packet.timer_id = add_alarm_in_ms(packet.timeout, timeoutPacket, &packet, true);
+        LoraMessengerClass::current_packet.timer_id = add_alarm_in_ms(LoraMessengerClass::current_packet.timeout, timeoutPacket, NULL, true);
     }
 
     // struct repeating_timer timer;
 
     // LBTHandlerCallback(&timer);
-    add_repeating_timer_ms(5000, LBTHandlerCallback, &packet, &LoraMessengerClass::LBTTimer);
+    add_repeating_timer_ms(5000, LBTHandlerCallback, NULL, &LoraMessengerClass::LBTTimer);
 }
 
-void LoraMessengerClass::LoraSendPairingRequest(int target_device, int channel) // number one open hailing frequencie!:)
+void LoraSendPairingRequest() // number one open hailing frequencie!:)
 {
-    Packet packet;
-    packet.target = target_device;
-    packet.type = COMMUNICATION_PAIRING;
-    packet.confirmation = true;
-    packet.incomingType = COMMUNICATION_APPROVED;
-    packet.channel = channel;
-    packet.id = 0;
-    packet.sent = false;
-    packet.timeout = 10000;
+    LoraMessengerClass::current_packet.type = COMMUNICATION_PAIRING;
+    LoraMessengerClass::current_packet.confirmation = true;
+    LoraMessengerClass::current_packet.incomingType = COMMUNICATION_APPROVED;
+    LoraMessengerClass::current_packet.id = LoraMessengerClass::LORAGetId();
+    LoraMessengerClass::current_packet.sent = false;
+    LoraMessengerClass::current_packet.timeout = 10000;
 
     int index = -1;
     int tmp_index = 0;
     for (PairedDevice tmp : LoraMessengerClass::addressBook)
     {
-        if (tmp.id == target_device)
+        if (tmp.id == LoraMessengerClass::current_packet.target)
         {
             index = tmp_index;
             break;
@@ -130,7 +133,7 @@ void LoraMessengerClass::LoraSendPairingRequest(int target_device, int channel) 
     if (index == -1)
     {
 
-        device.id = target_device;
+        device.id = LoraMessengerClass::current_packet.target;
         device.my_delay = TIME_ON_AIR_MAX * 1.2;
         device.his_delay = TIME_ON_AIR_MAX * 2.4;
         device.paired = false;
@@ -142,29 +145,26 @@ void LoraMessengerClass::LoraSendPairingRequest(int target_device, int channel) 
         LoraMessengerClass::addressBook.at(index).paired = false;
     }
 
-    LoRa.beginPacket();        // start packet
-    LoRa.write(packet.target); // add destination address
-    LoRa.write(ID);            // add sender address
+    LoRa.beginPacket();                                    // start packet
+    LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
+    LoRa.write(ID);                                        // add sender address
     LoRa.write(COMMUNICATION_PAIRING);
     LoRa.write(device.his_delay);
-    LoraSendPacketLBT(packet);
+    LoraSendPacketLBT();
 }
-void LoraAcceptPairingRequest(int target_device, int channel)
+void LoraAcceptPairingRequest()
 {
-    Packet packet;
-    packet.target = target_device;
-    packet.type = COMMUNICATION_PAIRING;
-    packet.confirmation = false;
-    packet.incomingType = COMMUNICATION_NO_MESSAGE;
-    packet.channel = channel;
-    packet.id = 0;
-    packet.sent = false;
-    packet.timeout = 10000;
-    LoRa.beginPacket();        // start packet
-    LoRa.write(target_device); // add destination address
-    LoRa.write(ID);            // add sender address
+    LoraMessengerClass::current_packet.type = COMMUNICATION_PAIRING;
+    LoraMessengerClass::current_packet.confirmation = false;
+    LoraMessengerClass::current_packet.incomingType = COMMUNICATION_NO_MESSAGE;
+    LoraMessengerClass::current_packet.id = LoraMessengerClass::LORAGetId();
+    LoraMessengerClass::current_packet.sent = false;
+    LoraMessengerClass::current_packet.timeout = 10000;
+    LoRa.beginPacket();                                    // start packet
+    LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
+    LoRa.write(ID);                                        // add sender address
     LoRa.write(COMMUNICATION_APPROVED);
-    LoraSendPacketLBT(packet);
+    LoraSendPacketLBT();
 }
 
 int LoraMessengerClass::LORANoiseFloorCalibrate(int channel, bool save /* = true */)
@@ -201,6 +201,11 @@ void LoraMessengerClass::LORANoiseCalibrateAllChannels(int to_save[NUM_OF_CHANNE
         to_save[i] = this->LORANoiseFloorCalibrate(i, save);
     }
 }
+void LORASendPacket(Packet packet)
+{
+    LoraMessengerClass::sendingQueue.push_back(packet);
+};
+
 void LoraRecieve(int packetSize)
 {
     if (packetSize == -1)
@@ -221,7 +226,7 @@ void LoraRecieve(int packetSize)
         Packet packetToSend;
         int index = -1;
         int tmp_index = 0;
-        for (Packet tmp : LoraMessengerClass::responseQueue)
+        for (Packet tmp : LoraMessengerClass::sendingQueue)
         {
             if (sender == tmp.target && incomingType == tmp.incomingType)
             {
@@ -233,6 +238,7 @@ void LoraRecieve(int packetSize)
 
         if (index != -1)
         {
+            //this packet was expected and is pairing request respnse or OK packet
             if (incomingType == COMMUNICATION_APPROVED)
             {
 
@@ -316,8 +322,12 @@ void LoraRecieve(int packetSize)
                 {
                     LoraMessengerClass::addressBook.at(index).my_delay = delay;
                 }
+                Packet acceptPacket;
+                acceptPacket.target = sender;
+                acceptPacket.type = COMMUNICATION_APPROVED;
+                acceptPacket.channel = LoraMessengerClass::current_channel;
 
-                LoraAcceptPairingRequest(sender, LoraMessengerClass::current_channel);
+                LORASendPacket(acceptPacket);
                 while (LoRa.available())
                 {
                     message += (char)LoRa.read();
@@ -349,10 +359,6 @@ void LoraRecieve(int packetSize)
     LoRa.receive();
 }
 
-void LoraMessengerClass::LORASendPacket(Packet packet)
-{
-    this->sendingQueue.push_back(packet);
-};
 bool LORASendingDeamon(struct repeating_timer *rt)
 {
     if (!LoraMessengerClass::sending && !LoraMessengerClass::sendingQueue.empty())
@@ -362,9 +368,11 @@ bool LORASendingDeamon(struct repeating_timer *rt)
 
         if (LoraMessengerClass::current_packet.type == COMMUNICATION_PAIRING)
         {
+            LoraSendPairingRequest();
         }
         else if (LoraMessengerClass::current_packet.type == COMMUNICATION_APPROVED)
         {
+            LoraAcceptPairingRequest();
         }
         else if (LoraMessengerClass::current_packet.type == COMMUNICATION_STRING_MESSAGE)
         {
