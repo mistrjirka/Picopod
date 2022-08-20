@@ -54,8 +54,19 @@ struct Packet
     int incomingType;
     int channel;
     int id = -1;
-    int timer_id = -1;
     bool sent = false;
+};
+
+struct RecievedPacket
+{
+    int type;
+    int target;
+    int sender;
+    int id;
+    int channel;
+    int length;
+    int delay;
+    char *content;
 };
 
 int64_t timeoutPacket(alarm_id_t id, void *user_data);
@@ -65,6 +76,7 @@ extern void LoraSendPacketLBT(/*Packet packet*/);
 void LoraSendPairingRequest();
 void LoraAcceptPairingRequest();
 void LoraRecieve(int packetSize);
+
 class LoraMessengerClass
 {
 private:
@@ -75,7 +87,10 @@ private:
 
     //
     //   void LoraRecieve(int packetSize);
-    void LoraAddPacketToRecieve();
+    void LORAAddPacketToRecieve();
+    void LORAPacketRecieved(RecievedPacket packet);
+    void LORACommunicationApproved(RecievedPacket packet);
+    void LORAPairingRequest(RecievedPacket packet);
 
 public:
     static double channels[15];
@@ -87,21 +102,33 @@ public:
     static int current_bandwidth;
     static int current_spreading_factor;
     static Packet current_packet;
-    //static std::vector<Packet> responseQueue;
+    // static std::vector<Packet> responseQueue;
 
     static std::vector<Packet> sendingQueue;
     static std::vector<PairedDevice> addressBook;
+
+    static std::vector<RecievedPacket> recievedPackets;
+
     static int time_between_measurements;
     static int squelch;
     static struct repeating_timer LBTTimer;
     static struct repeating_timer ProcessingTimer;
     static bool sending;
     static int packetId;
+
+    static int current_packet_timeout;
+    static int attempt_timer;
+
     static int LORAGetId();
+
     static void LORASendPacket(Packet packet);
+    static void LORASendPacketPriority(Packet packet);
+
     int LORANoiseFloorCalibrate(int channel, bool save = true);
+
     void LORANoiseCalibrateAllChannels(int to_save[NUM_OF_CHANNELS], bool save = true);
-    bool LORASetup(void (*onRecieveCallback)(Packet), int default_channel = DEFAULT_CHANNEL, int default_spreading_factor = DEFAULT_SPREADING_FACTOR, int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER, int default_coding_rate = DEFAULT_CODING_RATE);
+
+    bool LORASetup(void (*onRecieveCallback)(RecievedPacket), int default_channel = DEFAULT_CHANNEL, int default_spreading_factor = DEFAULT_SPREADING_FACTOR, int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER, int default_coding_rate = DEFAULT_CODING_RATE);
 };
 
 extern class LoraMessengerClass LoraMessenger;
