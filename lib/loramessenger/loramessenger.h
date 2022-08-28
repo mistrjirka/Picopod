@@ -37,6 +37,7 @@
 #define COMMUNICATION_SPREADING_FACTOR_CHANGE 10
 
 #define ID 1
+
 struct PairedDevice
 {
     int id;
@@ -55,6 +56,8 @@ struct Packet
     int channel;
     int id = -1;
     bool sent = false;
+    bool retry = false;
+    bool failed = false;
 };
 
 struct RecievedPacket
@@ -88,9 +91,8 @@ private:
     //
     //   void LoraRecieve(int packetSize);
     void LORAAddPacketToRecieve();
-    void LORAPacketRecieved(RecievedPacket packet);
-    void LORACommunicationApproved(RecievedPacket packet);
-    void LORAPairingRequest(RecievedPacket packet);
+    static void LORACommunicationApproved(RecievedPacket packet);
+    static void LORAPairingRequest(RecievedPacket packet);
 
 public:
     static double channels[15];
@@ -127,6 +129,8 @@ public:
     int LORANoiseFloorCalibrate(int channel, bool save = true);
 
     void LORANoiseCalibrateAllChannels(int to_save[NUM_OF_CHANNELS], bool save = true);
+
+    static void LORAPacketRecieved(RecievedPacket packet);
 
     bool LORASetup(void (*onRecieveCallback)(RecievedPacket), int default_channel = DEFAULT_CHANNEL, int default_spreading_factor = DEFAULT_SPREADING_FACTOR, int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER, int default_coding_rate = DEFAULT_CODING_RATE);
 };
