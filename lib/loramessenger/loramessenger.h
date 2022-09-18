@@ -13,7 +13,7 @@
 
 #define NUM_OF_CHANNELS 15
 #define DEFAULT_CHANNEL 0
-#define DEFAULT_SPREADING_FACTOR 9
+#define DEFAULT_SPREADING_FACTOR 12
 #define DEFAULT_BANDWIDTH 125E3
 #define DEFAULT_CODING_RATE 2
 #define DEFAULT_SQUELCH 5
@@ -35,6 +35,7 @@
 #define COMMUNICATION_PAUSE 8
 #define COMMUNICATION_FREQUENCY_CHANGE 9
 #define COMMUNICATION_SPREADING_FACTOR_CHANGE 10
+#define MAX_ATTEMPTS 3
 
 #define ID 1
 
@@ -45,6 +46,7 @@ struct PairedDevice
     int his_delay = TIME_ON_AIR_MAX * 2.4;
     bool paired = false;
 };
+
 struct Packet
 {
     int type;
@@ -58,6 +60,7 @@ struct Packet
     bool sent = false;
     bool retry = false;
     bool failed = false;
+    int attempts = 0;
 };
 
 struct RecievedPacket

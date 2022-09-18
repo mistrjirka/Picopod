@@ -51,6 +51,7 @@ target_link_libraries(Picopod
         sensors_voltage
         mathextension
         loramessenger
+        IOUSBBT
 )
 
 
