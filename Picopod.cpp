@@ -51,9 +51,9 @@ int main()
                 packet.content = "";
                 packet.incomingType = COMMUNICATION_APPROVED;
                 LoraMessengerClass::LORASendPacket(packet);
-                // test();
-                //  LoraSendPacketLBT();
-                //   LoraMessenger.LoraSendPairingRequest(2, LoraMessengerClass::current_channel);
+                //test();
+                //LoraSendPacketLBT();
+                //LoraMessenger.LoraSendPairingRequest(2, LoraMessengerClass::current_channel);
             }
             if (*pLine == *"send" && strlen(pLine) == 6)
             {
