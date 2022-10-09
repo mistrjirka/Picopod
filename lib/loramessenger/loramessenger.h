@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
-
+#include <string> 
+#include <string.h>
 #define SPI_PORT spi1
 #define PIN_MISO 12
 #define PIN_CS 13
@@ -52,7 +53,7 @@ struct Packet
     int type;
     int target;
     int timeout = 1000;
-    char *content;
+    std::string content;
     bool confirmation = true;
     int incomingType;
     int channel;
@@ -72,7 +73,7 @@ struct RecievedPacket
     int channel;
     int length;
     int delay;
-    char *content;
+    std::string content;
 };
 
 int64_t timeoutPacket(alarm_id_t id, void *user_data);

@@ -86,7 +86,7 @@ int64_t timeoutPacket(alarm_id_t id, void *user_data)
     cancel_repeating_timer(&LoraMessengerClass::LBTTimer);
     LoraMessengerClass::sending = false;
     LoraMessengerClass::current_packet.failed = true;
-    if (!LoraMessengerClass::current_packet.retry || !LoraMessengerClass::current_packet.attempts > MAX_ATTEMPTS)
+    if (!LoraMessengerClass::current_packet.retry || !(LoraMessengerClass::current_packet.attempts > MAX_ATTEMPTS))
     {
         for (Packet tmp : LoraMessengerClass::sendingQueue)
         {
