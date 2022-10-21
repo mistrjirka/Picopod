@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include <string> 
+#include <string>
 #include <string.h>
 #define SPI_PORT spi1
 #define PIN_MISO 12
@@ -99,6 +99,7 @@ private:
     static void LORAPairingRequest(RecievedPacket packet);
 
 public:
+    static int searchAdressBook(std::vector<PairedDevice> devices, int id);
     static double channels[15];
     static int num_of_channels;
     static float noise_floor_per_channel[15];
@@ -132,7 +133,7 @@ public:
 
     int LORANoiseFloorCalibrate(int channel, bool save = true);
 
-    void LORANoiseCalibrateAllChannels(int to_save[NUM_OF_CHANNELS], bool save = true);
+    void LORANoiseCalibrateAllChannels(bool save = true);
 
     static void LORAPacketRecieved(RecievedPacket packet);
 

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include <cstdlib>
-#include <string> 
+#include <string>
 #include <string.h>
 #include <stdlib.h>
 #include "Picopod.h"
@@ -19,9 +19,27 @@
 void lol(RecievedPacket nice)
 {
     printf("%d", nice.type);
+    if (nice.type == COMMUNICATION_STRING_MESSAGE)
+    {
+        printf("\n\n MESSAGE: \n\n%s", nice.content.c_str());
+    }
 }
 
-int main()
+void getCommand(std::string *command, int *param)
+{
+    printf("%s", (*command).c_str());
+    std::cin.sync();
+
+    std::cin >> (*command) >> (*param);
+    std::cin.ignore();
+}
+
+void getMessage(std::string *message)
+{
+    std::getline(std::cin, *message, '.');
+}
+
+void setup()
 {
     stdio_init_all();
     gpio_init(LED_PIN);
@@ -30,56 +48,69 @@ int main()
     Voltage.initVoltage(26, 2);
 
     LoraMessenger.LORASetup(lol);
-    int result[15];
+}
+
+void listenForCommands(std::string *command, int *id, std::string *message)
+{
+    char startCommands = getchar_timeout_us(0);
+    if (startCommands == 's' && !LoraMessengerClass::sending == true)
+    {
+        printf("\nlistening for commands\n");
+
+        *command = "";
+        *id = -1;
+
+        getCommand(command, id);
+        printf("%s %d", (*command).c_str(), *id);
+        printf("%d", LoraMessengerClass::searchAdressBook(LoraMessengerClass::addressBook, *id));
+
+        if ((*command).find("pair") != -1 && LoraMessengerClass::searchAdressBook(LoraMessengerClass::addressBook, *id) == -1)
+        {
+            printf("\n%d\n", *id);
+            printf("sending packet\n");
+            Packet packet;
+            packet.target = *id;
+            packet.channel = LoraMessengerClass::current_channel;
+            packet.type = COMMUNICATION_PAIRING;
+            packet.content = "";
+            packet.incomingType = COMMUNICATION_APPROVED;
+            LoraMessengerClass::LORASendPacket(packet);
+            //test();
+            //LoraSendPacketLBT();
+            //LoraMessenger.LoraSendPairingRequest(2, LoraMessengerClass::current_channel);
+        }
+        if ((*command).find("send") != -1 && LoraMessengerClass::searchAdressBook(LoraMessengerClass::addressBook, *id) != -1)
+        {
+            printf("type the message then press enter: ");
+
+            getMessage(message);
+
+            if ((*message).length())
+            {
+                Packet packet;
+                packet.target = *id;
+                packet.channel = LoraMessengerClass::current_channel;
+                packet.type = COMMUNICATION_STRING_MESSAGE;
+                packet.content = (*message).c_str();
+
+                packet.incomingType = COMMUNICATION_OK_MESSAGE;
+                LoraMessengerClass::LORASendPacket(packet);
+            }
+        }
+
+        tight_loop_contents();
+    }
+}
+
+int main()
+{
+    setup();
+    std::string command = "";
+    int id = -1;
     std::string message;
     while (true)
     {
-        char startCommands = getchar_timeout_us(0);
-        if (startCommands == 's' && !LoraMessengerClass::sending == true)
-        {
-            printf("\nlistening for commands\n");
-            std::string pLine = "";
-            std::string id;
-            std::cin >> pLine >> id;
-            std::cout << pLine;
-            int pairing = pLine.find("pair");
-            if (pairing != -1)
-            {
-                printf("\n%d\n", id);
-                printf("sending packet\n");
-                Packet packet;
-                packet.target = 0;
-                packet.channel = LoraMessengerClass::current_channel;
-                packet.type = COMMUNICATION_PAIRING;
-                packet.content = "";
-                packet.incomingType = COMMUNICATION_APPROVED;
-                LoraMessengerClass::LORASendPacket(packet);
-                //test();
-                //LoraSendPacketLBT();
-                //LoraMessenger.LoraSendPairingRequest(2, LoraMessengerClass::current_channel);
-            }
-            if (pLine.find("send") == 1 && pLine.length() == 6)
-            {
-                int id = (int)pLine[5] - 48;
-                printf("type the message then press enter: ");
-
-                message = getLine(true, '\r');
-
-                if (message.length())
-                {
-                    Packet packet;
-                    packet.target = id;
-                    packet.channel = LoraMessengerClass::current_channel;
-                    packet.type = COMMUNICATION_STRING_MESSAGE;
-                    packet.content = message.c_str();
-
-                    packet.incomingType = COMMUNICATION_OK_MESSAGE;
-                    LoraMessengerClass::LORASendPacket(packet);
-                }
-            }
-
-            tight_loop_contents();
-        }
+        listenForCommands(&command, &id, &message);
         tight_loop_contents();
     }
     return 0;
