@@ -73,6 +73,8 @@ struct RecievedPacket
     int channel;
     int length;
     int delay;
+    int RSSI;
+    int SNR;
     std::string content;
 };
 

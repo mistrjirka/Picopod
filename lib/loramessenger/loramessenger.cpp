@@ -290,7 +290,6 @@ void LoraMessengerClass::LORASendPacketPriority(Packet packet)
 
 void LoraMessengerClass::LORACommunicationApproved(RecievedPacket packet)
 {
-    printf("communication approved");
     cancel_alarm(LoraMessengerClass::current_packet_timeout);
     int index = searchAdressBook(LoraMessengerClass::addressBook, packet.sender);
     if (index == -1)
@@ -319,7 +318,6 @@ void LoraMessengerClass::LORACommunicationApproved(RecievedPacket packet)
 void LoraMessengerClass::LORAPairingRequest(RecievedPacket packet)
 {
     int delay = (int)packet.delay * 400;
-    printf("delay: %d", delay);
     int index = searchAdressBook(LoraMessengerClass::addressBook, packet.sender);
     PairedDevice device;
 
@@ -349,10 +347,8 @@ void LoraMessengerClass::LORAPacketRecieved(RecievedPacket packet)
 {
     if (packet.type == current_packet.incomingType && !LoraMessengerClass::current_packet.failed) // packet expected
     {
-        printf("packet expected\n");
         if (packet.type == COMMUNICATION_OK_MESSAGE)
         {
-            printf("ok message\n");
             LoraMessengerClass::sending = false;
             (*onRecieve)(packet);
         }
@@ -364,7 +360,6 @@ void LoraMessengerClass::LORAPacketRecieved(RecievedPacket packet)
     }
     else
     { // unexpected packet
-        printf("packet unexpected");
         if (packet.type == COMMUNICATION_PAIRING)
         {
             LoraMessengerClass::LORAPairingRequest(packet);
@@ -398,28 +393,26 @@ void LoraRecieve(int packetSize)
     packet.type = LoRa.read();   // incoming msg type
     packet.content = "";
     string msg = "";
-    printf("packet recieved lol\n");
 
     if (packet.type == COMMUNICATION_STRING_MESSAGE || packet.type == COMMUNICATION_OK_MESSAGE)
     {
         packet.id = LoRa.read();
-        printf("message\n");
     }
     if (packet.type == COMMUNICATION_PAIRING)
     {
         packet.delay = LoRa.read();
-        printf("pairing\n");
     }
-    char ch;
+
     while (LoRa.available())
     {
         char ch = (char)LoRa.read();
-        printf("%c", ch);
         msg.append(1, ch);
         // packet.content += (char)LoRa.read();
     }
     packet.content = const_cast<char *>(msg.c_str());
-    printf("%d \n %d \n %s \n %d \n %d \n RSSI: %d \n SNR: %d ", packet.target, packet.sender, packet.content.c_str(), packet.sender, packet.type, LoRa.packetRssi(), LoRa.packetSnr());
+    packet.RSSI = LoRa.packetRssi();
+    packet.SNR = LoRa.packetSnr();
+
     LoraMessengerClass::LORAPacketRecieved(packet);
     LoRa.receive();
 }
