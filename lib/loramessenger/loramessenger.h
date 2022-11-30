@@ -38,7 +38,7 @@
 #define COMMUNICATION_SPREADING_FACTOR_CHANGE 10
 #define MAX_ATTEMPTS 3
 
-#define ID 1
+#define ID 0
 
 struct PairedDevice
 {

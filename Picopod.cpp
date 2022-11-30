@@ -15,6 +15,7 @@
 #include "lib/IOUSBBT/IOUSBBT.h"
 #include <hardware/flash.h>
 #include <iostream>
+#include <algorithm>
 
 void lol(RecievedPacket packet)
 {
@@ -39,13 +40,14 @@ void getMessage(std::string *message)
 Packet load_packet_information()
 {
     Packet packet;
-    std::cin >> packet.type;
-    std::cin >> packet.incomingType;
-    std::cin >> packet.target;
-    std::cin >> packet.id;
-    std::cin >> packet.channel;
+    packet.type = getchar() - '0';
+    packet.incomingType = getchar() - '0';
+    packet.target = getchar() - '0';
+    packet.id = getchar() - '0';
+    packet.channel = getchar() - '0';
 
     getMessage(&(packet.content));
+    packet.content.erase(remove(packet.content.begin(), packet.content.end(), '\r'), packet.content.end());
     return packet;
 }
 
@@ -69,6 +71,7 @@ void listenForCommands()
         if (packet.channel >= 0 && packet.channel <= 20)
         {
             LoraMessengerClass::LORASendPacket(packet);
+            printf("sent");
         }
         else
         {
@@ -82,8 +85,11 @@ void listenForCommands()
 int main()
 {
     setup();
+    std::cin.sync();
+
     while (true)
     {
+
         listenForCommands();
         tight_loop_contents();
     }
