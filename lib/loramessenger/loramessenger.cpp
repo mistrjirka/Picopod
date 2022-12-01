@@ -172,7 +172,9 @@ void LoraSendPacketLBT() // number one open hailing frequencie!:)
     {
         LoraMessengerClass::current_packet_timeout = add_alarm_in_ms(LoraMessengerClass::current_packet.timeout, timeoutPacket, NULL, true);
     }
+    LoRa.idle();
     LoRa.setFrequency(LoraMessengerClass::channels[LoraMessengerClass::current_packet.channel]);
+    LoRa.receive();
 
     add_repeating_timer_ms(200, LBTHandlerCallback, NULL, &LoraMessengerClass::LBTTimer);
 }
