@@ -174,7 +174,9 @@ void LoraSendPacketLBT() // number one open hailing frequencie!:)
     }
     LoRa.idle();
     LoRa.setFrequency(LoraMessengerClass::channels[LoraMessengerClass::current_packet.channel]);
+    LoraMessengerClass::current_channel = LoraMessengerClass::current_packet.channel;
     LoRa.receive();
+
     add_repeating_timer_ms(200, LBTHandlerCallback, NULL, &LoraMessengerClass::LBTTimer);
 }
 
@@ -259,8 +261,8 @@ void LoraSendOkMessage()
 int LoraMessengerClass::LORANoiseFloorCalibrate(int channel, bool save /* = true */)
 {
     LoRa.idle();
-
     LoRa.setFrequency(channels[channel]);
+    LoraMessengerClass::current_channel = channel;
     LoRa.receive();
     int noise_measurements[NUMBER_OF_MEASUREMENTS];
 
