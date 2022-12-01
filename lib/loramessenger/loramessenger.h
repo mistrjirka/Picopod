@@ -133,7 +133,7 @@ public:
     static void LORASendPacket(Packet packet);
     static void LORASendPacketPriority(Packet packet);
 
-    int LORANoiseFloorCalibrate(int channel, bool save = true);
+    static int LORANoiseFloorCalibrate(int channel, bool save = true);
 
     void LORANoiseCalibrateAllChannels(bool save = true);
 

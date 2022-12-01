@@ -17,6 +17,8 @@ int LoraMessengerClass::num_of_channels = NUM_OF_CHANNELS;
 float LoraMessengerClass::noise_floor_per_channel[15] = {-100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0};
 int LoraMessengerClass::current_channel = DEFAULT_CHANNEL;
 
+int failed_attempts_rssi = 0;
+
 int LoraMessengerClass::time_between_measurements = TIME_BETWEEN_MEASUREMENTS;
 int LoraMessengerClass::squelch = DEFAULT_SQUELCH;
 // std::vector<Packet> LoraMessengerClass::responseQueue = {};
@@ -128,6 +130,7 @@ int64_t timeoutPacket(alarm_id_t id, void *user_data)
 
     return 0;
 }
+
 bool LBTHandlerCallback(struct repeating_timer *rt)
 {
     LoRa.receive();
@@ -149,6 +152,15 @@ bool LBTHandlerCallback(struct repeating_timer *rt)
             LoRa.receive();
         }
     }
+    else
+    {
+        failed_attempts_rssi++;
+        if (failed_attempts_rssi >= 10)
+        {
+            failed_attempts_rssi = 0;
+            LoraMessengerClass::LORANoiseFloorCalibrate(LoraMessengerClass::current_packet.channel, true);
+        }
+    }
 
     return true;
 }
@@ -160,6 +172,7 @@ void LoraSendPacketLBT() // number one open hailing frequencie!:)
     {
         LoraMessengerClass::current_packet_timeout = add_alarm_in_ms(LoraMessengerClass::current_packet.timeout, timeoutPacket, NULL, true);
     }
+    LoRa.setFrequency(LoraMessengerClass::channels[LoraMessengerClass::current_packet.channel]);
 
     add_repeating_timer_ms(200, LBTHandlerCallback, NULL, &LoraMessengerClass::LBTTimer);
 }
@@ -343,6 +356,7 @@ void LoraMessengerClass::LORAPairingRequest(RecievedPacket packet)
 
     LoraMessengerClass::LORASendPacketPriority(acceptPacket);
 }
+
 void LoraMessengerClass::LORAPacketRecieved(RecievedPacket packet)
 {
     if (packet.type == current_packet.incomingType && !LoraMessengerClass::current_packet.failed) // packet expected
@@ -372,7 +386,7 @@ void LoraMessengerClass::LORAPacketRecieved(RecievedPacket packet)
             OkPacket.type = COMMUNICATION_OK_MESSAGE;
             OkPacket.id = packet.id;
             OkPacket.confirmation = false;
-            OkPacket.channel = LoraMessengerClass::current_channel;
+            OkPacket.channel = packet.channel;
             LoraMessengerClass::LORASendPacketPriority(OkPacket);
             (*onRecieve)(packet);
         }
