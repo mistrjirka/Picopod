@@ -70,7 +70,7 @@ void listenForCommands()
         Packet packet = load_packet_information();
         if (packet.channel >= 0 && packet.channel <= 20)
         {
-            LoraMessengerClass::LORASendPacket(packet);
+            LoraMessengerClass::LORAAddPacketToQueue(packet);
             printf("sent");
         }
         else

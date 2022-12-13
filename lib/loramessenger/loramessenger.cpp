@@ -294,12 +294,12 @@ void LoraMessengerClass::LORANoiseCalibrateAllChannels(bool save /*= true*/)
     LoRa.idle();
     LoRa.setFrequency(channels[LoraMessengerClass::current_channel]);
 }
-void LoraMessengerClass::LORASendPacket(Packet packet)
+void LoraMessengerClass::LORAAddPacketToQueue(Packet packet)
 {
     LoraMessengerClass::sendingQueue.push_back(packet);
 };
 
-void LoraMessengerClass::LORASendPacketPriority(Packet packet)
+void LoraMessengerClass::LORAAddPacketToQueuePriority(Packet packet)
 {
     LoraMessengerClass::sendingQueue.insert(LoraMessengerClass::sendingQueue.begin(), packet);
 };
@@ -357,7 +357,7 @@ void LoraMessengerClass::LORAPairingRequest(RecievedPacket packet)
     acceptPacket.type = COMMUNICATION_APPROVED;
     acceptPacket.channel = LoraMessengerClass::current_channel;
 
-    LoraMessengerClass::LORASendPacketPriority(acceptPacket);
+    LoraMessengerClass::LORAAddPacketToQueuePriority(acceptPacket);
 }
 
 void LoraMessengerClass::LORAPacketRecieved(RecievedPacket packet)
@@ -390,7 +390,7 @@ void LoraMessengerClass::LORAPacketRecieved(RecievedPacket packet)
             OkPacket.id = packet.id;
             OkPacket.confirmation = false;
             OkPacket.channel = packet.channel;
-            LoraMessengerClass::LORASendPacketPriority(OkPacket);
+            LoraMessengerClass::LORAAddPacketToQueuePriority(OkPacket);
             (*onRecieve)(packet);
         }
     }
@@ -459,7 +459,7 @@ int64_t LORASendPacket(alarm_id_t id, void *user_data)
     return 0;
 }
 
-bool LORASendingDeamon(struct repeating_timer *rt)
+bool LoraMessengerClass::LORASendingDeamon(struct repeating_timer *rt)
 {
     if (!LoraMessengerClass::sending && !LoraMessengerClass::sendingQueue.empty() && (LoraMessengerClass::current_packet.sent || LoraMessengerClass::current_packet.failed))
     {

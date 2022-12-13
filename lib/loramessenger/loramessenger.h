@@ -130,14 +130,15 @@ public:
 
     static int LORAGetId();
 
-    static void LORASendPacket(Packet packet);
-    static void LORASendPacketPriority(Packet packet);
+    static void LORAAddPacketToQueue(Packet packet);
+    static void LORAAddPacketToQueuePriority(Packet packet);
 
     static int LORANoiseFloorCalibrate(int channel, bool save = true);
 
     void LORANoiseCalibrateAllChannels(bool save = true);
 
     static void LORAPacketRecieved(RecievedPacket packet);
+    static bool LORASendingDeamon(struct repeating_timer *rt);
 
     bool LORASetup(void (*onRecieveCallback)(RecievedPacket), int default_channel = DEFAULT_CHANNEL, int default_spreading_factor = DEFAULT_SPREADING_FACTOR, int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER, int default_coding_rate = DEFAULT_CODING_RATE);
 };
