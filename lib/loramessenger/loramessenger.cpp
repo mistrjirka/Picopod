@@ -1,9 +1,15 @@
+// Include standard library for C math functions
 #include <stdio.h>
+
 #include "pico/stdlib.h"
+// Import LoRa-RP2040 library
 #include "../lora/LoRa-RP2040.h"
+// Import mathextension library
 #include "../mathextension/mathextension.h"
+// Import loramessenger library
 #include "loramessenger.h"
 #include <functional>
+
 #include <stdlib.h>
 #include <math.h>
 #include <vector>
