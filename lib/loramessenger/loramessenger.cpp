@@ -47,6 +47,7 @@ bool LoraMessengerClass::sending = false;
 struct repeating_timer LoraMessengerClass::LBTTimer;
 struct repeating_timer LoraMessengerClass::ProcessingTimer;
 struct Packet LoraMessengerClass::current_packet;
+int LoraMessengerClass::ID = 2;
 
 int LoraMessengerClass::searchAdressBook(std::vector<PairedDevice> devices, int id)
 {
@@ -214,7 +215,7 @@ void LoraSendPairingRequest() // number one open hailing frequencie!:)
     int delay = (int)(device.his_delay / 400);
     LoRa.beginPacket();                                    // start packet
     LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
-    LoRa.write(ID);                                        // add sender address
+    LoRa.write(LoraMessengerClass::ID);                                        // add sender address
     LoRa.write(COMMUNICATION_PAIRING);
     LoRa.write(delay);
     LoraSendPacketLBT();
@@ -228,7 +229,7 @@ void LoraAcceptPairingRequest()
     LoraMessengerClass::current_packet.timeout = 10000;
     LoRa.beginPacket();                                    // start packet
     LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
-    LoRa.write(ID);                                        // add sender address
+    LoRa.write(LoraMessengerClass::ID);                                        // add sender address
     LoRa.write(LoraMessengerClass::current_packet.type);
     LoraSendPacketLBT();
 }
@@ -243,7 +244,7 @@ void LoraSendStringMessage()
     LoraMessengerClass::current_packet.timeout = 10000;
     LoRa.beginPacket();                                    // start packet
     LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
-    LoRa.write(ID);                                        // add sender address
+    LoRa.write(LoraMessengerClass::ID);                                        // add sender address
     LoRa.write(LoraMessengerClass::current_packet.type);
     LoRa.write(LoraMessengerClass::current_packet.id);
     LoRa.print(LoraMessengerClass::current_packet.content.c_str());
@@ -258,7 +259,7 @@ void LoraSendOkMessage()
     LoraMessengerClass::current_packet.sent = false;
     LoRa.beginPacket();                                    // start packet
     LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
-    LoRa.write(ID);                                        // add sender address
+    LoRa.write(LoraMessengerClass::ID);                                        // add sender address
     LoRa.write(LoraMessengerClass::current_packet.type);
     LoRa.write(LoraMessengerClass::current_packet.id);
     LoraSendPacketLBT();
