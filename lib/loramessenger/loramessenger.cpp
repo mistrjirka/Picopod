@@ -22,7 +22,7 @@ double LoraMessengerClass::channels[15] =
 int LoraMessengerClass::num_of_channels = NUM_OF_CHANNELS;
 float LoraMessengerClass::noise_floor_per_channel[15] = {-100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0, -100.0};
 int LoraMessengerClass::current_channel = DEFAULT_CHANNEL;
-
+int LoraMessengerClass::ID = 0;
 int failed_attempts_rssi = 0;
 
 int LoraMessengerClass::time_between_measurements = TIME_BETWEEN_MEASUREMENTS;
@@ -214,7 +214,7 @@ void LoraSendPairingRequest() // number one open hailing frequencie!:)
     int delay = (int)(device.his_delay / 400);
     LoRa.beginPacket();                                    // start packet
     LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
-    LoRa.write(ID);                                        // add sender address
+    LoRa.write(LoraMessengerClass::ID);                                        // add sender address
     LoRa.write(COMMUNICATION_PAIRING);
     LoRa.write(delay);
     LoraSendPacketLBT();
@@ -228,7 +228,7 @@ void LoraAcceptPairingRequest()
     LoraMessengerClass::current_packet.timeout = 10000;
     LoRa.beginPacket();                                    // start packet
     LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
-    LoRa.write(ID);                                        // add sender address
+    LoRa.write(LoraMessengerClass::ID);                                        // add sender address
     LoRa.write(LoraMessengerClass::current_packet.type);
     LoraSendPacketLBT();
 }
@@ -243,7 +243,7 @@ void LoraSendStringMessage()
     LoraMessengerClass::current_packet.timeout = 10000;
     LoRa.beginPacket();                                    // start packet
     LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
-    LoRa.write(ID);                                        // add sender address
+    LoRa.write(LoraMessengerClass::ID);                                        // add sender address
     LoRa.write(LoraMessengerClass::current_packet.type);
     LoRa.write(LoraMessengerClass::current_packet.id);
     LoRa.print(LoraMessengerClass::current_packet.content.c_str());
@@ -258,7 +258,7 @@ void LoraSendOkMessage()
     LoraMessengerClass::current_packet.sent = false;
     LoRa.beginPacket();                                    // start packet
     LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
-    LoRa.write(ID);                                        // add sender address
+    LoRa.write(LoraMessengerClass::ID);                                        // add sender address
     LoRa.write(LoraMessengerClass::current_packet.type);
     LoRa.write(LoraMessengerClass::current_packet.id);
     LoraSendPacketLBT();

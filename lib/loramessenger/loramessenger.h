@@ -38,7 +38,6 @@
 #define COMMUNICATION_SPREADING_FACTOR_CHANGE 10
 #define MAX_ATTEMPTS 3
 
-#define ID 0
 
 struct PairedDevice
 {
@@ -101,6 +100,7 @@ private:
     static void LORAPairingRequest(RecievedPacket packet);
 
 public:
+    static int ID;
     static int searchAdressBook(std::vector<PairedDevice> devices, int id);
     static double channels[15];
     static int num_of_channels;

@@ -79,7 +79,15 @@ void listenForCommands()
         }
 
         tight_loop_contents();
+    }else if(startCommands == 'i'){
+        printf("{\"type\":-1, \"deviceId:\": %d}", LoraMessengerClass::ID);
+    }else if(startCommands == 'y'){
+        int id = getchar_timeout_us(1000);
+        if(id != PICO_ERROR_TIMEOUT){
+            LoraMessengerClass::ID = id - '0';
+        }
     }
+
 }
 
 int main()
