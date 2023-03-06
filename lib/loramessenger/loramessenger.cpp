@@ -47,6 +47,7 @@ bool LoraMessengerClass::sending = false;
 struct repeating_timer LoraMessengerClass::LBTTimer;
 struct repeating_timer LoraMessengerClass::ProcessingTimer;
 struct Packet LoraMessengerClass::current_packet;
+int LoraMessengerClass::ID = 2;
 
 int LoraMessengerClass::searchAdressBook(std::vector<PairedDevice> devices, int id)
 {

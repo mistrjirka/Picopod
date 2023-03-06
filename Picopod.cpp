@@ -71,19 +71,21 @@ void listenForCommands()
         if (packet.channel >= 0 && packet.channel <= 20)
         {
             LoraMessengerClass::LORAAddPacketToQueue(packet);
-            printf("sent");
+            printf("{\"type\":-1}");
         }
         else
         {
-            printf("{\"type\":-1}");
+            printf("{\"type\":-666}");
         }
 
         tight_loop_contents();
-    }else if(startCommands == 'i'){
-        printf("{\"type\":-1, \"deviceId:\": %d}", LoraMessengerClass::ID);
-    }else if(startCommands == 'y'){
-        int id = getchar_timeout_us(1000);
-        if(id != PICO_ERROR_TIMEOUT){
+    }else if(startCommands == 'g'){
+        printf("{\"type\":-3, \"data\": \"%d\"}", LoraMessengerClass::ID);
+    }else if(startCommands == 'c'){
+        int id = getchar_timeout_us(100000);
+        if(id == PICO_ERROR_TIMEOUT){
+            printf("{\"type\":-2}");
+        }else{
             LoraMessengerClass::ID = id - '0';
         }
     }
