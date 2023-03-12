@@ -37,7 +37,7 @@ void getMessage(std::string *message)
     std::getline(std::cin, *message, '>');
 }
 
-Packet load_packet_information()
+Packet load_packet_information(bool message)
 {
     Packet packet;
     packet.type = getchar() - '0';
@@ -45,10 +45,20 @@ Packet load_packet_information()
     packet.target = getchar() - '0';
     packet.id = getchar() - '0';
     packet.channel = getchar() - '0';
-
-    getMessage(&(packet.content));
+    if (message)
+        getMessage(&(packet.content));
     packet.content.erase(remove(packet.content.begin(), packet.content.end(), '\r'), packet.content.end());
     return packet;
+}
+
+int getNumber()
+{
+    char buffer[MAX_NUMBER_LENGTH];
+    char tmp = '\n';
+    for (int i = 0; i < MAX_NUMBER_LENGTH - 1 && (tmp = getchar()) != '\r' && tmp != '\n'; i++)
+        buffer[i] = tmp;
+    buffer[MAX_NUMBER_LENGTH - 1] = '\0';
+    return atoi(buffer);
 }
 
 void setup()
@@ -62,34 +72,67 @@ void setup()
     LoraMessenger.LORASetup(lol);
 }
 
+void sendPacket(Packet packet)
+{
+    if (packet.channel >= 0 && packet.channel <= 20)
+    {
+        LoraMessengerClass::LORAAddPacketToQueue(packet);
+        printf("{\"type\":-1}");
+    }
+    else
+    {
+        printf("{\"type\":-666}");
+    }
+}
+
 void listenForCommands()
 {
     char startCommands = getchar_timeout_us(0);
     if (startCommands == 's')
     {
-        Packet packet = load_packet_information();
-        if (packet.channel >= 0 && packet.channel <= 20)
+        Packet packet = load_packet_information(true);
+        sendPacket(packet);
+        tight_loop_contents();
+    }
+    else if (startCommands == 'g')
+    {
+        printf("{\"type\":-3, \"data\": \"%d\"}", LoraMessengerClass::ID);
+    }
+    else if (startCommands == 'c')
+    {
+        int id = getchar_timeout_us(100000);
+        if (id == PICO_ERROR_TIMEOUT)
         {
-            LoraMessengerClass::LORAAddPacketToQueue(packet);
-            printf("{\"type\":-1}");
+            printf("{\"type\":-2}");
         }
         else
         {
-            printf("{\"type\":-666}");
-        }
-
-        tight_loop_contents();
-    }else if(startCommands == 'g'){
-        printf("{\"type\":-3, \"data\": \"%d\"}", LoraMessengerClass::ID);
-    }else if(startCommands == 'c'){
-        int id = getchar_timeout_us(100000);
-        if(id == PICO_ERROR_TIMEOUT){
-            printf("{\"type\":-2}");
-        }else{
             LoraMessengerClass::ID = id - '0';
         }
     }
-
+    else if (startCommands == 'h')
+    {
+        Packet packet = load_packet_information(false);
+        int length = getNumber();
+        if (length < 0)
+        {
+            printf("{\"type\":-667}");
+        }
+        else
+        {
+            packet.payload = (char *)malloc(length * sizeof(char));
+            for (int i = 0; i < length; i++)
+            {
+                packet.payload[i] = getchar();
+            }
+        }
+        sendPacket(packet);
+    }
+    else if (startCommands == 'p')
+    {
+        Packet packet = load_packet_information(false);
+        sendPacket(packet);
+    }
 }
 
 int main()

@@ -28,6 +28,8 @@
 #define COMMUNICATION_NO_MESSAGE 0
 #define ERROR_INVALID_RECIPIENT 1
 #define COMMUNICATION_OK_MESSAGE 2
+#define COMMUNICATION_PAYLOAD_MESSAGE 2
+
 #define COMMUNICATION_STRING_MESSAGE 3
 #define COMMUNICATION_PAIRING 4
 #define COMMUNICATION_APPROVED 5
@@ -53,6 +55,7 @@ struct Packet
     int target;
     int timeout = 1000;
     std::string content;
+    char* payload;
     bool confirmation = true;
     int incomingType;
     int channel;

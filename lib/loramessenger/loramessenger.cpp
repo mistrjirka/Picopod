@@ -265,6 +265,24 @@ void LoraSendOkMessage()
     LoraSendPacketLBT();
 }
 
+void LoraSendPayloadMessage()
+{
+    LoraMessengerClass::current_packet.type = COMMUNICATION_PAYLOAD_MESSAGE;
+    LoraMessengerClass::current_packet.confirmation = true;
+    LoraMessengerClass::current_packet.incomingType = COMMUNICATION_OK_MESSAGE;
+    LoraMessengerClass::current_packet.id = LoraMessengerClass::LORAGetId();
+    LoraMessengerClass::current_packet.sent = false;
+    LoraMessengerClass::current_packet.timeout = 10000;
+    LoRa.beginPacket();                                    // start packet
+    LoRa.write(LoraMessengerClass::current_packet.target); // add destination address
+    LoRa.write(LoraMessengerClass::ID);                                        // add sender address
+    LoRa.write(LoraMessengerClass::current_packet.type);
+    LoRa.write(LoraMessengerClass::current_packet.id);
+    LoRa.print(LoraMessengerClass::current_packet.content.c_str());
+    LoraSendPacketLBT();
+}
+
+
 int LoraMessengerClass::LORANoiseFloorCalibrate(int channel, bool save /* = true */)
 {
     LoRa.idle();
@@ -462,6 +480,10 @@ int64_t LORASendPacket(alarm_id_t id, void *user_data)
     {
         LoraSendOkMessage();
         LoraMessengerClass::sending = true;
+    }
+    else if(LoraMessengerClass::current_packet.type == COMMUNICATION_PAYLOAD_MESSAGE)
+    {
+
     }
     return 0;
 }
