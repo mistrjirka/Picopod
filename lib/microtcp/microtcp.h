@@ -49,23 +49,17 @@ struct PairedDevice
     bool paired = false;
 };
 
-typedef struct {
-    uint8_t type : 4;
-    uint16_t sender;
-    uint16_t target;
-    uint16_t id;
-} MetaInformation;
-
 struct Packet
 {
-    MetaInformation meta;
-
+    int type;
+    int target;
     int timeout = 1000;
     std::string content;
     char* payload;
     bool confirmation = true;
     int incomingType;
     int channel;
+    int id = -1;
     bool sent = false;
     bool retry = false;
     bool failed = false;
@@ -74,7 +68,10 @@ struct Packet
 
 struct RecievedPacket
 {
-    MetaInformation meta;
+    int type;
+    int target;
+    int sender;
+    int id;
     int channel;
     int length;
     int delay;
@@ -150,3 +147,5 @@ public:
 };
 
 extern class LoraMessengerClass LoraMessenger;
+
+extern void test();

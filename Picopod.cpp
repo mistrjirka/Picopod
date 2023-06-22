@@ -45,6 +45,8 @@ Packet load_packet_information(bool message)
     packet.target = getchar() - '0';
     packet.id = getchar() - '0';
     packet.channel = getchar() - '0';
+
+    
     if (message)
         getMessage(&(packet.content));
     packet.content.erase(remove(packet.content.begin(), packet.content.end(), '\r'), packet.content.end());

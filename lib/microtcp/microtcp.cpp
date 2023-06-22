@@ -45,6 +45,7 @@ bool LoraMessengerClass::sending = false;
 struct repeating_timer LoraMessengerClass::LBTTimer;
 struct repeating_timer LoraMessengerClass::ProcessingTimer;
 struct Packet LoraMessengerClass::current_packet;
+int LoraMessengerClass::ID = 2;
 
 // Helper function to search paired devices in address book
 int LoraMessengerClass::searchAdressBook(std::vector<PairedDevice> devices, int id)
@@ -70,7 +71,7 @@ int searchPackets(std::vector<Packet> packets, int id)
     int tmp_index = 0;
     for (Packet tmp : packets)
     {
-        if (tmp.meta.id == id)
+        if (tmp.id == id)
         {
             index = tmp_index;
             break;
@@ -99,7 +100,7 @@ int64_t timeoutPacket(alarm_id_t id, void *user_data)
     {
         auto it = std::find_if(LoraMessengerClass::sendingQueue.begin(), LoraMessengerClass::sendingQueue.end(),
                                [&](const Packet &p)
-                               { return p.meta.id == LoraMessengerClass::current_packet.meta.id; });
+                               { return p.id == LoraMessengerClass::current_packet.id; });
 
         if (it != LoraMessengerClass::sendingQueue.end())
         {
@@ -107,11 +108,11 @@ int64_t timeoutPacket(alarm_id_t id, void *user_data)
         }
 
         // Remove paired device from address book if the packet is a pairing message
-        if (LoraMessengerClass::current_packet.meta.type == COMMUNICATION_PAIRING)
+        if (LoraMessengerClass::current_packet.type == COMMUNICATION_PAIRING)
         {
             auto it = std::find_if(LoraMessengerClass::addressBook.begin(), LoraMessengerClass::addressBook.end(),
                                    [&](const PairedDevice &d)
-                                   { return d.meta.id == LoraMessengerClass::current_packet.meta.id; });
+                                   { return d.id == LoraMessengerClass::current_packet.id; });
 
             if (it != LoraMessengerClass::addressBook.end())
             {
@@ -141,7 +142,7 @@ bool LBTHandlerCallback(struct repeating_timer *rt)
 
         if (LoraMessengerClass::current_packet.confirmation)
         {
-            cancel_alarm(LoraMessengerClass::current_packet_timeout);
+            bool state = cancel_alarm(LoraMessengerClass::current_packet_timeout);
             LoraMessengerClass::current_packet_timeout = add_alarm_in_ms(LoraMessengerClass::current_packet.timeout, timeoutPacket, NULL, true);
             LoRa.receive();
         }
@@ -156,6 +157,40 @@ bool LBTHandlerCallback(struct repeating_timer *rt)
     {
         failed_attempts_rssi++;
 
+        if (failed_attempts_rssi >= 10)
+        {
+            failed_attempts_rssi = 0;
+            LoraMessengerClass::LORANoiseFloorCalibrate(LoraMessengerClass::current_packet.channel, true);
+        }
+    }
+
+    return true;
+}
+
+bool LBTHandlerCallback(struct repeating_timer *rt)
+{
+    LoRa.receive();
+    int RSSI = LoRa.rssi();
+    if (RSSI <= LoraMessengerClass::noise_floor_per_channel[LoraMessengerClass::current_packet.channel])
+    {
+        LoRa.endPacket();
+        cancel_repeating_timer(rt);
+        if (LoraMessengerClass::current_packet.confirmation)
+        {
+            bool state = cancel_alarm(LoraMessengerClass::current_packet_timeout);
+            LoraMessengerClass::current_packet_timeout = add_alarm_in_ms(LoraMessengerClass::current_packet.timeout, timeoutPacket, NULL, true);
+            LoRa.receive();
+        }
+        else
+        {
+            LoraMessengerClass::current_packet.sent = true;
+            LoraMessengerClass::sending = false;
+            LoRa.receive();
+        }
+    }
+    else
+    {
+        failed_attempts_rssi++;
         if (failed_attempts_rssi >= 10)
         {
             failed_attempts_rssi = 0;
@@ -471,14 +506,14 @@ void LoraMessengerClass::LORAPairingRequest(RecievedPacket packet)
 */
 void LoraMessengerClass::LORAPacketRecieved(RecievedPacket packet)
 {
-    if (packet.meta.type == current_packet.incomingType && !LoraMessengerClass::current_packet.failed) // Check if expected packet
+    if (packet.type == current_packet.incomingType && !LoraMessengerClass::current_packet.failed) // Check if expected packet
     {
-        if (packet.meta.type == COMMUNICATION_OK_MESSAGE)
+        if (packet.type == COMMUNICATION_OK_MESSAGE)
         {
             LoraMessengerClass::sending = false; // Stop sending packets
             (*onRecieve)(packet);                // Notify receiver of the received packet
         }
-        else if (packet.meta.type == COMMUNICATION_APPROVED)
+        else if (packet.type == COMMUNICATION_APPROVED)
         {
             LoraMessengerClass::LORACommunicationApproved(packet); // Mark the packet as sent and remove it from the sending queue
             (*onRecieve)(packet);                                  // Notify receiver of the received packet
@@ -486,17 +521,17 @@ void LoraMessengerClass::LORAPacketRecieved(RecievedPacket packet)
     }
     else // Unexpected packet
     {
-        if (packet.meta.type == COMMUNICATION_PAIRING)
+        if (packet.type == COMMUNICATION_PAIRING)
         {
             LoraMessengerClass::LORAPairingRequest(packet); // Add the sender to the address book and send a communication approved packet back
             (*onRecieve)(packet);                           // Notify receiver of the received packet
         }
-        else if (packet.meta.type == COMMUNICATION_STRING_MESSAGE)
+        else if (packet.type == COMMUNICATION_STRING_MESSAGE)
         {
             Packet OkPacket;
-            OkPacket.meta = packet.meta;
-            OkPacket.meta.type = COMMUNICATION_OK_MESSAGE;
-
+            OkPacket.target = packet.target;
+            OkPacket.type = COMMUNICATION_OK_MESSAGE;
+            OkPacket.id = packet.id;
             OkPacket.confirmation = false;
             OkPacket.channel = packet.channel;
             LoraMessengerClass::LORAAddPacketToQueuePriority(OkPacket); // Add an OK packet to the sending queue
@@ -520,17 +555,19 @@ void LoraRecieve(int packetSize)
 
     RecievedPacket packet;
     packet.channel = LoraMessengerClass::current_channel;
-    packet.meta = LoRa.read(); // Recipient address
+    packet.target = LoRa.read(); // Recipient address
+    packet.sender = LoRa.read(); // Sender address
+    packet.type = LoRa.read();   // Incoming message type
     packet.content = "";
     string msg = "";
 
     // If the incoming message is a string or an OK message, read the packet ID
-    if (packet.meta.type == COMMUNICATION_STRING_MESSAGE || packet.meta.type == COMMUNICATION_OK_MESSAGE)
+    if (packet.type == COMMUNICATION_STRING_MESSAGE || packet.type == COMMUNICATION_OK_MESSAGE)
     {
-        packet.meta.id = (MetaInformation) LoRa.read();
+        packet.id = LoRa.read();
     }
     // If the incoming message is a pairing request, read the delay
-    if (packet.meta.type == COMMUNICATION_PAIRING)
+    if (packet.type == COMMUNICATION_PAIRING)
     {
         packet.delay = LoRa.read();
     }
@@ -555,7 +592,7 @@ void LoraRecieve(int packetSize)
 int64_t LORASendPacket(alarm_id_t id, void *user_data)
 {
     // Determine the type of the current packet and send it accordingly
-    switch (LoraMessengerClass::current_packet.meta.type)
+    switch (LoraMessengerClass::current_packet.type)
     {
     case COMMUNICATION_PAIRING:
         LoraSendPairingRequest();
@@ -576,6 +613,31 @@ int64_t LORASendPacket(alarm_id_t id, void *user_data)
 
     LoraMessengerClass::sending = true;
     return 0;
+}
+
+bool LoraMessengerClass::LORASendingDeamon(struct repeating_timer *rt)
+{
+    if (!LoraMessengerClass::sending && !LoraMessengerClass::sendingQueue.empty() && (LoraMessengerClass::current_packet.sent || LoraMessengerClass::current_packet.failed))
+    {
+
+        LoraMessengerClass::current_packet = LoraMessengerClass::sendingQueue.front();
+        LoraMessengerClass::sendingQueue.erase(LoraMessengerClass::sendingQueue.begin());
+        LORASendPacket(LoraMessengerClass::attempt_timer, nullptr);
+    }
+    else if (!LoraMessengerClass::current_packet.sent && !LoraMessengerClass::sending && LoraMessengerClass::current_packet.retry)
+    {
+        int index = LoraMessengerClass::searchAdressBook(LoraMessengerClass::addressBook, LoraMessengerClass::current_packet.target);
+        if (index == -1)
+        {
+            return true;
+        }
+        add_alarm_in_ms(LoraMessengerClass::addressBook.at(index).my_delay, LORASendPacket, NULL, true);
+    }
+    else if (!LoraMessengerClass::sending)
+    {
+        LoRa.receive();
+    }
+    return true;
 }
 
 /**
@@ -609,7 +671,7 @@ bool LoraMessengerClass::LORASendingDeamon(struct repeating_timer *rt)
     else if (!LoraMessengerClass::current_packet.sent && !LoraMessengerClass::sending && LoraMessengerClass::current_packet.retry)
     {
         // Look up the target address in the address book
-        int index = LoraMessengerClass::searchAdressBook(LoraMessengerClass::addressBook, LoraMessengerClass::current_packet.meta.target);
+        int index = LoraMessengerClass::searchAdressBook(LoraMessengerClass::addressBook, LoraMessengerClass::current_packet.target);
 
         // If the address is not found, return true (not sure what this means, could use a comment)
         if (index == -1)
