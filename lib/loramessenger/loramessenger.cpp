@@ -615,30 +615,6 @@ int64_t LORASendPacket(alarm_id_t id, void *user_data)
     return 0;
 }
 
-bool LoraMessengerClass::LORASendingDeamon(struct repeating_timer *rt)
-{
-    if (!LoraMessengerClass::sending && !LoraMessengerClass::sendingQueue.empty() && (LoraMessengerClass::current_packet.sent || LoraMessengerClass::current_packet.failed))
-    {
-
-        LoraMessengerClass::current_packet = LoraMessengerClass::sendingQueue.front();
-        LoraMessengerClass::sendingQueue.erase(LoraMessengerClass::sendingQueue.begin());
-        LORASendPacket(LoraMessengerClass::attempt_timer, nullptr);
-    }
-    else if (!LoraMessengerClass::current_packet.sent && !LoraMessengerClass::sending && LoraMessengerClass::current_packet.retry)
-    {
-        int index = LoraMessengerClass::searchAdressBook(LoraMessengerClass::addressBook, LoraMessengerClass::current_packet.target);
-        if (index == -1)
-        {
-            return true;
-        }
-        add_alarm_in_ms(LoraMessengerClass::addressBook.at(index).my_delay, LORASendPacket, NULL, true);
-    }
-    else if (!LoraMessengerClass::sending)
-    {
-        LoRa.receive();
-    }
-    return true;
-}
 
 /**
  * This function is responsible for managing the sending of LoRa packets.
