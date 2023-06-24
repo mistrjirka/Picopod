@@ -45,7 +45,6 @@ bool LoraMessengerClass::sending = false;
 struct repeating_timer LoraMessengerClass::LBTTimer;
 struct repeating_timer LoraMessengerClass::ProcessingTimer;
 struct Packet LoraMessengerClass::current_packet;
-int LoraMessengerClass::ID = 2;
 
 // Helper function to search paired devices in address book
 int LoraMessengerClass::searchAdressBook(std::vector<PairedDevice> devices, int id)
@@ -167,39 +166,6 @@ bool LBTHandlerCallback(struct repeating_timer *rt)
     return true;
 }
 
-bool LBTHandlerCallback(struct repeating_timer *rt)
-{
-    LoRa.receive();
-    int RSSI = LoRa.rssi();
-    if (RSSI <= LoraMessengerClass::noise_floor_per_channel[LoraMessengerClass::current_packet.channel])
-    {
-        LoRa.endPacket();
-        cancel_repeating_timer(rt);
-        if (LoraMessengerClass::current_packet.confirmation)
-        {
-            bool state = cancel_alarm(LoraMessengerClass::current_packet_timeout);
-            LoraMessengerClass::current_packet_timeout = add_alarm_in_ms(LoraMessengerClass::current_packet.timeout, timeoutPacket, NULL, true);
-            LoRa.receive();
-        }
-        else
-        {
-            LoraMessengerClass::current_packet.sent = true;
-            LoraMessengerClass::sending = false;
-            LoRa.receive();
-        }
-    }
-    else
-    {
-        failed_attempts_rssi++;
-        if (failed_attempts_rssi >= 10)
-        {
-            failed_attempts_rssi = 0;
-            LoraMessengerClass::LORANoiseFloorCalibrate(LoraMessengerClass::current_packet.channel, true);
-        }
-    }
-
-    return true;
-}
 
 /**
  * Sends a LoRa packet with Listen Before Talk (LBT) technique.
