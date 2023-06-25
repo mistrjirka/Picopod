@@ -9,7 +9,7 @@ static void ReceivedPacket(int size) {
     // Callback function implementation
 }
 
-LCMM::LCMM(PacketReceivedCallback callback, int id,  int default_channel /* = DEFAULT_CHANNEL*/, int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/, int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/, int squelch /*= DEFAULT_SQUELCH*/, int default_power /* = DEFAULT_POWER*/, int default_coding_rate /*DEFAULT_CODING_RATE*/) {
+LCMM::LCMM(PacketReceivedCallback callback) {
 
 }
 
@@ -20,9 +20,9 @@ LCMM* LCMM::getInstance() {
     return lcmm;
 }
 
-void LCMM::initialize(PacketReceivedCallback callback, int id, int default_channel /* = DEFAULT_CHANNEL*/, int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/, int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/, int squelch /*= DEFAULT_SQUELCH*/, int default_power /* = DEFAULT_POWER*/, int default_coding_rate /*DEFAULT_CODING_RATE*/) {
+void LCMM::initialize(PacketReceivedCallback callback) {
     if (lcmm == nullptr) {
-        lcmm = new LCMM(callback, id, default_channel, default_spreading_factor, default_bandwidth, squelch, default_power, default_coding_rate);
+        lcmm = new LCMM(callback);
     }
 }
 

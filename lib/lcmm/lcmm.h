@@ -1,34 +1,34 @@
 #ifndef LCMM_LAYER_H
 #define LCMM_LAYER_H
-
+#include <cstdint>
 // Include necessary headers
 #include <functional>
 typedef struct{
-    u_int8_t type;
-    unsigned char[1023] data;
+    uint8_t type;
+    unsigned char data[1023];
 } MACPacketGeneric;
 
 typedef struct{
     uint8_t numOfPackets; // number of packets being acknowledged
-    u_int16_t[16] packetIds;
+    uint16_t packetIds[16];
 } MACPacketResponse;
 
 typedef struct{
     uint16_t numOfPackets; // number of packets being send
     uint16_t packetid;
     uint8_t ackRate; // number of packets to be sent before waiting for an ack
-    u_int16_t packetIdStart; // number of packets to be sent
-    unsigned char[256] data;
+    uint16_t packetIdStart; // number of packets to be sent
+    unsigned char data[256];
 } MACPacketNegotiation;
 
 typedef struct{
     uint16_t packetid;
-    unsigned char[256] data;
+    unsigned char data[256];
 } MACPacketNegotiationResponse;
 
 typedef struct{
     uint16_t packetid;
-    unsigned char[1021] data;
+    unsigned char data[1021];
 } MACPacketData;
 
 
@@ -42,7 +42,7 @@ public:
     static LCMM* getInstance();
 
     // Function to initialize the LCMM layer
-    void initialize(PacketReceivedCallback callback, int id, int default_channel = DEFAULT_CHANNEL, int default_spreading_factor = DEFAULT_SPREADING_FACTOR, int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER, int default_coding_rate = DEFAULT_CODING_RATE);
+    void initialize(PacketReceivedCallback callback);
 
     // Function to handle incoming packets or events
     void handlePacket(/* Parameters as per your protocol */);
@@ -54,7 +54,7 @@ public:
 
 private:
     static LCMM *lcmm;
-    LCMM(PacketReceivedCallback callback, int id, int default_channel = DEFAULT_CHANNEL, int default_spreading_factor = DEFAULT_SPREADING_FACTOR, int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER, int default_coding_rate = DEFAULT_CODING_RATE);
+    LCMM(PacketReceivedCallback callback);
 
     // Private destructor
     ~LCMM();

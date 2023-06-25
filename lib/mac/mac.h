@@ -1,4 +1,5 @@
 #ifndef MAC_LAYER_H
+#include <cstdint>
 #define MAC_LAYER_H
 #define NUM_OF_CHANNELS 15
 #define DEFAULT_CHANNEL 3
@@ -15,10 +16,10 @@
 #define PIN_MOSI 11
 
 typedef struct{
-    u_int16_t sender;
-    u_int16_t target;
-    u_int32_t crc32;
-    unsigned char[1024] data;
+    uint16_t sender;
+    uint16_t target;
+    uint32_t crc32;
+    unsigned char data[1024];
 } MACPacket;
 
 class MAC {
@@ -26,6 +27,7 @@ public:
     static void RecievedPacket(int size);
     // Callback function type definition
     using PacketReceivedCallback = std::function<void(/* Parameters for callback */)>;
+
 
     // Function to access the singleton instance
     static MAC* getInstance();
