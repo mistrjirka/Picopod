@@ -1,5 +1,6 @@
 #ifndef MAC_LAYER_H
 #include <cstdint>
+#include "../DTP/gerealsettings.h"
 #define MAC_LAYER_H
 #define NUM_OF_CHANNELS 15
 #define DEFAULT_CHANNEL 3
@@ -16,17 +17,17 @@
 #define PIN_MOSI 11
 
 typedef struct{
+    uint32_t crc32;
     uint16_t sender;
     uint16_t target;
-    uint32_t crc32;
-    unsigned char data[1024];
+    unsigned char data[DATASIZE_MAC];
 } MACPacket;
 
 class MAC {
 public:
     static void RecievedPacket(int size);
     // Callback function type definition
-    using PacketReceivedCallback = std::function<void(/* Parameters for callback */)>;
+    using PacketReceivedCallback = std::function<void(MACPacket packet, uint16_t size)>;
 
 
     // Function to access the singleton instance
@@ -36,10 +37,10 @@ public:
     void initialize(PacketReceivedCallback callback, int id, int default_channel = DEFAULT_CHANNEL, int default_spreading_factor = DEFAULT_SPREADING_FACTOR, int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER, int default_coding_rate = DEFAULT_CODING_RATE);
 
     // Function to handle incoming packets or events
-    void handlePacket(/* Parameters as per your protocol */);
+    void handlePacket(uint16_t size);
 
     // Function to send packets to the next layer (DTP)
-    void sendData(/* Parameters as per your protocol */);
+    void sendData(uint16_t sender, uint16_t target, unsigned char *data, uint8_t size);
 
     // Other member functions as needed
 

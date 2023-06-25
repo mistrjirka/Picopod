@@ -50,7 +50,6 @@ target_link_libraries(Picopod
         LoRa_pico_lib
         sensors_voltage
         mathextension
-        loramessenger
         IOUSBBT
 )
 

@@ -1,4 +1,4 @@
-add_library(DTP DTP.cpp DTP.h)
+add_library(DTP DTP.cpp DTP.h generalsettings.h)
 
 target_link_libraries(DTP
     pico_stdlib

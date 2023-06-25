@@ -3,9 +3,11 @@
 #include <cstdint>
 // Include necessary headers
 #include <functional>
+#include "../DTP/gerealsettings.h"
+
 typedef struct{
     uint8_t type;
-    unsigned char data[1023];
+    unsigned char data[DATASIZE_LCMM + 2];
 } MACPacketGeneric;
 
 typedef struct{
@@ -18,17 +20,17 @@ typedef struct{
     uint16_t packetid;
     uint8_t ackRate; // number of packets to be sent before waiting for an ack
     uint16_t packetIdStart; // number of packets to be sent
-    unsigned char data[256];
+    unsigned char data[DATASIZE_LCMM - 1 - 2];
 } MACPacketNegotiation;
 
 typedef struct{
     uint16_t packetid;
-    unsigned char data[256];
+    unsigned char data[DATASIZE_LCMM];
 } MACPacketNegotiationResponse;
 
 typedef struct{
     uint16_t packetid;
-    unsigned char data[1021];
+    unsigned char data[DATASIZE_LCMM];
 } MACPacketData;
 
 

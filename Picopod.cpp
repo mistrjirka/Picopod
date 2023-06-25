@@ -17,11 +17,11 @@
 #include <iostream>
 #include <algorithm>
 
-void lol(RecievedPacket packet)
+/*void lol(RecievedPacket packet)
 {
     printf("{\"type\": %d, \"target\": %d, \"id\": %d, \"content\": \"%s\", \"rssi\":%d, \"snr\":%d, \"sender\": %d}\n", packet.type, packet.target, packet.id, packet.content.c_str(), packet.RSSI, packet.SNR, packet.sender);
     // std::cout << "{\"type\":" << packet.type << ",\"target\":" << packet.target << ",\"id\"" << packet.id << ",\"content\"" << packet.content << ",\"rssi\":" << packet.RSSI << ",\"SNR\":" << packet.SNR << "}";
-}
+}*/
 
 void getCommand(std::string *command, int *param)
 {
@@ -37,7 +37,7 @@ void getMessage(std::string *message)
     std::getline(std::cin, *message, '>');
 }
 
-Packet load_packet_information(bool message)
+/*Packet load_packet_information(bool message)
 {
     Packet packet;
     packet.type = getchar() - '0';
@@ -49,7 +49,7 @@ Packet load_packet_information(bool message)
         getMessage(&(packet.content));
     packet.content.erase(remove(packet.content.begin(), packet.content.end(), '\r'), packet.content.end());
     return packet;
-}
+}*/
 
 int getNumber()
 {
@@ -67,36 +67,36 @@ void setup()
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
     gpio_put(LED_PIN, 0);
-    Voltage.initVoltage(26, 2);
+    //Voltage.initVoltage(26, 2);
 
-    LoraMessenger.LORASetup(lol);
+    //LoraMessenger.LORASetup(lol);
 }
 
-void sendPacket(Packet packet)
+/*void sendPacket(Packet packet)
 {
     if (packet.channel >= 0 && packet.channel <= 20)
     {
-        LoraMessengerClass::LORAAddPacketToQueue(packet);
+        //LoraMessengerClass::LORAAddPacketToQueue(packet);
         printf("{\"type\":-1}");
     }
     else
     {
         printf("{\"type\":-666}");
     }
-}
+}*/
 
 void listenForCommands()
 {
     char startCommands = getchar_timeout_us(0);
     if (startCommands == 's')
     {
-        Packet packet = load_packet_information(true);
-        sendPacket(packet);
+        //Packet packet = load_packet_information(true);
+        //sendPacket(packet);
         tight_loop_contents();
     }
     else if (startCommands == 'g')
     {
-        printf("{\"type\":-3, \"data\": \"%d\"}", LoraMessengerClass::ID);
+        //printf("{\"type\":-3, \"data\": \"%d\"}", LoraMessengerClass::ID);
     }
     else if (startCommands == 'c')
     {
@@ -107,12 +107,12 @@ void listenForCommands()
         }
         else
         {
-            LoraMessengerClass::ID = id - '0';
+            //LoraMessengerClass::ID = id - '0';
         }
     }
     else if (startCommands == 'h')
     {
-        Packet packet = load_packet_information(false);
+        /*Packet packet = load_packet_information(false);
         int length = getNumber();
         if (length < 0)
         {
@@ -126,12 +126,12 @@ void listenForCommands()
                 packet.payload[i] = getchar();
             }
         }
-        sendPacket(packet);
+        sendPacket(packet);*/
     }
     else if (startCommands == 'p')
     {
-        Packet packet = load_packet_information(false);
-        sendPacket(packet);
+        //Packet packet = load_packet_information(false);
+        //sendPacket(packet);
     }
 }
 
