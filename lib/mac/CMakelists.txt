@@ -1,6 +1,6 @@
-add_library(lcmm lcmm.cpp lcmm.h)
+add_library(mac mac.cpp mac.h)
 
-target_link_libraries(lcmm
+target_link_libraries(mac
     pico_stdlib
     LoRa_pico_lib
     mathextension
