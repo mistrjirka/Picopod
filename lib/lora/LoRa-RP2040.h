@@ -12,18 +12,19 @@
 #include "stdbool.h"
 #include "Print.h"
 
-#define SPI_PORT spi1
 #define PIN_MISO 12
-#define PIN_CS 13
-#define PIN_SCK 10
+#define PIN_CS   13
+#define PIN_SCK  10
 #define PIN_MOSI 11
+
+#define SPI_PORT spi1
 #define READ_BIT 0x80
 
-#define LORA_DEFAULT_SPI spi0
+#define LORA_DEFAULT_SPI           spi1
 #define LORA_DEFAULT_SPI_FREQUENCY 8E6
-#define LORA_DEFAULT_SS_PIN 8
-#define LORA_DEFAULT_RESET_PIN 9
-#define LORA_DEFAULT_DIO0_PIN 7
+#define LORA_DEFAULT_SS_PIN        13
+#define LORA_DEFAULT_RESET_PIN     14
+#define LORA_DEFAULT_DIO0_PIN      16
 #endif
 
 #define PA_OUTPUT_RFO_PIN 0

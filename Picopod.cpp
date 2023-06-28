@@ -138,6 +138,7 @@ void listenForCommands()
 int main()
 {
     stdio_init_all();
+        sleep_ms(3000);
 
     // setup();
     // Define the callback function
@@ -153,14 +154,13 @@ int main()
         printf("\n");
     };
 
-    std::cin.sync();
-    MAC::initialize(callback, 1);
+    printf("hello there");
+    MAC::initialize(callback, 2, 3);
     while (true)
     {
-        sleep_ms(3000);
-        printf("Sending packet\n");
+        sleep_ms(7500);
 
-        MAC::getInstance()->sendData(1, 2, (unsigned char *)"Hello world", 12);
+        MAC::getInstance()->sendData(1, 2, (unsigned char *)"This is a long message loooooooooooooool sadsdadsadasdasasdsda dsasdasddsaasddas  Hello world", strlen("This is a long message loooooooooooooool sadsdadsadasdasasdsda dsasdasddsaasddas  Hello world"));
         printf("after sending packet \n");
         // listenForCommands();
         tight_loop_contents();

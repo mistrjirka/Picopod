@@ -1,7 +1,7 @@
 #ifndef MAC_LAYER_H
+#include "../DTP/generalsettings.h"
 #include <cstdint>
 #include <functional>
-#include "../DTP/generalsettings.h"
 #define MAC_LAYER_H
 #define NUM_OF_CHANNELS 15
 #define DEFAULT_CHANNEL 3
@@ -9,78 +9,92 @@
 #define DEFAULT_BANDWIDTH 125E3
 #define DEFAULT_CODING_RATE 2
 #define DEFAULT_SQUELCH 5
-#define DEFAULT_POWER 17 // dBm
+#define DEFAULT_POWER 10 // dBm
 #define NUMBER_OF_MEASUREMENTS 10
 #define TIME_BETWEENMEASUREMENTS 50
 #define DISCRIMINATE_MEASURMENTS 3
 
-
-typedef struct{
-    uint32_t crc32;
-    uint16_t sender;
-    uint16_t target;
-    unsigned char data[];
+typedef struct {
+  uint32_t crc32;
+  uint16_t sender;
+  uint16_t target;
+  unsigned char data[];
 } MACPacket;
 
-enum State{
-    IDLE,
-    SENDING,
-    RECEIVING
-};
+enum State { IDLE, SENDING, RECEIVING, SLEEPING, SIGNAL_DETECTION };
 
 class MAC {
 public:
-    static void RecievedPacket(int size);
-    // Callback function type definition
-    using PacketReceivedCallback = std::function<void(MACPacket packet, uint16_t size)>;
-    
-    int LORANoiseFloorCalibrate(int channel, bool save = true );
-    void LORANoiseCalibrateAllChannels(bool save /*= true*/);
-    // Function to access the singleton instance
-    static MAC* getInstance();
-    static void ChannelActity(bool signal);
+  static void RecievedPacket(int size);
+  // Callback function type definition
+  using PacketReceivedCallback =
+      std::function<void(MACPacket packet, uint16_t size)>;
 
-    // Function to initialize the MAC layer
-    static void initialize(PacketReceivedCallback callback, int id, int default_channel = DEFAULT_CHANNEL, int default_spreading_factor = DEFAULT_SPREADING_FACTOR, int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER, int default_coding_rate = DEFAULT_CODING_RATE);
+  int LORANoiseFloorCalibrate(int channel, bool save = true);
+  void LORANoiseCalibrateAllChannels(bool save /*= true*/);
+  // Function to access the singleton instance
+  static MAC *getInstance();
+  static void ChannelActity(bool signal);
 
-    // Function to handle incoming packets or events
-    void handlePacket(uint16_t size);
+  // Function to initialize the MAC layer
+  static void
+  initialize(PacketReceivedCallback callback, int id,
+             int default_channel = DEFAULT_CHANNEL,
+             int default_spreading_factor = DEFAULT_SPREADING_FACTOR,
+             int default_bandwidth = DEFAULT_BANDWIDTH,
+             int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER,
+             int default_coding_rate = DEFAULT_CODING_RATE);
 
-    // Function to send packets to the next layer (DTP)
-    void sendData(uint16_t sender, uint16_t target, unsigned char *data, uint8_t size);
+  // Function to handle incoming packets or events
+  void handlePacket(uint16_t size);
 
-    // Other member functions as needed
+  // Function to send packets to the next layer (DTP)
+  uint8_t sendData(uint16_t sender, uint16_t target, unsigned char *data,
+                uint8_t size, uint32_t timeout = 5000);
+
+  // Other member functions as needed
 private:
-    static MAC *mac;
-    double channels[NUM_OF_CHANNELS]  = {
-    433.05e6, 433.175e6, 433.3e6, 433.425e6, 433.55e6, 433.675e6, 433.8e6,
-    433.925e6, 434.05e6, 434.175e6, 434.3e6, 434.425e6, 434.55e6, 434.675e6,
-    434.8e6};;
+  static bool transmission_detected;
+  static MAC *mac;
+  State state;
+  double channels[NUM_OF_CHANNELS] = {433.05e6, 433.175e6, 433.3e6, 433.425e6,
+                                      433.55e6, 433.675e6, 433.8e6, 433.925e6,
+                                      434.05e6, 434.175e6, 434.3e6, 434.425e6,
+                                      434.55e6, 434.675e6, 434.8e6};
+  ;
 
-    int noiseFloor[NUM_OF_CHANNELS];
-    int id;
-    int channel;
-    int spreading_factor;
-    int bandwidth;
-    int squelch;
-    int power;
-    int coding_rate;
-    // Private constructor
-    MAC(PacketReceivedCallback callback, int id, int default_channel = DEFAULT_CHANNEL, int default_spreading_factor = DEFAULT_SPREADING_FACTOR, int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER, int default_coding_rate = DEFAULT_CODING_RATE);
+  int noiseFloor[NUM_OF_CHANNELS];
+  int id;
+  int channel;
+  int spreading_factor;
+  int bandwidth;
+  int squelch;
+  int power;
+  int coding_rate;
+  // Private constructor
+  MAC(PacketReceivedCallback callback, int id,
+      int default_channel = DEFAULT_CHANNEL,
+      int default_spreading_factor = DEFAULT_SPREADING_FACTOR,
+      int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH,
+      int default_power = DEFAULT_POWER,
+      int default_coding_rate = DEFAULT_CODING_RATE);
 
-    // Private destructor
-    ~MAC();
+  // Private destructor
+  ~MAC();
 
-    // Private copy constructor and assignment operator to prevent copying
-    MAC(const MAC&) = delete;
-    MAC& operator=(const MAC&) = delete;
-    MACPacket createPacket(uint16_t sender, uint16_t target, unsigned char *data, uint8_t size);
+  // Private copy constructor and assignment operator to prevent copying
+  MAC(const MAC &) = delete;
+  MAC &operator=(const MAC &) = delete;
+  MACPacket *createPacket(uint16_t sender, uint16_t target, unsigned char *data,
+                         uint8_t size);
+  void setMode(State state);
+  State getMode();
+  bool transmissionAuthorized();
 
-    // Private member variables for MAC layer
-    PacketReceivedCallback RXCallback;
+  // Private member variables for MAC layer
+  PacketReceivedCallback RXCallback;
 
-    // Private helper functions as needed
+  // Private helper functions as needed
 };
-
 
 #endif // MAC_LAYER_H
