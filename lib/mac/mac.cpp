@@ -3,8 +3,7 @@
 #include "../mathextension/mathextension.h"
 #include <stdexcept>
 
-MAC* MAC::mac = nullptr;
-
+MAC *MAC::mac = nullptr;
 
 /*
  * LORANoiseFloorCalibrate function calibrates noise floor of the LoRa channel and returns the
@@ -19,7 +18,7 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */)
 {
     LoRa.idle();                                    // Stop receiving
     LoRa.setFrequency(channels[channel]);           // Set frequency to the given channel
-    MAC::current_channel = channel;  // Set current channel
+    MAC::channel = channel;                         // Set current channel
     LoRa.receive();                                 // Start receiving
     int noise_measurements[NUMBER_OF_MEASUREMENTS]; // Array to hold noise measurements
 
@@ -27,7 +26,7 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */)
     for (int i = 0; i < NUMBER_OF_MEASUREMENTS; i++)
     {
         noise_measurements[i] = LoRa.rssi();
-        sleep_ms(time_between_measurements);
+        sleep_ms(TIME_BETWEENMEASUREMENTS);
     }
 
     // Sort the array in ascending order using quickSort algorithm
@@ -44,7 +43,7 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */)
     // If save is true, save the calibrated noise floor value to noise_floor_per_channel array
     if (save)
     {
-        noise_floor_per_channel[channel] = (int)(average + squelch);
+        noiseFloor[channel] = (int)(average + squelch);
     }
 
     return (int)(average + squelch); // Return the average noise measurement plus squelch value
@@ -59,21 +58,28 @@ void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/)
     }
     // Set LoRa to idle and set frequency to current channel
     LoRa.idle();
-    LoRa.setFrequency(channels[MAC::current_channel]);
+    LoRa.setFrequency(channels[MAC::channel]);
 }
 
-static void MAC::RecievedPacket(int size){
-    mac->handlePacket(size);
-
+void MAC::RecievedPacket(int size)
+{
+   MAC::getInstance()->handlePacket(size);
 }
 
-double MAC::channels[NUM_OF_CHANNELS] = {
-    433.05e6, 433.175e6, 433.3e6, 433.425e6, 433.55e6, 433.675e6, 433.8e6,
-    433.925e6, 434.05e6, 434.175e6, 434.3e6, 434.425e6, 434.55e6, 434.675e6,
-    434.8e6};
+void MAC::ChannelActity(bool signal){
+    if(signal){
+        printf("Channel is active\n");
+        LoRa.receive();
+    }else{
+        printf("Channel is not active\n");
+        LoRa.channelActivityDetection();
+    }
+}
 
 
-MAC::MAC(PacketReceivedCallback callback, int id,  int default_channel /* = DEFAULT_CHANNEL*/, int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/, int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/, int squelch /*= DEFAULT_SQUELCH*/, int default_power /* = DEFAULT_POWER*/, int default_coding_rate /*DEFAULT_CODING_RATE*/) {
+
+MAC::MAC(PacketReceivedCallback callback, int id, int default_channel /* = DEFAULT_CHANNEL*/, int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/, int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/, int squelch /*= DEFAULT_SQUELCH*/, int default_power /* = DEFAULT_POWER*/, int default_coding_rate /*DEFAULT_CODING_RATE*/)
+{
     this->id = id;
     this->channel = default_channel;
     this->spreading_factor = default_spreading_factor;
@@ -84,39 +90,50 @@ MAC::MAC(PacketReceivedCallback callback, int id,  int default_channel /* = DEFA
     if (!LoRa.begin(channels[default_channel]))
     {
         printf("LoRa init failed. Check your connections.\n");
-        return false;
     }
-    // Initialize the LoRa module with the specified settings
-    LoRa.setTxPower(default_power);
-    LoRa.setSpreadingFactor(default_spreading_factor);
-    LoRa.setSignalBandwidth(default_bandwidth);
-    LoRa.setCodingRate4(default_coding_rate);
-    LoRa.onReceive(MAC::RecievedPacket);
+    else
+    {
+        printf("LoRa init succeeded. %d\n", channels[default_channel]);
+        // Initialize the LoRa module with the specified settings
+        LoRa.setTxPower(default_power);
+        LoRa.setSpreadingFactor(default_spreading_factor);
+        LoRa.setSignalBandwidth(default_bandwidth);
+        LoRa.setCodingRate4(default_coding_rate);
+        LoRa.onReceive(MAC::RecievedPacket);
+        //LoRa.onCadDone(MAC::ChannelActity);
+        //LoRa.channelActivityDetection();
 
-
-    RXCallback = callback;
+        RXCallback = callback;
+    }
 }
 
-MAC* MAC::getInstance() {
-    if (mac == nullptr) {
+MAC *MAC::getInstance()
+{
+    if (mac == nullptr)
+    {
         // Throw an exception or handle the error case if initialize() has not been called before getInstance()
     }
     return mac;
 }
 
-void MAC::initialize(PacketReceivedCallback callback, int id, int default_channel /* = DEFAULT_CHANNEL*/, int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/, int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/, int squelch /*= DEFAULT_SQUELCH*/, int default_power /* = DEFAULT_POWER*/, int default_coding_rate /*DEFAULT_CODING_RATE*/) {
-    if (mac == nullptr) {
+void MAC::initialize(PacketReceivedCallback callback, int id, int default_channel /* = DEFAULT_CHANNEL*/, int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/, int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/, int squelch /*= DEFAULT_SQUELCH*/, int default_power /* = DEFAULT_POWER*/, int default_coding_rate /*DEFAULT_CODING_RATE*/)
+{
+    if (mac == nullptr)
+    {
         mac = new MAC(callback, id, default_channel, default_spreading_factor, default_bandwidth, squelch, default_power, default_coding_rate);
     }
 }
 
-MAC::~MAC() {
+MAC::~MAC()
+{
     // Destructor implementation if needed
 }
 
-void MAC::handlePacket(uint16_t size) {
+void MAC::handlePacket(uint16_t size)
+{
     unsigned char packetBytes[255];
-    for(int i = 0; i < size && LoRa.available(); i++){
+    for (int i = 0; i < size && LoRa.available(); i++)
+    {
         packetBytes[i] = LoRa.read();
     }
     MACPacket packet = *(MACPacket *)packetBytes;
@@ -131,19 +148,35 @@ void MAC::handlePacket(uint16_t size) {
  * @param size The size of the data in bytes.
  * @throws std::invalid_argument if the data size is greater than the maximum allowed size.
  */
-void MAC::sendData(uint16_t sender, uint16_t target, unsigned char *data, uint8_t size) {
-    if(size > DATASIZE_MAC){
-        throw std::invalid_argument("Data size cannot be greater than 247 bytes");
+void MAC::sendData(uint16_t sender, uint16_t target, unsigned char *data, uint8_t size)
+{
+    if (size > DATASIZE_MAC)
+    {
+        printf("Data size cannot be greater than 247 bytes\n");
+        return;
+
+        // throw std::invalid_argument("Data size cannot be greater than 247 bytes");
     }
+    printf("befire creatubg packet \n");
+
     MACPacket packet = createPacket(sender, target, data, size);
-    LoRa.beginPacket();
     uint8_t finalPacketLength = MAC_OVERHEAD + size;
     unsigned char *packetBytes = (unsigned char *)&packet;
-    for(int i = 0; i < finalPacketLength; i++){
-        LoRa.write(packetBytes[i]);
-    }
-    Lora.endPacket();
-    
+    LoRa.beginPacket();
+    /*
+    for (int i = 0; i < finalPacketLength; i++)
+    {
+        printf("packetBytes[%d] = %d\n", i, packetBytes[i]);
+    }*/
+    LoRa.write(2);
+
+    printf("after writing packet \n");
+    LoRa.endPacket();
+        printf("after sending\n");
+    LoRa.receive();
+
+    //LoRa.channelActivityDetection();
+
 }
 
 /**
@@ -154,12 +187,17 @@ void MAC::sendData(uint16_t sender, uint16_t target, unsigned char *data, uint8_
  * @param size The size of the data in bytes.
  * @return The created MAC packet.
  */
-MACPacket MAC::createPacket(uint16_t sender, uint16_t target, unsigned char *data, uint8_t size) {
+MACPacket MAC::createPacket(uint16_t sender, uint16_t target, unsigned char *data, uint8_t size)
+{
     MACPacket packet;
     packet.sender = sender;
     packet.target = target;
-    memcpy(packet.data, data, size);
+    memcpy(packet.data, data, MAC_OVERHEAD + size);
+    printf("Before crc %d\n", MAC_OVERHEAD + size);
+
     packet.crc32 = MathExtension.crc32c(0, data, size);
+    printf("after crc \n");
+
     return packet;
 }
 

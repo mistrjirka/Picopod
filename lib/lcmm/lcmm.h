@@ -3,7 +3,7 @@
 #include <cstdint>
 // Include necessary headers
 #include <functional>
-#include "../DTP/gerealsettings.h"
+#include "../DTP/generalsettings.h"
 
 typedef struct{
     uint8_t type;

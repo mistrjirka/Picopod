@@ -11,7 +11,7 @@
 #include "hardware/irq.h"
 #include "lib/bluetooth/bluetooth.h"
 #include "lib/voltage/voltage.h"
-#include "lib/loramessenger/loramessenger.h"
+#include "lib/mac/mac.h"
 #include "lib/IOUSBBT/IOUSBBT.h"
 #include <hardware/flash.h>
 #include <iostream>
@@ -67,9 +67,9 @@ void setup()
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
     gpio_put(LED_PIN, 0);
-    //Voltage.initVoltage(26, 2);
+    // Voltage.initVoltage(26, 2);
 
-    //LoraMessenger.LORASetup(lol);
+    // LoraMessenger.LORASetup(lol);
 }
 
 /*void sendPacket(Packet packet)
@@ -90,13 +90,13 @@ void listenForCommands()
     char startCommands = getchar_timeout_us(0);
     if (startCommands == 's')
     {
-        //Packet packet = load_packet_information(true);
-        //sendPacket(packet);
+        // Packet packet = load_packet_information(true);
+        // sendPacket(packet);
         tight_loop_contents();
     }
     else if (startCommands == 'g')
     {
-        //printf("{\"type\":-3, \"data\": \"%d\"}", LoraMessengerClass::ID);
+        // printf("{\"type\":-3, \"data\": \"%d\"}", LoraMessengerClass::ID);
     }
     else if (startCommands == 'c')
     {
@@ -107,7 +107,7 @@ void listenForCommands()
         }
         else
         {
-            //LoraMessengerClass::ID = id - '0';
+            // LoraMessengerClass::ID = id - '0';
         }
     }
     else if (startCommands == 'h')
@@ -130,20 +130,39 @@ void listenForCommands()
     }
     else if (startCommands == 'p')
     {
-        //Packet packet = load_packet_information(false);
-        //sendPacket(packet);
+        // Packet packet = load_packet_information(false);
+        // sendPacket(packet);
     }
 }
 
 int main()
 {
-    setup();
-    std::cin.sync();
+    stdio_init_all();
 
+    // setup();
+    // Define the callback function
+    MAC::PacketReceivedCallback callback = [](MACPacket packet, uint16_t size)
+    {
+        // Perform actions with the received packet and size
+        // For example, print the packet data to the console
+        printf("Received packet: ");
+        for (int i = 0; i < size; i++)
+        {
+            printf("0x%x ", packet.data[i]);
+        }
+        printf("\n");
+    };
+
+    std::cin.sync();
+    MAC::initialize(callback, 1);
     while (true)
     {
+        sleep_ms(3000);
+        printf("Sending packet\n");
 
-        listenForCommands();
+        MAC::getInstance()->sendData(1, 2, (unsigned char *)"Hello world", 12);
+        printf("after sending packet \n");
+        // listenForCommands();
         tight_loop_contents();
     }
     return 0;

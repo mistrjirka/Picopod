@@ -9,30 +9,31 @@
 #include "hardware/gpio.h"
 #include "hardware/spi.h"
 #include "string.h"
+#include "stdbool.h"
 #include "Print.h"
 
-#define PIN_MISO 16
-#define PIN_CS   8
-#define PIN_SCK  18
-#define PIN_MOSI 19
-
-#define SPI_PORT spi0
+#define SPI_PORT spi1
+#define PIN_MISO 12
+#define PIN_CS 13
+#define PIN_SCK 10
+#define PIN_MOSI 11
 #define READ_BIT 0x80
 
-#define LORA_DEFAULT_SPI           spi0
+#define LORA_DEFAULT_SPI spi0
 #define LORA_DEFAULT_SPI_FREQUENCY 8E6
-#define LORA_DEFAULT_SS_PIN        8
-#define LORA_DEFAULT_RESET_PIN     9
-#define LORA_DEFAULT_DIO0_PIN      7
+#define LORA_DEFAULT_SS_PIN 8
+#define LORA_DEFAULT_RESET_PIN 9
+#define LORA_DEFAULT_DIO0_PIN 7
 #endif
 
-#define PA_OUTPUT_RFO_PIN          0
-#define PA_OUTPUT_PA_BOOST_PIN     1
+#define PA_OUTPUT_RFO_PIN 0
+#define PA_OUTPUT_PA_BOOST_PIN 1
 
 static void __empty();
 
-//class LoRaClass : public Stream {
-class LoRaClass : public Print {
+// class LoRaClass : public Stream {
+class LoRaClass : public Print
+{
 public:
   LoRaClass();
 
@@ -59,11 +60,12 @@ public:
   virtual int peek();
   virtual void flush();
 
-
-  void onReceive(void(*callback)(int));
-  void onTxDone(void(*callback)());
+  void onCadDone(void (*callback)(bool));
+  void onReceive(void (*callback)(int));
+  void onTxDone(void (*callback)());
 
   void receive(int size = 0);
+  void channelActivityDetection(void);
 
   void idle();
   void sleep();
@@ -81,9 +83,9 @@ public:
   void disableCrc();
   void enableInvertIQ();
   void disableInvertIQ();
-  
+
   void setOCP(uint8_t mA); // Over Current Protection control
-  
+
   void setGain(uint8_t gain); // Set LNA gain
 
   // deprecated
@@ -93,7 +95,7 @@ public:
   uint8_t random();
 
   void setPins(int ss = LORA_DEFAULT_SS_PIN, int reset = LORA_DEFAULT_RESET_PIN, int dio0 = LORA_DEFAULT_DIO0_PIN);
-  void setSPI(spi_inst_t& spi);
+  void setSPI(spi_inst_t &spi);
   void setSPIFrequency(uint32_t frequency);
 
   void dumpRegisters();
@@ -118,7 +120,7 @@ private:
 
 private:
   // SPISettings _spiSettings;
-  spi_inst_t* _spi;
+  spi_inst_t *_spi;
   int _ss;
   int _reset;
   int _dio0;
@@ -126,6 +128,7 @@ private:
   int _packetIndex;
   int _implicitHeaderMode;
   void (*_onReceive)(int);
+  void (*_onCadDone)(bool);
   void (*_onTxDone)();
 };
 
