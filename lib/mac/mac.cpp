@@ -163,14 +163,14 @@ void MAC::handlePacket(uint16_t size) {
  * @throws std::invalid_argument if the data size is greater than the maximum
  * allowed size.
  */
-uint8_t MAC::sendData(uint16_t sender, uint16_t target, unsigned char *data,
+uint8_t MAC::sendData(uint16_t target, unsigned char *data,
                       uint8_t size, uint32_t timeout /*= 5000*/) {
   if (size > DATASIZE_MAC) {
     printf("Data size cannot be greater than 247 bytes\n");
     return 3;
   }
 
-  MACPacket *packet = createPacket(sender, target, data, size);
+  MACPacket *packet = createPacket(this->id, target, data, size);
   if (!packet) {
     return 2;
   }

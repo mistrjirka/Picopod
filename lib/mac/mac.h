@@ -49,7 +49,7 @@ public:
   void handlePacket(uint16_t size);
 
   // Function to send packets to the next layer (DTP)
-  uint8_t sendData(uint16_t sender, uint16_t target, unsigned char *data,
+  uint8_t sendData(uint16_t target, unsigned char *data,
                 uint8_t size, uint32_t timeout = 5000);
 
   // Other member functions as needed

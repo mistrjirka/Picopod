@@ -162,9 +162,9 @@ int main()
     MAC::initialize(callback, 2, 2);
     while (true)
     {
-        sleep_ms(30);
+        sleep_ms(10000);
 
-        //MAC::getInstance()->sendData(1, 2, (unsigned char *)"This is a long message loooooooooooooool sadsdadsadasdasasdsda ", strlen("This is a long message loooooooooooooool sadsdadsadasdasasdsda "));
+        MAC::getInstance()->sendData(2, (unsigned char *)"This is a long message loooooooooooooool sadsdadsadasdasasdsda ", strlen("This is a long message loooooooooooooool sadsdadsadasdasasdsda "));
         //printf("after sending packet \n");
         tight_loop_contents();
     }
