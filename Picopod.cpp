@@ -142,27 +142,30 @@ int main()
 
     // setup();
     // Define the callback function
-    MAC::PacketReceivedCallback callback = [](MACPacket packet, uint16_t size)
+    MAC::PacketReceivedCallback callback = [](MACPacket *packet, uint16_t size)
     {
         // Perform actions with the received packet and size
         // For example, print the packet data to the console
-        printf("Received packet: ");
+        printf("Received packet from %d to %d: \n", packet->sender, packet->target);
         for (int i = 0; i < size; i++)
         {
-            printf("0x%x ", packet.data[i]);
+            printf("%c \n", packet->data[i]);
         }
         printf("\n");
+        if(packet){
+            free(packet);
+            packet = NULL;
+        }
     };
 
     printf("hello there");
-    MAC::initialize(callback, 2, 3);
+    MAC::initialize(callback, 2, 2);
     while (true)
     {
-        sleep_ms(7500);
+        sleep_ms(30);
 
-        MAC::getInstance()->sendData(1, 2, (unsigned char *)"This is a long message loooooooooooooool sadsdadsadasdasasdsda dsasdasddsaasddas  Hello world", strlen("This is a long message loooooooooooooool sadsdadsadasdasasdsda dsasdasddsaasddas  Hello world"));
-        printf("after sending packet \n");
-        // listenForCommands();
+        //MAC::getInstance()->sendData(1, 2, (unsigned char *)"This is a long message loooooooooooooool sadsdadsadasdasasdsda ", strlen("This is a long message loooooooooooooool sadsdadsadasdasasdsda "));
+        //printf("after sending packet \n");
         tight_loop_contents();
     }
     return 0;

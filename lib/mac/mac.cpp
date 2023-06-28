@@ -70,11 +70,11 @@ void MAC::RecievedPacket(int size) {
 
 void MAC::ChannelActity(bool signal) {
   if (signal) {
-    //printf("Channel is active\n");
+    // printf("Channel is active\n");
     MAC::transmission_detected = true;
     LoRa.receive();
   } else {
-    //printf("Channel is not active\n");
+    // printf("Channel is not active\n");
     MAC::transmission_detected = false;
 
     LoRa.channelActivityDetection();
@@ -96,7 +96,7 @@ MAC::MAC(PacketReceivedCallback callback, int id,
   this->power = default_power;
   this->coding_rate = default_coding_rate;
   this->transmission_detected = false;
-  
+
   if (!LoRa.begin(channels[default_channel])) {
     printf("LoRa init failed. Check your connections.\n");
   } else {
@@ -141,11 +141,16 @@ MAC::~MAC() {
 }
 
 void MAC::handlePacket(uint16_t size) {
-  unsigned char packetBytes[255];
+  unsigned char *packetBytes = (unsigned char *)malloc(size);
+  if(packetBytes == NULL){
+    printf("malloc failed\n");
+    RXCallback(NULL, 0);
+    return;
+  }
   for (int i = 0; i < size && LoRa.available(); i++) {
     packetBytes[i] = LoRa.read();
   }
-  MACPacket packet = *(MACPacket *)packetBytes;
+  MACPacket *packet = (MACPacket *)packetBytes;
   RXCallback(packet, size);
 }
 
@@ -159,50 +164,52 @@ void MAC::handlePacket(uint16_t size) {
  * allowed size.
  */
 uint8_t MAC::sendData(uint16_t sender, uint16_t target, unsigned char *data,
-                   uint8_t size, uint32_t timeout /*= 5000*/) {
+                      uint8_t size, uint32_t timeout /*= 5000*/) {
   if (size > DATASIZE_MAC) {
     printf("Data size cannot be greater than 247 bytes\n");
     return 3;
-
-    // throw std::invalid_argument("Data size cannot be greater than 247
-    // bytes");
   }
-  printf("before creating packet \n");
 
   MACPacket *packet = createPacket(sender, target, data, size);
-  if(!packet){
+  if (!packet) {
     return 2;
   }
-  uint8_t finalPacketLength = MAC_OVERHEAD + size;
-  unsigned char *packetBytes = (unsigned char *)packet;  
 
-  uint32_t start = time_us_32()/1000;
-  bool intime = false;
-  /*while ((timeout = time_us_32()/1000 - start < timeout) && !MAC::transmissionAuthorized()) {
-    printf("waiting for authorization\n");
-    sleep_ms(100);
-  }*/
-  if(!(time_us_32()/1000 - start < timeout)){
+  uint8_t finalPacketLength = MAC_OVERHEAD + size;
+  unsigned char *packetBytes = (unsigned char *)packet;
+
+  if (!waitForTransmissionAuthorization(timeout)) {
+    printf("timeout\n");
+    free(packetBytes);
     return 1;
   }
+
   State previousMode = getMode();
   setMode(SENDING);
+
   LoRa.beginPacket();
-  LoRa.write(22);
-
-  for (int i = 0; i < finalPacketLength; i++) {
-    printf("packetBytes[%d] = %d char %c\n", i, packetBytes[i], packetBytes[i]);
-  }
-
-  printf("after writing packet \n");
+  LoRa.write(packetBytes, finalPacketLength);
   LoRa.endPacket();
-  printf("after sending\n");
+
+  free(packetBytes);
   setMode(previousMode);
   return 0;
-
-  // LoRa.channelActivityDetection();
 }
 
+/**
+ * Waits for transmission authorization for a given timeout period.
+ * @param timeout The timeout period in milliseconds.
+ * @return true if transmission is authorized within the timeout period, false
+ * otherwise.
+ */
+bool MAC::waitForTransmissionAuthorization(uint32_t timeout) {
+  uint32_t start = time_us_32() / 1000;
+  while (time_us_32() / 1000 - start < timeout && !transmissionAuthorized()) {
+    printf("waiting for authorization %d \n", !transmissionAuthorized());
+    sleep_ms(30);
+  }
+  return time_us_32() / 1000 - start < timeout;
+}
 /**
  * Creates a MAC packet with the given data.
  * @param sender The sender node ID.
@@ -212,9 +219,9 @@ uint8_t MAC::sendData(uint16_t sender, uint16_t target, unsigned char *data,
  * @return The created MAC packet.
  */
 MACPacket *MAC::createPacket(uint16_t sender, uint16_t target,
-                            unsigned char *data, uint8_t size) {
-  MACPacket *packet = (MACPacket *) malloc(sizeof(MACPacket) + size);
-  if(!packet) {
+                             unsigned char *data, uint8_t size) {
+  MACPacket *packet = (MACPacket *)malloc(sizeof(MACPacket) + size);
+  if (!packet) {
     return NULL;
   }
   (*packet).sender = sender;
@@ -227,35 +234,32 @@ MACPacket *MAC::createPacket(uint16_t sender, uint16_t target,
   return packet;
 }
 
-State MAC::getMode(){
-    return this->state;
-}
+State MAC::getMode() { return this->state; }
 
-bool MAC::transmissionAuthorized(){
-    return !MAC::transmission_detected && getMode() != SENDING && getMode() != RECEIVING;
+bool MAC::transmissionAuthorized() {
+  return !MAC::transmission_detected;
 }
-void MAC::setMode(State state){
-    if (getMode() != state){
-        this->state = state;
-        switch (state)
-        {
-        case IDLE:
-            LoRa.idle();
-            break;
-        case SENDING:
-            LoRa.idle();
-            break;
-        case RECEIVING:
-            LoRa.receive();
-            break;
-        case SLEEPING:
-            LoRa.sleep();
-            break;
-        case SIGNAL_DETECTION:
-            LoRa.channelActivityDetection();
-            break;
-        default:
-            break;
-        }
+void MAC::setMode(State state) {
+  if (getMode() != state) {
+    this->state = state;
+    switch (state) {
+    case IDLE:
+      LoRa.idle();
+      break;
+    case SENDING:
+      LoRa.idle();
+      break;
+    case RECEIVING:
+      LoRa.receive();
+      break;
+    case SLEEPING:
+      LoRa.sleep();
+      break;
+    case SIGNAL_DETECTION:
+      LoRa.channelActivityDetection();
+      break;
+    default:
+      break;
     }
+  }
 }

@@ -319,27 +319,21 @@ size_t LoRaClass::write(uint8_t byte)
 
 size_t LoRaClass::write(const uint8_t *buffer, size_t size)
 {
-  printf("reading register\n");
   int currentLength = readRegister(REG_PAYLOAD_LENGTH);
-  printf("current length\n");
   // check size
   if ((currentLength + size) > MAX_PKT_LENGTH)
   {
     size = MAX_PKT_LENGTH - currentLength;
   }
-  printf("after length check\n");
 
   // write data
   for (size_t i = 0; i < size; i++)
   {
 
-    printf("writing byte by byte\n");
     writeRegister(REG_FIFO, buffer[i]);
   }
-  printf("updating length register\n");
   // update length
   writeRegister(REG_PAYLOAD_LENGTH, currentLength + size);
-  printf("after update\n");
   return size;
 }
 
