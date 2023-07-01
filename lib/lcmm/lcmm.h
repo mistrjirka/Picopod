@@ -4,6 +4,7 @@
 // Include necessary headers
 #include <functional>
 #include "../DTP/generalsettings.h"
+#include "../mac/mac.h"
 
 #define PACKET_TYPE_DATA_NOACK 0
 #define PACKET_TYPE_DATA_ACK 1
@@ -35,34 +36,40 @@ typedef struct{
 } MACPacketNegotiationResponse;
 
 typedef struct{
+    uint8_t type;
     uint16_t packetid;
     unsigned char data[DATASIZE_LCMM];
 } MACPacketData;
 
 
-class LCMM {
+class LCMM : protected MAC {
 public:
     static void RecievedPacket(int size);
     // Callback function type definition
-    using PacketReceivedCallback = std::function<void(/* Parameters for callback */)>;
+    using DataReceivedCallback = std::function<void(int packetID)>;
+    using DataReceivedCallback = std::function<void(int packetID)>;
+    
 
     // Function to access the singleton instance
     static LCMM* getInstance();
 
     // Function to initialize the LCMM layer
-    void initialize(PacketReceivedCallback callback);
+    void initialize(DataReceivedCallback dataRecieved, DataReceivedCallback TransmissionComplete);
 
     // Function to handle incoming packets or events
     void handlePacket(/* Parameters as per your protocol */);
 
-    // Function to send packets to the next layer (DTP)
-    void SendPacketSingle();
+    void SendPacketLarge(bool needACK, uint16_t target, unsigned char *data,
+                      uint32_t size, uint32_t timeout = 50000);
+
+    void SendPacketSingle(bool needACK, uint16_t target, unsigned char *data,
+                      uint8_t size, uint32_t timeout = 5000);
 
     // Other member functions as needed
 
 private:
     static LCMM *lcmm;
-    LCMM(PacketReceivedCallback callback);
+    LCMM(MAC *mac, DataReceivedCallback dataRecieved, DataReceivedCallback TransmissionComplete);
 
     // Private destructor
     ~LCMM();
