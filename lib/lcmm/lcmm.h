@@ -54,7 +54,12 @@ public:
     static LCMM* getInstance();
 
     // Function to initialize the LCMM layer
-    void initialize(DataReceivedCallback dataRecieved, DataReceivedCallback TransmissionComplete);
+    void initialize(DataReceivedCallback dataRecieved, DataReceivedCallback TransmissionComplete, int id,
+      int default_channel = DEFAULT_CHANNEL,
+      int default_spreading_factor = DEFAULT_SPREADING_FACTOR,
+      int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH,
+      int default_power = DEFAULT_POWER,
+      int default_coding_rate = DEFAULT_CODING_RATE);
 
     // Function to handle incoming packets or events
     void handlePacket(/* Parameters as per your protocol */);

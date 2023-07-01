@@ -20,7 +20,12 @@ LCMM* LCMM::getInstance() {
     return lcmm;
 }
 
-void LCMM::initialize(PacketReceivedCallback callback) {
+void LCMM::initialize(DataReceivedCallback dataRecieved, DataReceivedCallback TransmissionComplete, int id,
+      int default_channel /* = DEFAULT_CHANNEL*/,
+      int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/,
+      int default_bandwidth /* = DEFAULT_BANDWIDTH*/, int squelch /* = DEFAULT_SQUELCH*/,
+      int default_power/* = DEFAULT_POWER*/,
+      int default_coding_rate /* = DEFAULT_CODING_RATE*/) {
     if (lcmm == nullptr) {
         lcmm = new LCMM(callback);
     }
