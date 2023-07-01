@@ -38,12 +38,7 @@ public:
 
   // Function to initialize the MAC layer
   static void
-  initialize(PacketReceivedCallback callback, int id,
-             int default_channel = DEFAULT_CHANNEL,
-             int default_spreading_factor = DEFAULT_SPREADING_FACTOR,
-             int default_bandwidth = DEFAULT_BANDWIDTH,
-             int squelch = DEFAULT_SQUELCH, int default_power = DEFAULT_POWER,
-             int default_coding_rate = DEFAULT_CODING_RATE);
+  initialize(PacketReceivedCallback callback, MAC *mac);
 
   // Function to handle incoming packets or events
   void handlePacket(uint16_t size);
@@ -61,7 +56,6 @@ private:
                                       433.55e6, 433.675e6, 433.8e6, 433.925e6,
                                       434.05e6, 434.175e6, 434.3e6, 434.425e6,
                                       434.55e6, 434.675e6, 434.8e6};
-  ;
 
   int noiseFloor[NUM_OF_CHANNELS];
   int id;
@@ -72,7 +66,7 @@ private:
   int power;
   int coding_rate;
   // Private constructor
-  MAC(PacketReceivedCallback callback, int id,
+  MAC(PacketReceivedCallback callbackRecievedPacketForMe, PacketReceivedCallback callbackRecievedAnyPacket, int id,
       int default_channel = DEFAULT_CHANNEL,
       int default_spreading_factor = DEFAULT_SPREADING_FACTOR,
       int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH,

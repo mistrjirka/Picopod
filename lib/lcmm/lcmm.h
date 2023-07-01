@@ -5,25 +5,31 @@
 #include <functional>
 #include "../DTP/generalsettings.h"
 
-typedef struct{
-    uint8_t type;
-    unsigned char data[DATASIZE_LCMM + 2];
-} MACPacketGeneric;
+#define PACKET_TYPE_DATA_NOACK 0
+#define PACKET_TYPE_DATA_ACK 1
+#define PACKET_TYPE_DATA_NACK 1
+#define PACKET_TYPE_ACK 2
+#define PACKET_TYPE_PACKET_NEGOTIATION 3
+#define PACKET_TYPE_PACKET_NEGOTIATION_REFUSED 4
+#define PACKET_TYPE_PACKET_NEGOTIATION_ACCEPTED 5
 
 typedef struct{
+    uint8_t type;
     uint8_t numOfPackets; // number of packets being acknowledged
     uint16_t packetIds[16];
 } MACPacketResponse;
 
 typedef struct{
-    uint16_t numOfPackets; // number of packets being send
+    uint8_t type;
     uint16_t packetid;
+    uint16_t numOfPackets; // number of packets being send
     uint8_t ackRate; // number of packets to be sent before waiting for an ack
     uint16_t packetIdStart; // number of packets to be sent
     unsigned char data[DATASIZE_LCMM - 1 - 2];
 } MACPacketNegotiation;
 
 typedef struct{
+    uint8_t type;
     uint16_t packetid;
     unsigned char data[DATASIZE_LCMM];
 } MACPacketNegotiationResponse;
@@ -50,7 +56,7 @@ public:
     void handlePacket(/* Parameters as per your protocol */);
 
     // Function to send packets to the next layer (DTP)
-    void sendData(/* Parameters as per your protocol */);
+    void SendPacketSingle();
 
     // Other member functions as needed
 
