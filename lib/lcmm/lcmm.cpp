@@ -39,18 +39,19 @@ void LCMM::handlePacket(/* Parameters as per your protocol */) {
 }
 
 void LCMM::sendPacketLarge(uint16_t target, unsigned char *data, uint32_t size,
-                           uint32_t timeout = 50000) {}
+                           uint32_t timeout, uint8_t attempts) {}
 
 uint16_t LCMM::sendPacketSingle(bool needACK, uint16_t target,
                                 unsigned char *data, uint8_t size,
                                 AcknowledgmentCallback callback,
-                                uint32_t timeout) {
+                                uint32_t timeout, uint8_t attempts) {
 
   MACPacketData *packet = (MACPacketData *)malloc(sizeof(MACPacketData) + size);
   packet->id = LCMM::packetId++;
   packet->type = needACK ? 1 : 0;
   memcpy((*packet).data, data, size);
   if (needACK) {
+
   }
   MAC::getInstance()->sendData(target, (unsigned char *)packet,
                                sizeof(MACPacketData) + size, timeout);

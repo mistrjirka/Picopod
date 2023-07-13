@@ -5,7 +5,10 @@
 #include "../DTP/generalsettings.h"
 #include "../mac/mac.h"
 #include <functional>
-
+#include <vector>
+ 
+using namespace std;
+ 
 #define PACKET_TYPE_DATA_NOACK 0
 #define PACKET_TYPE_DATA_ACK 1
 #define PACKET_TYPE_DATA_NACK 2
@@ -43,15 +46,23 @@ typedef struct {
   unsigned char data[DATASIZE_LCMM];
 } MACPacketData;
 
+
 class LCMM {
 public:
   static void RecievedPacket(int size);
   // Callback function type definition
   using DataReceivedCallback =
-      std::function<void(int packetId, unsigned char *data, uint32_t size)>;
+      function<void(int packetId, unsigned char *data, uint32_t size)>;
   using AcknowledgmentCallback =
-      std::function<void(int packetId, bool success)>;
-
+      function<void(int packetId, bool success)>;
+      
+  typedef struct {
+    AcknowledgmentCallback callback;
+    uint32_t timeout;
+    uint16_t id;
+    uint8_t attemptsLeft;
+    long timer; 
+  } ACKWaitingSingle;
   // Function to access the singleton instance
   static LCMM *getInstance();
 
@@ -63,15 +74,16 @@ public:
   void handlePacket(/* Parameters as per your protocol */);
 
   void sendPacketLarge(uint16_t target, unsigned char *data, uint32_t size,
-                       uint32_t timeout = 50000);
+                       uint32_t timeout = 50000, uint8_t attempts = 8);
 
   uint16_t sendPacketSingle(bool needACK, uint16_t target, unsigned char *data,
                         uint8_t size, AcknowledgmentCallback callback,
-                        uint32_t timeout = 5000);
+                        uint32_t timeout = 5000, uint8_t attempts = 3);
 
   // Other member functions as needed
 
 private:
+  vector<ACKWaitingSingle> ackWaitingSingle;
   static uint16_t packetId;
   static LCMM *lcmm;
   LCMM(DataReceivedCallback dataRecieved,
