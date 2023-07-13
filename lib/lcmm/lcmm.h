@@ -60,7 +60,7 @@ public:
     // Function to handle incoming packets or events
     void handlePacket(/* Parameters as per your protocol */);
 
-    void sendPacketLarge(bool needACK, uint16_t target, unsigned char *data,
+    void sendPacketLarge(uint16_t target, unsigned char *data,
                       uint32_t size, uint32_t timeout = 50000);
 
     void sendPacketSingle(bool needACK, uint16_t target, unsigned char *data,
