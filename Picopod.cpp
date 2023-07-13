@@ -159,7 +159,7 @@ int main()
     };
 
     printf("hello there");
-    MAC::initialize(callback, 2, 2);
+    MAC::initialize( 2, 2);
     while (true)
     {
         sleep_ms(10000);

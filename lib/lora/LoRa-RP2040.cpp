@@ -77,6 +77,17 @@ LoRaClass::LoRaClass() : _spi(SPI_PORT),
                          _onTxDone(NULL)
 {
 }
+bool LoRaClass::getCrc() {
+  return (readRegister(REG_MODEM_CONFIG_2) & 0x04) != 0;
+}
+
+bool LoRaClass::getLowDataRateOptimize() {
+  return (readRegister(REG_MODEM_CONFIG_3) & 0x08) != 0;
+}
+int LoRaClass::getCodingRate4() {
+  int denominator = (readRegister(REG_MODEM_CONFIG_1) >> 1) & 0x07;
+  return denominator + 4;
+}
 
 int LoRaClass::begin(long frequency)
 {
@@ -761,7 +772,10 @@ void LoRaClass::dumpRegisters()
     printf("0x%x: 0x%x\n", i, readRegister(i));
   }
 }
-
+bool LoRaClass::getExplicitHeaderMode()
+{
+  return !_implicitHeaderMode;
+}
 void LoRaClass::explicitHeaderMode()
 {
   _implicitHeaderMode = 0;

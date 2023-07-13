@@ -5,8 +5,8 @@
 #define MAC_LAYER_H
 #define NUM_OF_CHANNELS 15
 #define DEFAULT_CHANNEL 3
-#define DEFAULT_SPREADING_FACTOR 12
-#define DEFAULT_BANDWIDTH 125E3
+#define DEFAULT_SPREADING_FACTOR 10
+#define DEFAULT_BANDWIDTH 41.7E3
 #define DEFAULT_CODING_RATE 2
 #define DEFAULT_SQUELCH 5
 #define DEFAULT_POWER 10 // dBm
@@ -35,10 +35,17 @@ public:
   // Function to access the singleton instance
   static MAC *getInstance();
   static void ChannelActity(bool signal);
+  void setRXCallback(PacketReceivedCallback callback);
 
   // Function to initialize the MAC layer
   static void
-  initialize(PacketReceivedCallback callback, MAC *mac);
+  initialize(int id,
+    int default_channel = DEFAULT_CHANNEL,
+    int default_spreading_factor  = DEFAULT_SPREADING_FACTOR,
+    int default_bandwidth = DEFAULT_SPREADING_FACTOR,
+    int squelch = DEFAULT_SQUELCH, 
+    int default_power = DEFAULT_POWER,
+    int default_coding_rate = DEFAULT_CODING_RATE);
 
   // Function to handle incoming packets or events
   void handlePacket(uint16_t size);
@@ -66,7 +73,7 @@ private:
   int power;
   int coding_rate;
   // Private constructor
-  MAC(PacketReceivedCallback callbackRecievedPacketForMe, PacketReceivedCallback callbackRecievedAnyPacket, int id,
+  MAC(int id,
       int default_channel = DEFAULT_CHANNEL,
       int default_spreading_factor = DEFAULT_SPREADING_FACTOR,
       int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH,

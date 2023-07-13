@@ -8,11 +8,13 @@
 
 #define PACKET_TYPE_DATA_NOACK 0
 #define PACKET_TYPE_DATA_ACK 1
-#define PACKET_TYPE_DATA_NACK 1
-#define PACKET_TYPE_ACK 2
-#define PACKET_TYPE_PACKET_NEGOTIATION 3
-#define PACKET_TYPE_PACKET_NEGOTIATION_REFUSED 4
-#define PACKET_TYPE_PACKET_NEGOTIATION_ACCEPTED 5
+#define PACKET_TYPE_DATA_NACK 2
+#define PACKET_TYPE_DATA_SET 3
+
+#define PACKET_TYPE_ACK 4
+#define PACKET_TYPE_PACKET_NEGOTIATION 5
+#define PACKET_TYPE_PACKET_NEGOTIATION_REFUSED 6
+#define PACKET_TYPE_PACKET_NEGOTIATION_ACCEPTED 7
 
 typedef struct{
     uint8_t type;
@@ -24,7 +26,7 @@ typedef struct{
     uint8_t type;
     uint16_t packetid;
     uint16_t numOfPackets; // number of packets being send
-    uint8_t ackRate; // number of packets to be sent before waiting for an ack
+    uint8_t ackInterval; // number of packets to be sent before waiting for an ack
     uint16_t packetIdStart; // number of packets to be sent
     unsigned char data[DATASIZE_LCMM - 1 - 2];
 } MACPacketNegotiation;
@@ -42,11 +44,10 @@ typedef struct{
 } MACPacketData;
 
 
-class LCMM : protected MAC {
+class LCMM {
 public:
     static void RecievedPacket(int size);
     // Callback function type definition
-    using DataReceivedCallback = std::function<void(int packetID)>;
     using DataReceivedCallback = std::function<void(int packetID)>;
     
 
@@ -54,27 +55,22 @@ public:
     static LCMM* getInstance();
 
     // Function to initialize the LCMM layer
-    void initialize(DataReceivedCallback dataRecieved, DataReceivedCallback TransmissionComplete, int id,
-      int default_channel = DEFAULT_CHANNEL,
-      int default_spreading_factor = DEFAULT_SPREADING_FACTOR,
-      int default_bandwidth = DEFAULT_BANDWIDTH, int squelch = DEFAULT_SQUELCH,
-      int default_power = DEFAULT_POWER,
-      int default_coding_rate = DEFAULT_CODING_RATE);
+    void initialize(DataReceivedCallback dataRecieved, DataReceivedCallback TransmissionComplete );
 
     // Function to handle incoming packets or events
     void handlePacket(/* Parameters as per your protocol */);
 
-    void SendPacketLarge(bool needACK, uint16_t target, unsigned char *data,
+    void sendPacketLarge(bool needACK, uint16_t target, unsigned char *data,
                       uint32_t size, uint32_t timeout = 50000);
 
-    void SendPacketSingle(bool needACK, uint16_t target, unsigned char *data,
+    void sendPacketSingle(bool needACK, uint16_t target, unsigned char *data,
                       uint8_t size, uint32_t timeout = 5000);
 
     // Other member functions as needed
 
 private:
     static LCMM *lcmm;
-    LCMM(MAC *mac, DataReceivedCallback dataRecieved, DataReceivedCallback TransmissionComplete);
+    LCMM(DataReceivedCallback dataRecieved, DataReceivedCallback TransmissionComplete);
 
     // Private destructor
     ~LCMM();
@@ -84,7 +80,8 @@ private:
     LCMM& operator=(const LCMM&) = delete;
 
     // Private member variables for LCMM layer
-    PacketReceivedCallback RXCallback;
+    DataReceivedCallback dataReceived;
+    DataReceivedCallback transmissionComplete;
 
     // Private helper functions as needed
 };

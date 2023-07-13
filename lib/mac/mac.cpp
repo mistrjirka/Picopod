@@ -81,7 +81,7 @@ void MAC::ChannelActity(bool signal) {
   }
 }
 
-MAC::MAC(PacketReceivedCallback callback, int id,
+MAC::MAC(int id,
          int default_channel /* = DEFAULT_CHANNEL*/,
          int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/,
          int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/,
@@ -109,8 +109,6 @@ MAC::MAC(PacketReceivedCallback callback, int id,
     LoRa.onReceive(MAC::RecievedPacket);
     LoRa.onCadDone(MAC::ChannelActity);
     setMode(SIGNAL_DETECTION);
-
-    RXCallback = callback;
   }
 }
 
@@ -118,12 +116,13 @@ MAC *MAC::getInstance() {
   if (mac == nullptr) {
     // Throw an exception or handle the error case if initialize() has not been
     // called before getInstance()
+    return nullptr;
   }
   return mac;
 }
 
 void MAC::initialize(
-    PacketReceivedCallback callback, int id,
+     int id,
     int default_channel /* = DEFAULT_CHANNEL*/,
     int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/,
     int default_bandwidth /* = DEFAULT_SPREADING_FACTOR*/,
@@ -131,7 +130,7 @@ void MAC::initialize(
     int default_coding_rate /*DEFAULT_CODING_RATE*/) {
   if (mac == nullptr) {
     mac =
-        new MAC(callback, id, default_channel, default_spreading_factor,
+        new MAC(id, default_channel, default_spreading_factor,
                 default_bandwidth, squelch, default_power, default_coding_rate);
   }
 }
@@ -262,4 +261,8 @@ void MAC::setMode(State state) {
       break;
     }
   }
+}
+
+void MAC::setRXCallback(PacketReceivedCallback callback) {
+  RXCallback = callback;
 }

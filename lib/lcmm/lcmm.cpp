@@ -5,12 +5,8 @@
 
 LCMM* LCMM::lcmm = nullptr;
 
-static void ReceivedPacket(int size) {
+static void ReceivedPacket(MACPacket *packet, uint16_t size) {
     // Callback function implementation
-}
-
-LCMM::LCMM(PacketReceivedCallback callback) {
-
 }
 
 LCMM* LCMM::getInstance() {
@@ -20,15 +16,16 @@ LCMM* LCMM::getInstance() {
     return lcmm;
 }
 
-void LCMM::initialize(DataReceivedCallback dataRecieved, DataReceivedCallback TransmissionComplete, int id,
-      int default_channel /* = DEFAULT_CHANNEL*/,
-      int default_spreading_factor /* = DEFAULT_SPREADING_FACTOR*/,
-      int default_bandwidth /* = DEFAULT_BANDWIDTH*/, int squelch /* = DEFAULT_SQUELCH*/,
-      int default_power/* = DEFAULT_POWER*/,
-      int default_coding_rate /* = DEFAULT_CODING_RATE*/) {
+void LCMM::initialize(DataReceivedCallback dataRecieved, DataReceivedCallback transmissionComplete) {
     if (lcmm == nullptr) {
-        lcmm = new LCMM(callback);
+        lcmm = new LCMM(dataRecieved, transmissionComplete);
     }
+    MAC::getInstance()->setRXCallback(ReceivedPacket);
+
+}
+LCMM::LCMM(DataReceivedCallback dataRecieved, DataReceivedCallback transmissionComplete) {
+    this->dataReceived = dataRecieved;
+    this->transmissionComplete = transmissionComplete;
 }
 
 LCMM::~LCMM() {
@@ -39,14 +36,13 @@ void LCMM::handlePacket(/* Parameters as per your protocol */) {
     // Handle incoming packets or events logic
     // You can invoke the stored callback function or pass the provided callback function as needed
     // For example, invoking the stored callback function:
-    RXCallback();
 }
-
-void LCMM::sendData(/* Parameters as per your protocol */) {
+/*
+void LCMM::sendData(/* Parameters as per your protocol ) {
     // Send data to the next layer (DTP) logic
     // You can invoke the stored callback function or pass the provided callback function as needed
     // For example, invoking the provided callback function:
-    RXCallback();
 }
 
 // Other member function implementations as needed
+*/
