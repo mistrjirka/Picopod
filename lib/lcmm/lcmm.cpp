@@ -2,7 +2,7 @@
 #include "../lora/LoRa-RP2040.h"
 
 LCMM *LCMM::lcmm = nullptr;
-
+uint16_t LCMM::packetId = 0;
 static void ReceivedPacket(MACPacket *packet, uint16_t size) {
   // Callback function implementation
 }
@@ -39,15 +39,22 @@ void LCMM::handlePacket(/* Parameters as per your protocol */) {
 }
 
 void LCMM::sendPacketLarge(uint16_t target, unsigned char *data, uint32_t size,
-                           uint32_t timeout = 50000) 
-{
+                           uint32_t timeout = 50000) {}
 
-}
+uint16_t LCMM::sendPacketSingle(bool needACK, uint16_t target,
+                                unsigned char *data, uint8_t size,
+                                AcknowledgmentCallback callback,
+                                uint32_t timeout) {
 
-void LCMM::sendPacketSingle(bool needACK, uint16_t target, unsigned char *data,
-                            uint8_t size, uint32_t timeout = 5000) 
-{
-    
+  MACPacketData *packet = (MACPacketData *)malloc(sizeof(MACPacketData) + size);
+  packet->id = LCMM::packetId++;
+  packet->type = needACK ? 1 : 0;
+  memcpy((*packet).data, data, size);
+  if (needACK) {
+  }
+  MAC::getInstance()->sendData(target, (unsigned char *)packet,
+                               sizeof(MACPacketData) + size, timeout);
+  return packet->id;
 }
 
 /*
