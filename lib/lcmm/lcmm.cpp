@@ -1,6 +1,6 @@
 #include "lcmm.h"
 #include "../lora/LoRa-RP2040.h"
-
+#include <vector>
 LCMM *LCMM::lcmm = nullptr;
 uint16_t LCMM::packetId = 0;
 static void ReceivedPacket(MACPacket *packet, uint16_t size) {
@@ -13,6 +13,20 @@ LCMM *LCMM::getInstance() {
     // called before getInstance()
   }
   return lcmm;
+}
+
+bool LCMM::timeoutHandler(struct repeating_timer *t) {
+    if (--ackWaitingSingle.attemptsLeft <= 0) {
+        ackWaitingSingle.callback(ackWaitingSingle.id, false);
+        cancel_repeating_timer(&ackWaitingSingle.timer);
+        free(ackWaitingSingle.packet);
+        ackWaitingSingle.packet = NULL;
+        return false;
+    }else{
+         MAC::getInstance()->sendData(ackWaitingSingle.target, (unsigned char *)ackWaitingSingle.packet,
+                               sizeof(LCMMPacketData) + ackWaitingSingle.size, ackWaitingSingle.timeout);
+    }
+    return true;
 }
 
 void LCMM::initialize(DataReceivedCallback dataRecieved,
@@ -46,25 +60,28 @@ uint16_t LCMM::sendPacketSingle(bool needACK, uint16_t target,
                                 AcknowledgmentCallback callback,
                                 uint32_t timeout, uint8_t attempts) {
 
-  MACPacketData *packet = (MACPacketData *)malloc(sizeof(MACPacketData) + size);
+  LCMMPacketData *packet = (LCMMPacketData *)malloc(sizeof(LCMMPacketData) + size);
   packet->id = LCMM::packetId++;
   packet->type = needACK ? 1 : 0;
   memcpy((*packet).data, data, size);
-  if (needACK) {
 
+  if (needACK) {
+    ACKWaitingSingle ackTimer;
+    ackTimer.callback = callback;
+    ackTimer.timeout = timeout;
+    ackTimer.id = packet->id;
+    ackTimer.packet = packet;
+    ackTimer.attemptsLeft = attempts;
+    ackTimer.target = target;
+    ackTimer.size = size;
+    add_repeating_timer_ms(timeout, timeoutHandler, NULL, &ackTimer.timer);
+    ackWaitingSingle = ackTimer;
   }
+
   MAC::getInstance()->sendData(target, (unsigned char *)packet,
-                               sizeof(MACPacketData) + size, timeout);
+                               sizeof(LCMMPacketData) + size, timeout);
+  if(!needACK){
+    free(packet);
+  }
   return packet->id;
 }
-
-/*
-void LCMM::sendData(/* Parameters as per your protocol ) {
-    // Send data to the next layer (DTP) logic
-    // You can invoke the stored callback function or pass the provided callback
-function as needed
-    // For example, invoking the provided callback function:
-}
-
-// Other member function implementations as needed
-*/

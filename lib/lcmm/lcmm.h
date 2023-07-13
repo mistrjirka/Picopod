@@ -6,7 +6,7 @@
 #include "../mac/mac.h"
 #include <functional>
 #include <vector>
- 
+ #include "pico/stdlib.h"
 using namespace std;
  
 #define PACKET_TYPE_DATA_NOACK 0
@@ -23,7 +23,7 @@ typedef struct {
   uint8_t type;
   uint8_t numOfPackets; // number of packets being acknowledged
   uint16_t packetIds[16];
-} MACPacketResponse;
+} LCMMPacketResponse;
 
 typedef struct {
   uint8_t type;
@@ -32,19 +32,19 @@ typedef struct {
   uint8_t ackInterval; // number of packets to be sent before waiting for an ack
   uint16_t packetIdStart; // number of packets to be sent
   unsigned char data[DATASIZE_LCMM - 1 - 2];
-} MACPacketNegotiation;
+} LCMMPacketNegotiation;
 
 typedef struct {
   uint8_t type;
   uint16_t id;
   unsigned char data[DATASIZE_LCMM];
-} MACPacketNegotiationResponse;
+} LCMMPacketNegotiationResponse;
 
 typedef struct {
   uint8_t type;
   uint16_t id;
   unsigned char data[DATASIZE_LCMM];
-} MACPacketData;
+} LCMMPacketData;
 
 
 class LCMM {
@@ -56,13 +56,16 @@ public:
   using AcknowledgmentCallback =
       function<void(int packetId, bool success)>;
       
-  typedef struct {
+ struct ACKWaitingSingle {
     AcknowledgmentCallback callback;
+    LCMMPacketData *packet;
     uint32_t timeout;
+    uint16_t target;
+    uint8_t size;
     uint16_t id;
     uint8_t attemptsLeft;
-    long timer; 
-  } ACKWaitingSingle;
+    struct repeating_timer timer; 
+  };
   // Function to access the singleton instance
   static LCMM *getInstance();
 
@@ -83,9 +86,10 @@ public:
   // Other member functions as needed
 
 private:
-  vector<ACKWaitingSingle> ackWaitingSingle;
+  static ACKWaitingSingle ackWaitingSingle;
   static uint16_t packetId;
   static LCMM *lcmm;
+  static bool timeoutHandler(struct repeating_timer *);
   LCMM(DataReceivedCallback dataRecieved,
        DataReceivedCallback TransmissionComplete);
 
