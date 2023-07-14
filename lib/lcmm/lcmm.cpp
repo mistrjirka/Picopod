@@ -3,7 +3,8 @@
 #include <vector>
 LCMM *LCMM::lcmm = nullptr;
 uint16_t LCMM::packetId = 0;
-void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, bool damaged) {
+void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, int crc) {
+  
 }
 
 LCMM *LCMM::getInstance() {

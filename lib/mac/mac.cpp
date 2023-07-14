@@ -153,8 +153,9 @@ void MAC::handlePacket(uint16_t size) {
   uint32_t crcRecieved = packet->crc32;
   packet->crc32 = 0;
   uint32_t crcCalculated = MathExtension.crc32c(0, packet->data, size - MAC_OVERHEAD);
+  packet->crc32 = crcRecieved;
 
-  RXCallback(packet, size, crcCalculated == crcRecieved);
+  RXCallback(packet, size, crcCalculated);
 }
 
 /**
