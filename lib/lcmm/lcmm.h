@@ -11,9 +11,8 @@ using namespace std;
  
 #define PACKET_TYPE_DATA_NOACK 0
 #define PACKET_TYPE_DATA_ACK 1
-#define PACKET_TYPE_DATA_NACK 2
-#define PACKET_TYPE_DATA_SET 3
-
+//#define PACKET_TYPE_DATA_NACK 2
+//#define PACKET_TYPE_DATA_SET 3
 #define PACKET_TYPE_ACK 4
 #define PACKET_TYPE_PACKET_NEGOTIATION 5
 #define PACKET_TYPE_PACKET_NEGOTIATION_REFUSED 6
@@ -22,7 +21,7 @@ using namespace std;
 typedef struct {
   uint8_t type;
   uint8_t numOfPackets; // number of packets being acknowledged
-  uint16_t packetIds[16];
+  uint16_t packetIds[];
 } LCMMPacketResponse;
 
 typedef struct {
@@ -86,8 +85,9 @@ public:
   // Other member functions as needed
 
 private:
-  static void ReceivePacket(MACPacket *packet, uint16_t size, bool correct);
+  static void ReceivePacket(MACPacket *packet, uint16_t size, uint32_t correct);
   static ACKWaitingSingle ackWaitingSingle;
+  static bool waitingForACK;
   static uint16_t packetId;
   static LCMM *lcmm;
   static bool timeoutHandler(struct repeating_timer *);

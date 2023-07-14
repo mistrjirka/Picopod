@@ -3,8 +3,42 @@
 #include <vector>
 LCMM *LCMM::lcmm = nullptr;
 uint16_t LCMM::packetId = 0;
-void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, int crc) {
-  
+void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, uint32_t crc) {
+  if(crc != packet->crc32 || size <= 0){
+    return;
+  }
+  uint8_t type = ((LCMMPacketData *)packet->data)->type;
+  switch (type) {
+    case PACKET_TYPE_DATA_NOACK:
+    case PACKET_TYPE_DATA_ACK:
+    case PACKET_TYPE_ACK:
+      if(size > sizeof(LCMMPacketResponse)){
+        LCMMPacketResponse *response = (LCMMPacketResponse *)packet->data;
+        if(response->type == PACKET_TYPE_ACK){
+          if(response->numOfPackets == 1){
+            if(waitingForACK && ackWaitingSingle.id == response->packetIds[0]){
+              ackWaitingSingle.callback(ackWaitingSingle.id, true);
+              cancel_repeating_timer(&ackWaitingSingle.timer);
+              if(ackWaitingSingle.packet != NULL){
+                free(ackWaitingSingle.packet);
+              }
+              ackWaitingSingle.packet = NULL;
+              ackWaitingSingle.callback = NULL;
+              waitingForACK = false;
+            }
+          }          
+        }
+      }
+      break;
+    case PACKET_TYPE_PACKET_NEGOTIATION:
+    case PACKET_TYPE_PACKET_NEGOTIATION_REFUSED:
+    case PACKET_TYPE_PACKET_NEGOTIATION_ACCEPTED:
+      break;
+    default:
+      return;
+
+  }
+
 }
 
 LCMM *LCMM::getInstance() {
@@ -16,13 +50,19 @@ LCMM *LCMM::getInstance() {
 }
 
 bool LCMM::timeoutHandler(struct repeating_timer *t) {
-    if (--ackWaitingSingle.attemptsLeft <= 0) {
-        ackWaitingSingle.callback(ackWaitingSingle.id, false);
+    if (--ackWaitingSingle.attemptsLeft <= 0 || !waitingForACK) {
+        if(waitingForACK){
+          ackWaitingSingle.callback(ackWaitingSingle.id, false);
+        }
         cancel_repeating_timer(&ackWaitingSingle.timer);
-        free(ackWaitingSingle.packet);
+        if(ackWaitingSingle.packet != NULL){
+          free(ackWaitingSingle.packet);
+        }
         ackWaitingSingle.packet = NULL;
+        ackWaitingSingle.callback = NULL;
+        waitingForACK = false;
         return false;
-    }else{
+    } else {
          MAC::getInstance()->sendData(ackWaitingSingle.target, (unsigned char *)ackWaitingSingle.packet,
                                sizeof(LCMMPacketData) + ackWaitingSingle.size, ackWaitingSingle.timeout);
     }

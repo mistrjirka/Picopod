@@ -28,7 +28,7 @@ public:
   static void RecievedPacket(int size);
   // Callback function type definition
   using PacketReceivedCallback =
-      std::function<void(MACPacket *packet, uint16_t size, int crcCalculated)>;
+      std::function<void(MACPacket *packet, uint16_t size, uint32_t crcCalculated)>;
 
   int LORANoiseFloorCalibrate(int channel, bool save = true);
   void LORANoiseCalibrateAllChannels(bool save /*= true*/);
