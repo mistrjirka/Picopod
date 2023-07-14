@@ -11,7 +11,7 @@ using namespace std;
  
 #define PACKET_TYPE_DATA_NOACK 0
 #define PACKET_TYPE_DATA_ACK 1
-//#define PACKET_TYPE_DATA_NACK 2
+#define PACKET_TYPE_DATA_CLUSTER_ACK 2
 //#define PACKET_TYPE_DATA_SET 3
 #define PACKET_TYPE_ACK 4
 #define PACKET_TYPE_PACKET_NEGOTIATION 5
@@ -20,16 +20,15 @@ using namespace std;
 
 typedef struct {
   uint8_t type;
-  uint8_t numOfPackets; // number of packets being acknowledged
   uint16_t packetIds[];
 } LCMMPacketResponse;
 
 typedef struct {
   uint8_t type;
   uint16_t id;
-  uint16_t numOfPackets; // number of packets being send
-  uint8_t ackInterval; // number of packets to be sent before waiting for an ack
-  uint16_t packetIdStart; // number of packets to be sent
+  uint8_t ackInterval; // amount of time after which ack is expected from the point the ack to the transmission has been recieved
+  uint16_t packetIdStart; // number of packets being send
+  uint16_t packetIdEnd; // number of packets to be sent
   unsigned char data[DATASIZE_LCMM - 1 - 2];
 } LCMMPacketNegotiation;
 
@@ -87,7 +86,7 @@ public:
 private:
   static void ReceivePacket(MACPacket *packet, uint16_t size, uint32_t correct);
   static ACKWaitingSingle ackWaitingSingle;
-  static bool waitingForACK;
+  static bool waitingForACKSingle;
   static uint16_t packetId;
   static LCMM *lcmm;
   static bool timeoutHandler(struct repeating_timer *);
