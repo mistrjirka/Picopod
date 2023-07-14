@@ -3,8 +3,7 @@
 #include <vector>
 LCMM *LCMM::lcmm = nullptr;
 uint16_t LCMM::packetId = 0;
-static void ReceivedPacket(MACPacket *packet, uint16_t size) {
-  // Callback function implementation
+void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, bool damaged) {
 }
 
 LCMM *LCMM::getInstance() {
@@ -34,7 +33,7 @@ void LCMM::initialize(DataReceivedCallback dataRecieved,
   if (lcmm == nullptr) {
     lcmm = new LCMM(dataRecieved, transmissionComplete);
   }
-  MAC::getInstance()->setRXCallback(ReceivedPacket);
+  MAC::getInstance()->setRXCallback(LCMM::ReceivePacket);
 }
 LCMM::LCMM(DataReceivedCallback dataRecieved,
            DataReceivedCallback transmissionComplete) {

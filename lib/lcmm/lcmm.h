@@ -86,6 +86,7 @@ public:
   // Other member functions as needed
 
 private:
+  static void ReceivePacket(MACPacket *packet, uint16_t size, bool correct);
   static ACKWaitingSingle ackWaitingSingle;
   static uint16_t packetId;
   static LCMM *lcmm;

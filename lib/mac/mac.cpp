@@ -143,14 +143,18 @@ void MAC::handlePacket(uint16_t size) {
   unsigned char *packetBytes = (unsigned char *)malloc(size);
   if(packetBytes == NULL){
     printf("malloc failed\n");
-    RXCallback(NULL, 0);
+    RXCallback(NULL, 0, false);
     return;
   }
   for (int i = 0; i < size && LoRa.available(); i++) {
     packetBytes[i] = LoRa.read();
   }
   MACPacket *packet = (MACPacket *)packetBytes;
-  RXCallback(packet, size);
+  uint32_t crcRecieved = packet->crc32;
+  packet->crc32 = 0;
+  uint32_t crcCalculated = MathExtension.crc32c(0, packet->data, size - MAC_OVERHEAD);
+
+  RXCallback(packet, size, crcCalculated == crcRecieved);
 }
 
 /**
