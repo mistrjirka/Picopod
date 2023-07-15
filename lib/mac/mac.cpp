@@ -64,17 +64,18 @@ void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/) {
 }
 
 void MAC::RecievedPacket(int size) {
+  printf("recieved packet\n");
   MAC::getInstance()->handlePacket(size);
   LoRa.channelActivityDetection();
 }
 
 void MAC::ChannelActity(bool signal) {
   if (signal) {
-    // printf("Channel is active\n");
+    printf("Channel is active\n");
     MAC::transmission_detected = true;
     LoRa.receive();
   } else {
-    // printf("Channel is not active\n");
+    printf("Channel is not active\n");
     MAC::transmission_detected = false;
 
     LoRa.channelActivityDetection();
@@ -140,6 +141,7 @@ MAC::~MAC() {
 }
 
 void MAC::handlePacket(uint16_t size) {
+  printf("handling packet\n");
   unsigned char *packetBytes = (unsigned char *)malloc(size);
   if(packetBytes == NULL){
     printf("malloc failed\n");
@@ -155,7 +157,7 @@ void MAC::handlePacket(uint16_t size) {
   uint32_t crcCalculated = MathExtension.crc32c(0, packet->data, size - MAC_OVERHEAD);
   packet->crc32 = crcRecieved;
 
-  RXCallback(packet, size - sizeof(MACPacket), crcCalculated);
+  RXCallback(packet, size, crcCalculated);
 }
 
 /**
@@ -168,7 +170,7 @@ void MAC::handlePacket(uint16_t size) {
  * allowed size.
  */
 uint8_t MAC::sendData(uint16_t target, unsigned char *data,
-                      uint8_t size, uint32_t timeout /*= 5000*/) {
+                      uint8_t size, bool nonblocking, uint32_t timeout /*= 5000*/) {
   if (size > DATASIZE_MAC) {
     printf("Data size cannot be greater than 247 bytes\n");
     return 3;
@@ -193,7 +195,7 @@ uint8_t MAC::sendData(uint16_t target, unsigned char *data,
 
   LoRa.beginPacket();
   LoRa.write(packetBytes, finalPacketLength);
-  LoRa.endPacket();
+  LoRa.endPacket(nonblocking);
 
   free(packetBytes);
   setMode(previousMode);

@@ -12,6 +12,8 @@
 #include "lib/bluetooth/bluetooth.h"
 #include "lib/voltage/voltage.h"
 #include "lib/mac/mac.h"
+
+#include "lib/lcmm/lcmm.h"
 #include "lib/IOUSBBT/IOUSBBT.h"
 #include <hardware/flash.h>
 #include <iostream>
@@ -136,17 +138,18 @@ void listenForCommands()
 }
 
 int main()
+
 {
     stdio_init_all();
         sleep_ms(3000);
 
     // setup();
     // Define the callback function
-    MAC::PacketReceivedCallback callback = [](MACPacket *packet, uint16_t size)
+    LCMM::DataReceivedCallback dataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
     {
         // Perform actions with the received packet and size
         // For example, print the packet data to the console
-        printf("Received packet from %d to %d: \n", packet->sender, packet->target);
+        printf("Received packet from %d to %d with packet type: %d: \n", packet->mac.sender, packet->mac.target, packet->type);
         for (int i = 0; i < size; i++)
         {
             printf("%c \n", packet->data[i]);
@@ -157,15 +160,24 @@ int main()
             packet = NULL;
         }
     };
+    LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
+    {
+        if(success){
+            printf("packet succesfully sent %d", packet);
+        }else{
+            printf("packet failed to send %d", packet);
+        }
+    };
 
     printf("hello there");
-    MAC::initialize( 2, 2);
+    MAC::initialize(2, 2);
+    LCMM::initialize(dataCallback, ackCallback);
     while (true)
     {
         sleep_ms(10000);
 
-        MAC::getInstance()->sendData(2, (unsigned char *)"This is a long message loooooooooooooool sadsdadsadasdasasdsda ", strlen("This is a long message loooooooooooooool sadsdadsadasdasasdsda "));
-        //printf("after sending packet \n");
+        LCMM::getInstance()->sendPacketSingle(true, 1, (unsigned char *)"This is a long message sadsdadsadasdasasdsda", strlen("This is a long message "), ackCallback, 5000, 5);
+        printf("after sending packet \n");
         tight_loop_contents();
     }
     return 0;

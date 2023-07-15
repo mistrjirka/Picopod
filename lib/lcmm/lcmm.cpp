@@ -3,60 +3,59 @@
 #include <vector>
 LCMM *LCMM::lcmm = nullptr;
 uint16_t LCMM::packetId = 0;
+LCMM::ACKWaitingSingle LCMM::ackWaitingSingle;
+bool LCMM::waitingForACKSingle = false;
+struct repeating_timer LCMM::ackTimer;
 void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, uint32_t crc) {
-  if(crc != packet->crc32 || size <= 0){
+  if (crc != packet->crc32 || size <= 0) {
+    printf("crc error %d %d \n", crc, packet->crc32);
     return;
   }
-  uint8_t type = ((LCMMPacketData *)packet->data)->type;
-  switch (type) {
-    case PACKET_TYPE_DATA_NOACK:
-        LCMMPacketData *data = (LCMMPacketData *)packet->data;
-        LCMM::getInstance()->dataReceived(data->id, data->data, size - sizeof(LCMMPacketData));
-        break;
-    case PACKET_TYPE_DATA_ACK:
-      if(size > sizeof(LCMMPacketData)){
-        LCMMPacketData *data = (LCMMPacketData *)packet->data;
-        LCMM::getInstance()->dataReceived(data->id, data->data, size - sizeof(LCMMPacketData));
-        LCMMPacketResponse *response = (LCMMPacketResponse *)malloc(sizeof(LCMMPacketResponse)+1);
-        if(response == NULL){
-          printf("Error allocating memory for response\n");
-          return;
-        }
-        response->type = PACKET_TYPE_ACK;
-        response->packetIds[0] = data->id;
-        
-       
+  uint8_t type = ((LCMMPacketUknownTypeRecieve *)packet)->type;
+  if (type == PACKET_TYPE_DATA_NOACK) {
+    LCMMPacketDataRecieve *data = (LCMMPacketDataRecieve *)packet;
+    packet = NULL;
+    LCMM::getInstance()->dataReceived(data, size - sizeof(LCMMPacketDataRecieve));
+  } else if (type == PACKET_TYPE_DATA_ACK) {
+    if (size > sizeof(LCMMPacketDataRecieve)) {
+      LCMMPacketDataRecieve *data = (LCMMPacketDataRecieve *)packet;
+      packet = NULL;
+      LCMM::getInstance()->dataReceived(data, size);
+      LCMMPacketResponseRecieve *response =
+          (LCMMPacketResponseRecieve *)malloc(sizeof(LCMMPacketResponseRecieve) + 1);
+      if (response == NULL) {
+        printf("Error allocating memory for response\n");
+        return;
       }
-      break; 
-    case PACKET_TYPE_ACK:
-      if(size >= sizeof(LCMMPacketResponse)+2){
-        LCMMPacketResponse *response = (LCMMPacketResponse *)packet->data;
-        if(response->type == PACKET_TYPE_ACK){
-            if(waitingForACKSingle && size - sizeof(LCMMPacketResponse) == 2 && ackWaitingSingle.id == response->packetIds[0]){
-              ackWaitingSingle.callback(ackWaitingSingle.id, true);
-              cancel_repeating_timer(&ackWaitingSingle.timer);
-              if(ackWaitingSingle.packet != NULL){
-                free(ackWaitingSingle.packet);
-              }
-              ackWaitingSingle.packet = NULL;
-              ackWaitingSingle.callback = NULL;
-              waitingForACKSingle = false;
-            }
-                 
+      response->type = PACKET_TYPE_ACK;
+      response->packetIds[0] = data->id;
+    }
+  } else if (type == PACKET_TYPE_ACK) {
+    if (size >= sizeof(LCMMPacketResponseRecieve) + 2) {
+      LCMMPacketResponseRecieve *response = (LCMMPacketResponseRecieve *)packet;
+      if (response->type == PACKET_TYPE_ACK) {
+        if (waitingForACKSingle && size - sizeof(LCMMPacketResponseRecieve) == 2 &&
+            ackWaitingSingle.id == response->packetIds[0]) {
+          ackWaitingSingle.callback(ackWaitingSingle.id, true);
+          cancel_repeating_timer(&LCMM::ackTimer);
+          if (ackWaitingSingle.packet != NULL) {
+            free(ackWaitingSingle.packet);
+          }
+          ackWaitingSingle.packet = NULL;
+          ackWaitingSingle.callback = NULL;
+          waitingForACKSingle = false;
         }
       }
-      break;
-    case PACKET_TYPE_DATA_CLUSTER_ACK:
-      break;
-    case PACKET_TYPE_PACKET_NEGOTIATION:
-    case PACKET_TYPE_PACKET_NEGOTIATION_REFUSED:
-    case PACKET_TYPE_PACKET_NEGOTIATION_ACCEPTED:
-      break;
-    default:
-      return;
-
+    }
+  } else if (type == PACKET_TYPE_DATA_CLUSTER_ACK) {
+    // Handle PACKET_TYPE_DATA_CLUSTER_ACK
+  } else if (type == PACKET_TYPE_PACKET_NEGOTIATION ||
+             type == PACKET_TYPE_PACKET_NEGOTIATION_REFUSED ||
+             type == PACKET_TYPE_PACKET_NEGOTIATION_ACCEPTED) {
+    // Handle PACKET_TYPE_PACKET_NEGOTIATION,
+    // PACKET_TYPE_PACKET_NEGOTIATION_REFUSED,
+    // PACKET_TYPE_PACKET_NEGOTIATION_ACCEPTED
   }
-
 }
 
 LCMM *LCMM::getInstance() {
@@ -68,34 +67,39 @@ LCMM *LCMM::getInstance() {
 }
 
 bool LCMM::timeoutHandler(struct repeating_timer *t) {
-    if (--ackWaitingSingle.attemptsLeft <= 0 || !waitingForACKSingle) {
-        if(waitingForACKSingle){
-          ackWaitingSingle.callback(ackWaitingSingle.id, false);
-        }
-        cancel_repeating_timer(&ackWaitingSingle.timer);
-        if(ackWaitingSingle.packet != NULL){
-          free(ackWaitingSingle.packet);
-        }
-        ackWaitingSingle.packet = NULL;
-        ackWaitingSingle.callback = NULL;
-        waitingForACKSingle = false;
-        return false;
-    } else {
-         MAC::getInstance()->sendData(ackWaitingSingle.target, (unsigned char *)ackWaitingSingle.packet,
-                               sizeof(LCMMPacketData) + ackWaitingSingle.size, ackWaitingSingle.timeout);
+  /*if (--LCMM::ackWaitingSingle.attemptsLeft <= 0 || !LCMM::waitingForACKSingle) {
+    printf("transmission failed\n");
+    if (LCMM::waitingForACKSingle) {
+      LCMM::ackWaitingSingle.callback(LCMM::ackWaitingSingle.id, false);
     }
-    return true;
+    cancel_repeating_timer(&LCMM::ackWaitingSingle.timer);
+    if (LCMM::ackWaitingSingle.packet != NULL) {
+      free(LCMM::ackWaitingSingle.packet);
+    }
+    LCMM::ackWaitingSingle.packet = NULL;
+    LCMM::ackWaitingSingle.callback = NULL;
+    LCMM::waitingForACKSingle = false;
+    return false;
+  } else {
+    printf("retransmitting");
+    //MAC::getInstance()->sendData(LCMM::ackWaitingSingle.target,
+     //                            (unsigned char *)LCMM::ackWaitingSingle.packet,
+      //                           sizeof(LCMMPacketData) + LCMM::ackWaitingSingle.size,
+      //                           LCMM::ackWaitingSingle.timeout);
+  }*/
+  printf("timer out");
+  return true;
 }
 
 void LCMM::initialize(DataReceivedCallback dataRecieved,
-                      DataReceivedCallback transmissionComplete) {
+                      AcknowledgmentCallback transmissionComplete) {
   if (lcmm == nullptr) {
     lcmm = new LCMM(dataRecieved, transmissionComplete);
   }
-  MAC::getInstance()->setRXCallback(this->ReceivePacket);
+  MAC::getInstance()->setRXCallback(LCMM::ReceivePacket);
 }
 LCMM::LCMM(DataReceivedCallback dataRecieved,
-           DataReceivedCallback transmissionComplete) {
+           AcknowledgmentCallback transmissionComplete) {
   this->dataReceived = dataRecieved;
   this->transmissionComplete = transmissionComplete;
 }
@@ -118,28 +122,28 @@ uint16_t LCMM::sendPacketSingle(bool needACK, uint16_t target,
                                 AcknowledgmentCallback callback,
                                 uint32_t timeout, uint8_t attempts) {
 
-  LCMMPacketData *packet = (LCMMPacketData *)malloc(sizeof(LCMMPacketData) + size);
+  LCMMPacketData *packet =
+      (LCMMPacketData *)malloc(sizeof(LCMMPacketData) + size);
   packet->id = LCMM::packetId++;
   packet->type = needACK ? 1 : 0;
-  memcpy((*packet).data, data, size);
+  memcpy(packet->data, data, size);
 
-  if (needACK) {
-    ACKWaitingSingle ackTimer;
-    ackTimer.callback = callback;
-    ackTimer.timeout = timeout;
-    ackTimer.id = packet->id;
-    ackTimer.packet = packet;
-    ackTimer.attemptsLeft = attempts;
-    ackTimer.target = target;
-    ackTimer.size = size;
-    waitingForACKSingle = true;
-    add_repeating_timer_ms(timeout, timeoutHandler, NULL, &ackTimer.timer);
-    ackWaitingSingle = ackTimer;
-  }
-
+  
   MAC::getInstance()->sendData(target, (unsigned char *)packet,
                                sizeof(LCMMPacketData) + size, timeout);
-  if(!needACK){
+  if (needACK) {
+    ACKWaitingSingle callbackStruct;
+    callbackStruct.callback = callback;
+    callbackStruct.timeout = timeout;
+    callbackStruct.id = packet->id;
+    callbackStruct.packet = packet;
+    callbackStruct.attemptsLeft = attempts;
+    callbackStruct.target = target;
+    callbackStruct.size = size;
+    waitingForACKSingle = true;
+    add_repeating_timer_ms(timeout, timeoutHandler, NULL, &LCMM::ackTimer);
+    ackWaitingSingle = callbackStruct;
+  }else {
     free(packet);
   }
   return packet->id;

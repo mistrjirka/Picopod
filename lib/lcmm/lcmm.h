@@ -19,6 +19,44 @@ using namespace std;
 #define PACKET_TYPE_PACKET_NEGOTIATION_ACCEPTED 7
 
 typedef struct {
+  MACHeader mac;
+  uint8_t type;
+  unsigned char data[];
+} LCMMPacketUknownTypeRecieve;
+
+
+typedef struct {
+  MACHeader mac;
+  uint8_t type;
+  uint16_t packetIds[];
+} LCMMPacketResponseRecieve;
+
+typedef struct {
+  MACHeader mac;
+  uint8_t type;
+  uint16_t id;
+  uint8_t ackInterval; // amount of time after which ack is expected from the point the ack to the transmission has been recieved
+  uint16_t packetIdStart; // number of packets being send
+  uint16_t packetIdEnd; // number of packets to be sent
+  unsigned char data[];
+} LCMMPacketNegotiationRecieve;
+
+typedef struct {
+  MACHeader mac;
+  uint8_t type;
+  uint16_t id;
+  unsigned char data[];
+} LCMMPacketNegotiationResponseRecieve;
+
+typedef struct {
+  MACHeader mac;
+  uint8_t type;
+  uint16_t id;
+  unsigned char data[];
+} LCMMPacketDataRecieve;
+
+
+typedef struct {
   uint8_t type;
   uint16_t packetIds[];
 } LCMMPacketResponse;
@@ -29,30 +67,28 @@ typedef struct {
   uint8_t ackInterval; // amount of time after which ack is expected from the point the ack to the transmission has been recieved
   uint16_t packetIdStart; // number of packets being send
   uint16_t packetIdEnd; // number of packets to be sent
-  unsigned char data[DATASIZE_LCMM - 1 - 2];
+  unsigned char data[];
 } LCMMPacketNegotiation;
 
 typedef struct {
   uint8_t type;
   uint16_t id;
-  unsigned char data[DATASIZE_LCMM];
+  unsigned char data[];
 } LCMMPacketNegotiationResponse;
 
 typedef struct {
   uint8_t type;
   uint16_t id;
-  unsigned char data[DATASIZE_LCMM];
+  unsigned char data[];
 } LCMMPacketData;
-
-
 class LCMM {
 public:
   static void RecievedPacket(int size);
   // Callback function type definition
   using DataReceivedCallback =
-      function<void(int packetId, unsigned char *data, uint32_t size)>;
+      function<void(LCMMPacketDataRecieve *data, uint32_t size)>;
   using AcknowledgmentCallback =
-      function<void(int packetId, bool success)>;
+      function<void(uint16_t packetId, bool success)>;
       
  struct ACKWaitingSingle {
     AcknowledgmentCallback callback;
@@ -62,14 +98,13 @@ public:
     uint8_t size;
     uint16_t id;
     uint8_t attemptsLeft;
-    struct repeating_timer timer; 
   };
   // Function to access the singleton instance
   static LCMM *getInstance();
 
   // Function to initialize the LCMM layer
-  void initialize(DataReceivedCallback dataRecieved,
-                  DataReceivedCallback TransmissionComplete);
+  static void initialize(DataReceivedCallback dataRecieved,
+                  AcknowledgmentCallback TransmissionComplete);
 
   // Function to handle incoming packets or events
   void handlePacket(/* Parameters as per your protocol */);
@@ -90,8 +125,9 @@ private:
   static uint16_t packetId;
   static LCMM *lcmm;
   static bool timeoutHandler(struct repeating_timer *);
+  static repeating_timer_t ackTimer;
   LCMM(DataReceivedCallback dataRecieved,
-       DataReceivedCallback TransmissionComplete);
+       AcknowledgmentCallback TransmissionComplete);
 
   // Private destructor
   ~LCMM();
@@ -102,7 +138,7 @@ private:
 
   // Private member variables for LCMM layer
   DataReceivedCallback dataReceived;
-  DataReceivedCallback transmissionComplete;
+  AcknowledgmentCallback transmissionComplete;
 
   // Private helper functions as needed
 };

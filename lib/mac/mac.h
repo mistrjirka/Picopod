@@ -21,6 +21,12 @@ typedef struct {
   unsigned char data[];
 } MACPacket;
 
+typedef struct {
+  uint32_t crc32;
+  uint16_t sender;
+  uint16_t target;
+} MACHeader;
+
 enum State { IDLE, SENDING, RECEIVING, SLEEPING, SIGNAL_DETECTION };
 
 class MAC {
@@ -52,7 +58,7 @@ public:
 
   // Function to send packets to the next layer (DTP)
   uint8_t sendData(uint16_t target, unsigned char *data,
-                uint8_t size, uint32_t timeout = 5000);
+                uint8_t size,bool nonblocking, uint32_t timeout = 5000);
 
   // Other member functions as needed
 private:
