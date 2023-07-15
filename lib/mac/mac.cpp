@@ -2,7 +2,7 @@
 #include "../lora/LoRa-RP2040.h"
 #include "../mathextension/mathextension.h"
 #include <stdexcept>
-
+State MAC::state = SIGNAL_DETECTION;
 MAC *MAC::mac = nullptr;
 bool MAC::transmission_detected = false;
 /*
@@ -66,19 +66,19 @@ void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/) {
 void MAC::RecievedPacket(int size) {
   printf("recieved packet\n");
   MAC::getInstance()->handlePacket(size);
-  LoRa.channelActivityDetection();
+  MAC::setMode(SIGNAL_DETECTION);
 }
 
 void MAC::ChannelActity(bool signal) {
   if (signal) {
     printf("Channel is active\n");
     MAC::transmission_detected = true;
-    LoRa.receive();
+    setMode(RECEIVING);
   } else {
     printf("Channel is not active\n");
     MAC::transmission_detected = false;
 
-    LoRa.channelActivityDetection();
+    MAC::setMode(SIGNAL_DETECTION);
   }
 }
 
@@ -109,6 +109,7 @@ MAC::MAC(int id,
     LoRa.setCodingRate4(default_coding_rate);
     LoRa.onReceive(MAC::RecievedPacket);
     LoRa.onCadDone(MAC::ChannelActity);
+    //LoRa.Recieve();
     setMode(SIGNAL_DETECTION);
   }
 }
@@ -211,8 +212,8 @@ uint8_t MAC::sendData(uint16_t target, unsigned char *data,
 bool MAC::waitForTransmissionAuthorization(uint32_t timeout) {
   uint32_t start = time_us_32() / 1000;
   while (time_us_32() / 1000 - start < timeout && !transmissionAuthorized()) {
-    printf("waiting for authorization %d \n", !transmissionAuthorized());
-    sleep_ms(30);
+    busy_wait_ms(30);
+    tight_loop_contents();
   }
   return time_us_32() / 1000 - start < timeout;
 }
@@ -240,14 +241,14 @@ MACPacket *MAC::createPacket(uint16_t sender, uint16_t target,
   return packet;
 }
 
-State MAC::getMode() { return this->state; }
+State MAC::getMode() { return state; }
 
 bool MAC::transmissionAuthorized() {
   return !MAC::transmission_detected;
 }
 void MAC::setMode(State state) {
-  if (getMode() != state) {
-    this->state = state;
+  if (MAC::getMode() != state) {
+    MAC::state = state;
     switch (state) {
     case IDLE:
       LoRa.idle();

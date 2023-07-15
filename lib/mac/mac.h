@@ -5,8 +5,8 @@
 #define MAC_LAYER_H
 #define NUM_OF_CHANNELS 15
 #define DEFAULT_CHANNEL 3
-#define DEFAULT_SPREADING_FACTOR 10
-#define DEFAULT_BANDWIDTH 41.7E3
+#define DEFAULT_SPREADING_FACTOR 7
+#define DEFAULT_BANDWIDTH 62.5E3
 #define DEFAULT_CODING_RATE 2
 #define DEFAULT_SQUELCH 5
 #define DEFAULT_POWER 10 // dBm
@@ -64,7 +64,7 @@ public:
 private:
   static bool transmission_detected;
   static MAC *mac;
-  State state;
+  static State state;
   double channels[NUM_OF_CHANNELS] = {433.05e6, 433.175e6, 433.3e6, 433.425e6,
                                       433.55e6, 433.675e6, 433.8e6, 433.925e6,
                                       434.05e6, 434.175e6, 434.3e6, 434.425e6,
@@ -94,8 +94,8 @@ private:
   MAC &operator=(const MAC &) = delete;
   MACPacket *createPacket(uint16_t sender, uint16_t target, unsigned char *data,
                          uint8_t size);
-  void setMode(State state);
-  State getMode();
+  static void setMode(State state);
+  static State getMode();
   bool transmissionAuthorized();
   bool waitForTransmissionAuthorization(uint32_t timeout);
 
