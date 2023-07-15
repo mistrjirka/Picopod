@@ -208,7 +208,7 @@ int LoRaClass::endPacket(bool async)
     // wait for TX done
     while ((readRegister(REG_IRQ_FLAGS) & IRQ_TX_DONE_MASK) == 0)
     {
-      tight_loop_contents();
+      //tight_loop_contents();
       sleep_ms(0);
     }
     // clear IRQ's
@@ -831,7 +831,11 @@ void LoRaClass::handleDio0Rise()
       {
         _onTxDone();
       }
+    }else{
+      printf("wtf2\n");
     }
+  }else{
+    printf("wtf\n");
   }
 }
 

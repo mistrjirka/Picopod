@@ -5,7 +5,7 @@
 #define MAC_LAYER_H
 #define NUM_OF_CHANNELS 15
 #define DEFAULT_CHANNEL 3
-#define DEFAULT_SPREADING_FACTOR 7
+#define DEFAULT_SPREADING_FACTOR 10
 #define DEFAULT_BANDWIDTH 62.5E3
 #define DEFAULT_CODING_RATE 2
 #define DEFAULT_SQUELCH 5
@@ -40,7 +40,7 @@ public:
   void LORANoiseCalibrateAllChannels(bool save /*= true*/);
   // Function to access the singleton instance
   static MAC *getInstance();
-  static void ChannelActity(bool signal);
+  static void ChannelActivity(bool signal);
   void setRXCallback(PacketReceivedCallback callback);
 
   // Function to initialize the MAC layer

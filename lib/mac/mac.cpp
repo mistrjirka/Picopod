@@ -66,19 +66,19 @@ void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/) {
 void MAC::RecievedPacket(int size) {
   printf("recieved packet\n");
   MAC::getInstance()->handlePacket(size);
-  MAC::setMode(SIGNAL_DETECTION);
+  LoRa.channelActivityDetection();
 }
 
-void MAC::ChannelActity(bool signal) {
+void MAC::ChannelActivity(bool signal) {
   if (signal) {
-    printf("Channel is active\n");
+    LoRa.receive();
+    //printf("Channel is active\n");
     MAC::transmission_detected = true;
-    setMode(RECEIVING);
   } else {
-    printf("Channel is not active\n");
+    //printf("Channel is not active\n");
     MAC::transmission_detected = false;
 
-    MAC::setMode(SIGNAL_DETECTION);
+    LoRa.channelActivityDetection();
   }
 }
 
@@ -108,9 +108,9 @@ MAC::MAC(int id,
     LoRa.setSignalBandwidth(default_bandwidth);
     LoRa.setCodingRate4(default_coding_rate);
     LoRa.onReceive(MAC::RecievedPacket);
-    LoRa.onCadDone(MAC::ChannelActity);
-    //LoRa.Recieve();
-    setMode(SIGNAL_DETECTION);
+    //LoRa.onCadDone(MAC::ChannelActivity);
+    LoRa.receive();
+   // LoRa.channelActivityDetection();
   }
 }
 

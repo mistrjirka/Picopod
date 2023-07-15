@@ -171,6 +171,7 @@ int main()
 
     printf("hello there");
     MAC::initialize(1, 2);
+
     //MAC::initialize(2, 2);
     LCMM::initialize(dataCallback, ackCallback);
     sleep_ms(1500);
@@ -178,9 +179,10 @@ int main()
     while (true)
     {
 
-        LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"This is a long message sadsdadsadasdasasdsda", strlen("This is a long message "), ackCallback, 6000, 2);
+        LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"Hello World!", strlen("Hello World!"), ackCallback, 6000, 2);
+        sleep_ms(16000);
+        //sleep_ms(16);
         //printf("after sending packet \n");
-        sleep_ms(15000);
 
         tight_loop_contents();
     }
