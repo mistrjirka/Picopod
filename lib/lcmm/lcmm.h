@@ -119,6 +119,7 @@ public:
   // Other member functions as needed
 
 private:
+  static bool sending;
   static void ReceivePacket(MACPacket *packet, uint16_t size, uint32_t correct);
   static ACKWaitingSingle ackWaitingSingle;
   static bool waitingForACKSingle;

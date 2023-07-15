@@ -2,9 +2,11 @@
 #include "../lora/LoRa-RP2040.h"
 #include <vector>
 LCMM *LCMM::lcmm = nullptr;
-uint16_t LCMM::packetId = 0;
+uint16_t LCMM::packetId = 1;
 LCMM::ACKWaitingSingle LCMM::ackWaitingSingle;
 bool LCMM::waitingForACKSingle = false;
+bool LCMM::sending = false;
+
 struct repeating_timer LCMM::ackTimer;
 void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, uint32_t crc) {
   if (crc != packet->crc32 || size <= 0) {
@@ -29,6 +31,8 @@ void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, uint32_t crc) {
       }
       response->type = PACKET_TYPE_ACK;
       response->packetIds[0] = data->id;
+      MAC::getInstance()->sendData(data->mac.sender, (unsigned char *)response,
+                                   sizeof(LCMMPacketResponseRecieve) + 2, false, 5000);
     }
   } else if (type == PACKET_TYPE_ACK) {
     if (size >= sizeof(LCMMPacketResponseRecieve) + 2) {
@@ -44,6 +48,8 @@ void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, uint32_t crc) {
           ackWaitingSingle.packet = NULL;
           ackWaitingSingle.callback = NULL;
           waitingForACKSingle = false;
+          sending = false;
+
         }
       }
     }
@@ -67,26 +73,28 @@ LCMM *LCMM::getInstance() {
 }
 
 bool LCMM::timeoutHandler(struct repeating_timer *t) {
-  /*if (--LCMM::ackWaitingSingle.attemptsLeft <= 0 || !LCMM::waitingForACKSingle) {
+  if (--LCMM::ackWaitingSingle.attemptsLeft <= 0 || !LCMM::waitingForACKSingle) {
     printf("transmission failed\n");
     if (LCMM::waitingForACKSingle) {
       LCMM::ackWaitingSingle.callback(LCMM::ackWaitingSingle.id, false);
     }
-    cancel_repeating_timer(&LCMM::ackWaitingSingle.timer);
+    cancel_repeating_timer(&LCMM::ackTimer);
     if (LCMM::ackWaitingSingle.packet != NULL) {
       free(LCMM::ackWaitingSingle.packet);
     }
     LCMM::ackWaitingSingle.packet = NULL;
     LCMM::ackWaitingSingle.callback = NULL;
     LCMM::waitingForACKSingle = false;
+    LCMM::sending = false;
+
     return false;
   } else {
     printf("retransmitting");
-    //MAC::getInstance()->sendData(LCMM::ackWaitingSingle.target,
-     //                            (unsigned char *)LCMM::ackWaitingSingle.packet,
-      //                           sizeof(LCMMPacketData) + LCMM::ackWaitingSingle.size,
-      //                           LCMM::ackWaitingSingle.timeout);
-  }*/
+    MAC::getInstance()->sendData(LCMM::ackWaitingSingle.target,
+                              (unsigned char *)LCMM::ackWaitingSingle.packet,
+                               sizeof(LCMMPacketData) + LCMM::ackWaitingSingle.size,true,
+                               LCMM::ackWaitingSingle.timeout);
+  }
   printf("timer out");
   return true;
 }
@@ -121,16 +129,18 @@ uint16_t LCMM::sendPacketSingle(bool needACK, uint16_t target,
                                 unsigned char *data, uint8_t size,
                                 AcknowledgmentCallback callback,
                                 uint32_t timeout, uint8_t attempts) {
-
+  if (LCMM::sending) {
+    printf("already sending\n");
+    return 0;
+  }
   LCMMPacketData *packet =
       (LCMMPacketData *)malloc(sizeof(LCMMPacketData) + size);
   packet->id = LCMM::packetId++;
   packet->type = needACK ? 1 : 0;
   memcpy(packet->data, data, size);
-
-  
+  LCMM::sending = true;
   MAC::getInstance()->sendData(target, (unsigned char *)packet,
-                               sizeof(LCMMPacketData) + size, timeout);
+                               sizeof(LCMMPacketData) + size, false, timeout);
   if (needACK) {
     ACKWaitingSingle callbackStruct;
     callbackStruct.callback = callback;
@@ -145,6 +155,8 @@ uint16_t LCMM::sendPacketSingle(bool needACK, uint16_t target,
     ackWaitingSingle = callbackStruct;
   }else {
     free(packet);
+    LCMM::sending = false;
+
   }
   return packet->id;
 }
