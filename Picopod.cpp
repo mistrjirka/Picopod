@@ -12,7 +12,7 @@
 #include "lib/bluetooth/bluetooth.h"
 #include "lib/voltage/voltage.h"
 #include "lib/mac/mac.h"
-
+#include "lib/lora/LoRa-RP2040.h"
 #include "lib/lcmm/lcmm.h"
 #include "lib/IOUSBBT/IOUSBBT.h"
 #include <hardware/flash.h>
@@ -145,7 +145,23 @@ int main()
 
     // setup();
     // Define the callback function
-    LCMM::DataReceivedCallback dataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
+
+    MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, uint32_t crcCalculated)
+    {
+        // Perform actions with the received packet and size
+        // For example, print the packet data to the console
+        printf("Received packet from %d to %d with packet type: \n", packet->sender, packet->target);
+        for (int i = 0; i < size; i++)
+        {
+            printf("%c \n", packet->data[i]);
+        }
+        printf("\n");
+        if(packet){
+            free(packet);
+            packet = NULL;
+        }
+    };
+    /*LCMM::DataReceivedCallback dataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
     {
         // Perform actions with the received packet and size
         // For example, print the packet data to the console
@@ -159,7 +175,7 @@ int main()
             free(packet);
             packet = NULL;
         }
-    };
+    };*/
     LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
     {
         if(success){
@@ -173,16 +189,18 @@ int main()
     MAC::initialize(1, 2);
 
     //MAC::initialize(2, 2);
-    LCMM::initialize(dataCallback, ackCallback);
+    MAC::getInstance()->setRXCallback(dataCallback);
+    //LCMM::initialize(dataCallback, ackCallback);
     sleep_ms(1500);
 
     while (true)
     {
-
-        LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"Hello World!", strlen("Hello World!"), ackCallback, 6000, 2);
-        sleep_ms(16000);
-        //sleep_ms(16);
+        //MAC::getInstance()->sendData(1, (unsigned char *)"Hello World!", strlen("Hello World!"), false, 5000);
+        //LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"Hello World!", strlen("Hello World!"), ackCallback, 6000, 2);
+        //sleep_ms(16000);
+        sleep_ms(15);
         //printf("after sending packet \n");
+        LoRa.receive();
 
         tight_loop_contents();
     }

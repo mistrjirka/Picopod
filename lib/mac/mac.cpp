@@ -64,7 +64,7 @@ void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/) {
 }
 
 void MAC::RecievedPacket(int size) {
-  printf("recieved packet\n");
+  printf("recieved packet %d\n", LoRa.packetRssi());
   MAC::getInstance()->handlePacket(size);
   LoRa.channelActivityDetection();
 }
@@ -103,14 +103,13 @@ MAC::MAC(int id,
   } else {
     printf("LoRa init succeeded. %f\n", channels[default_channel]);
     // Initialize the LoRa module with the specified settings
-    LoRa.setTxPower(default_power);
+    //LoRa.setTxPower(default_power);
     LoRa.setSpreadingFactor(default_spreading_factor);
     LoRa.setSignalBandwidth(default_bandwidth);
     LoRa.setCodingRate4(default_coding_rate);
     LoRa.onReceive(MAC::RecievedPacket);
-    //LoRa.onCadDone(MAC::ChannelActivity);
-    LoRa.receive();
-   // LoRa.channelActivityDetection();
+    LoRa.onCadDone(MAC::ChannelActivity);
+    LoRa.channelActivityDetection();
   }
 }
 
@@ -153,12 +152,12 @@ void MAC::handlePacket(uint16_t size) {
     packetBytes[i] = LoRa.read();
   }
   MACPacket *packet = (MACPacket *)packetBytes;
-  uint32_t crcRecieved = packet->crc32;
+  /*uint32_t crcRecieved = packet->crc32;
   packet->crc32 = 0;
-  uint32_t crcCalculated = MathExtension.crc32c(0, packet->data, size - MAC_OVERHEAD);
-  packet->crc32 = crcRecieved;
+  //uint32_t crcCalculated = MathExtension.crc32c(0, packet->data, size - MAC_OVERHEAD);
+  packet->crc32 = crcRecieved;*/
 
-  RXCallback(packet, size, crcCalculated);
+  RXCallback(packet, size, 0);
 }
 
 /**
@@ -195,7 +194,9 @@ uint8_t MAC::sendData(uint16_t target, unsigned char *data,
   setMode(SENDING);
 
   LoRa.beginPacket();
-  LoRa.write(packetBytes, finalPacketLength);
+  //Lora.write(crc)
+  LoRa.print("lol");
+  //LoRa.write(packetBytes, finalPacketLength);
   LoRa.endPacket(nonblocking);
 
   free(packetBytes);
