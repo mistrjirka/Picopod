@@ -198,9 +198,9 @@ int main()
         //MAC::getInstance()->sendData(1, (unsigned char *)"Hello World!", strlen("Hello World!"), false, 5000);
         //LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"Hello World!", strlen("Hello World!"), ackCallback, 6000, 2);
         //sleep_ms(16000);
-        sleep_ms(15);
+        //sleep_ms(15);
         //printf("after sending packet \n");
-        LoRa.receive();
+        
 
         tight_loop_contents();
     }

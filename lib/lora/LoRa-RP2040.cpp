@@ -77,17 +77,6 @@ LoRaClass::LoRaClass() : _spi(SPI_PORT),
                          _onTxDone(NULL)
 {
 }
-bool LoRaClass::getCrc() {
-  return (readRegister(REG_MODEM_CONFIG_2) & 0x04) != 0;
-}
-
-bool LoRaClass::getLowDataRateOptimize() {
-  return (readRegister(REG_MODEM_CONFIG_3) & 0x08) != 0;
-}
-int LoRaClass::getCodingRate4() {
-  int denominator = (readRegister(REG_MODEM_CONFIG_1) >> 1) & 0x07;
-  return denominator + 4;
-}
 
 int LoRaClass::begin(long frequency)
 {
@@ -208,7 +197,6 @@ int LoRaClass::endPacket(bool async)
     // wait for TX done
     while ((readRegister(REG_IRQ_FLAGS) & IRQ_TX_DONE_MASK) == 0)
     {
-      //tight_loop_contents();
       sleep_ms(0);
     }
     // clear IRQ's
@@ -773,10 +761,7 @@ void LoRaClass::dumpRegisters()
     printf("0x%x: 0x%x\n", i, readRegister(i));
   }
 }
-bool LoRaClass::getExplicitHeaderMode()
-{
-  return !_implicitHeaderMode;
-}
+
 void LoRaClass::explicitHeaderMode()
 {
   _implicitHeaderMode = 0;
@@ -794,13 +779,14 @@ void LoRaClass::implicitHeaderMode()
 void LoRaClass::handleDio0Rise()
 {
   int irqFlags = readRegister(REG_IRQ_FLAGS);
-
+  printf("event: %d\n", irqFlags);
   // clear IRQ's
   writeRegister(REG_IRQ_FLAGS, irqFlags);
   writeRegister(REG_IRQ_FLAGS, irqFlags);
 
   if ((irqFlags & IRQ_CAD_DONE_MASK) != 0)
   {
+    printf("cad event\n");
     if (_onCadDone)
     {
       _onCadDone((irqFlags & IRQ_CAD_DETECTED_MASK) != 0);
@@ -819,6 +805,7 @@ void LoRaClass::handleDio0Rise()
 
       // set FIFO address to current RX address
       writeRegister(REG_FIFO_ADDR_PTR, readRegister(REG_FIFO_RX_CURRENT_ADDR));
+      printf("on recieve evenet\n");
 
       if (_onReceive)
       {
@@ -827,15 +814,17 @@ void LoRaClass::handleDio0Rise()
     }
     else if ((irqFlags & IRQ_TX_DONE_MASK) != 0)
     {
+      printf("on tx done event\n");
+
       if (_onTxDone)
       {
         _onTxDone();
       }
     }else{
-      printf("wtf2\n");
+      printf("unknown event not rx not tx not cad\n");
     }
   }else{
-    printf("wtf\n");
+    printf("not cad event\n");
   }
 }
 

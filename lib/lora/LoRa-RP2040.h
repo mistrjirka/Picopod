@@ -78,7 +78,6 @@ public:
   void setSpreadingFactor(int sf);
   void setSignalBandwidth(long sbw);
   void setCodingRate4(int denominator);
-  int getCodingRate4();
   void setPreambleLength(long length);
   void setSyncWord(int sw);
   void enableCrc();
@@ -94,9 +93,6 @@ public:
   void crc() { enableCrc(); }
   void noCrc() { disableCrc(); }
 
-  bool getCrc();
-  bool getLowDataRateOptimize();
-
   uint8_t random();
 
   void setPins(int ss = LORA_DEFAULT_SS_PIN, int reset = LORA_DEFAULT_RESET_PIN, int dio0 = LORA_DEFAULT_DIO0_PIN);
@@ -105,11 +101,6 @@ public:
 
   void dumpRegisters();
 
-  int getSpreadingFactor();
-  long getSignalBandwidth();
-  bool getExplicitHeaderMode();
-
-
 private:
   void explicitHeaderMode();
   void implicitHeaderMode();
@@ -117,6 +108,8 @@ private:
   void handleDio0Rise();
   bool isTransmitting();
 
+  int getSpreadingFactor();
+  long getSignalBandwidth();
 
   void setLdoFlag();
 

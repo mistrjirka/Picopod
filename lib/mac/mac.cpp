@@ -69,13 +69,34 @@ void MAC::RecievedPacket(int size) {
   LoRa.channelActivityDetection();
 }
 
+void MAC::handlePacket(uint16_t size) {
+  printf("handling packet\n");
+  unsigned char *packetBytes = (unsigned char *)malloc(size);
+  if(packetBytes == NULL){
+    printf("malloc failed\n");
+    RXCallback(NULL, 0, false);
+    return;
+  }
+  for (int i = 0; i < size && LoRa.available(); i++) {
+    packetBytes[i] = LoRa.read();
+  }
+  LoRa.channelActivityDetection();
+  MACPacket *packet = (MACPacket *)packetBytes;
+  /*uint32_t crcRecieved = packet->crc32;
+  packet->crc32 = 0;
+  //uint32_t crcCalculated = MathExtension.crc32c(0, packet->data, size - MAC_OVERHEAD);
+  packet->crc32 = crcRecieved;*/
+
+  RXCallback(packet, size, 0);
+}
+
 void MAC::ChannelActivity(bool signal) {
   if (signal) {
     LoRa.receive();
-    //printf("Channel is active\n");
+    printf("Channel is active\n");
     MAC::transmission_detected = true;
   } else {
-    //printf("Channel is not active\n");
+    printf("Channel is not active\n");
     MAC::transmission_detected = false;
 
     LoRa.channelActivityDetection();
@@ -140,25 +161,7 @@ MAC::~MAC() {
   // Destructor implementation if needed
 }
 
-void MAC::handlePacket(uint16_t size) {
-  printf("handling packet\n");
-  unsigned char *packetBytes = (unsigned char *)malloc(size);
-  if(packetBytes == NULL){
-    printf("malloc failed\n");
-    RXCallback(NULL, 0, false);
-    return;
-  }
-  for (int i = 0; i < size && LoRa.available(); i++) {
-    packetBytes[i] = LoRa.read();
-  }
-  MACPacket *packet = (MACPacket *)packetBytes;
-  /*uint32_t crcRecieved = packet->crc32;
-  packet->crc32 = 0;
-  //uint32_t crcCalculated = MathExtension.crc32c(0, packet->data, size - MAC_OVERHEAD);
-  packet->crc32 = crcRecieved;*/
 
-  RXCallback(packet, size, 0);
-}
 
 /**
  * Sends data to a target node.
