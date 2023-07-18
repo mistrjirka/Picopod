@@ -16,10 +16,12 @@ bool MAC::transmission_detected = false;
  * an integer value representing the average noise measurement.
  */
 int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */) {
-  LoRa.idle();                          // Stop receiving
+  State previousMode = getMode();
+
+  setMode(IDLE)   ;                       // Stop receiving
   LoRa.setFrequency(channels[channel]); // Set frequency to the given channel
   MAC::channel = channel;               // Set current channel
-  LoRa.receive();                       // Start receiving
+  setMode(RECEIVING);                     // Start receiving
   int noise_measurements[NUMBER_OF_MEASUREMENTS]; // Array to hold noise
                                                   // measurements
 
@@ -47,6 +49,7 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */) {
   if (save) {
     noiseFloor[channel] = (int)(average + squelch);
   }
+  setMode(previousMode);
 
   return (
       int)(average +
@@ -54,19 +57,23 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */) {
 }
 
 void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/) {
+  State previousMode = getMode();
+
   // Calibrate noise floor for all channels and save if requested
   for (int i = 0; i < NUM_OF_CHANNELS; i++) {
     this->LORANoiseFloorCalibrate(i, save);
   }
+  setMode(IDLE);
   // Set LoRa to idle and set frequency to current channel
-  LoRa.idle();
   LoRa.setFrequency(channels[MAC::channel]);
+  setMode(previousMode);
 }
 
 void MAC::RecievedPacket(int size) {
+  MAC::transmission_detected = true;
   printf("recieved packet %d\n", LoRa.packetRssi());
   MAC::getInstance()->handlePacket(size);
-  LoRa.channelActivityDetection();
+  MAC::transmission_detected = false;  
 }
 
 void MAC::handlePacket(uint16_t size) {
@@ -80,27 +87,13 @@ void MAC::handlePacket(uint16_t size) {
   for (int i = 0; i < size && LoRa.available(); i++) {
     packetBytes[i] = LoRa.read();
   }
-  LoRa.channelActivityDetection();
   MACPacket *packet = (MACPacket *)packetBytes;
-  /*uint32_t crcRecieved = packet->crc32;
+  uint32_t crcRecieved = packet->crc32;
   packet->crc32 = 0;
-  //uint32_t crcCalculated = MathExtension.crc32c(0, packet->data, size - MAC_OVERHEAD);
-  packet->crc32 = crcRecieved;*/
+  uint32_t crcCalculated = MathExtension.crc32c(0, packet->data, size - MAC_OVERHEAD);
+  packet->crc32 = crcRecieved;
 
-  RXCallback(packet, size, 0);
-}
-
-void MAC::ChannelActivity(bool signal) {
-  if (signal) {
-    LoRa.receive();
-    printf("Channel is active\n");
-    MAC::transmission_detected = true;
-  } else {
-    printf("Channel is not active\n");
-    MAC::transmission_detected = false;
-
-    LoRa.channelActivityDetection();
-  }
+  RXCallback(packet, size, crcCalculated);
 }
 
 MAC::MAC(int id,
@@ -129,8 +122,8 @@ MAC::MAC(int id,
     LoRa.setSignalBandwidth(default_bandwidth);
     LoRa.setCodingRate4(default_coding_rate);
     LoRa.onReceive(MAC::RecievedPacket);
-    LoRa.onCadDone(MAC::ChannelActivity);
-    LoRa.channelActivityDetection();
+    LORANoiseCalibrateAllChannels(true);
+    setMode(RECEIVING);
   }
 }
 
@@ -174,6 +167,8 @@ MAC::~MAC() {
  */
 uint8_t MAC::sendData(uint16_t target, unsigned char *data,
                       uint8_t size, bool nonblocking, uint32_t timeout /*= 5000*/) {
+  State previousMode = getMode();
+
   if (size > DATASIZE_MAC) {
     printf("Data size cannot be greater than 247 bytes\n");
     return 3;
@@ -193,7 +188,6 @@ uint8_t MAC::sendData(uint16_t target, unsigned char *data,
     return 1;
   }
 
-  State previousMode = getMode();
   setMode(SENDING);
 
   LoRa.beginPacket();
@@ -214,6 +208,9 @@ uint8_t MAC::sendData(uint16_t target, unsigned char *data,
  * otherwise.
  */
 bool MAC::waitForTransmissionAuthorization(uint32_t timeout) {
+  if(transmission_detected)
+    return false;
+  
   uint32_t start = time_us_32() / 1000;
   while (time_us_32() / 1000 - start < timeout && !transmissionAuthorized()) {
     busy_wait_ms(30);
@@ -248,7 +245,18 @@ MACPacket *MAC::createPacket(uint16_t sender, uint16_t target,
 State MAC::getMode() { return state; }
 
 bool MAC::transmissionAuthorized() {
-  return !MAC::transmission_detected;
+  State previousMode = getMode();
+  setMode(RECEIVING);
+  sleep_ms(TIME_BETWEENMEASUREMENTS/3);
+  int rssi = LoRa.rssi();
+
+  for(int i = 0; i <= NUMBER_OF_MEASUREMENTS_LBT; i++){
+    sleep_ms(TIME_BETWEENMEASUREMENTS);
+    rssi += LoRa.rssi();
+  }
+  rssi /= NUMBER_OF_MEASUREMENTS_LBT;
+  setMode(previousMode);
+  return rssi > noiseFloor[channel]+squelch;
 }
 void MAC::setMode(State state) {
   if (MAC::getMode() != state) {
