@@ -29,7 +29,7 @@ typedef struct {
   uint16_t target;
 } MACHeader;
 
-enum State { IDLE, SENDING, RECEIVING, SLEEPING, SIGNAL_DETECTION };
+enum State { IDLE, SENDING, RECEIVING, SLEEPING };
 
 class MAC {
 public:
