@@ -123,6 +123,7 @@ MAC::MAC(int id,
     LoRa.setCodingRate4(default_coding_rate);
     LoRa.onReceive(MAC::RecievedPacket);
     LORANoiseCalibrateAllChannels(true);
+    printf("channels calibrated\n");
     setMode(RECEIVING);
   }
 }
@@ -188,13 +189,13 @@ uint8_t MAC::sendData(uint16_t target, unsigned char *data,
     return 1;
   }
 
-  setMode(SENDING);
-
+  LoRa.idle();
+  printf("starting to send->");
   LoRa.beginPacket();
-  //Lora.write(crc)
-  LoRa.print("lol");
-  //LoRa.write(packetBytes, finalPacketLength);
-  LoRa.endPacket(nonblocking);
+  //LoRa.print("MAC");
+  LoRa.write(packetBytes, finalPacketLength);
+  LoRa.endPacket();
+  printf("finished\n");
 
   free(packetBytes);
   setMode(previousMode);
@@ -250,13 +251,15 @@ bool MAC::transmissionAuthorized() {
   sleep_ms(TIME_BETWEENMEASUREMENTS/3);
   int rssi = LoRa.rssi();
 
-  for(int i = 0; i <= NUMBER_OF_MEASUREMENTS_LBT; i++){
+  for(int i = 1; i < NUMBER_OF_MEASUREMENTS_LBT; i++){
     sleep_ms(TIME_BETWEENMEASUREMENTS);
     rssi += LoRa.rssi();
   }
   rssi /= NUMBER_OF_MEASUREMENTS_LBT;
+  printf("rssi %d roof %d \n ", rssi, noiseFloor[channel]+squelch);
+
   setMode(previousMode);
-  return rssi > noiseFloor[channel]+squelch;
+  return rssi < noiseFloor[channel]+squelch;
 }
 void MAC::setMode(State state) {
   if (MAC::getMode() != state) {
