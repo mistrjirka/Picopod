@@ -186,18 +186,18 @@ int main()
     };
 
     printf("hello there");
-    //MAC::initialize(1, 2);
+    MAC::initialize(1, 2);
 
-    MAC::initialize(2, 2);
+    //MAC::initialize(2, 2);
     MAC::getInstance()->setRXCallback(dataCallback);
     //LCMM::initialize(dataCallback, ackCallback);
     sleep_ms(1500);
 
     while (true)
     {
-        MAC::getInstance()->sendData(1, (unsigned char *)"Hello World!", strlen("Hello World!"), false, 5000);
+        //MAC::getInstance()->sendData(1, (unsigned char *)"Hello World!", strlen("Hello World!"), false, 5000);
         //LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"Hello World.!", strlen("Hello World!"), ackCallback, 6000, 2);
-        sleep_ms(16000);
+        //sleep_ms(16000);
         //sleep_ms(15);
         //printf("after sending packet \n");
         
