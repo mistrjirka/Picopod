@@ -141,7 +141,7 @@ int main()
 
 {
     stdio_init_all();
-        sleep_ms(3000);
+    sleep_ms(3000);
 
     // setup();
     // Define the callback function
@@ -161,6 +161,7 @@ int main()
             packet = NULL;
         }
     };
+
     /*LCMM::DataReceivedCallback dataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
     {
         // Perform actions with the received packet and size
@@ -192,16 +193,18 @@ int main()
     MAC::getInstance()->setRXCallback(dataCallback);
     //LCMM::initialize(dataCallback, ackCallback);
     sleep_ms(1500);
-
+ 
     while (true)
     {
         //MAC::getInstance()->sendData(1, (unsigned char *)"Hello World!", strlen("Hello World!"), false, 5000);
-        //LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"Hello World.!", strlen("Hello World!"), ackCallback, 6000, 2);
-        //sleep_ms(16000);
-        //sleep_ms(15);
-        //printf("after sending packet \n");
+        /*printf("before sending packet \n");
+        LCMM::getInstance()->sendPacketSingle(true, 1, (unsigned char *)"Hello World!", strlen("Hello World!"), ackCallback, 15000, 1);
+        printf("after sending packet \n");
+        sleep_ms(29000);
+        //sleep_ms(15);*/
         
-
+        
+        sleep_ms(15);
         tight_loop_contents();
     }
     return 0;

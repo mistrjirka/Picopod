@@ -786,7 +786,6 @@ void LoRaClass::handleDio0Rise()
 
   if ((irqFlags & IRQ_CAD_DONE_MASK) != 0)
   {
-    printf("cad event\n");
     if (_onCadDone)
     {
       _onCadDone((irqFlags & IRQ_CAD_DETECTED_MASK) != 0);
@@ -805,7 +804,6 @@ void LoRaClass::handleDio0Rise()
 
       // set FIFO address to current RX address
       writeRegister(REG_FIFO_ADDR_PTR, readRegister(REG_FIFO_RX_CURRENT_ADDR));
-      printf("on recieve evenet\n");
 
       if (_onReceive)
       {
@@ -814,17 +812,14 @@ void LoRaClass::handleDio0Rise()
     }
     else if ((irqFlags & IRQ_TX_DONE_MASK) != 0)
     {
-      printf("on tx done event\n");
 
       if (_onTxDone)
       {
         _onTxDone();
       }
     }else{
-      printf("unknown event not rx not tx not cad\n");
     }
   }else{
-    printf("not cad event\n");
   }
 }
 

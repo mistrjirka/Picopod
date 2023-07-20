@@ -16,13 +16,12 @@ void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, uint32_t crc) {
   uint8_t type = ((LCMMPacketUknownTypeRecieve *)packet)->type;
   if (type == PACKET_TYPE_DATA_NOACK) {
     LCMMPacketDataRecieve *data = (LCMMPacketDataRecieve *)packet;
-    packet = NULL;
     LCMM::getInstance()->dataReceived(data,
                                       size - sizeof(LCMMPacketDataRecieve));
   } else if (type == PACKET_TYPE_DATA_ACK) {
     LCMMPacketDataRecieve *data = (LCMMPacketDataRecieve *)packet;
-    packet = NULL;
-    LCMM::getInstance()->dataReceived(data, size);
+    LCMM::getInstance()->dataReceived(data, size  - sizeof(LCMMPacketDataRecieve));
+
     LCMMPacketResponseRecieve *response = (LCMMPacketResponseRecieve *)malloc(
         sizeof(LCMMPacketResponseRecieve) + 1);
     if (response == NULL) {
@@ -31,14 +30,16 @@ void LCMM::ReceivePacket(MACPacket *packet, uint16_t size, uint32_t crc) {
     }
     response->type = PACKET_TYPE_ACK;
     response->packetIds[0] = data->id;
-    MAC::getInstance()->sendData(data->mac.sender, (unsigned char *)response,
+    int res_code = MAC::getInstance()->sendData(data->mac.sender, (unsigned char *)response,
                                  sizeof(LCMMPacketResponseRecieve) + 2, false,
                                  5000);
+    printf("response code is %d\n", res_code);
 
   } else if (type == PACKET_TYPE_ACK) {
 
     LCMMPacketResponseRecieve *response = (LCMMPacketResponseRecieve *)packet;
     if (response->type == PACKET_TYPE_ACK) {
+      printf("ack recieved %d %d %d\n", size - sizeof(LCMMPacketResponseRecieve),  response->packetIds[0], ackWaitingSingle.id);
       if (waitingForACKSingle &&
           size - sizeof(LCMMPacketResponseRecieve) == 2 &&
           ackWaitingSingle.id == response->packetIds[0]) {
@@ -97,6 +98,7 @@ bool LCMM::timeoutHandler(struct repeating_timer *t) {
                                  sizeof(LCMMPacketData) +
                                      LCMM::ackWaitingSingle.size,
                                  true, LCMM::ackWaitingSingle.timeout);
+    printf("retransmission complete");
   }
   printf("timer out");
   return true;

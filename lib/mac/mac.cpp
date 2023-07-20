@@ -4,7 +4,6 @@
 #include <stdexcept>
 State MAC::state = RECEIVING;
 MAC *MAC::mac = nullptr;
-bool MAC::transmission_detected = false;
 /*
  * LORANoiseFloorCalibrate function calibrates noise floor of the LoRa channel
  * and returns the average value of noise measurements. The noise floor is used
@@ -72,10 +71,11 @@ void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/) {
 }
 
 void MAC::RecievedPacket(int size) {
-  MAC::transmission_detected = true;
+
   printf("recieved packet %d\n", LoRa.packetRssi());
   MAC::getInstance()->handlePacket(size);
-  MAC::transmission_detected = false;
+  LoRa.receive();
+  setMode(RECEIVING);
 }
 
 void MAC::handlePacket(uint16_t size) {
@@ -90,6 +90,12 @@ void MAC::handlePacket(uint16_t size) {
     packetBytes[i] = LoRa.read();
   }
   MACPacket *packet = (MACPacket *)packetBytes;
+  if(packet->target != this->id){
+    printf("packet is not for me it is for %d\n", packet->target);
+    free(packet);
+    packet = NULL;
+    return;
+  }
   uint32_t crcRecieved = packet->crc32;
   packet->crc32 = 0;
   uint32_t crcCalculated =
@@ -113,7 +119,6 @@ MAC::MAC(int id,
   this->squelch = squelch;
   this->power = default_power;
   this->coding_rate = default_coding_rate;
-  this->transmission_detected = false;
 
   if (!LoRa.begin(channels[default_channel])) {
     printf("LoRa init failed. Check your connections.\n");
@@ -127,7 +132,7 @@ MAC::MAC(int id,
     LoRa.receive();
     setMode(RECEIVING);
     LoRa.onReceive(MAC::RecievedPacket);
-    LORANoiseCalibrateAllChannels(true);
+    //LORANoiseCalibrateAllChannels(true);
     printf("channels calibrated\n");
   }
 }
@@ -169,13 +174,13 @@ MAC::~MAC() {
  */
 uint8_t MAC::sendData(uint16_t target, unsigned char *data, uint8_t size,
                       bool nonblocking, uint32_t timeout /*= 5000*/) {
-  State previousMode = getMode();
+  
 
   if (size > DATASIZE_MAC) {
     printf("Data size cannot be greater than 247 bytes\n");
     return 3;
   }
-
+  State previousMode = getMode();
   MACPacket *packet = createPacket(this->id, target, data, size);
   if (!packet) {
     return 2;
@@ -184,18 +189,23 @@ uint8_t MAC::sendData(uint16_t target, unsigned char *data, uint8_t size,
   uint8_t finalPacketLength = MAC_OVERHEAD + size;
   unsigned char *packetBytes = (unsigned char *)packet;
 
-  if (!waitForTransmissionAuthorization(timeout)) {
+  /*if (!waitForTransmissionAuthorization(timeout)) {
     printf("timeout\n");
     free(packetBytes);
     return 1;
-  }
+  }*/
 
   LoRa.idle();
   printf("starting to send->");
-  LoRa.beginPacket();
+  int status = LoRa.beginPacket();
+  if(status == 0){
+    printf("failed to start packet\n");
+    return 4;
+  }
   // LoRa.print("MAC");
-  LoRa.write(packetBytes, finalPacketLength);
+  LoRa.write(packetBytes, finalPacketLength); 
   LoRa.endPacket();
+  //LoRa.endPacket(nonblocking);
   printf("finished\n");
 
   free(packetBytes);
@@ -210,12 +220,11 @@ uint8_t MAC::sendData(uint16_t target, unsigned char *data, uint8_t size,
  * otherwise.
  */
 bool MAC::waitForTransmissionAuthorization(uint32_t timeout) {
-  if (transmission_detected)
-    return false;
 
+  return true;
   uint32_t start = time_us_32() / 1000;
   while (time_us_32() / 1000 - start < timeout && !transmissionAuthorized()) {
-    busy_wait_ms(30);
+    sleep_ms(30);
     tight_loop_contents();
   }
   return time_us_32() / 1000 - start < timeout;
