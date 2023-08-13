@@ -47,7 +47,6 @@ target_link_libraries(Picopod
         hardware_flash
         hardware_i2c
         hardware_uart
-        LoRa_pico_lib
         sensors_voltage
         mathextension
         mac

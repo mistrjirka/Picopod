@@ -6,7 +6,11 @@
 #include "../mac/mac.h"
 #include <functional>
 #include <vector>
- #include "pico/stdlib.h"
+#include <cstring>
+#include "pico/stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 using namespace std;
  
 #define PACKET_TYPE_DATA_NOACK 0

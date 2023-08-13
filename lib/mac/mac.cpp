@@ -1,7 +1,5 @@
 #include "mac.h"
-#include "../lora/LoRa-RP2040.h"
-#include "../mathextension/mathextension.h"
-#include <stdexcept>
+
 State MAC::state = RECEIVING;
 MAC *MAC::mac = nullptr;
 bool MAC::transmission_detected = false;
@@ -114,6 +112,7 @@ MAC::MAC(int id,
   this->power = default_power;
   this->coding_rate = default_coding_rate;
   this->transmission_detected = false;
+  this->radio = new Module(10, 2, 9, 3);
 
   if (!LoRa.begin(channels[default_channel])) {
     printf("LoRa init failed. Check your connections.\n");

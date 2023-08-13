@@ -2,6 +2,9 @@
 #include "../DTP/generalsettings.h"
 #include <cstdint>
 #include <functional>
+#include "../RadioLib/src/RadioLib.h"
+#include "../mathextension/mathextension.h"
+#include <stdexcept>
 #define MAC_LAYER_H
 #define NUM_OF_CHANNELS 15
 #define DEFAULT_CHANNEL 3
@@ -64,6 +67,7 @@ public:
 
   // Other member functions as needed
 private:
+  SX1278 radio;
   static bool transmission_detected;
   static MAC *mac;
   static State state;

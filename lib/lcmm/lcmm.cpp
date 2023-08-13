@@ -1,6 +1,4 @@
 #include "lcmm.h"
-#include "../lora/LoRa-RP2040.h"
-#include <vector>
 LCMM *LCMM::lcmm = nullptr;
 uint16_t LCMM::packetId = 1;
 LCMM::ACKWaitingSingle LCMM::ackWaitingSingle;

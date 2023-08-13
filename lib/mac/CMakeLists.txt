@@ -2,7 +2,7 @@ add_library(mac mac.cpp mac.h)
 
 target_link_libraries(mac
     pico_stdlib
-    LoRa_pico_lib
+    RadioLib
     mathextension
     bluetooth
     hardware_timer
