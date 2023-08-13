@@ -3,6 +3,7 @@
 #include <LilyGoLib.h>
 #include <LV_Helper.h>
 #include <WiFi.h>
+#include "../../lib/mac/mac.h"
 #ifdef ENABLE_IR_SENDER
 #include <IRsend.h>
 IRsend irsend(BOARD_IR_PIN);

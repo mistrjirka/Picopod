@@ -45,12 +45,16 @@ void watchSetup()
     Serial.begin(115200);
 
     settingPMU();
-
  
     settingSensor();
   
     settingRadio();
-  Serial.println("setup radio");
+    delay(3000);
+    Serial.println("setup radio before MAC");
+
+    MAC::initialize(1);
+
+    Serial.println("setup MAC");
 
 
     beginLvglHelper(false);
@@ -142,7 +146,6 @@ void tileview_change_cb(lv_event_t *e)
     switch (pageId)
     {
     case RADIO_TRANSMIT_PAGE_ID:
-        lv_timer_resume(transmitTask);
         canScreenOff = false;
         break;
     default:
@@ -157,8 +160,10 @@ void lowPowerEnergyHandler()
     Serial.println("Enter light sleep mode!");
     brightnessLevel = watch.getBrightness();
     watch.decrementBrightness(0);
+    Serial.println("DEcremented brigtness!");
 
     watch.clearPMU();
+    Serial.println("Cleared pmu!");
 
     watch.configreFeatureInterrupt(
         SensorBMA423::INT_STEP_CNTR |    // Pedometer interrupt
@@ -170,7 +175,6 @@ void lowPowerEnergyHandler()
 
     sportsIrq = false;
     pmuIrq = false;
-    lv_timer_pause(transmitTask);
     // TODO: Low power consumption not debugged
     if (lightSleep)
     {
@@ -211,7 +215,6 @@ void lowPowerEnergyHandler()
             SensorBMA423::INT_ANY_NO_MOTION, // Any  motion / no motion interrupt
         true);
 
-    lv_timer_resume(transmitTask);
 
     lv_disp_trig_activity(NULL);
     // Run once
@@ -544,14 +547,17 @@ void settingRadio()
 }
 
 
+
+
+
 static void radio_rxtx_cb(lv_event_t *e)
 {
     lv_obj_t *obj = lv_event_get_target(e);
     char buf[32];
     lv_dropdown_get_selected_str(obj, buf, sizeof(buf));
     uint32_t id = lv_dropdown_get_selected(obj);
-    Serial.printf("Option: %s id:%u\n", buf, id);
-    switch (id) {
+    //Serial.printf("Option: %s id:%u\n", buf, id);
+    /*switch (id) {
     case 0:
         lv_timer_resume(transmitTask);
         // TX
@@ -584,7 +590,7 @@ static void radio_rxtx_cb(lv_event_t *e)
         break;
     default:
         break;
-    }
+    }*/
 }
 
 static void radio_bandwidth_cb(lv_event_t *e)
@@ -602,17 +608,17 @@ static void radio_bandwidth_cb(lv_event_t *e)
         return;
     }
 
-    bool isRunning = !transmitTask->paused;
+    /*bool isRunning = !transmitTask->paused;
     if (isRunning) {
         lv_timer_pause(transmitTask);
         watch.standby();
-    }
+    }*/
 
     // set bandwidth
     if (watch.setBandwidth(bw[id]) == RADIOLIB_ERR_INVALID_BANDWIDTH) {
         Serial.println(F("Selected bandwidth is invalid for this module!"));
     }
-
+/*
     if (transmitFlag) {
         watch.startTransmit("");
     } else {
@@ -621,7 +627,7 @@ static void radio_bandwidth_cb(lv_event_t *e)
 
     if (isRunning) {
         lv_timer_resume(transmitTask);
-    }
+    }*/
 }
 
 static void radio_freq_cb(lv_event_t *e)
@@ -639,10 +645,10 @@ static void radio_freq_cb(lv_event_t *e)
         return;
     }
 
-    bool isRunning = !transmitTask->paused;
+    /*bool isRunning = !transmitTask->paused;
     if (isRunning) {
         lv_timer_pause(transmitTask);
-    }
+    }*/
 
     if (watch.setFrequency(freq[id]) == RADIOLIB_ERR_INVALID_FREQUENCY) {
         Serial.println(F("Selected frequency is invalid for this module!"));
@@ -654,10 +660,10 @@ static void radio_freq_cb(lv_event_t *e)
     } else {
         watch.startReceive();
     }
-
+/*
     if (isRunning) {
         lv_timer_resume(transmitTask);
-    }
+    }*/
 
 }
 
@@ -669,12 +675,11 @@ static void radio_power_cb(lv_event_t *e)
     uint32_t id = lv_dropdown_get_selected(obj);
     Serial.printf("Option: %s id:%u\n", buf, id);
 
-
+/*
     bool isRunning = !transmitTask->paused;
     if (isRunning) {
-        lv_timer_pause(transmitTask);
         watch.standby();
-    }
+    }*/
 
     uint8_t dBm[] = {
         2, 5, 10, 12, 17, 20, 22
@@ -702,9 +707,8 @@ static void radio_power_cb(lv_event_t *e)
         watch.startReceive();
     }
 
-    if (isRunning) {
-        lv_timer_resume(transmitTask);
-    }
+    /*if (isRunning) {
+    }*/
 }
 
 static void radio_tx_interval_cb(lv_event_t *e)
@@ -723,7 +727,6 @@ static void radio_tx_interval_cb(lv_event_t *e)
     }
     // Save the configured transmission interval
     configTransmitInterval = interval[id];
-    lv_timer_set_period(transmitTask, interval[id]);
 }
 
 
@@ -864,6 +867,65 @@ void radioPingPong(lv_obj_t *parent)
 }
 
 
+void radioTask(lv_timer_t *parent)
+{
+    char buf[256];
+    // check if the previous operation finished
+    if (radioTransmitFlag) {
+        // reset flag
+        radioTransmitFlag = false;
+
+        if (transmitFlag) {
+            //TX
+            // the previous operation was transmission, listen for response
+            // print the result
+            if (transmissionState == RADIOLIB_ERR_NONE) {
+                // packet was successfully sent
+                Serial.println(F("transmission finished!"));
+            } else {
+                Serial.print(F("failed, code "));
+                Serial.println(transmissionState);
+            }
+
+            lv_snprintf(buf, 256, "[%u]:Tx %s", lv_tick_get() / 1000, transmissionState == RADIOLIB_ERR_NONE ? "Successed" : "Failed");
+            lv_textarea_set_text(radio_ta, buf);
+
+            transmissionState = watch.startTransmit("Hello World!");
+
+        } else {
+            // RX
+            // the previous operation was reception
+            // print data and send another packet
+            String str;
+            int state = watch.readData(str);
+
+            if (state == RADIOLIB_ERR_NONE) {
+                // packet was successfully received
+                Serial.println(F("[SX1262] Received packet!"));
+
+                // print data of the packet
+                Serial.print(F("[SX1262] Data:\t\t"));
+                Serial.println(str);
+
+                // print RSSI (Received Signal Strength Indicator)
+                Serial.print(F("[SX1262] RSSI:\t\t"));
+                Serial.print(watch.getRSSI());
+                Serial.println(F(" dBm"));
+
+                // print SNR (Signal-to-Noise Ratio)
+                Serial.print(F("[SX1262] SNR:\t\t"));
+                Serial.print(watch.getSNR());
+                Serial.println(F(" dB"));
+
+
+                lv_snprintf(buf, 256, "[%u]:Rx %s \nRSSI:%.2f", lv_tick_get() / 1000, str.c_str(), watch.getRSSI());
+                lv_textarea_set_text(radio_ta, buf);
+            }
+
+            watch.startReceive();
+        }
+    }
+}
 
 void analogclock(lv_obj_t *parent)
 {
