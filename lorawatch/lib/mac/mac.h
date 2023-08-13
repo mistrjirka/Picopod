@@ -48,6 +48,9 @@ public:
   static void ChannelActivity(bool signal);
   void setRXCallback(PacketReceivedCallback callback);
 
+  int getNoiseFloorOfChannel(uint8_t channel_num);
+  uint8_t getNumberOfChannels();
+
   // Function to initialize the MAC layer
   static void
   initialize(int id,
@@ -104,6 +107,7 @@ private:
   static void setMode(State state);
   static State getMode();
   static void RecievedPacket();
+  void setFrequencyAndListen(uint16_t);
 
   bool transmissionAuthorized();
   bool waitForTransmissionAuthorization(uint32_t timeout);

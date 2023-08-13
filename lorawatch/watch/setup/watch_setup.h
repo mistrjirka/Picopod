@@ -3,6 +3,8 @@
 #include <LilyGoLib.h>
 #include <LV_Helper.h>
 #include <WiFi.h>
+#include <sntp.h>
+
 #include "../../lib/mac/mac.h"
 #ifdef ENABLE_IR_SENDER
 #include <IRsend.h>
@@ -10,7 +12,7 @@ IRsend irsend(BOARD_IR_PIN);
 #endif
 #include <driver/i2s.h>
 #include <esp_vad.h>
-
+#include <time.h>
 #ifdef ENABLE_PLAYER
 #include <AudioFileSourcePROGMEM.h>
 #include <AudioFileSourceID3.h>

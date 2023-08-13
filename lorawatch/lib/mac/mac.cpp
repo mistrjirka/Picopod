@@ -16,7 +16,7 @@ bool MAC::transmission_detected = false;
 int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */
 )
 {
-  watch.setFrequency(channels[channel]);          // Set frequency to the given channel
+  this->setFrequencyAndListen(channel);          // Set frequency to the given channel
   MAC::channel = channel;                         // Set current channel
   int noise_measurements[NUMBER_OF_MEASUREMENTS]; // Array to hold noise
   // measurements
@@ -28,7 +28,6 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */
   for (int i = 0; i < NUMBER_OF_MEASUREMENTS; i++)
   {
     noise_measurements[i] = watch.getRSSI(false);
-    Serial.printf("RSSI %d", noise_measurements[i]);
     delay(TIME_BETWEENMEASUREMENTS);
   }
 
@@ -57,6 +56,13 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */
            squelch); // Return the average noise measurement plus squelch value
 }
 
+void MAC::setFrequencyAndListen(uint16_t channel)
+{
+  watch.setFrequency(channels[channel]);          // Set frequency to the given channel
+  watch.startReceive();
+}
+
+
 void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/
 )
 {
@@ -69,8 +75,7 @@ void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/
   }
   MAC::channel = previusChannel;
   // Set LoRa to idle and set frequency to current channel
-  printf("setting frequency back to %f\n", channels[MAC::channel]);
-  watch.setFrequency(channels[MAC::channel]);
+  this->setFrequencyAndListen(MAC::channel);
 }
 
 ICACHE_RAM_ATTR void MAC::RecievedPacket()
@@ -131,9 +136,8 @@ MAC::MAC(int id,
   watch.setSpreadingFactor(default_spreading_factor);
   watch.setBandwidth(default_bandwidth);
   watch.setCodingRate(default_coding_rate);
-  //watch.startReceive();
 
-  //watch.setPacketReceivedAction(MAC::RecievedPacket);
+  watch.setPacketReceivedAction(MAC::RecievedPacket);
   LORANoiseCalibrateAllChannels(true);
   printf("channels calibrated\n");
 }
@@ -167,6 +171,17 @@ void MAC::initialize(
 MAC::~MAC()
 {
   // Destructor implementation if needed
+}
+
+int MAC::getNoiseFloorOfChannel(uint8_t channel){
+  if(channel > NUM_OF_CHANNELS)
+    return 255;
+  
+  return this->noiseFloor[channel];
+}
+
+uint8_t MAC::getNumberOfChannels(){
+  return NUM_OF_CHANNELS;
 }
 
 /**
