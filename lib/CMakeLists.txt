@@ -1,6 +1,0 @@
-add_subdirectory(voltage)
-add_subdirectory(lora)
-add_subdirectory(bluetooth)
-add_subdirectory(loramessenger)
-add_subdirectory(mathextension)
-add_subdirectory(IOUSBBT)

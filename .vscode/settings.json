@@ -63,6 +63,10 @@
         "streambuf": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "watch_setup.h": "c",
+        "lilygolib.h": "c",
+        "spiffs.h": "c",
+        "*.tpp": "cpp"
     }
 }
