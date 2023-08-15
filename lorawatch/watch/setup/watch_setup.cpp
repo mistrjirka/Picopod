@@ -87,7 +87,7 @@ void watchSetup()
 
     settingSensor();
 
-    MAC::initialize(1);
+    MAC::initialize(1, 2);
 
     //Serial.println("setup MAC");
 
@@ -392,9 +392,12 @@ void factory_ui()
 
     lv_obj_t *t2 = lv_tileview_add_tile(tileview, 0, 0, LV_DIR_HOR | LV_DIR_BOTTOM);
     lv_obj_t *t4 = lv_tileview_add_tile(tileview, 1, 0, LV_DIR_HOR);
+    lv_obj_t *t4_1 = lv_tileview_add_tile(tileview, 1, 1, LV_DIR_BOTTOM);
+
     analogclock(t2);
 
     radioPingPong(t4);
+    radioSendAndRecievePage(t4_1);
 
     lv_disp_trig_activity(NULL);
 
@@ -504,6 +507,34 @@ void settingPMU()
         // XPOWERS_AXP2101_PKEY_NEGATIVE_IRQ | XPOWERS_AXP2101_PKEY_POSITIVE_IRQ   |   //POWER KEY
     );
     watch.attachPMU(setPMUFlag);
+}
+
+static void sendmessage(lv_event_t *e)
+{
+    static bool sending = false;
+    lv_event_code_t code = lv_event_get_code(e);
+    //Serial.println("event detected");
+    if (!sending && code == LV_EVENT_CLICKED)
+    {
+        sending = true;
+        Serial.println("start sending");
+        MAC::getInstance()->sendData(1, (unsigned char *)"hellno there", strlen("hellno there"), false);
+        Serial.println("end sending");
+
+        sending = false;
+    }
+}
+
+static void radioSendAndRecievePage(lv_obj_t *parent)
+{
+    lv_obj_t *label;
+    lv_obj_t *sendbutton = lv_btn_create(parent);
+    lv_obj_align_to(sendbutton, parent, LV_ALIGN_OUT_TOP_MID, -40, 20);
+    lv_obj_add_event_cb(sendbutton, sendmessage, LV_EVENT_ALL, NULL);
+    label = lv_label_create(sendbutton);
+    lv_label_set_text(label, "Send message");
+    lv_obj_center(label);
+
 }
 
 static lv_chart_series_t *ser1;

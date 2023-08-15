@@ -41,6 +41,7 @@ void createChargeUI();
 
 void watchSetup();
 void SensorHandler();
+static void radioSendAndRecievePage(lv_obj_t *parent);
 
 typedef bool (*player_cb_t)(void);
 static player_cb_t player_task_cb = NULL;

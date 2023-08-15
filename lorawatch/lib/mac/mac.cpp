@@ -238,7 +238,7 @@ uint8_t MAC::sendData(uint16_t target, unsigned char *data, uint8_t size,
 
   if (size > DATASIZE_MAC)
   {
-    printf("Data size cannot be greater than 247 bytes\n");
+    Serial.println("Data size cannot be greater than 247 bytes\n");
     return 3;
   }
 
@@ -257,15 +257,14 @@ uint8_t MAC::sendData(uint16_t target, unsigned char *data, uint8_t size,
     free(packetBytes);
     return 1;
   }*/
+  Serial.print("starting to send->");
 
   setMode(IDLE);
-  printf("starting to send->");
   
-  // LoRa.print("MAC");
   
   watch.transmit(packetBytes, finalPacketLength);
   
-  printf("finished\n");
+  Serial.println("finished");
 
   free(packetBytes);
   setMode(previousMode, true);
