@@ -116,7 +116,7 @@ public:
     void attachPMU(void (*cb)(void));
     void attachBMA(void(*cb)(void));
     void attachRTC(void(*cb)(void));
-    void sleepLora(bool config);
+    void nonBlockingDelay(u_int32_t milsec);
 
     void setBrightness(uint8_t level);
     uint8_t getBrightness();
@@ -143,7 +143,7 @@ public:
 
     bool readMicrophone(void *dest, size_t size, size_t *bytes_read, TickType_t ticks_to_wait = portMAX_DELAY);
 
-
+    void sleepLora(bool config);
     void setSleepMode(SleepMode_t mode);
 
     void sleep(uint32_t second) ;

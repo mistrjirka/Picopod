@@ -16,21 +16,20 @@ bool MAC::transmission_detected = false;
 int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */
 )
 {
-  this->setFrequencyAndListen(channel);          // Set frequency to the given channel
+  State prev_state = getMode();
+  this->setFrequencyAndListen(channel);
+  // Set frequency to the given channel
   MAC::channel = channel;                         // Set current channel
   int noise_measurements[NUMBER_OF_MEASUREMENTS]; // Array to hold noise
   // measurements
 
   // Take NUMBER_OF_MEASUREMENTS noise measurements and store in
   // noise_measurements array
-  watch.startReceive();
 
   for (int i = 0; i < NUMBER_OF_MEASUREMENTS; i++)
   {
     noise_measurements[i] = watch.getRSSI(false);
-    delay(TIME_BETWEENMEASUREMENTS);
-    lv_task_handler();
-
+    watch.nonBlockingDelay(TIME_BETWEENMEASUREMENTS);
   }
 
   // Sort the array in ascending order using quickSort algorithm
@@ -44,7 +43,7 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */
   {
     average += noise_measurements[i];
   }
-  average = average / (NUMBER_OF_MEASUREMENTS - DISCRIMINATE_MEASURMENTS*2);
+  average = average / (NUMBER_OF_MEASUREMENTS - DISCRIMINATE_MEASURMENTS * 2);
 
   // If save is true, save the calibrated noise floor value to
   // noise_floor_per_channel array
@@ -56,20 +55,24 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */
   return (
       int)(average +
            squelch); // Return the average noise measurement plus squelch value
+  setMode(prev_state);
 }
 
 void MAC::setFrequencyAndListen(uint16_t channel)
 {
-  watch.setFrequency(channels[channel]);          // Set frequency to the given channel
+  if (getMode() == SLEEPING)
+    setMode(IDLE);
+  setMode(RECEIVING);
+  watch.setFrequency(channels[channel]); // Set frequency to the given channel
   watch.startReceive();
 }
-
 
 void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/
 )
 {
+  State prev_state = getMode();
 
-  double previusChannel = MAC::channel;
+  int previusChannel = MAC::channel;
   // Calibrate noise floor for all channels and save if requested
   for (int i = 0; i < NUM_OF_CHANNELS; i++)
   {
@@ -77,7 +80,8 @@ void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/
   }
   MAC::channel = previusChannel;
   // Set LoRa to idle and set frequency to current channel
-  this->setFrequencyAndListen(MAC::channel);
+  watch.setFrequency(channels[previusChannel]);
+  setMode(prev_state);
 }
 
 ICACHE_RAM_ATTR void MAC::RecievedPacket()
@@ -175,85 +179,20 @@ MAC::~MAC()
   // Destructor implementation if needed
 }
 
-int MAC::getNoiseFloorOfChannel(uint8_t channel){
-  if(channel > NUM_OF_CHANNELS)
+int MAC::getNoiseFloorOfChannel(uint8_t channel)
+{
+  if (channel > NUM_OF_CHANNELS)
     return 255;
-  
+
   return this->noiseFloor[channel];
 }
 
-uint8_t MAC::getNumberOfChannels(){
+uint8_t MAC::getNumberOfChannels()
+{
   return NUM_OF_CHANNELS;
 }
 
-/**
- * Sends data to a target node.
- * @param sender The sender node ID.
- * @param target The target node ID.
- * @param data The data to send.
- * @param size The size of the data in bytes.
- * @throws std::invalid_argument if the data size is greater than the maximum
- * allowed size.
- */
-/*
-uint8_t MAC::sendData(uint16_t target, unsigned char *data, uint8_t size,
-                      bool nonblocking, uint32_t timeout /*= 5000*/
-/*)
-{
-State previousMode = getMode();
 
-if (size > DATASIZE_MAC)
-{
-printf("Data size cannot be greater than 247 bytes\n");
-return 3;
-}
-
-MACPacket *packet = createPacket(this->id, target, data, size);
-if (!packet)
-{
-return 2;
-}
-
-uint8_t finalPacketLength = MAC_OVERHEAD + size;
-unsigned char *packetBytes = (unsigned char *)packet;
-
-if (!waitForTransmissionAuthorization(timeout))
-{
-printf("timeout\n");
-free(packetBytes);
-return 1;
-}
-
-LoRa.idle();
-printf("starting to send->");
-LoRa.beginPacket();
-// LoRa.print("MAC");
-LoRa.write(packetBytes, finalPacketLength);
-LoRa.endPacket();
-printf("finished\n");
-
-free(packetBytes);
-setMode(previousMode);
-return 0;
-}
-*/
-/**
- * Waits for transmission authorization for a given timeout period.
- * @param timeout The timeout period in milliseconds.
- * @return true if transmission is authorized within the timeout period, false
- * otherwise.
- */
-/*
-bool MAC::waitForTransmissionAuthorization(uint32_t timeout)
-{
-uint32_t start = time_us_32() / 1000;
-while (time_us_32() / 1000 - start < timeout && !transmissionAuthorized())
-{
- busy_wait_ms(30);
- tight_loop_contents();
-}
-return time_us_32() / 1000 - start < timeout;
-}
 /**
 * Creates a MAC packet with the given data.
 * @param sender The sender node ID.
@@ -262,7 +201,7 @@ return time_us_32() / 1000 - start < timeout;
 * @param size The size of the data in bytes.
 * @return The created MAC packet.
 */
-/*
+
 MACPacket *MAC::createPacket(uint16_t sender, uint16_t target,
                           unsigned char *data, uint8_t size)
 {
@@ -281,7 +220,76 @@ memcpy((*packet).data, data, size);
 return packet;
 }
 
-State MAC::getMode() { return state; }
+
+/**
+ * Sends data to a target node.
+ * @param sender The sender node ID.
+ * @param target The target node ID.
+ * @param data The data to send.
+ * @param size The size of the data in bytes.
+ * @throws std::invalid_argument if the data size is greater than the maximum
+ * allowed size.
+ */
+
+uint8_t MAC::sendData(uint16_t target, unsigned char *data, uint8_t size,
+                      bool nonblocking, uint32_t timeout /*= 5000*/)
+{
+  State previousMode = getMode();
+
+  if (size > DATASIZE_MAC)
+  {
+    printf("Data size cannot be greater than 247 bytes\n");
+    return 3;
+  }
+
+  MACPacket *packet = createPacket(this->id, target, data, size);
+  if (!packet)
+  {
+    return 2;
+  }
+
+  uint8_t finalPacketLength = MAC_OVERHEAD + size;
+  unsigned char *packetBytes = (unsigned char *)packet;
+
+  /*if (!waitForTransmissionAuthorization(timeout))
+  {
+    printf("timeout\n");
+    free(packetBytes);
+    return 1;
+  }*/
+
+  setMode(IDLE);
+  printf("starting to send->");
+  
+  // LoRa.print("MAC");
+  
+  watch.transmit(packetBytes, finalPacketLength);
+  
+  printf("finished\n");
+
+  free(packetBytes);
+  setMode(previousMode, true);
+  return 0;
+}
+
+/**
+ * Waits for transmission authorization for a given timeout period.
+ * @param timeout The timeout period in milliseconds.
+ * @return true if transmission is authorized within the timeout period, false
+ * otherwise.
+ */
+/*
+bool MAC::waitForTransmissionAuthorization(uint32_t timeout)
+{
+uint32_t start = time_us_32() / 1000;
+while (time_us_32() / 1000 - start < timeout && !transmissionAuthorized())
+{
+ busy_wait_ms(30);
+ tight_loop_contents();
+}
+return time_us_32() / 1000 - start < timeout;
+}
+
 
 bool MAC::transmissionAuthorized()
 {
@@ -300,33 +308,32 @@ printf("rssi %d roof %d \n ", rssi, noiseFloor[channel] + squelch);
 
 setMode(previousMode);
 return rssi < noiseFloor[channel] + squelch;
-}
-void MAC::setMode(State state)
-{
-printf("setting the mode %d\n", state);
-if (MAC::getMode() != state)
-{
- MAC::state = state;
- switch (state)
- {
- case IDLE:
-   LoRa.idle();
-   break;
- case SENDING:
-   LoRa.idle();
-   break;
- case RECEIVING:
-   LoRa.receive();
-   break;
- case SLEEPING:
-   LoRa.sleep();
-   break;
- default:
-   break;
- }
-}
-}
+}  */
+State MAC::getMode() { return state; }
 
+void MAC::setMode(State state, boolean force)
+{
+  printf("setting the mode %d\n", state);
+  if (force || MAC::getMode() != state)
+  {
+    MAC::state = state;
+    switch (state)
+    {
+    case IDLE:
+      watch.standby();
+      break;
+    case RECEIVING:
+      watch.startReceive();
+      break;
+    case SLEEPING:
+      watch.sleepLora(true);
+      break;
+    default:
+      break;
+    }
+  }
+}
+/*
 void MAC::setRXCallback(PacketReceivedCallback callback)
 {
 RXCallback = callback;

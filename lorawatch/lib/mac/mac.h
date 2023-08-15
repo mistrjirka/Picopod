@@ -69,6 +69,9 @@ public:
                 uint8_t size,bool nonblocking, uint32_t timeout = 5000);
   void loop();
 
+  static void setMode(State state, bool force = true);
+  static State getMode();
+
   // Other member functions as needed
 private:
   static bool transmission_detected;
@@ -104,8 +107,7 @@ private:
   MAC &operator=(const MAC &) = delete;
   MACPacket *createPacket(uint16_t sender, uint16_t target, unsigned char *data,
                          uint8_t size);
-  static void setMode(State state);
-  static State getMode();
+
   static void RecievedPacket();
   void setFrequencyAndListen(uint16_t);
 

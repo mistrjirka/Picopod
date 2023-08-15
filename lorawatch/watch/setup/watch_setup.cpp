@@ -201,7 +201,7 @@ void lowPowerEnergyHandler()
     watch.configreFeatureInterrupt(
         SensorBMA423::INT_STEP_CNTR |    // Pedometer interrupt
             SensorBMA423::INT_ACTIVITY | // Activity interruption
-            // SensorBMA423::INT_TILT |     // Tilt interrupt
+            SensorBMA423::INT_TILT |     // Tilt interrupt
             // SensorBMA423::INT_WAKEUP |      // DoubleTap interrupt
             SensorBMA423::INT_ANY_NO_MOTION, // Any  motion / no motion interrupt
         false);
@@ -243,7 +243,7 @@ void lowPowerEnergyHandler()
     watch.configreFeatureInterrupt(
         SensorBMA423::INT_STEP_CNTR |    // Pedometer interrupt
             SensorBMA423::INT_ACTIVITY | // Activity interruption
-            // SensorBMA423::INT_TILT |     // Tilt interrupt
+            SensorBMA423::INT_TILT |     // Tilt interrupt
             // SensorBMA423::INT_WAKEUP |      // DoubleTap interrupt
             SensorBMA423::INT_ANY_NO_MOTION, // Any  motion / no motion interrupt
         true);
@@ -570,11 +570,11 @@ static void power_save(lv_event_t *e)
         toggled = !toggled;
         if (toggled)
         {
-            watch.sleepLora(true);
+            MAC::getInstance()->setMode(SLEEPING);
         }
         else
         {
-            watch.standby();
+            MAC::getInstance()->setMode(IDLE);
         }
     }
 }
