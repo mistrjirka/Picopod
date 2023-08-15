@@ -97,7 +97,7 @@ void watchSetup()
 
     factory_ui();
 
-    synchronize();
+    //synchronize();
 
     usbPlugIn = watch.isVbusIn();
 }
@@ -390,9 +390,9 @@ void factory_ui()
     lv_obj_set_size(tileview, lv_disp_get_hor_res(NULL), lv_disp_get_ver_res(NULL));
     lv_obj_add_event_cb(tileview, tileview_change_cb, LV_EVENT_VALUE_CHANGED, NULL);
 
-    lv_obj_t *t2 = lv_tileview_add_tile(tileview, 0, 0, LV_DIR_HOR | LV_DIR_BOTTOM);
-    lv_obj_t *t4 = lv_tileview_add_tile(tileview, 1, 0, LV_DIR_HOR);
-    lv_obj_t *t4_1 = lv_tileview_add_tile(tileview, 1, 1, LV_DIR_BOTTOM);
+    lv_obj_t *t2 = lv_tileview_add_tile(tileview, 0, 0, LV_DIR_HOR);
+    lv_obj_t *t4 = lv_tileview_add_tile(tileview, 1, 0, LV_DIR_HOR | LV_DIR_BOTTOM);
+    lv_obj_t *t4_1 = lv_tileview_add_tile(tileview, 1, 1, LV_DIR_TOP);
 
     analogclock(t2);
 
@@ -529,7 +529,7 @@ static void radioSendAndRecievePage(lv_obj_t *parent)
 {
     lv_obj_t *label;
     lv_obj_t *sendbutton = lv_btn_create(parent);
-    lv_obj_align_to(sendbutton, parent, LV_ALIGN_OUT_TOP_MID, -40, 20);
+    lv_obj_align_to(sendbutton, parent, LV_ALIGN_OUT_TOP_MID, 0, 20);
     lv_obj_add_event_cb(sendbutton, sendmessage, LV_EVENT_ALL, NULL);
     label = lv_label_create(sendbutton);
     lv_label_set_text(label, "Send message");
@@ -688,7 +688,7 @@ void analogclock(lv_obj_t *parent)
 
     clockTimer = lv_timer_create([](lv_timer_t *timer)
                                  {
-                                    if(time_ready){
+                                    if(time_ready || true){
                                         if(wifi_turned_on){
                                             WiFi.mode(WIFI_MODE_NULL);
                                             wifi_turned_on = false;

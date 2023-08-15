@@ -144,6 +144,7 @@ MAC::MAC(int id,
   watch.setCodingRate(default_coding_rate);
 
   watch.setPacketReceivedAction(MAC::RecievedPacket);
+  setMode(RECEIVING, true);
   LORANoiseCalibrateAllChannels(true);
   printf("channels calibrated\n");
 }
