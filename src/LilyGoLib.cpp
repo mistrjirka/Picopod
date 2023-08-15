@@ -525,6 +525,11 @@ void LilyGoLib::setSleepMode(SleepMode_t mode)
     sleepMode = mode;
 }
 
+void LilyGoLib::sleepLora(bool config){
+    SX126x::sleep(config);
+}
+
+
 void LilyGoLib::sleep(uint32_t second)
 {
     // SX126x::sleep();

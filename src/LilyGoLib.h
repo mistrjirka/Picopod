@@ -116,6 +116,7 @@ public:
     void attachPMU(void (*cb)(void));
     void attachBMA(void(*cb)(void));
     void attachRTC(void(*cb)(void));
+    void sleepLora(bool config);
 
     void setBrightness(uint8_t level);
     uint8_t getBrightness();

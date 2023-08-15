@@ -1,10 +1,16 @@
 #include "watch_setup.h"
 
-const char *ssid       = "Vanilky";
-const char *password   = "Zmrzlinka69";
+const char *ssid = "highground";
+const char *password = "hellothere";
 
 const char *ntpServer1 = "pool.ntp.org";
 const char *ntpServer2 = "time.nist.gov";
+
+const long gmtOffset_sec = 3600;
+const int daylightOffset_sec = 3600;
+
+bool time_ready = false;
+bool wifi_turned_on = true;
 LV_IMG_DECLARE(clock_face);
 LV_IMG_DECLARE(clock_hour_hand);
 LV_IMG_DECLARE(clock_minute_hand);
@@ -38,33 +44,38 @@ LV_IMG_DECLARE(watch_if_8);
 void timeavailable(struct timeval *t)
 {
     watch.hwClockWrite();
-
-    Serial.println("Got time adjustment from NTP, Write the hardware clock");
-    
-    
-
-    // Write synchronization time to hardware
+    time_ready = true;
 }
-void synchronize(){
-    const char *time_zone = "CET-1CEST,M3.5.0,M10.5.0/3";  // TimeZone rule for Europe/Rome including daylight adjustment rules (optional)
-    sntp_set_time_sync_notification_cb( timeavailable );
-    sntp_servermode_dhcp(1);    // (optional)
-    configTzTime(time_zone, ntpServer1, ntpServer2);
+void synchronize()
+{
+    // const char *time_zone = "CET-1CEST,M3.5.0,M10.5.0/3"; // TimeZone rule for Europe/Rome including daylight adjustment rules (optional)
+
+    sntp_set_time_sync_notification_cb(timeavailable);
+
+    sntp_servermode_dhcp(1); // (optional)
+
+    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer1, ntpServer2);
+
+    // configTzTime(time_zone, ntpServer1, ntpServer2);
 
     WiFi.begin(ssid, password);
     int i = 0;
-    while (WiFi.status() != WL_CONNECTED && i < 8) {
+    while (WiFi.status() != WL_CONNECTED && i < 8)
+    {
         delay(500);
-        Serial.print(".");
+        //Serial.print(".");
     }
-    if(i >= 7){
+    if (i >= 7)
+    {
+        //Serial.println("timeout turning wifi off");
         WiFi.mode(WIFI_MODE_NULL);
-        
+        wifi_turned_on = false;
     }
-
 }
 void watchSetup()
 {
+    //Serial.begin(115200);
+
     // Stop wifi
     watch.begin();
 
@@ -72,26 +83,24 @@ void watchSetup()
 
     setCpuFrequencyMhz(160);
 
-    Serial.begin(115200);
-
     settingPMU();
 
     settingSensor();
 
     MAC::initialize(1);
 
-    Serial.println("setup MAC");
+    //Serial.println("setup MAC");
 
     beginLvglHelper(false);
 
     settingButtonStyle();
 
-    synchronize();
     factory_ui();
+
+    synchronize();
 
     usbPlugIn = watch.isVbusIn();
 }
-
 
 void SensorHandler()
 {
@@ -100,28 +109,28 @@ void SensorHandler()
         sportsIrq = false;
         // The interrupt status must be read after an interrupt is detected
         uint16_t status = watch.readBMA();
-        Serial.printf("Accelerometer interrupt mask : 0x%x\n", status);
+        //Serial.printf("Accelerometer interrupt mask : 0x%x\n", status);
 
         if (watch.isPedometer())
         {
             stepCounter = watch.getPedometerCounter();
-            Serial.printf("Step count interrupt,step Counter:%u\n", stepCounter);
+            //Serial.printf("Step count interrupt,step Counter:%u\n", stepCounter);
         }
         if (watch.isActivity())
         {
-            Serial.println("Activity interrupt");
+            //Serial.println("Activity interrupt");
         }
         if (watch.isTilt())
         {
-            Serial.println("Tilt interrupt");
+            //Serial.println("Tilt interrupt");
         }
         if (watch.isDoubleTap())
         {
-            Serial.println("DoubleTap interrupt");
+            //Serial.println("DoubleTap interrupt");
         }
         if (watch.isAnyNoMotion())
         {
-            Serial.println("Any motion / no motion interrupt");
+            //Serial.println("Any motion / no motion interrupt");
         }
     }
 }
@@ -158,13 +167,13 @@ void tileview_change_cb(lv_event_t *e)
     lv_obj_t *tileview = lv_event_get_target(e);
     pageId = lv_obj_get_index(lv_tileview_get_tile_act(tileview));
     lv_event_code_t c = lv_event_get_code(e);
-    Serial.print("Code : ");
-    Serial.print(c);
+    //Serial.print("Code : ");
+    //Serial.print(c);
     uint32_t count = lv_obj_get_child_cnt(tileview);
-    Serial.print(" Count:");
-    Serial.print(count);
-    Serial.print(" pageId:");
-    Serial.println(pageId);
+    //Serial.print(" Count:");
+    //Serial.print(count);
+    //Serial.print(" pageId:");
+    //Serial.println(pageId);
 
     switch (pageId)
     {
@@ -180,18 +189,19 @@ void tileview_change_cb(lv_event_t *e)
 
 void lowPowerEnergyHandler()
 {
-    Serial.println("Enter light sleep mode!");
+    //Serial.println("Enter light sleep mode!");
     brightnessLevel = watch.getBrightness();
     watch.decrementBrightness(0);
-    Serial.println("DEcremented brigtness!");
+
+    //Serial.println("DEcremented brigtness!");
 
     watch.clearPMU();
-    Serial.println("Cleared pmu!");
+    //Serial.println("Cleared pmu!");
 
     watch.configreFeatureInterrupt(
         SensorBMA423::INT_STEP_CNTR |    // Pedometer interrupt
             SensorBMA423::INT_ACTIVITY | // Activity interruption
-            SensorBMA423::INT_TILT |     // Tilt interrupt
+            // SensorBMA423::INT_TILT |     // Tilt interrupt
             // SensorBMA423::INT_WAKEUP |      // DoubleTap interrupt
             SensorBMA423::INT_ANY_NO_MOTION, // Any  motion / no motion interrupt
         false);
@@ -233,7 +243,7 @@ void lowPowerEnergyHandler()
     watch.configreFeatureInterrupt(
         SensorBMA423::INT_STEP_CNTR |    // Pedometer interrupt
             SensorBMA423::INT_ACTIVITY | // Activity interruption
-            SensorBMA423::INT_TILT |     // Tilt interrupt
+            // SensorBMA423::INT_TILT |     // Tilt interrupt
             // SensorBMA423::INT_WAKEUP |      // DoubleTap interrupt
             SensorBMA423::INT_ANY_NO_MOTION, // Any  motion / no motion interrupt
         true);
@@ -343,25 +353,25 @@ void PMUHandler()
         watch.readPMU();
         if (watch.isVbusInsertIrq())
         {
-            Serial.println("isVbusInsert");
+            //Serial.println("isVbusInsert");
             createChargeUI();
             watch.incrementalBrightness(brightnessLevel);
             usbPlugIn = true;
         }
         if (watch.isVbusRemoveIrq())
         {
-            Serial.println("isVbusRemove");
+            //Serial.println("isVbusRemove");
             destoryChargeUI();
             watch.incrementalBrightness(brightnessLevel);
             usbPlugIn = false;
         }
         if (watch.isBatChagerDoneIrq())
         {
-            Serial.println("isBatChagerDone");
+            //Serial.println("isBatChagerDone");
         }
         if (watch.isBatChagerStartIrq())
         {
-            Serial.println("isBatChagerStart");
+            //Serial.println("isBatChagerStart");
         }
         // Clear watch Interrupt Status Register
         watch.clearPMU();
@@ -382,7 +392,6 @@ void factory_ui()
 
     lv_obj_t *t2 = lv_tileview_add_tile(tileview, 0, 0, LV_DIR_HOR | LV_DIR_BOTTOM);
     lv_obj_t *t4 = lv_tileview_add_tile(tileview, 1, 0, LV_DIR_HOR);
-    watch.hwClockRead();
     analogclock(t2);
 
     radioPingPong(t4);
@@ -497,406 +506,98 @@ void settingPMU()
     watch.attachPMU(setPMUFlag);
 }
 
-void setRadioFlag(void)
+static lv_chart_series_t *ser1;
+
+static void updateTheChart(lv_obj_t *chart)
 {
-    radioTransmitFlag = true;
+    int minval = infinity();
+    int maxval = -infinity();
+    for (uint8_t i = 0; i < MAC::getInstance()->getNumberOfChannels(); i++)
+    {
+        int power = MAC::getInstance()->getNoiseFloorOfChannel(i);
+        minval = (power < minval) ? power : minval;
+        maxval = (power > maxval) ? power : maxval;
+        ser1->y_points[i] = power;
+        //Serial.printf("noise floor of channel %d: %d\n", i, power);
+    }
+    maxval += 3;
+    minval -= 3;
+    lv_chart_set_range(chart, LV_CHART_AXIS_PRIMARY_Y, minval, maxval);
+    lv_chart_refresh(chart); /*Required after direct set*/
 }
-
-static void radio_rxtx_cb(lv_event_t *e)
-{
-    lv_obj_t *obj = lv_event_get_target(e);
-    char buf[32];
-    lv_dropdown_get_selected_str(obj, buf, sizeof(buf));
-    uint32_t id = lv_dropdown_get_selected(obj);
-    // Serial.printf("Option: %s id:%u\n", buf, id);
-    /*switch (id) {
-    case 0:
-        lv_timer_resume(transmitTask);
-        // TX
-        // send the first packet on this node
-        Serial.print(F("[Radio] Sending first packet ... "));
-        transmissionState = watch.startTransmit("Hello World!");
-        transmitFlag = true;
-
-        break;
-    case 1:
-        lv_timer_resume(transmitTask);
-        // RX
-        Serial.print(F("[Radio] Starting to listen ... "));
-        if (watch.startReceive() == RADIOLIB_ERR_NONE) {
-            Serial.println(F("success!"));
-        } else {
-            Serial.println(F("failed "));
-        }
-        transmitFlag = false;
-        lv_textarea_set_text(radio_ta, "[RX]:Listening.");
-
-        break;
-    case 2:
-        if (!transmitTask->paused) {
-            lv_textarea_set_text(radio_ta, "Radio has disable.");
-            lv_timer_pause(transmitTask);
-            watch.standby();
-            // watch.sleep();
-        }
-        break;
-    default:
-        break;
-    }*/
-}
-
-static void radio_bandwidth_cb(lv_event_t *e)
-{
-
-    lv_obj_t *obj = lv_event_get_target(e);
-
-    char buf[32];
-    lv_dropdown_get_selected_str(obj, buf, sizeof(buf));
-    uint32_t id = lv_dropdown_get_selected(obj);
-    Serial.printf("Option: %s id:%u\n", buf, id);
-
-    // set carrier bandwidth
-    const float bw[] = {125.0, 250.0, 500.0};
-    if (id > sizeof(bw) / sizeof(bw[0]))
-    {
-        Serial.println("invalid bandwidth params!");
-        return;
-    }
-
-    /*bool isRunning = !transmitTask->paused;
-    if (isRunning) {
-        lv_timer_pause(transmitTask);
-        watch.standby();
-    }*/
-
-    // set bandwidth
-    if (watch.setBandwidth(bw[id]) == RADIOLIB_ERR_INVALID_BANDWIDTH)
-    {
-        Serial.println(F("Selected bandwidth is invalid for this module!"));
-    }
-    /*
-        if (transmitFlag) {
-            watch.startTransmit("");
-        } else {
-            watch.startReceive();
-        }
-
-        if (isRunning) {
-            lv_timer_resume(transmitTask);
-        }*/
-}
-
-static void radio_freq_cb(lv_event_t *e)
-{
-    lv_obj_t *obj = lv_event_get_target(e);
-    char buf[32];
-    lv_dropdown_get_selected_str(obj, buf, sizeof(buf));
-    uint32_t id = lv_dropdown_get_selected(obj);
-    Serial.printf("Option: %s id:%u\n", buf, id);
-
-    // set carrier frequency
-    const float freq[] = {433.0, 470.0, 868.0, 915.0, 923.0};
-    if (id > sizeof(freq) / sizeof(freq[0]))
-    {
-        Serial.println("invalid params!");
-        return;
-    }
-
-    /*bool isRunning = !transmitTask->paused;
-    if (isRunning) {
-        lv_timer_pause(transmitTask);
-    }*/
-
-    if (watch.setFrequency(freq[id]) == RADIOLIB_ERR_INVALID_FREQUENCY)
-    {
-        Serial.println(F("Selected frequency is invalid for this module!"));
-    }
-
-    if (transmitFlag)
-    {
-        watch.startTransmit("");
-    }
-    else
-    {
-        watch.startReceive();
-    }
-    /*
-        if (isRunning) {
-            lv_timer_resume(transmitTask);
-        }*/
-}
-
-static void radio_power_cb(lv_event_t *e)
-{
-    lv_obj_t *obj = lv_event_get_target(e);
-    char buf[32];
-    lv_dropdown_get_selected_str(obj, buf, sizeof(buf));
-    uint32_t id = lv_dropdown_get_selected(obj);
-    Serial.printf("Option: %s id:%u\n", buf, id);
-
-    /*
-        bool isRunning = !transmitTask->paused;
-        if (isRunning) {
-            watch.standby();
-        }*/
-
-    uint8_t dBm[] = {
-        2, 5, 10, 12, 17, 20, 22};
-    if (id > sizeof(dBm) / sizeof(dBm[0]))
-    {
-        Serial.println("invalid dBm params!");
-        return;
-    }
-    // "2dBm\n"
-    // "5dBm\n"
-    // "10dBm\n"
-    // "12dBm\n"
-    // "17dBm\n"
-    // "20dBm\n"
-    // "22dBmn"
-
-    // set output power (accepted range is - 17 - 22 dBm)
-    if (watch.setOutputPower(dBm[id]) == RADIOLIB_ERR_INVALID_OUTPUT_POWER)
-    {
-        Serial.println(F("Selected output power is invalid for this module!"));
-    }
-
-    if (transmitFlag)
-    {
-        watch.startTransmit("");
-    }
-    else
-    {
-        watch.startReceive();
-    }
-
-    /*if (isRunning) {
-    }*/
-}
-
-static void radio_tx_interval_cb(lv_event_t *e)
-{
-    lv_obj_t *obj = lv_event_get_target(e);
-    char buf[32];
-    lv_dropdown_get_selected_str(obj, buf, sizeof(buf));
-    uint32_t id = lv_dropdown_get_selected(obj);
-    Serial.printf("Option: %s id:%u\n", buf, id);
-
-    // set carrier bandwidth
-    uint16_t interval[] = {100, 200, 500, 1000, 2000, 3000};
-    if (id > sizeof(interval) / sizeof(interval[0]))
-    {
-        Serial.println("invalid  tx interval params!");
-        return;
-    }
-    // Save the configured transmission interval
-    configTransmitInterval = interval[id];
-}
-
-void setupChart(lv_obj_t *obj)
+lv_obj_t *setupChart(lv_obj_t *obj)
 {
     lv_obj_t *chart;
     chart = lv_chart_create(obj);
-    lv_chart_set_point_count(chart, MAC::getInstance()->getNumberOfChannels());
+    lv_obj_align_to(chart, obj, LV_ALIGN_TOP_MID, 0, 5);
     lv_obj_set_size(chart, 170, 150);
+    lv_chart_set_point_count(chart, MAC::getInstance()->getNumberOfChannels());
     lv_obj_center(chart);
     lv_chart_set_type(chart, LV_CHART_TYPE_BAR);
-    lv_chart_set_range(chart, LV_CHART_AXIS_PRIMARY_Y, -135, -80);
-    lv_chart_set_axis_tick(chart, LV_CHART_AXIS_PRIMARY_Y, 10, 1, 6, 5, true, 30);
-    lv_chart_series_t *ser1 = lv_chart_add_series(chart, lv_palette_main(LV_PALETTE_RED), LV_CHART_AXIS_PRIMARY_Y);
-    for (uint8_t i = 0; i < MAC::getInstance()->getNumberOfChannels(); i++)
+    lv_chart_set_axis_tick(chart, LV_CHART_AXIS_PRIMARY_Y, 6, 3, 9, 1, true, 40);
+    ser1 = lv_chart_add_series(chart, lv_palette_main(LV_PALETTE_RED), LV_CHART_AXIS_PRIMARY_Y);
+    updateTheChart(chart);
+
+    return chart;
+}
+lv_obj_t *btn1;
+static void scan_channels(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    //Serial.println("event detected");
+    if (code == LV_EVENT_CLICKED)
     {
-        Serial.printf("noise floor of channel %d: %d\n", i, MAC::getInstance()->getNoiseFloorOfChannel(i));
-        lv_chart_set_next_value(chart, ser1, MAC::getInstance()->getNoiseFloorOfChannel(i));
+        lv_color_t prevColor = lv_obj_get_style_bg_color(btn1, LV_PART_MAIN);
+        lv_obj_set_style_bg_color(btn1, lv_palette_main(LV_PALETTE_RED), LV_PART_MAIN);
+        lv_obj_refresh_style(btn1, LV_PART_ANY, LV_STYLE_PROP_ANY);
+        MAC::getInstance()->LORANoiseCalibrateAllChannels(true);
+        //Serial.println("scanning done");
+        lv_obj_t *chart = (lv_obj_t *)lv_event_get_user_data(e);
+        updateTheChart(chart);
+
+        lv_obj_set_style_bg_color(btn1, prevColor, LV_PART_MAIN);
+        lv_obj_refresh_style(btn1, LV_PART_ANY, LV_STYLE_PROP_ANY);
     }
 }
 
-void radioPingPong(lv_obj_t *parent)
+static void power_save(lv_event_t *e)
 {
-    static lv_style_t style;
-    lv_style_init(&style);
-    lv_style_set_bg_color(&style, lv_color_black());
-    lv_style_set_text_color(&style, lv_color_white());
-    lv_style_set_border_width(&style, 5);
-    lv_style_set_border_color(&style, DEFAULT_COLOR);
-    lv_style_set_outline_color(&style, DEFAULT_COLOR);
-    lv_style_set_bg_opa(&style, LV_OPA_50);
+    static bool toggled = false;
+    lv_event_code_t code = lv_event_get_code(e);
 
-    static lv_style_t cont_style;
-    lv_style_init(&cont_style);
-    lv_style_set_bg_opa(&cont_style, LV_OPA_TRANSP);
-    lv_style_set_bg_img_opa(&cont_style, LV_OPA_TRANSP);
-    lv_style_set_line_opa(&cont_style, LV_OPA_TRANSP);
-    lv_style_set_border_width(&cont_style, 0);
-    lv_style_set_text_color(&cont_style, DEFAULT_COLOR);
-    // lv_style_set_text_color(&cont_style, lv_color_white());
-
-    lv_obj_t *cont = lv_obj_create(parent);
-    lv_obj_set_size(cont, lv_disp_get_hor_res(NULL), 400);
-    lv_obj_set_scrollbar_mode(cont, LV_SCROLLBAR_MODE_OFF);
-    lv_obj_set_flex_flow(cont, LV_FLEX_FLOW_COLUMN);
-    lv_obj_set_scroll_dir(cont, LV_DIR_VER);
-    lv_obj_add_style(cont, &cont_style, LV_PART_MAIN);
-
-    radio_ta = lv_textarea_create(cont);
-    lv_obj_set_size(radio_ta, 210, 80);
-    lv_obj_align(radio_ta, LV_ALIGN_TOP_MID, 0, 20);
-    lv_textarea_set_text(radio_ta, "Radio Test");
-    lv_textarea_set_max_length(radio_ta, 256);
-    lv_textarea_set_cursor_click_pos(radio_ta, false);
-    lv_textarea_set_text_selection(radio_ta, false);
-    lv_obj_add_style(radio_ta, &style, LV_PART_MAIN);
-    // lv_textarea_set_one_line(radio_ta, true);
-
-    /////////////////////////////!!!!!!!!!!!!!!!!!!!
-
-    static lv_style_t cont1_style;
-    lv_style_init(&cont1_style);
-    lv_style_set_bg_opa(&cont1_style, LV_OPA_TRANSP);
-    lv_style_set_bg_img_opa(&cont1_style, LV_OPA_TRANSP);
-    lv_style_set_line_opa(&cont1_style, LV_OPA_TRANSP);
-    lv_style_set_text_color(&cont1_style, DEFAULT_COLOR);
-    lv_style_set_text_color(&cont1_style, lv_color_white());
-    lv_style_set_border_width(&cont1_style, 5);
-    lv_style_set_border_color(&cont1_style, DEFAULT_COLOR);
-    lv_style_set_outline_color(&cont1_style, DEFAULT_COLOR);
-
-    //! cont1
-    lv_obj_t *cont1 = lv_obj_create(cont);
-    lv_obj_set_scrollbar_mode(cont1, LV_SCROLLBAR_MODE_OFF);
-    lv_obj_set_flex_flow(cont1, LV_FLEX_FLOW_ROW_WRAP);
-    // lv_obj_set_scroll_dir(cont1, LV_DIR_HOR);
-    lv_obj_set_size(cont1, 210, 300);
-    lv_obj_add_style(cont1, &cont1_style, LV_PART_MAIN);
-
-    setupChart(cont1);
-
-    lv_obj_t *dd;
-
-    dd = lv_dropdown_create(cont1);
-    lv_dropdown_set_options(dd, "TX\n"
-                                "RX\n"
-                                "Disable");
-    lv_dropdown_set_selected(dd, 2);
-    lv_obj_add_flag(dd, LV_OBJ_FLAG_EVENT_BUBBLE);
-    lv_obj_set_size(dd, 170, 50);
-    lv_obj_add_event_cb(dd, radio_rxtx_cb,
-                        LV_EVENT_VALUE_CHANGED, NULL);
-
-    dd = lv_dropdown_create(cont1);
-    lv_dropdown_set_options(dd, "433M\n"
-                                "470M\n"
-                                "868M\n"
-                                "915M\n"
-                                "923M");
-    lv_dropdown_set_selected(dd, 2);
-    lv_obj_add_flag(dd, LV_OBJ_FLAG_EVENT_BUBBLE);
-    lv_obj_set_size(dd, 170, 50);
-    lv_obj_add_event_cb(dd, radio_freq_cb,
-                        LV_EVENT_VALUE_CHANGED, NULL);
-
-    dd = lv_dropdown_create(cont1);
-    lv_dropdown_set_options(dd, "125KHz\n"
-                                "250KHz\n"
-                                "500KHz");
-    lv_obj_add_flag(dd, LV_OBJ_FLAG_EVENT_BUBBLE);
-    lv_obj_set_size(dd, 170, 50);
-    lv_dropdown_set_selected(dd, 1);
-    lv_obj_add_event_cb(dd, radio_bandwidth_cb,
-                        LV_EVENT_VALUE_CHANGED, NULL);
-
-    dd = lv_dropdown_create(cont1);
-    lv_dropdown_set_options(dd, "2dBm\n"
-                                "5dBm\n"
-                                "10dBm\n"
-                                "12dBm\n"
-                                "17dBm\n"
-                                "20dBm\n"
-                                "22dBmn");
-    lv_obj_add_flag(dd, LV_OBJ_FLAG_EVENT_BUBBLE);
-    lv_obj_set_size(dd, 170, 50);
-    lv_dropdown_set_selected(dd, 6);
-    lv_obj_add_event_cb(dd, radio_power_cb,
-                        LV_EVENT_VALUE_CHANGED, NULL);
-
-    dd = lv_dropdown_create(cont1);
-    lv_dropdown_set_options(dd, "100ms\n"
-                                "200ms\n"
-                                "500ms\n"
-                                "1000ms\n"
-                                "2000ms\n"
-                                "3000ms");
-    lv_dropdown_set_selected(dd, 1);
-    lv_obj_add_flag(dd, LV_OBJ_FLAG_EVENT_BUBBLE);
-    lv_obj_set_size(dd, 170, 50);
-    lv_obj_add_event_cb(dd, radio_tx_interval_cb,
-                        LV_EVENT_VALUE_CHANGED, NULL);
-}
-
-void radioTask(lv_timer_t *parent)
-{
-    char buf[256];
-    // check if the previous operation finished
-    if (radioTransmitFlag)
+    if (code == LV_EVENT_VALUE_CHANGED)
     {
-        // reset flag
-        radioTransmitFlag = false;
-
-        if (transmitFlag)
+        toggled = !toggled;
+        if (toggled)
         {
-            // TX
-            //  the previous operation was transmission, listen for response
-            //  print the result
-            if (transmissionState == RADIOLIB_ERR_NONE)
-            {
-                // packet was successfully sent
-                Serial.println(F("transmission finished!"));
-            }
-            else
-            {
-                Serial.print(F("failed, code "));
-                Serial.println(transmissionState);
-            }
-
-            lv_snprintf(buf, 256, "[%u]:Tx %s", lv_tick_get() / 1000, transmissionState == RADIOLIB_ERR_NONE ? "Successed" : "Failed");
-            lv_textarea_set_text(radio_ta, buf);
-
-            transmissionState = watch.startTransmit("Hello World!");
+            watch.sleepLora(true);
         }
         else
         {
-            // RX
-            // the previous operation was reception
-            // print data and send another packet
-            String str;
-            int state = watch.readData(str);
-
-            if (state == RADIOLIB_ERR_NONE)
-            {
-                // packet was successfully received
-                Serial.println(F("[SX1262] Received packet!"));
-
-                // print data of the packet
-                Serial.print(F("[SX1262] Data:\t\t"));
-                Serial.println(str);
-
-                // print RSSI (Received Signal Strength Indicator)
-                Serial.print(F("[SX1262] RSSI:\t\t"));
-                Serial.print(watch.getRSSI());
-                Serial.println(F(" dBm"));
-
-                // print SNR (Signal-to-Noise Ratio)
-                Serial.print(F("[SX1262] SNR:\t\t"));
-                Serial.print(watch.getSNR());
-                Serial.println(F(" dB"));
-
-                lv_snprintf(buf, 256, "[%u]:Rx %s \nRSSI:%.2f", lv_tick_get() / 1000, str.c_str(), watch.getRSSI());
-                lv_textarea_set_text(radio_ta, buf);
-            }
-
-            watch.startReceive();
+            watch.standby();
         }
     }
+}
+void radioPingPong(lv_obj_t *parent)
+{
+    lv_obj_t *next_parent = setupChart(parent);
+    lv_obj_t *label;
+    btn1 = lv_btn_create(parent);
+    lv_obj_align_to(btn1, next_parent, LV_ALIGN_OUT_BOTTOM_MID, 45, 5);
+    lv_obj_add_event_cb(btn1, scan_channels, LV_EVENT_ALL, next_parent);
+    label = lv_label_create(btn1);
+    lv_label_set_text(label, "Scan");
+    lv_obj_center(label);
+
+    lv_obj_t *btn2 = lv_btn_create(parent);
+    lv_obj_add_event_cb(btn2, power_save, LV_EVENT_ALL, NULL);
+    lv_obj_align_to(btn2, next_parent, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 5);
+    lv_obj_add_flag(btn2, LV_OBJ_FLAG_CHECKABLE);
+    lv_obj_set_height(btn2, LV_SIZE_CONTENT);
+
+    label = lv_label_create(btn2);
+    lv_label_set_text(label, "Power save");
+    lv_obj_center(label);
 }
 
 void analogclock(lv_obj_t *parent)
@@ -956,23 +657,29 @@ void analogclock(lv_obj_t *parent)
 
     clockTimer = lv_timer_create([](lv_timer_t *timer)
                                  {
-                                    
-                                     struct tm timeinfo;
-                                     watch.getDateTime(&timeinfo);
-                                     
-                                     Serial.println(watch.strftime());
-                                     lv_img_set_angle(
-                                         hour_img, ((timeinfo.tm_hour) * 300 + ((timeinfo.tm_min) * 5)) % 3600);
-                                     lv_img_set_angle(min_img, (timeinfo.tm_min) * 60);
+                                    if(time_ready){
+                                        if(wifi_turned_on){
+                                            WiFi.mode(WIFI_MODE_NULL);
+                                            wifi_turned_on = false;
+                                        }
 
-                                     lv_anim_t a;
-                                     lv_anim_init(&a);
-                                     lv_anim_set_var(&a, sec_img);
-                                     lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t)lv_img_set_angle);
-                                     lv_anim_set_values(&a, (timeinfo.tm_sec * 60) % 3600,
-                                                        (timeinfo.tm_sec + 1) * 60);
-                                     lv_anim_set_time(&a, 1000);
-                                     lv_anim_start(&a);
+                                        struct tm timeinfo;
+                                        watch.getDateTime(&timeinfo);
+                                        
+                                        //Serial.println(watch.strftime());
+                                        lv_img_set_angle(
+                                            hour_img, ((timeinfo.tm_hour) * 300 + ((timeinfo.tm_min) * 5)) % 3600);
+                                        lv_img_set_angle(min_img, (timeinfo.tm_min) * 60);
+
+                                        lv_anim_t a;
+                                        lv_anim_init(&a);
+                                        lv_anim_set_var(&a, sec_img);
+                                        lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t)lv_img_set_angle);
+                                        lv_anim_set_values(&a, (timeinfo.tm_sec * 60) % 3600,
+                                                            (timeinfo.tm_sec + 1) * 60);
+                                        lv_anim_set_time(&a, 1000);
+                                        lv_anim_start(&a);
+                                    }
 
                                      // Update step counter
                                      lv_label_set_text_fmt(step_counter, "%u", stepCounter);
@@ -982,9 +689,8 @@ void analogclock(lv_obj_t *parent)
                                      lv_label_set_text_fmt(battery_percent, "%d", percent == -1 ? 0 : percent);
 
                                     float  temp = watch.readAccelTemp();
-                                    Serial.print(temp);
-                                    Serial.println("*C");
-                                    lv_label_set_text_fmt(weather_celsius, "%d°C", (int)temp);
-                                 },
+                                    //Serial.print(temp);
+                                    //Serial.println("*C");
+                                    lv_label_set_text_fmt(weather_celsius, "%d°C", (int)temp); },
                                  1000, NULL);
 }

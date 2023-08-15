@@ -29,6 +29,8 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */
   {
     noise_measurements[i] = watch.getRSSI(false);
     delay(TIME_BETWEENMEASUREMENTS);
+    lv_task_handler();
+
   }
 
   // Sort the array in ascending order using quickSort algorithm
@@ -37,12 +39,12 @@ int MAC::LORANoiseFloorCalibrate(int channel, bool save /* = true */
   // Calculate the average noise measurement by excluding the
   // DISCRIMINATE_MEASURMENTS highest values
   int average = 0;
-  for (int i = 0; i < (NUMBER_OF_MEASUREMENTS - DISCRIMINATE_MEASURMENTS);
+  for (int i = DISCRIMINATE_MEASURMENTS; i < (NUMBER_OF_MEASUREMENTS - DISCRIMINATE_MEASURMENTS);
        i++)
   {
     average += noise_measurements[i];
   }
-  average = average / (NUMBER_OF_MEASUREMENTS - DISCRIMINATE_MEASURMENTS);
+  average = average / (NUMBER_OF_MEASUREMENTS - DISCRIMINATE_MEASURMENTS*2);
 
   // If save is true, save the calibrated noise floor value to
   // noise_floor_per_channel array
