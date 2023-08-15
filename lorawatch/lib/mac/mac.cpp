@@ -86,6 +86,7 @@ void MAC::LORANoiseCalibrateAllChannels(bool save /*= true*/
 
 ICACHE_RAM_ATTR void MAC::RecievedPacket()
 {
+  Serial.println("packet received");
   MAC::getInstance()->readyToReceive = true;
 }
 
