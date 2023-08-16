@@ -63,21 +63,23 @@ void synchronize()
     while (WiFi.status() != WL_CONNECTED && i < 8)
     {
         delay(500);
-        //Serial.print(".");
+        // Serial.print(".");
     }
     if (i >= 7)
     {
-        //Serial.println("timeout turning wifi off");
+        // Serial.println("timeout turning wifi off");
         WiFi.mode(WIFI_MODE_NULL);
         wifi_turned_on = false;
     }
 }
+
 void watchSetup()
 {
-    //Serial.begin(115200);
+    Serial.begin(115200);
 
     // Stop wifi
     watch.begin();
+    WiFi.mode(WIFI_MODE_NULL);
 
     btStop();
 
@@ -89,7 +91,7 @@ void watchSetup()
 
     MAC::initialize(1, 2);
 
-    //Serial.println("setup MAC");
+    // Serial.println("setup MAC");
 
     beginLvglHelper(false);
 
@@ -97,7 +99,7 @@ void watchSetup()
 
     factory_ui();
 
-    //synchronize();
+    // synchronize();
 
     usbPlugIn = watch.isVbusIn();
 }
@@ -109,28 +111,28 @@ void SensorHandler()
         sportsIrq = false;
         // The interrupt status must be read after an interrupt is detected
         uint16_t status = watch.readBMA();
-        //Serial.printf("Accelerometer interrupt mask : 0x%x\n", status);
+        // Serial.printf("Accelerometer interrupt mask : 0x%x\n", status);
 
         if (watch.isPedometer())
         {
             stepCounter = watch.getPedometerCounter();
-            //Serial.printf("Step count interrupt,step Counter:%u\n", stepCounter);
+            // Serial.printf("Step count interrupt,step Counter:%u\n", stepCounter);
         }
         if (watch.isActivity())
         {
-            //Serial.println("Activity interrupt");
+            // Serial.println("Activity interrupt");
         }
         if (watch.isTilt())
         {
-            //Serial.println("Tilt interrupt");
+            // Serial.println("Tilt interrupt");
         }
         if (watch.isDoubleTap())
         {
-            //Serial.println("DoubleTap interrupt");
+            // Serial.println("DoubleTap interrupt");
         }
         if (watch.isAnyNoMotion())
         {
-            //Serial.println("Any motion / no motion interrupt");
+            // Serial.println("Any motion / no motion interrupt");
         }
     }
 }
@@ -167,13 +169,11 @@ void tileview_change_cb(lv_event_t *e)
     lv_obj_t *tileview = lv_event_get_target(e);
     pageId = lv_obj_get_index(lv_tileview_get_tile_act(tileview));
     lv_event_code_t c = lv_event_get_code(e);
-    //Serial.print("Code : ");
-    //Serial.print(c);
     uint32_t count = lv_obj_get_child_cnt(tileview);
-    //Serial.print(" Count:");
-    //Serial.print(count);
-    //Serial.print(" pageId:");
-    //Serial.println(pageId);
+    // Serial.print(" Count:");
+    // Serial.print(count);
+    // Serial.print(" pageId:");
+    // Serial.println(pageId);
 
     switch (pageId)
     {
@@ -185,18 +185,19 @@ void tileview_change_cb(lv_event_t *e)
         break;
     }
     lastPageID = pageId;
+    // Serial.print(" pageId:");
 }
 
 void lowPowerEnergyHandler()
 {
-    //Serial.println("Enter light sleep mode!");
+    // Serial.println("Enter light sleep mode!");
     brightnessLevel = watch.getBrightness();
     watch.decrementBrightness(0);
 
-    //Serial.println("DEcremented brigtness!");
+    // Serial.println("DEcremented brigtness!");
 
     watch.clearPMU();
-    //Serial.println("Cleared pmu!");
+    // Serial.println("Cleared pmu!");
 
     watch.configreFeatureInterrupt(
         SensorBMA423::INT_STEP_CNTR |    // Pedometer interrupt
@@ -233,7 +234,7 @@ void lowPowerEnergyHandler()
             // esp_light_sleep_start();
         }
 
-        setCpuFrequencyMhz(240);
+        setCpuFrequencyMhz(160);
     }
 
     // Clear Interrupts in Loop
@@ -353,25 +354,25 @@ void PMUHandler()
         watch.readPMU();
         if (watch.isVbusInsertIrq())
         {
-            //Serial.println("isVbusInsert");
+            // Serial.println("isVbusInsert");
             createChargeUI();
             watch.incrementalBrightness(brightnessLevel);
             usbPlugIn = true;
         }
         if (watch.isVbusRemoveIrq())
         {
-            //Serial.println("isVbusRemove");
+            // Serial.println("isVbusRemove");
             destoryChargeUI();
             watch.incrementalBrightness(brightnessLevel);
             usbPlugIn = false;
         }
         if (watch.isBatChagerDoneIrq())
         {
-            //Serial.println("isBatChagerDone");
+            // Serial.println("isBatChagerDone");
         }
         if (watch.isBatChagerStartIrq())
         {
-            //Serial.println("isBatChagerStart");
+            // Serial.println("isBatChagerStart");
         }
         // Clear watch Interrupt Status Register
         watch.clearPMU();
@@ -513,7 +514,7 @@ static void sendmessage(lv_event_t *e)
 {
     static bool sending = false;
     lv_event_code_t code = lv_event_get_code(e);
-    //Serial.println("event detected");
+    // Serial.println("event detected");
     if (!sending && code == LV_EVENT_CLICKED)
     {
         sending = true;
@@ -534,7 +535,6 @@ static void radioSendAndRecievePage(lv_obj_t *parent)
     label = lv_label_create(sendbutton);
     lv_label_set_text(label, "Send message");
     lv_obj_center(label);
-
 }
 
 static lv_chart_series_t *ser1;
@@ -549,7 +549,7 @@ static void updateTheChart(lv_obj_t *chart)
         minval = (power < minval) ? power : minval;
         maxval = (power > maxval) ? power : maxval;
         ser1->y_points[i] = power;
-        //Serial.printf("noise floor of channel %d: %d\n", i, power);
+        // Serial.printf("noise floor of channel %d: %d\n", i, power);
     }
     maxval += 3;
     minval -= 3;
@@ -575,14 +575,14 @@ lv_obj_t *btn1;
 static void scan_channels(lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
-    //Serial.println("event detected");
+    // Serial.println("event detected");
     if (code == LV_EVENT_CLICKED)
     {
         lv_color_t prevColor = lv_obj_get_style_bg_color(btn1, LV_PART_MAIN);
         lv_obj_set_style_bg_color(btn1, lv_palette_main(LV_PALETTE_RED), LV_PART_MAIN);
         lv_obj_refresh_style(btn1, LV_PART_ANY, LV_STYLE_PROP_ANY);
         MAC::getInstance()->LORANoiseCalibrateAllChannels(true);
-        //Serial.println("scanning done");
+        // Serial.println("scanning done");
         lv_obj_t *chart = (lv_obj_t *)lv_event_get_user_data(e);
         updateTheChart(chart);
 
@@ -688,29 +688,29 @@ void analogclock(lv_obj_t *parent)
 
     clockTimer = lv_timer_create([](lv_timer_t *timer)
                                  {
-                                    if(time_ready || true){
+                                    /*if(time_ready){
                                         if(wifi_turned_on){
                                             WiFi.mode(WIFI_MODE_NULL);
                                             wifi_turned_on = false;
-                                        }
+                                        }*/
 
-                                        struct tm timeinfo;
-                                        watch.getDateTime(&timeinfo);
-                                        
-                                        //Serial.println(watch.strftime());
-                                        lv_img_set_angle(
-                                            hour_img, ((timeinfo.tm_hour) * 300 + ((timeinfo.tm_min) * 5)) % 3600);
-                                        lv_img_set_angle(min_img, (timeinfo.tm_min) * 60);
+                                    struct tm timeinfo;
+                                    watch.getDateTime(&timeinfo);
+                                    
+                                    //Serial.println(watch.strftime());
+                                    lv_img_set_angle(
+                                        hour_img, ((timeinfo.tm_hour) * 300 + ((timeinfo.tm_min) * 5)) % 3600);
+                                    lv_img_set_angle(min_img, (timeinfo.tm_min) * 60);
 
-                                        lv_anim_t a;
-                                        lv_anim_init(&a);
-                                        lv_anim_set_var(&a, sec_img);
-                                        lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t)lv_img_set_angle);
-                                        lv_anim_set_values(&a, (timeinfo.tm_sec * 60) % 3600,
-                                                            (timeinfo.tm_sec + 1) * 60);
-                                        lv_anim_set_time(&a, 1000);
-                                        lv_anim_start(&a);
-                                    }
+                                    lv_anim_t a;
+                                    lv_anim_init(&a);
+                                    lv_anim_set_var(&a, sec_img);
+                                    lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t)lv_img_set_angle);
+                                    lv_anim_set_values(&a, (timeinfo.tm_sec * 60) % 3600,
+                                                        (timeinfo.tm_sec + 1) * 60);
+                                    lv_anim_set_time(&a, 1000);
+                                    lv_anim_start(&a);
+                                    //}
 
                                      // Update step counter
                                      lv_label_set_text_fmt(step_counter, "%u", stepCounter);

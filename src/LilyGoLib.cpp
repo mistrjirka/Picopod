@@ -68,7 +68,6 @@ void LilyGoLib::log_println(const char *message)
         stream->println(message);
     }
 }
-
 bool LilyGoLib::begin(Stream *stream)
 {
     bool res;
@@ -81,25 +80,20 @@ bool LilyGoLib::begin(Stream *stream)
     pinMode(BOARD_TOUCH_INT, INPUT);
 
     Wire.begin(BOARD_I2C_SDA, BOARD_I2C_SCL);
-    if (stream)
-    {
+    if (stream) {
         deviceScan(&Wire, stream);
     }
 
     Wire1.begin(BOARD_TOUCH_SDA, BOARD_TOUCH_SCL);
-    if (stream)
-    {
+    if (stream) {
         deviceScan(&Wire1, stream);
     }
 
     log_println("Init PMU");
-    if (!beginPower())
-    {
+    if (!beginPower()) {
         log_println("Failed to find PMU - check your wiring!");
         return false;
-    }
-    else
-    {
+    } else {
         log_println("Initializing PMU succeeded");
     }
 
@@ -114,8 +108,7 @@ bool LilyGoLib::begin(Stream *stream)
     setTextFont(2);
 
     log_println("Init SPIFFS");
-    if (!SPIFFS.begin())
-    {
+    if (!SPIFFS.begin()) {
         fillScreen(TFT_BLACK);
         drawString("Format SPIFFS...", 120, 120);
         SPIFFS.format();
@@ -128,24 +121,18 @@ bool LilyGoLib::begin(Stream *stream)
 
     log_println("Init Touch");
     res = TouchDrvFT6X36::init(Wire1, BOARD_TOUCH_SDA, BOARD_TOUCH_SCL);
-    if (!res)
-    {
+    if (!res) {
         log_println("Failed to find FT6X36 - check your wiring!");
-    }
-    else
-    {
+    } else {
         log_println("Initializing FT6X36 succeeded");
-        interruptTrigger(); // enable Interrupt
+        interruptTrigger(); //enable Interrupt
     }
 
     log_println("Init BMA423");
     res = SensorBMA423::init(Wire);
-    if (!res)
-    {
+    if (!res) {
         log_println("Failed to find BMA423 - check your wiring!");
-    }
-    else
-    {
+    } else {
         log_println("Initializing BMA423 succeeded");
         setReampAxes(REMAP_BOTTOM_LAYER_TOP_RIGHT_CORNER);
         setStepCounterWatermark(1);
@@ -153,29 +140,24 @@ bool LilyGoLib::begin(Stream *stream)
 
     log_println("Init PCF8563 RTC");
     res = SensorPCF8563::init(Wire);
-    if (!res)
-    {
+    if (!res) {
         log_println("Failed to find PCF8563 - check your wiring!");
-    }
-    else
-    {
+    } else {
         log_println("Initializing PCF8563 succeeded");
-        hwClockRead(); // Synchronize RTC clock to system clock
+        disableCLK();   //Disable clock output ， Conserve Backup Battery Current Consumption
+        hwClockRead();  //Synchronize RTC clock to system clock
     }
 
     log_println("Init DRV2605");
     res = SensorDRV2605::init(Wire);
-    if (!res)
-    {
+    if (!res) {
         log_println("Failed to find DRV2605 - check your wiring!");
-    }
-    else
-    {
+    } else {
         log_println("Initializing DRV2605 succeeded");
         SensorDRV2605::selectLibrary(1);
         SensorDRV2605::setMode(DRV2605_MODE_INTTRIG);
         SensorDRV2605::useERM();
-        SensorDRV2605::setWaveform(0, 15); // play effect
+        SensorDRV2605::setWaveform(0, 15);  // play effect
         SensorDRV2605::setWaveform(1, 0);  // end waveform
         SensorDRV2605::run();
     }
@@ -186,13 +168,10 @@ bool LilyGoLib::begin(Stream *stream)
                    BOARD_RADIO_MISO,
                    BOARD_RADIO_MOSI);
 
-    // Using default params，433Mhz,bw:125k,sf:9,cr:7,syncword:18,txpower:10
-    if (SX1262::begin() == RADIOLIB_ERR_NONE)
-    {
+    //Using default params，433Mhz,bw:125k,sf:9,cr:7,syncword:18,txpower:10
+    if (SX1262::begin() == RADIOLIB_ERR_NONE) {
         log_println("Initializing Radio succeeded");
-    }
-    else
-    {
+    } else {
         log_println("Failed to find Radio - check your wiring!");
     }
 #endif
@@ -203,6 +182,7 @@ bool LilyGoLib::begin(Stream *stream)
 
     return true;
 }
+
 
 void LilyGoLib::beginCore()
 {
