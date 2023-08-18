@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <SPI.h>
-
+#include <mac.h>
 #include <RadioLib.h>
 // put function declarations here:
 
@@ -20,7 +20,7 @@ void setup()
 {
 
   spiint.begin();
-
+  MAC::initialize((Module*)&radio, 1);
   Serial.begin(115200);
   delay(5000);
   // initialize SX1262 with default settings
