@@ -5,7 +5,7 @@
 #include <WiFi.h>
 #include <sntp.h>
 
-#include "../../lib/mac/mac.h"
+#include <mac.h>
 #ifdef ENABLE_IR_SENDER
 #include <IRsend.h>
 IRsend irsend(BOARD_IR_PIN);

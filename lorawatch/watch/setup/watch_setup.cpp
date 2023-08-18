@@ -88,8 +88,8 @@ void watchSetup()
     settingPMU();
 
     settingSensor();
-
-    MAC::initialize(1, 2);
+    SX1262 module = watch.getMod();
+    MAC::initialize(module,1, 2);
 
     // Serial.println("setup MAC");
 
