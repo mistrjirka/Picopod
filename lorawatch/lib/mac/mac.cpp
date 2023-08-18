@@ -143,6 +143,8 @@ MAC::MAC(int id,
   watch.setSpreadingFactor(default_spreading_factor);
   watch.setBandwidth(default_bandwidth);
   watch.setCodingRate(default_coding_rate);
+  watch.setSyncWord(DEFAULT_SYNC_WORD);
+  watch.setPreambleLength(DEFAULT_PREAMBLE_LENGTH);
 
   watch.setPacketReceivedAction(MAC::RecievedPacket);
   setMode(RECEIVING, true);
