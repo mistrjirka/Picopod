@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "watch/setup/watch_setup.h"
 #include <WiFi.h>
 #ifdef ENABLE_IR_SENDER
@@ -20,6 +21,7 @@ void loop()
     SensorHandler();
 
     PMUHandler();
+
 
     bool screenTimeout = lv_disp_get_inactive_time(NULL) < DEFAULT_SCREEN_TIMEOUT;
     if (screenTimeout ||

@@ -89,7 +89,7 @@ void watchSetup()
 
     settingSensor();
     SX1262 module = watch.getMod();
-    MAC::initialize(module,1, 2);
+    MAC::initialize(module, 2, 2, 9, 125.0, 15, 22, 7);
 
     // Serial.println("setup MAC");
 
@@ -106,6 +106,8 @@ void watchSetup()
 
 void SensorHandler()
 {
+    MAC::getInstance()->loop();
+
     if (sportsIrq)
     {
         sportsIrq = false;
