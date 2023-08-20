@@ -55,6 +55,7 @@ void setup()
     while (true)
       ;
   }
+  //MAC::initialize(radio, 1, 2);
   MAC::initialize(radio, 1, 2, 9, 125.0, 15, 22, 7);
   //MAC::getInstance()->setRXCallback(dataCallback);
   Serial.print(F("After init"));
@@ -79,7 +80,7 @@ void loop()
   // you can transmit C-string or Arduino string up to
   // 256 characters long
   MAC::getInstance()->sendData(2, (unsigned char *)"hello there", strlen("hello there"), false);
-  delay(3000);
+  delay(5000);
   // wait for a second before transmitting again
   //delay(30);
 }
