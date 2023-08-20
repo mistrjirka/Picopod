@@ -55,7 +55,7 @@ void setup()
     while (true)
       ;
   }
-  MAC::initialize(radio, 1, 2);
+  MAC::initialize(radio, 1, 2, 9, 125.0, 15, 22, 7);
   //MAC::getInstance()->setRXCallback(dataCallback);
   Serial.print(F("After init"));
 
