@@ -95,7 +95,7 @@ void loop()
 int count = 0;
 
 void loop() {
-  Serial.print(F("[SX1262] Transmitting packet ... "));
+  Serial.println(F("[SX1262] Transmitting packet ... "));
 
   // you can transmit C-string or Arduino string up to
   // 256 characters long
