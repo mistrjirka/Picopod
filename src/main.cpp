@@ -42,7 +42,7 @@ void setup()
   delay(5000);
   // initialize SX1262 with default settings
   Serial.print(F("[SX1262] Initializing ... "));
-  int state = radio.begin(433.33, 125.0, 9, 7, RADIOLIB_SX126X_SYNC_WORD_PRIVATE, 22, 8, 0);
+  int state = radio.begin(433.30, 125.0, 9, 7, RADIOLIB_SX126X_SYNC_WORD_PRIVATE, 22, 8, 0);
 
   if (state == RADIOLIB_ERR_NONE)
   {
@@ -80,15 +80,59 @@ void setup()
 }
 
 // counter to keep track of transmitted packets
-int count = 0;
-
+/*
 void loop()
 {
-  MAC::getInstance()->loop();
+  //MAC::getInstance()->loop();
   // you can transmit C-string or Arduino string up to
   // 256 characters long
-  MAC::getInstance()->sendData(2, (unsigned char *)"hello there general kenobi shit", strlen("hello there general kenobi shit")+1, false);
+  /*MAC::getInstance()->sendData(2, (unsigned char *)"hello there general kenobi shit", strlen("hello there general kenobi shit")+1, false);
   delay(10000);
   // wait for a second before transmitting again
-  //delay(30);
+  //delay(30);*//*
+}
+*/
+int count = 0;
+
+void loop() {
+  Serial.print(F("[SX1262] Transmitting packet ... "));
+
+  // you can transmit C-string or Arduino string up to
+  // 256 characters long
+  //String str = "Hello World!sda dasadsdas as dasd  asdsd aasd asd asd d sadsa  # " + String(count++);
+  //int state = radio.transmit(str);
+
+  // you can also transmit byte array up to 256 bytes long
+  /*
+    byte byteArr[] = {0x01, 0x23, 0x45, 0x56, 0x78, 0xAB, 0xCD, 0xEF};
+    int state = radio.transmit(byteArr, 8);
+  */
+/*
+  if (state == RADIOLIB_ERR_NONE) {
+    // the packet was successfully transmitted
+    Serial.println(F("success!"));
+
+    // print measured data rate
+    Serial.print(F("[SX1262] Datarate:\t"));
+    Serial.print(radio.getDataRate());
+    Serial.println(F(" bps"));
+
+  } else if (state == RADIOLIB_ERR_PACKET_TOO_LONG) {
+    // the supplied packet was longer than 256 bytes
+    Serial.println(F("too long!"));
+
+  } else if (state == RADIOLIB_ERR_TX_TIMEOUT) {
+    // timeout occured while transmitting packet
+    Serial.println(F("timeout!"));
+
+  } else {
+    // some other error occurred
+    Serial.print(F("failed, code "));
+    Serial.println(state);
+
+  }*/
+  MAC::getInstance()->loop();
+  MAC::getInstance()->sendData(2, (unsigned char *)"hello there general kenobi shit sda asdasd asd sad sad  sadasd asd asd fdsfdas asdasd asd asdasd asd asd", strlen("hello there general kenobi shit sda asdasd asd sad sad  sadasd asd asd fdsfdas asdasd asd asdasd asd asd")+1, false);
+  // wait for a second before transmitting again
+  delay(2000);
 }
