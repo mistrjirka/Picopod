@@ -4,6 +4,7 @@
 #include <LV_Helper.h>
 #include <WiFi.h>
 #include <sntp.h>
+#include "SensorCommon.tpp"
 
 #include <mac.h>
 #ifdef ENABLE_IR_SENDER
@@ -32,7 +33,7 @@ IRsend irsend(BOARD_IR_PIN);
 #define AUDIO_DATA                              boot_music
 #define RADIO_TRANSMIT_PAGE_ID                  1
 
-#define DEFAULT_SCREEN_TIMEOUT                  15*1000
+#define DEFAULT_SCREEN_TIMEOUT                  35*1000
 #define DEFAULT_COLOR                           (lv_color_make(252, 218, 72))
 #define VAD_FRAME_LENGTH_MS                     30
 #define VAD_BUFFER_LENGTH                       (VAD_FRAME_LENGTH_MS * MIC_I2S_SAMPLE_RATE / 1000)

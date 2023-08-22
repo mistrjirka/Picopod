@@ -88,8 +88,20 @@ void watchSetup()
     settingPMU();
 
     settingSensor();
+
     SX1262 module = watch.getMod();
-    MAC::initialize(module, 2, 2, 9, 125.0, 15, 22, 7);
+    // MAC::initialize(module, 1, 2);
+
+    MAC::initialize(
+        module,
+        2,
+        2,
+        9,
+        125.0,
+        15,
+        22,
+        7);
+    Serial.println("After init");
 
     // Serial.println("setup MAC");
 
@@ -528,14 +540,39 @@ static void sendmessage(lv_event_t *e)
     }
 }
 
+
+lv_obj_t * message;
+MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, uint32_t crcCalculated)
+{
+    Serial.println(String((char *)packet->data));
+    String messageText = "#ffffff Recieved at:" + String(watch.strftime(1)) + " " + String((char*)packet->data) + " " + String(watch.getRSSI());
+    Serial.println(messageText);
+    lv_label_set_text(message, NULL);
+
+    lv_label_set_text(message, messageText.c_str());
+    if(packet != NULL){
+        free(packet);
+        packet = NULL;
+    }
+
+};
+
 static void radioSendAndRecievePage(lv_obj_t *parent)
 {
+    MAC::getInstance()->setRXCallback(dataCallback);
     lv_obj_t *label;
     lv_obj_t *sendbutton = lv_btn_create(parent);
-    lv_obj_align_to(sendbutton, parent, LV_ALIGN_OUT_TOP_MID, 0, 20);
+    lv_obj_set_pos(sendbutton, 20, 15);
     lv_obj_add_event_cb(sendbutton, sendmessage, LV_EVENT_ALL, NULL);
     label = lv_label_create(sendbutton);
     lv_label_set_text(label, "Send message");
+    message = lv_label_create(parent);
+    lv_obj_set_width(message, 220);
+    lv_label_set_long_mode(message, LV_LABEL_LONG_WRAP);
+    lv_label_set_recolor(message, true);                      /*Enable re-coloring by commands in the text*/    
+    lv_label_set_text(message, "#ffffff empty message");
+    lv_obj_set_pos(message, 10, 50);
+
     lv_obj_center(label);
 }
 
@@ -607,7 +644,7 @@ static void power_save(lv_event_t *e)
         }
         else
         {
-            MAC::getInstance()->setMode(IDLE);
+            MAC::getInstance()->setMode(RECEIVING);
         }
     }
 }
