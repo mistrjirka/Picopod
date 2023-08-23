@@ -399,6 +399,7 @@ void factory_ui()
     static lv_style_t bgStyle;
     lv_style_init(&bgStyle);
     lv_style_set_bg_color(&bgStyle, lv_color_black());
+    lv_style_set_text_color(&bgStyle, lv_color_white());
 
     tileview = lv_tileview_create(lv_scr_act());
     lv_obj_add_style(tileview, &bgStyle, LV_PART_MAIN);
@@ -545,7 +546,7 @@ lv_obj_t * message;
 MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, uint32_t crcCalculated)
 {
     Serial.println(String((char *)packet->data));
-    String messageText = "#ffffff Recieved at:" + String(watch.strftime(1)) + " " + String((char*)packet->data) + " " + String(watch.getRSSI());
+    String messageText = "#ffffff Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) +" #ffffff " + String((char*)packet->data) ;
     Serial.println(messageText);
     lv_label_set_text(message, NULL);
 
@@ -571,6 +572,8 @@ static void radioSendAndRecievePage(lv_obj_t *parent)
     lv_label_set_long_mode(message, LV_LABEL_LONG_WRAP);
     lv_label_set_recolor(message, true);                      /*Enable re-coloring by commands in the text*/    
     lv_label_set_text(message, "#ffffff empty message");
+    lv_obj_set_style_text_font(message, &lv_font_montserrat_14, LV_PART_MAIN);
+
     lv_obj_set_pos(message, 10, 50);
 
     lv_obj_center(label);
