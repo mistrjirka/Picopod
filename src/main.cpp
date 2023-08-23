@@ -85,7 +85,7 @@ int count = 0;
 void loop() {  
   MAC::getInstance()->loop();
   if(count++%200 == 0)
-  MAC::getInstance()->sendData(2, (unsigned char *)"hello there general kenobi shit sda asdasd asd sad sad  sadasd asd asd fdsfdas asdasd asd asdasd asd asd", strlen("hello there general kenobi shit sda asdasd asd sad sad  sadasd asd asd fdsfdas asdasd asd asdasd asd asd")+1, false);
+  MAC::getInstance()->sendData(2, (unsigned char *)"hello there general kenobi shit sda", strlen("hello there general kenobi shit sda")+1, false);
   // wait for a second before transmitting again
   delay(50);
 }
