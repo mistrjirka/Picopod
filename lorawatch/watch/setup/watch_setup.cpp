@@ -73,6 +73,35 @@ void synchronize()
     }
 }
 
+LCMM::DataReceivedCallback lcmmDataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
+{
+  // Perform actions with the received packet and size
+  // For example, print the packet data to the console
+  Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
+  for (int i = 0; i < size; i++)
+  {
+    Serial.println((const char)packet->data[i]);
+  }
+  Serial.println();
+  if (packet)
+  {
+    free(packet);
+    packet = NULL;
+  }
+};
+
+LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
+{
+  if (success)
+  {
+    Serial.println("packet succesfully sent " + packet);
+  }
+  else
+  {
+    Serial.println("packet failed to send "+ packet);
+  }
+};
+
 void watchSetup()
 {
     Serial.begin(115200);
@@ -91,7 +120,6 @@ void watchSetup()
 
     SX1262 module = watch.getMod();
     // MAC::initialize(module, 1, 2);
-
     MAC::initialize(
         module,
         2,
@@ -101,6 +129,7 @@ void watchSetup()
         15,
         22,
         7);
+    LCMM::initialize(lcmmDataCallback, ackCallback);
     Serial.println("After init");
 
     // Serial.println("setup MAC");
@@ -560,7 +589,7 @@ MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, 
 
 static void radioSendAndRecievePage(lv_obj_t *parent)
 {
-    MAC::getInstance()->setRXCallback(dataCallback);
+    //MAC::getInstance()->setRXCallback(dataCallback);
     lv_obj_t *label;
     lv_obj_t *sendbutton = lv_btn_create(parent);
     lv_obj_set_pos(sendbutton, 20, 15);

@@ -5,7 +5,7 @@
 #include <WiFi.h>
 #include <sntp.h>
 #include "SensorCommon.tpp"
-
+#include <lcmm.h>
 #include <mac.h>
 #ifdef ENABLE_IR_SENDER
 #include <IRsend.h>
