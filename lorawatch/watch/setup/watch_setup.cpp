@@ -78,7 +78,7 @@ LCMM::DataReceivedCallback lcmmDataCallback = [](LCMMPacketDataRecieve *packet, 
   // Perform actions with the received packet and size
   // For example, print the packet data to the console
   Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
-  for (int i = 0; i < size; i++)
+  for (int i = 0; i < size - sizeof(LCMMPacketDataRecieve); i++)
   {
     Serial.println((const char)packet->data[i]);
   }
