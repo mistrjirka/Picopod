@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <mac.h>
+#include <lcmm.h>
 #include <RadioLib.h>
 // put function declarations here:
 
@@ -17,6 +18,34 @@ arduino::MbedSPI spiint = MbedSPI(SPI1_MISO, SPI1_MOSI, SPI1_SCLK);
 SPISettings spiSettings(200000, MSBFIRST, SPI_MODE0);
 LLCC68 radio = new Module(13, 9, 14, 19, spiint, spiSettings);
 
+LCMM::DataReceivedCallback dataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
+{
+  // Perform actions with the received packet and size
+  // For example, print the packet data to the console
+  Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
+  for (int i = 0; i < (int)size-sizeof(LCMMPacketDataRecieve); i++)
+  {
+    Serial.println((const char)packet->data[i] );
+  }
+  Serial.println();
+  if (packet)
+  {
+    free(packet);
+    packet = NULL;
+  }
+};
+LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
+{
+  if (success)
+  {
+    Serial.println("packet succesfully sent " + packet);
+  }
+  else
+  {
+    Serial.println("packet failed to send "+ packet);
+  }
+};
+/*
 MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, uint32_t crcCalculated)
 {
   // Perform actions with the received packet and size
@@ -33,14 +62,14 @@ MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, 
     packet = NULL;
   }
 };
-
+*/
 void setup()
 {
 
   spiint.begin();
   Serial.begin(115200);
   delay(5000);
-  // initialize SX1262 with default settings
+  // initialize SX1262 with default settingsRADIOLIB_SX126X_SYNC_WORD_PRIVATE
   Serial.print(F("[SX1262] Initializing ... "));
   int state = radio.begin(433.30, 125.0, 9, 7, RADIOLIB_SX126X_SYNC_WORD_PRIVATE, 22, 8, 0);
 
@@ -55,17 +84,18 @@ void setup()
     while (true)
       ;
   }
-  //MAC::initialize(radio, 1, 2);
+  // MAC::initialize(radio, 1, 2);
   MAC::initialize(
-    radio, 
-    2, 
-    2, 
-    9, 
-    125.0, 
-    15, 
-    22, 
-    7);
-  //MAC::getInstance()->setRXCallback(dataCallback);
+      radio,
+      1,
+      2,
+      9,
+      125.0,
+      15,
+      22,
+      7);
+  LCMM::initialize(dataCallback, ackCallback);
+  // MAC::getInstance()->setRXCallback(dataCallback);
   Serial.print(F("After init"));
 
   // some modules have an external RF switch
@@ -79,13 +109,15 @@ void setup()
   */
 }
 
-
 int count = 0;
 
-void loop() {  
-  MAC::getInstance()->loop();
-  if(count++%200 == 0)
-  MAC::getInstance()->sendData(2, (unsigned char *)"hello there general kenobi shit sda", strlen("hello there general kenobi shit sda")+1, false);
+void loop()
+{
+  LCMM::getInstance()->loop();
+  if (count++ % 1000 == 0){
+    //LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"hello there general kenobi shit sda", strlen("hello there general kenobi shit sda") + 1, ackCallback);
+    //MAC::getInstance()->sendData(2, (unsigned char *)"hello there general kenobi shit sda", strlen("hello there general kenobi shit sda") + 1, false);
+  }
   // wait for a second before transmitting again
-  delay(50);
+  delay(1);
 }
