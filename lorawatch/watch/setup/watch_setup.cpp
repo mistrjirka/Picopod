@@ -63,48 +63,19 @@ void synchronize()
     while (WiFi.status() != WL_CONNECTED && i < 8)
     {
         delay(500);
-        // Serial.print(".");
+        // //Serial.print(".");
     }
     if (i >= 7)
     {
-        // Serial.println("timeout turning wifi off");
+        // //Serial.println("timeout turning wifi off");
         WiFi.mode(WIFI_MODE_NULL);
         wifi_turned_on = false;
     }
 }
 
-LCMM::DataReceivedCallback lcmmDataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
-{
-  // Perform actions with the received packet and size
-  // For example, print the packet data to the console
-  Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
-  for (int i = 0; i < size - sizeof(LCMMPacketDataRecieve); i++)
-  {
-    Serial.println((const char)packet->data[i]);
-  }
-  Serial.println();
-  if (packet)
-  {
-    free(packet);
-    packet = NULL;
-  }
-};
-
-LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
-{
-  if (success)
-  {
-    Serial.println("packet succesfully sent " + packet);
-  }
-  else
-  {
-    Serial.println("packet failed to send "+ packet);
-  }
-};
-
 void watchSetup()
 {
-    Serial.begin(115200);
+    //Serial.begin(115200);
 
     // Stop wifi
     watch.begin();
@@ -129,10 +100,8 @@ void watchSetup()
         15,
         22,
         7);
-    LCMM::initialize(lcmmDataCallback, ackCallback);
-    Serial.println("After init");
 
-    // Serial.println("setup MAC");
+    // //Serial.println("setup MAC");
 
     beginLvglHelper(false);
 
@@ -147,35 +116,35 @@ void watchSetup()
 
 void SensorHandler()
 {
-    MAC::getInstance()->loop();
+    LCMM::getInstance()->loop();
 
     if (sportsIrq)
     {
         sportsIrq = false;
         // The interrupt status must be read after an interrupt is detected
         uint16_t status = watch.readBMA();
-        // Serial.printf("Accelerometer interrupt mask : 0x%x\n", status);
+        // //Serial.printf("Accelerometer interrupt mask : 0x%x\n", status);
 
         if (watch.isPedometer())
         {
             stepCounter = watch.getPedometerCounter();
-            // Serial.printf("Step count interrupt,step Counter:%u\n", stepCounter);
+            // //Serial.printf("Step count interrupt,step Counter:%u\n", stepCounter);
         }
         if (watch.isActivity())
         {
-            // Serial.println("Activity interrupt");
+            // //Serial.println("Activity interrupt");
         }
         if (watch.isTilt())
         {
-            // Serial.println("Tilt interrupt");
+            // //Serial.println("Tilt interrupt");
         }
         if (watch.isDoubleTap())
         {
-            // Serial.println("DoubleTap interrupt");
+            // //Serial.println("DoubleTap interrupt");
         }
         if (watch.isAnyNoMotion())
         {
-            // Serial.println("Any motion / no motion interrupt");
+            // //Serial.println("Any motion / no motion interrupt");
         }
     }
 }
@@ -213,10 +182,10 @@ void tileview_change_cb(lv_event_t *e)
     pageId = lv_obj_get_index(lv_tileview_get_tile_act(tileview));
     lv_event_code_t c = lv_event_get_code(e);
     uint32_t count = lv_obj_get_child_cnt(tileview);
-    // Serial.print(" Count:");
-    // Serial.print(count);
-    // Serial.print(" pageId:");
-    // Serial.println(pageId);
+    // //Serial.print(" Count:");
+    // //Serial.print(count);
+    // //Serial.print(" pageId:");
+    // //Serial.println(pageId);
 
     switch (pageId)
     {
@@ -228,19 +197,19 @@ void tileview_change_cb(lv_event_t *e)
         break;
     }
     lastPageID = pageId;
-    // Serial.print(" pageId:");
+    // //Serial.print(" pageId:");
 }
 
 void lowPowerEnergyHandler()
 {
-    // Serial.println("Enter light sleep mode!");
+    // //Serial.println("Enter light sleep mode!");
     brightnessLevel = watch.getBrightness();
     watch.decrementBrightness(0);
 
-    // Serial.println("DEcremented brigtness!");
+    // //Serial.println("DEcremented brigtness!");
 
     watch.clearPMU();
-    // Serial.println("Cleared pmu!");
+    // //Serial.println("Cleared pmu!");
 
     watch.configreFeatureInterrupt(
         SensorBMA423::INT_STEP_CNTR |    // Pedometer interrupt
@@ -397,25 +366,25 @@ void PMUHandler()
         watch.readPMU();
         if (watch.isVbusInsertIrq())
         {
-            // Serial.println("isVbusInsert");
+            // //Serial.println("isVbusInsert");
             createChargeUI();
             watch.incrementalBrightness(brightnessLevel);
             usbPlugIn = true;
         }
         if (watch.isVbusRemoveIrq())
         {
-            // Serial.println("isVbusRemove");
+            // //Serial.println("isVbusRemove");
             destoryChargeUI();
             watch.incrementalBrightness(brightnessLevel);
             usbPlugIn = false;
         }
         if (watch.isBatChagerDoneIrq())
         {
-            // Serial.println("isBatChagerDone");
+            // //Serial.println("isBatChagerDone");
         }
         if (watch.isBatChagerStartIrq())
         {
-            // Serial.println("isBatChagerStart");
+            // //Serial.println("isBatChagerStart");
         }
         // Clear watch Interrupt Status Register
         watch.clearPMU();
@@ -554,42 +523,89 @@ void settingPMU()
     watch.attachPMU(setPMUFlag);
 }
 
+
+
+lv_obj_t *message;
+/*
+MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, uint32_t crcCalculated)
+{
+    //Serial.println(String((char *)packet->data));
+    String messageText = "#ffffff Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " #ffffff " + String((char *)packet->data);
+    //Serial.println(messageText);
+    lv_label_set_text(message, NULL);
+
+    lv_label_set_text(message, messageText.c_str());
+    if (packet != NULL)
+    {
+        free(packet);
+        packet = NULL;
+    }
+};
+*/
+LCMM::DataReceivedCallback lcmmDataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
+{
+    // Perform actions with the received packet and size
+    // For example, print the packet data to the console
+    //Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
+
+    String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " FROM:" + String(packet->mac.sender) + " Type: " + (packet->type == PACKET_TYPE_DATA_ACK ? "ACK" : "NOACK") + "data: " + String((char *)packet->data);
+
+    //Serial.println(messageText);
+    lv_label_set_text(message, NULL);
+
+    lv_label_set_text(message, messageText.c_str());
+    if (packet != NULL)
+    {
+        free(packet);
+        packet = NULL;
+    }
+};
+
+LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
+{
+    if (success)
+    {
+        String messageText = " Recieved at:" + String(watch.strftime(1))+ " " + String(watch.getRSSI()) + " " +  "packet succesfully sent " + String(packet) + " " + "\n PING: " + String(LCMM::getInstance()->currentPing) + " \n";
+        //Serial.println(messageText);
+        lv_label_set_text(message, NULL);
+
+        lv_label_set_text(message, messageText.c_str());
+        
+    }
+    else
+    {
+        String messageText =  " Recieved at:" + String(watch.strftime(1)) + " " + "packet failed to send " + String(packet);
+        //Serial.println(messageText);
+        lv_label_set_text(message, NULL);
+
+        lv_label_set_text(message, messageText.c_str());
+    }
+};
+
 static void sendmessage(lv_event_t *e)
 {
     static bool sending = false;
     lv_event_code_t code = lv_event_get_code(e);
-    // Serial.println("event detected");
+    // //Serial.println("event detected");
     if (!sending && code == LV_EVENT_CLICKED)
     {
         sending = true;
-        Serial.println("start sending");
-        MAC::getInstance()->sendData(1, (unsigned char *)"hellno there", strlen("hellno there"), false);
-        Serial.println("end sending");
+        //Serial.println("start sending");
+        LCMM::getInstance()->sendPacketSingle(true, 1, 
+        (unsigned char *)"This is some important data", 
+        strlen("This is some important data")+1, 
+        ackCallback, 10000);
+        //Serial.println("end sending");
 
         sending = false;
     }
 }
 
-
-lv_obj_t * message;
-MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, uint32_t crcCalculated)
-{
-    Serial.println(String((char *)packet->data));
-    String messageText = "#ffffff Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) +" #ffffff " + String((char*)packet->data) ;
-    Serial.println(messageText);
-    lv_label_set_text(message, NULL);
-
-    lv_label_set_text(message, messageText.c_str());
-    if(packet != NULL){
-        free(packet);
-        packet = NULL;
-    }
-
-};
-
 static void radioSendAndRecievePage(lv_obj_t *parent)
 {
-    //MAC::getInstance()->setRXCallback(dataCallback);
+    // MAC::getInstance()->setRXCallback(dataCallback);
+    LCMM::initialize(lcmmDataCallback, ackCallback);
+
     lv_obj_t *label;
     lv_obj_t *sendbutton = lv_btn_create(parent);
     lv_obj_set_pos(sendbutton, 20, 15);
@@ -599,7 +615,7 @@ static void radioSendAndRecievePage(lv_obj_t *parent)
     message = lv_label_create(parent);
     lv_obj_set_width(message, 220);
     lv_label_set_long_mode(message, LV_LABEL_LONG_WRAP);
-    lv_label_set_recolor(message, true);                      /*Enable re-coloring by commands in the text*/    
+    lv_label_set_recolor(message, true); /*Enable re-coloring by commands in the text*/
     lv_label_set_text(message, "#ffffff empty message");
     lv_obj_set_style_text_font(message, &lv_font_montserrat_14, LV_PART_MAIN);
 
@@ -620,7 +636,7 @@ static void updateTheChart(lv_obj_t *chart)
         minval = (power < minval) ? power : minval;
         maxval = (power > maxval) ? power : maxval;
         ser1->y_points[i] = power;
-        // Serial.printf("noise floor of channel %d: %d\n", i, power);
+        // //Serial.printf("noise floor of channel %d: %d\n", i, power);
     }
     maxval += 3;
     minval -= 3;
@@ -646,14 +662,14 @@ lv_obj_t *btn1;
 static void scan_channels(lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
-    // Serial.println("event detected");
+    // //Serial.println("event detected");
     if (code == LV_EVENT_CLICKED)
     {
         lv_color_t prevColor = lv_obj_get_style_bg_color(btn1, LV_PART_MAIN);
         lv_obj_set_style_bg_color(btn1, lv_palette_main(LV_PALETTE_RED), LV_PART_MAIN);
         lv_obj_refresh_style(btn1, LV_PART_ANY, LV_STYLE_PROP_ANY);
         MAC::getInstance()->LORANoiseCalibrateAllChannels(true);
-        // Serial.println("scanning done");
+        // //Serial.println("scanning done");
         lv_obj_t *chart = (lv_obj_t *)lv_event_get_user_data(e);
         updateTheChart(chart);
 
@@ -768,7 +784,7 @@ void analogclock(lv_obj_t *parent)
                                     struct tm timeinfo;
                                     watch.getDateTime(&timeinfo);
                                     
-                                    //Serial.println(watch.strftime());
+                                    ////Serial.println(watch.strftime());
                                     lv_img_set_angle(
                                         hour_img, ((timeinfo.tm_hour) * 300 + ((timeinfo.tm_min) * 5)) % 3600);
                                     lv_img_set_angle(min_img, (timeinfo.tm_min) * 60);
@@ -791,8 +807,8 @@ void analogclock(lv_obj_t *parent)
                                      lv_label_set_text_fmt(battery_percent, "%d", percent == -1 ? 0 : percent);
 
                                     float  temp = watch.readAccelTemp();
-                                    //Serial.print(temp);
-                                    //Serial.println("*C");
+                                    ////Serial.print(temp);
+                                    ////Serial.println("*C");
                                     lv_label_set_text_fmt(weather_celsius, "%d°C", (int)temp); },
                                  1000, NULL);
 }
