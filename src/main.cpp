@@ -86,8 +86,8 @@ void setup()
       ;
   }
   // MAC::initialize(radio, 1, 2);
-  uint16_t id = 1;
-  uint8_t NAPInterval = 10;
+  uint16_t id = 2;
+  uint8_t NAPInterval = 30;
   MAC::initialize(
       radio,
       id,
