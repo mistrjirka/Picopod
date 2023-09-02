@@ -1,5 +1,5 @@
 #include "watch_setup.h"
-
+#define ID 3
 const char *ssid = "highground";
 const char *password = "hellothere";
 
@@ -93,7 +93,7 @@ void watchSetup()
     // MAC::initialize(module, 1, 2);
     MAC::initialize(
         module,
-        2,
+        ID,
         2,
         9,
         125.0,
@@ -116,7 +116,7 @@ void watchSetup()
 
 void SensorHandler()
 {
-    LCMM::getInstance()->loop();
+    DTP::getInstance()->loop();
 
     if (sportsIrq)
     {
@@ -147,6 +147,7 @@ void SensorHandler()
             // //Serial.println("Any motion / no motion interrupt");
         }
     }
+    updateTableDTP();
 }
 
 static void charge_anim_cb(void *obj, int32_t v)
@@ -526,6 +527,27 @@ void settingPMU()
 
 
 lv_obj_t *message;
+
+
+void updateTableDTP()
+{
+
+    String messageText = "Availible devices: \n";
+    for(auto tableItem : DTP::getInstance()->getRoutingTable())
+    {
+        //printf(("ID: " + String(tableItem.first) + " Routing ways: \n").c_str());
+        messageText += "ID: " + String(tableItem.first) + " Routing ways: " + "\n";
+        for(auto route : tableItem.second)
+        {
+            messageText += "    " + String(route.routingId) + " distance: " + String(route.distance) + "\n";
+        }
+    }
+    lv_label_set_text(message, NULL);
+
+    lv_label_set_text(message, messageText.c_str());
+    
+}
+
 /*
 MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, uint32_t crcCalculated)
 {
@@ -604,7 +626,7 @@ static void sendmessage(lv_event_t *e)
 static void radioSendAndRecievePage(lv_obj_t *parent)
 {
     // MAC::getInstance()->setRXCallback(dataCallback);
-    LCMM::initialize(lcmmDataCallback, ackCallback);
+    DTP::initialize(ID, 20);
 
     lv_obj_t *label;
     lv_obj_t *sendbutton = lv_btn_create(parent);

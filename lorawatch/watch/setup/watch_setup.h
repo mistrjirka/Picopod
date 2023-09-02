@@ -7,6 +7,7 @@
 #include "SensorCommon.tpp"
 #include <lcmm.h>
 #include <mac.h>
+#include <DTP.h>
 #ifdef ENABLE_IR_SENDER
 #include <IRsend.h>
 IRsend irsend(BOARD_IR_PIN);
@@ -33,12 +34,13 @@ IRsend irsend(BOARD_IR_PIN);
 #define AUDIO_DATA                              boot_music
 #define RADIO_TRANSMIT_PAGE_ID                  1
 
-#define DEFAULT_SCREEN_TIMEOUT                  35*1000
+#define DEFAULT_SCREEN_TIMEOUT                  135*1000
 #define DEFAULT_COLOR                           (lv_color_make(252, 218, 72))
 #define VAD_FRAME_LENGTH_MS                     30
 #define VAD_BUFFER_LENGTH                       (VAD_FRAME_LENGTH_MS * MIC_I2S_SAMPLE_RATE / 1000)
 
 void createChargeUI();
+void updateTableDTP();
 
 void watchSetup();
 void SensorHandler();
