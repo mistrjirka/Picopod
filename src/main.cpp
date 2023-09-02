@@ -97,7 +97,7 @@ void setup()
       15,
       22,
       7);
-  DTP::initialize(id, NAPInterval);
+  DTP::initialize(NAPInterval);
   //MAC::getInstance()->setRXCallback(dataCallback);
   Serial.print(F("After init"));
 
