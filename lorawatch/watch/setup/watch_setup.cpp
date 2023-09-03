@@ -533,13 +533,13 @@ void updateTableDTP()
 {
 
     String messageText = "Availible devices: \n";
-    for(auto tableItem : DTP::getInstance()->getRoutingTable())
+    for(DTPNAPTimeRecord tableItem : DTP::getInstance()->neighbors())
     {
         //printf(("ID: " + String(tableItem.first) + " Routing ways: \n").c_str());
-        messageText += "ID: " + String(tableItem.first) + " Routing ways: " + "\n";
-        for(auto route : tableItem.second)
+        messageText += "ID: " + String(tableItem.id) + " Routing ways: " + "\n";
+        for(auto route : tableItem.routes)
         {
-            messageText += "    " + String(route.routingId) + " distance: " + String(route.distance) + "\n";
+            messageText += "    " + String(route.first) + " distance: " + String(route.second.distance) + "\n";
         }
     }
     lv_label_set_text(message, NULL);
@@ -626,7 +626,7 @@ static void sendmessage(lv_event_t *e)
 static void radioSendAndRecievePage(lv_obj_t *parent)
 {
     // MAC::getInstance()->setRXCallback(dataCallback);
-    DTP::initialize(ID, 20);
+    DTP::initialize(20);
 
     lv_obj_t *label;
     lv_obj_t *sendbutton = lv_btn_create(parent);
