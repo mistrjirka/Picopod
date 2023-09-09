@@ -762,7 +762,7 @@ void updateDropdown()
         {
             char *text = (char *)malloc(32);
             devices.push_back(tableItem.first);
-            snprintf(text, 32, "%d distance %d", tableItem.second.id, tableItem.second.distance);
+            snprintf(text, 32, "%d distance %d", tableItem.first, tableItem.second.distance);
 
             lv_dropdown_add_option(dd, text, LV_DROPDOWN_POS_LAST);
         }
