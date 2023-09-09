@@ -75,7 +75,7 @@ void synchronize()
 
 void watchSetup()
 {
-    //Serial.begin(115200);
+    // Serial.begin(115200);
 
     // Stop wifi
     watch.begin();
@@ -117,6 +117,7 @@ void watchSetup()
 void SensorHandler()
 {
     DTP::getInstance()->loop();
+    updateDropdown();
 
     if (sportsIrq)
     {
@@ -408,12 +409,12 @@ void factory_ui()
     lv_obj_t *t2 = lv_tileview_add_tile(tileview, 0, 0, LV_DIR_HOR);
     lv_obj_t *t4 = lv_tileview_add_tile(tileview, 1, 0, LV_DIR_HOR | LV_DIR_BOTTOM);
     lv_obj_t *t4_1 = lv_tileview_add_tile(tileview, 1, 1, LV_DIR_TOP);
-
+    lv_obj_t *t5 = lv_tileview_add_tile(tileview, 2, 0, LV_DIR_HOR);
     analogclock(t2);
 
     radioPingPong(t4);
     radioSendAndRecievePage(t4_1);
-
+    radioSendMessage(t5);
     lv_disp_trig_activity(NULL);
 
     lv_obj_set_tile(tileview, t2, LV_ANIM_OFF);
@@ -524,20 +525,17 @@ void settingPMU()
     watch.attachPMU(setPMUFlag);
 }
 
-
-
 lv_obj_t *message;
-
 
 void updateTableDTP()
 {
 
     String messageText = "Availible devices: \n";
-    for(DTPNAPTimeRecord tableItem : DTP::getInstance()->neighbors())
+    for (DTPNAPTimeRecord tableItem : DTP::getInstance()->neighbors())
     {
-        //printf(("ID: " + String(tableItem.first) + " Routing ways: \n").c_str());
+        // printf(("ID: " + String(tableItem.first) + " Routing ways: \n").c_str());
         messageText += "ID: " + String(tableItem.id) + " Routing ways: " + "\n";
-        for(auto route : tableItem.routes)
+        for (auto route : tableItem.routes)
         {
             messageText += "    " + String(route.first) + " distance: " + String(route.second.distance) + "\n";
         }
@@ -545,7 +543,6 @@ void updateTableDTP()
     lv_label_set_text(message, NULL);
 
     lv_label_set_text(message, messageText.c_str());
-    
 }
 
 /*
@@ -568,11 +565,11 @@ LCMM::DataReceivedCallback lcmmDataCallback = [](LCMMPacketDataRecieve *packet, 
 {
     // Perform actions with the received packet and size
     // For example, print the packet data to the console
-    //Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
+    // Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
 
     String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " FROM:" + String(packet->mac.sender) + " Type: " + (packet->type == PACKET_TYPE_DATA_ACK ? "ACK" : "NOACK") + "data: " + String((char *)packet->data);
 
-    //Serial.println(messageText);
+    // Serial.println(messageText);
     lv_label_set_text(message, NULL);
 
     lv_label_set_text(message, messageText.c_str());
@@ -587,17 +584,16 @@ LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
 {
     if (success)
     {
-        String messageText = " Recieved at:" + String(watch.strftime(1))+ " " + String(watch.getRSSI()) + " " +  "packet succesfully sent " + String(packet) + " " + "\n PING: " + String(LCMM::getInstance()->currentPing) + " \n";
-        //Serial.println(messageText);
+        String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " " + "packet succesfully sent " + String(packet) + " " + "\n PING: " + String(LCMM::getInstance()->currentPing) + " \n";
+        // Serial.println(messageText);
         lv_label_set_text(message, NULL);
 
         lv_label_set_text(message, messageText.c_str());
-        
     }
     else
     {
-        String messageText =  " Recieved at:" + String(watch.strftime(1)) + " " + "packet failed to send " + String(packet);
-        //Serial.println(messageText);
+        String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + "packet failed to send " + String(packet);
+        // Serial.println(messageText);
         lv_label_set_text(message, NULL);
 
         lv_label_set_text(message, messageText.c_str());
@@ -612,12 +608,11 @@ static void sendmessage(lv_event_t *e)
     if (!sending && code == LV_EVENT_CLICKED)
     {
         sending = true;
-        //Serial.println("start sending");
-        LCMM::getInstance()->sendPacketSingle(true, 1, 
-        (unsigned char *)"This is some important data", 
-        strlen("This is some important data")+1, 
-        ackCallback, 10000);
-        //Serial.println("end sending");
+        // Serial.println("start sending");
+        LCMM::getInstance()->sendPacketSingle(true, 2,
+            (unsigned char *)"This is some important data",
+            strlen("This is some important data") + 1, ackCallback);
+        // Serial.println("end sending");
 
         sending = false;
     }
@@ -738,6 +733,80 @@ void radioPingPong(lv_obj_t *parent)
     label = lv_label_create(btn2);
     lv_label_set_text(label, "Power save");
     lv_obj_center(label);
+}
+
+uint16_t selected = -1;
+lv_obj_t *dd;
+lv_obj_t *responseMessage;
+
+void updateDropdown()
+{
+    lv_dropdown_clear_options(dd);
+    uint16_t i = 0;
+    for (auto tableItem : DTP::getInstance()->getRoutingTable())
+    {
+        char text[32];
+
+        snprintf(text, 32, "%d distance %d\n", tableItem.second.id, tableItem.second.distance);
+
+        lv_dropdown_add_option(dd, text, i);
+        i++;
+    }
+}
+static void recievedAck(uint8_t result){
+    if(result){
+        printf("packet succeeded at getting into destination");
+        lv_label_set_text(responseMessage, "packet succeeded at getting into destination");
+    }else{
+        printf("packet failed at getting to destination");
+        lv_label_set_text(responseMessage, "packet failed at getting to destination");
+    }
+}
+
+static void sendDTPMessage(lv_event_t *e)
+{
+    if (selected != -1)
+    {
+        printf("selected message %d\n", selected);
+        DTP::getInstance()->sendPacket((unsigned char *)"This is some important data", strlen("This is some important data") + 1, selected, 10000, recievedAck);
+    }
+}
+
+static void selected_device(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    lv_obj_t *obj = lv_event_get_target(e);
+    if (code == LV_EVENT_VALUE_CHANGED)
+    {
+        selected = lv_dropdown_get_selected(obj);
+        printf("selected object: %d", selected);
+    }
+}
+
+void radioSendMessage(lv_obj_t *parent)
+{
+    lv_obj_t *label;
+    lv_obj_t *sendbutton = lv_btn_create(parent);
+    lv_obj_set_pos(sendbutton, 20, 15);
+    lv_obj_add_event_cb(sendbutton, sendDTPMessage, LV_EVENT_ALL, NULL);
+    label = lv_label_create(sendbutton);
+    lv_label_set_text(label, "Send message");
+    responseMessage = lv_label_create(parent);
+    lv_obj_set_width(responseMessage, 220);
+    lv_label_set_long_mode(responseMessage, LV_LABEL_LONG_WRAP);
+    lv_label_set_recolor(responseMessage, true); /*Enable re-coloring by commands in the text*/
+    lv_label_set_text(responseMessage, "#ffffff empty message");
+    lv_obj_set_style_text_font(responseMessage, &lv_font_montserrat_14, LV_PART_MAIN);
+    lv_obj_set_pos(responseMessage, 10, 50);
+    lv_obj_center(label);
+
+
+    /*Create a normal drop down list*/
+    dd = lv_dropdown_create(parent);
+    lv_dropdown_set_options(dd, "No devices found yes\n");
+
+    lv_obj_align(dd, LV_ALIGN_TOP_MID, 0, 20);
+    lv_obj_add_event_cb(dd, selected_device, LV_EVENT_ALL, NULL);
 }
 
 void analogclock(lv_obj_t *parent)

@@ -41,6 +41,8 @@ IRsend irsend(BOARD_IR_PIN);
 
 void createChargeUI();
 void updateTableDTP();
+void updateDropdown();
+void radioSendMessage(lv_obj_t *parent);
 
 void watchSetup();
 void SensorHandler();
