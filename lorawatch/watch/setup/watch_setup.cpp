@@ -610,8 +610,8 @@ static void sendmessage(lv_event_t *e)
         sending = true;
         // Serial.println("start sending");
         LCMM::getInstance()->sendPacketSingle(true, 2,
-            (unsigned char *)"This is some important data",
-            strlen("This is some important data") + 1, ackCallback);
+                                              (unsigned char *)"This is some important data",
+                                              strlen("This is some important data") + 1, ackCallback);
         // Serial.println("end sending");
 
         sending = false;
@@ -740,27 +740,49 @@ lv_obj_t *dd;
 lv_obj_t *responseMessage;
 bool sending = false;
 vector<uint16_t> devices;
+static int checksum = 0;
 void updateDropdown()
 {
-    lv_dropdown_clear_options(dd);
-    uint16_t i = 0;
-    devices.clear();
+    int calculatedCheckSum = 0;
+    int i = -1;
     for (auto tableItem : DTP::getInstance()->getRoutingTable())
     {
-        char *text = (char*)malloc(32);
-        devices.push_back(tableItem.first);
-        snprintf(text, 32, "%d distance %d\n", tableItem.second.id, tableItem.second.distance);
-
-        lv_dropdown_add_option(dd, text, i);
-        i++;
+        calculatedCheckSum += tableItem.second.id*tableItem.second.distance * i;
+        i *= -1 * tableItem.first;
     }
+
+    if (calculatedCheckSum != checksum)
+    {
+        lv_dropdown_close(dd);
+        lv_dropdown_clear_options(dd);
+
+        devices.clear();
+
+        for (auto tableItem : DTP::getInstance()->getRoutingTable())
+        {
+            char *text = (char *)malloc(32);
+            devices.push_back(tableItem.first);
+            snprintf(text, 32, "%d distance %d", tableItem.second.id, tableItem.second.distance);
+
+            lv_dropdown_add_option(dd, text, LV_DROPDOWN_POS_LAST);
+        }
+
+        if(DTP::getInstance()->getRoutingTable().size() > 0){
+            lv_dropdown_set_selected(dd, 0);
+        }
+    }
+    checksum = calculatedCheckSum;
 }
-static void recievedAck(uint8_t result){
+static void recievedAck(uint8_t result)
+{
     sending = false;
-    if(result){
+    if (result)
+    {
         printf("packet succeeded at getting into destination");
         lv_label_set_text(responseMessage, "packet succeeded at getting into destination");
-    }else{
+    }
+    else
+    {
         printf("packet failed at getting to destination");
         lv_label_set_text(responseMessage, "packet failed at getting to destination");
     }
@@ -768,11 +790,16 @@ static void recievedAck(uint8_t result){
 
 static void sendDTPMessage(lv_event_t *e)
 {
-    if (selected != 65535 && !sending)
+        lv_event_code_t code = lv_event_get_code(e);
+    if (selected != 65535 && !sending && code == LV_EVENT_CLICKED)
     {
         sending = true;
         printf("selected message %d\n", selected);
         DTP::getInstance()->sendPacket((unsigned char *)"This is some important data", strlen("This is some important data") + 1, selected, 10000, recievedAck);
+    }else if(code == LV_EVENT_CLICKED){
+            lv_label_set_text(responseMessage, "Cannot send not valid value selected or already sending");
+
+        printf("selected message %d sending %d\n", selected, sending);
     }
 }
 
@@ -783,7 +810,7 @@ static void selected_device(lv_event_t *e)
     if (code == LV_EVENT_VALUE_CHANGED)
     {
         selected = devices.at(lv_dropdown_get_selected(obj));
-        
+
         printf("selected object: %d", selected);
     }
 }
@@ -804,7 +831,6 @@ void radioSendMessage(lv_obj_t *parent)
     lv_obj_set_style_text_font(responseMessage, &lv_font_montserrat_14, LV_PART_MAIN);
     lv_obj_set_pos(responseMessage, 10, 50);
     lv_obj_center(label);
-
 
     /*Create a normal drop down list*/
     dd = lv_dropdown_create(parent);
