@@ -773,18 +773,20 @@ void updateDropdown()
     }
     checksum = calculatedCheckSum;
 }
-static void recievedAck(uint8_t result)
+static void recievedAck(uint8_t result, uint16_t ping)
 {
     sending = false;
     if (result)
     {
         printf("packet succeeded at getting into destination");
-        lv_label_set_text(responseMessage, "packet succeeded at getting into destination");
+        String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " " + "packet succesfully sent " + String(result) + " " + "\n PING: " + String(ping) + " \n";
+        lv_label_set_text(responseMessage,  messageText.c_str());
     }
     else
     {
         printf("packet failed at getting to destination");
-        lv_label_set_text(responseMessage, "packet failed at getting to destination");
+        String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + "packet failed to send " + String(result);
+        lv_label_set_text(responseMessage, messageText.c_str());
     }
 }
 
@@ -834,6 +836,7 @@ void radioSendMessage(lv_obj_t *parent)
 
     /*Create a normal drop down list*/
     dd = lv_dropdown_create(parent);
+    lv_dropdown_set_options(dd, "No devices found yes\n");
     lv_dropdown_add_option(dd, "No devices found yes\n", 0);
 
     lv_obj_set_pos(dd, 10, 90);
