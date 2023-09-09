@@ -738,15 +738,17 @@ void radioPingPong(lv_obj_t *parent)
 uint16_t selected = -1;
 lv_obj_t *dd;
 lv_obj_t *responseMessage;
-
+bool sending = false;
+vector<uint16_t> devices;
 void updateDropdown()
 {
     lv_dropdown_clear_options(dd);
     uint16_t i = 0;
+    devices.clear();
     for (auto tableItem : DTP::getInstance()->getRoutingTable())
     {
-        char text[32];
-
+        char *text = (char*)malloc(32);
+        devices.push_back(tableItem.first);
         snprintf(text, 32, "%d distance %d\n", tableItem.second.id, tableItem.second.distance);
 
         lv_dropdown_add_option(dd, text, i);
@@ -754,6 +756,7 @@ void updateDropdown()
     }
 }
 static void recievedAck(uint8_t result){
+    sending = false;
     if(result){
         printf("packet succeeded at getting into destination");
         lv_label_set_text(responseMessage, "packet succeeded at getting into destination");
@@ -765,8 +768,9 @@ static void recievedAck(uint8_t result){
 
 static void sendDTPMessage(lv_event_t *e)
 {
-    if (selected != -1)
+    if (selected != 65535 && !sending)
     {
+        sending = true;
         printf("selected message %d\n", selected);
         DTP::getInstance()->sendPacket((unsigned char *)"This is some important data", strlen("This is some important data") + 1, selected, 10000, recievedAck);
     }
@@ -778,7 +782,8 @@ static void selected_device(lv_event_t *e)
     lv_obj_t *obj = lv_event_get_target(e);
     if (code == LV_EVENT_VALUE_CHANGED)
     {
-        selected = lv_dropdown_get_selected(obj);
+        selected = devices.at(lv_dropdown_get_selected(obj));
+        
         printf("selected object: %d", selected);
     }
 }
@@ -803,9 +808,9 @@ void radioSendMessage(lv_obj_t *parent)
 
     /*Create a normal drop down list*/
     dd = lv_dropdown_create(parent);
-    lv_dropdown_set_options(dd, "No devices found yes\n");
+    lv_dropdown_add_option(dd, "No devices found yes\n", 0);
 
-    lv_obj_align(dd, LV_ALIGN_TOP_MID, 0, 20);
+    lv_obj_set_pos(dd, 10, 90);
     lv_obj_add_event_cb(dd, selected_device, LV_EVENT_ALL, NULL);
 }
 
