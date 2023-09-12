@@ -621,7 +621,7 @@ static void sendmessage(lv_event_t *e)
 static void radioSendAndRecievePage(lv_obj_t *parent)
 {
     // MAC::getInstance()->setRXCallback(dataCallback);
-    DTP::initialize(20);
+    DTP::initialize(35);
 
     lv_obj_t *label;
     lv_obj_t *sendbutton = lv_btn_create(parent);
