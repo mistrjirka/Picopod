@@ -23,7 +23,7 @@ void loop()
     PMUHandler();
 
 
-    bool screenTimeout = lv_disp_get_inactive_time(NULL) < DEFAULT_SCREEN_TIMEOUT;
+    bool screenTimeout = lv_disp_get_inactive_time(NULL) < DEFAULT_SCREEN_TIMEOUT || true;
     if (screenTimeout ||
         !canScreenOff ||
         usbPlugIn)
