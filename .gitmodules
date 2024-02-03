@@ -1,0 +1,3 @@
+[submodule "lib/Picopod"]
+	path = lib/Picopod
+	url = git@github.com:mistrjirka/Picopod.git
