@@ -1,5 +1,3 @@
-
-
 #include <LilyGoLib.h>
 #include <LV_Helper.h>
 #include <WiFi.h>
