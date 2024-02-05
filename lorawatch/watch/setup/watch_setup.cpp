@@ -116,7 +116,7 @@ void watchSetup()
 
 void SensorHandler()
 {
-    DTP::getInstance()->loop();
+    DTPK::getInstance()->loop();
     updateDropdown();
 
     if (sportsIrq)
@@ -413,7 +413,7 @@ void factory_ui()
     analogclock(t2);
 
     radioPingPong(t4);
-    radioSendAndRecievePage(t4_1);
+    radioSendAndReceivePage(t4_1);
     radioSendMessage(t5);
     lv_disp_trig_activity(NULL);
 
@@ -531,14 +531,13 @@ void updateTableDTP()
 {
 
     String messageText = "Availible devices: \n";
-    for (DTPNAPTimeRecord tableItem : DTP::getInstance()->neighbors())
+    for (NeighborRecord tableItem : DTPK::getInstance()->getNeighbours())
     {
         // printf(("ID: " + String(tableItem.first) + " Routing ways: \n").c_str());
         messageText += "ID: " + String(tableItem.id) + " Routing ways: " + "\n";
-        for (auto route : tableItem.routes)
-        {
-            messageText += "    " + String(route.first) + " distance: " + String(route.second.distance) + "\n";
-        }
+        
+        messageText += "    " + String(tableItem.from) + " distance: " + String(tableItem.distance) + "\n";
+        
     }
     lv_label_set_text(message, NULL);
 
@@ -549,7 +548,7 @@ void updateTableDTP()
 MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, uint32_t crcCalculated)
 {
     //Serial.println(String((char *)packet->data));
-    String messageText = "#ffffff Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " #ffffff " + String((char *)packet->data);
+    String messageText = "#ffffff Received at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " #ffffff " + String((char *)packet->data);
     //Serial.println(messageText);
     lv_label_set_text(message, NULL);
 
@@ -561,13 +560,13 @@ MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, 
     }
 };
 */
-LCMM::DataReceivedCallback lcmmDataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
+LCMM::DataReceivedCallback lcmmDataCallback = [](LCMMPacketDataReceive *packet, uint32_t size)
 {
     // Perform actions with the received packet and size
     // For example, print the packet data to the console
     // Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
 
-    String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " FROM:" + String(packet->mac.sender) + " Type: " + (packet->type == PACKET_TYPE_DATA_ACK ? "ACK" : "NOACK") + "data: " + String((char *)packet->data);
+    String messageText = " Received at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " FROM:" + String(packet->mac.sender) + " Type: " + (packet->type == PACKET_TYPE_DATA_ACK ? "ACK" : "NOACK") + "data: " + String((char *)packet->data);
 
     // Serial.println(messageText);
     lv_label_set_text(message, NULL);
@@ -584,7 +583,7 @@ LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
 {
     if (success)
     {
-        String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " " + "packet succesfully sent " + String(packet) + " " + "\n PING: " + String(LCMM::getInstance()->currentPing) + " \n";
+        String messageText = " Received at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " " + "packet succesfully sent " + String(packet) + " " + "\n PING: " + String(LCMM::getInstance()->currentPing) + " \n";
         // Serial.println(messageText);
         lv_label_set_text(message, NULL);
 
@@ -592,7 +591,7 @@ LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
     }
     else
     {
-        String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + "packet failed to send " + String(packet);
+        String messageText = " Received at:" + String(watch.strftime(1)) + " " + "packet failed to send " + String(packet);
         // Serial.println(messageText);
         lv_label_set_text(message, NULL);
 
@@ -618,10 +617,10 @@ static void sendmessage(lv_event_t *e)
     }
 }
 
-static void radioSendAndRecievePage(lv_obj_t *parent)
+static void radioSendAndReceivePage(lv_obj_t *parent)
 {
     // MAC::getInstance()->setRXCallback(dataCallback);
-    DTP::initialize(35);
+    DTPK::initialize(20);
 
     lv_obj_t *label;
     lv_obj_t *sendbutton = lv_btn_create(parent);
@@ -745,10 +744,10 @@ void updateDropdown()
 {
     int calculatedCheckSum = 0;
     int i = -1;
-    for (auto tableItem : DTP::getInstance()->getRoutingTable())
+    for (NeighborRecord tableItem : DTPK::getInstance()->getNeighbours())
     {
-        calculatedCheckSum += tableItem.second.id*tableItem.second.distance * i;
-        i *= -1 * tableItem.first;
+        calculatedCheckSum += tableItem.from *tableItem.distance * i;
+        i *= -1 * tableItem.id;
     }
 
     if (calculatedCheckSum != checksum)
@@ -758,16 +757,16 @@ void updateDropdown()
 
         devices.clear();
 
-        for (auto tableItem : DTP::getInstance()->getRoutingTable())
+        for (NeighborRecord tableItem : DTPK::getInstance()->getNeighbours())
         {
             char *text = (char *)malloc(32);
-            devices.push_back(tableItem.first);
-            snprintf(text, 32, "%d distance %d", tableItem.first, tableItem.second.distance);
+            devices.push_back(tableItem.id);
+            snprintf(text, 32, "%d distance %d", tableItem.id, tableItem.distance);
 
             lv_dropdown_add_option(dd, text, LV_DROPDOWN_POS_LAST);
         }
 
-        if(DTP::getInstance()->getRoutingTable().size() > 0){
+        if(DTPK::getInstance()->getNeighbours().size() > 0){
             lv_dropdown_set_selected(dd, 0);
         }
     }
@@ -779,13 +778,13 @@ static void recievedAck(uint8_t result, uint16_t ping)
     if (result)
     {
         printf("packet succeeded at getting into destination");
-        String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " " + "packet succesfully sent " + String(result) + " " + "\n PING: " + String(ping) + " \n";
+        String messageText = " Received at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " " + "packet succesfully sent " + String(result) + " " + "\n PING: " + String(ping) + " \n";
         lv_label_set_text(responseMessage,  messageText.c_str());
     }
     else
     {
         printf("packet failed at getting to destination");
-        String messageText = " Recieved at:" + String(watch.strftime(1)) + " " + "packet failed to send " + String(result);
+        String messageText = " Received at:" + String(watch.strftime(1)) + " " + "packet failed to send " + String(result);
         lv_label_set_text(responseMessage, messageText.c_str());
     }
 }
@@ -797,7 +796,7 @@ static void sendDTPMessage(lv_event_t *e)
     {
         sending = true;
         printf("selected message %d\n", selected);
-        DTP::getInstance()->sendPacket((unsigned char *)"This is some important data", strlen("This is some important data") + 1, selected, 10000, recievedAck);
+        DTPK::getInstance()->sendPacket(selected,(unsigned char *)"This is some important data", strlen("This is some important data") + 1, 10000, true, recievedAck);
     }else if(code == LV_EVENT_CLICKED){
             lv_label_set_text(responseMessage, "Cannot send not valid value selected or already sending");
 

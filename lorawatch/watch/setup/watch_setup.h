@@ -5,7 +5,7 @@
 #include "SensorCommon.tpp"
 #include <lcmm.h>
 #include <mac.h>
-#include <DTP.h>
+#include <DTPK.h>
 #ifdef ENABLE_IR_SENDER
 #include <IRsend.h>
 IRsend irsend(BOARD_IR_PIN);
@@ -44,7 +44,7 @@ void radioSendMessage(lv_obj_t *parent);
 
 void watchSetup();
 void SensorHandler();
-static void radioSendAndRecievePage(lv_obj_t *parent);
+static void radioSendAndReceivePage(lv_obj_t *parent);
 
 typedef bool (*player_cb_t)(void);
 static player_cb_t player_task_cb = NULL;
