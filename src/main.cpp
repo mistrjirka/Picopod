@@ -2,7 +2,7 @@
 #include <SPI.h>
 #include <mac.h>
 #include <lcmm.h>
-#include <DTP.h>
+#include <DTPK.h>
 #include <RadioLib.h>
 // put function declarations here:
 
@@ -87,7 +87,7 @@ void setup()
   }
   // MAC::initialize(radio, 1, 2);
   uint16_t id = 2;
-  uint8_t NAPInterval = 35;
+  uint8_t NAPInterval = 20;
   MAC::initialize(
       radio,
       id,
@@ -97,7 +97,7 @@ void setup()
       15,
       22,
       7);
-  DTP::initialize(NAPInterval);
+  DTPK::initialize(NAPInterval);
   //MAC::getInstance()->setRXCallback(dataCallback);
   Serial.print(F("After init"));
 
@@ -115,7 +115,7 @@ void setup()
 void loop()
 {
   static int count = 0;
-  DTP::getInstance()->loop();
+  DTPK::getInstance()->loop();
   if (count++ % 1000 == 0){
     //LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"hello there general kenobi shit sda", strlen("hello there general kenobi shit sda") + 1, ackCallback);
     //MAC::getInstance()->sendData(2, (unsigned char *)"hello there general kenobi shit sda", strlen("hello there general kenobi shit sda") + 1, false);
