@@ -1,15 +1,11 @@
 #include "SX126x.h"
 #include <string.h>
 #include <math.h>
-#if !defined(RADIOLIB_EXCLUDE_SX126X)
+#if !RADIOLIB_EXCLUDE_SX126X
 
 SX126x::SX126x(Module* mod) : PhysicalLayer(RADIOLIB_SX126X_FREQUENCY_STEP_SIZE, RADIOLIB_SX126X_MAX_PACKET_LENGTH) {
   this->mod = mod;
   this->XTAL = false;
-}
-
-Module* SX126x::getMod() {
-  return(this->mod);
 }
 
 int16_t SX126x::begin(uint8_t cr, uint8_t syncWord, uint16_t preambleLength, float tcxoVoltage, bool useRegulatorLDO) {
@@ -89,6 +85,9 @@ int16_t SX126x::begin(uint8_t cr, uint8_t syncWord, uint16_t preambleLength, flo
   RADIOLIB_ASSERT(state);
 
   state = setCRC(2);
+  RADIOLIB_ASSERT(state);
+
+  state = invertIQ(false);
   RADIOLIB_ASSERT(state);
 
   return(state);
@@ -217,7 +216,7 @@ int16_t SX126x::reset(bool verify) {
     }
 
     // wait a bit to not spam the module
-    this->mod->hal->delay(100);
+    this->mod->hal->delay(10);
   }
 }
 
@@ -429,6 +428,10 @@ int16_t SX126x::packetMode() {
   return(state);
 }
 
+int16_t SX126x::scanChannel() {
+  return(this->scanChannel(RADIOLIB_SX126X_CAD_PARAM_DEFAULT, RADIOLIB_SX126X_CAD_PARAM_DEFAULT, RADIOLIB_SX126X_CAD_PARAM_DEFAULT));
+}
+
 int16_t SX126x::scanChannel(uint8_t symbolNum, uint8_t detPeak, uint8_t detMin) {
   // set mode to CAD
   int state = startChannelScan(symbolNum, detPeak, detMin);
@@ -499,6 +502,15 @@ void SX126x::setPacketSentAction(void (*func)(void)) {
 void SX126x::clearPacketSentAction() {
   this->clearDio1Action();
 }
+
+void SX126x::setChannelScanAction(void (*func)(void)) {
+  this->setDio1Action(func);
+}
+
+void SX126x::clearChannelScanAction() {
+  this->clearDio1Action();
+}
+
 
 int16_t SX126x::startTransmit(uint8_t* data, size_t len, uint8_t addr) {
   // suppress unused variable warning
@@ -722,6 +734,10 @@ int16_t SX126x::readData(uint8_t* data, size_t len) {
   return(state);
 }
 
+int16_t SX126x::startChannelScan() {
+  return(this->startChannelScan(RADIOLIB_SX126X_CAD_PARAM_DEFAULT, RADIOLIB_SX126X_CAD_PARAM_DEFAULT, RADIOLIB_SX126X_CAD_PARAM_DEFAULT));
+}
+
 int16_t SX126x::startChannelScan(uint8_t symbolNum, uint8_t detPeak, uint8_t detMin) {
   // check active modem
   if(getPacketType() != RADIOLIB_SX126X_PACKET_TYPE_LORA) {
@@ -758,11 +774,9 @@ int16_t SX126x::getChannelScanResult() {
   uint16_t cadResult = getIrqStatus();
   if(cadResult & RADIOLIB_SX126X_IRQ_CAD_DETECTED) {
     // detected some LoRa activity
-    clearIrqStatus();
     return(RADIOLIB_LORA_DETECTED);
   } else if(cadResult & RADIOLIB_SX126X_IRQ_CAD_DONE) {
     // channel is free
-    clearIrqStatus();
     return(RADIOLIB_CHANNEL_FREE);
   }
 
@@ -879,7 +893,7 @@ float SX126x::getCurrentLimit() {
   return((float)ocp * 2.5);
 }
 
-int16_t SX126x::setPreambleLength(uint16_t preambleLength) {
+int16_t SX126x::setPreambleLength(size_t preambleLength) {
   uint8_t modem = getPacketType();
   if(modem == RADIOLIB_SX126X_PACKET_TYPE_LORA) {
     this->preambleLengthLoRa = preambleLength;
@@ -935,6 +949,56 @@ int16_t SX126x::setBitRate(float br) {
 
   // update modulation parameters
   return(setModulationParamsFSK(this->bitRate, this->pulseShape, this->rxBandwidth, this->frequencyDev));
+}
+
+int16_t SX126x::setDataRate(DataRate_t dr) {
+  int16_t state = RADIOLIB_ERR_UNKNOWN;
+
+  // select interpretation based on active modem
+  uint8_t modem = this->getPacketType();
+  if(modem == RADIOLIB_SX126X_PACKET_TYPE_GFSK) {
+    // set the bit rate
+    state = this->setBitRate(dr.fsk.bitRate);
+    RADIOLIB_ASSERT(state);
+
+    // set the frequency deviation
+    state = this->setFrequencyDeviation(dr.fsk.freqDev);
+
+  } else if(modem == RADIOLIB_SX126X_PACKET_TYPE_LORA) {
+    // set the spreading factor
+    state = this->setSpreadingFactor(dr.lora.spreadingFactor);
+    RADIOLIB_ASSERT(state);
+
+    // set the bandwidth
+    state = this->setBandwidth(dr.lora.bandwidth);
+    RADIOLIB_ASSERT(state);
+
+    // set the coding rate
+    state = this->setCodingRate(dr.lora.codingRate);
+  }
+
+  return(state);
+}
+
+int16_t SX126x::checkDataRate(DataRate_t dr) {
+  int16_t state = RADIOLIB_ERR_UNKNOWN;
+
+  // select interpretation based on active modem
+  uint8_t modem = this->getPacketType();
+  if(modem == RADIOLIB_SX126X_PACKET_TYPE_GFSK) {
+    RADIOLIB_CHECK_RANGE(dr.fsk.bitRate, 0.6, 300.0, RADIOLIB_ERR_INVALID_BIT_RATE);
+    RADIOLIB_CHECK_RANGE(dr.fsk.freqDev, 0.6, 200.0, RADIOLIB_ERR_INVALID_FREQUENCY_DEVIATION);
+    return(RADIOLIB_ERR_NONE);
+
+  } else if(modem == RADIOLIB_SX126X_PACKET_TYPE_LORA) {
+    RADIOLIB_CHECK_RANGE(dr.lora.spreadingFactor, 5, 12, RADIOLIB_ERR_INVALID_SPREADING_FACTOR);
+    RADIOLIB_CHECK_RANGE(dr.lora.bandwidth, 0.0, 510.0, RADIOLIB_ERR_INVALID_BANDWIDTH);
+    RADIOLIB_CHECK_RANGE(dr.lora.codingRate, 5, 8, RADIOLIB_ERR_INVALID_CODING_RATE);
+    return(RADIOLIB_ERR_NONE);
+  
+  }
+
+  return(state);
 }
 
 int16_t SX126x::setRxBandwidth(float rxBw) {
@@ -1068,26 +1132,34 @@ int16_t SX126x::setDataShaping(uint8_t sh) {
   return(setModulationParamsFSK(this->bitRate, this->pulseShape, this->rxBandwidth, this->frequencyDev));
 }
 
-int16_t SX126x::setSyncWord(uint8_t* syncWord, uint8_t len) {
+int16_t SX126x::setSyncWord(uint8_t* syncWord, size_t len) {
   // check active modem
-  if(getPacketType() != RADIOLIB_SX126X_PACKET_TYPE_GFSK) {
-    return(RADIOLIB_ERR_WRONG_MODEM);
+  uint8_t modem = getPacketType();
+  if(modem == RADIOLIB_SX126X_PACKET_TYPE_GFSK) {
+    // check sync word Length
+    if(len > 8) {
+      return(RADIOLIB_ERR_INVALID_SYNC_WORD);
+    }
+
+    // write sync word
+    int16_t state = writeRegister(RADIOLIB_SX126X_REG_SYNC_WORD_0, syncWord, len);
+    RADIOLIB_ASSERT(state);
+
+    // update packet parameters
+    this->syncWordLength = len * 8;
+    state = setPacketParamsFSK(this->preambleLengthFSK, this->crcTypeFSK, this->syncWordLength, this->addrComp, this->whitening, this->packetType);
+
+    return(state);
+  
+  } else if(modem == RADIOLIB_SX126X_PACKET_TYPE_LORA) {
+    // with length set to 1 and LoRa modem active, assume it is the LoRa sync word
+    if(len > 1) {
+      return(RADIOLIB_ERR_INVALID_SYNC_WORD);
+    }
+    return(setSyncWord(syncWord[0]));
   }
 
-  // check sync word Length
-  if(len > 8) {
-    return(RADIOLIB_ERR_INVALID_SYNC_WORD);
-  }
-
-  // write sync word
-  int16_t state = writeRegister(RADIOLIB_SX126X_REG_SYNC_WORD_0, syncWord, len);
-  RADIOLIB_ASSERT(state);
-
-  // update packet parameters
-  this->syncWordLength = len * 8;
-  state = setPacketParamsFSK(this->preambleLengthFSK, this->crcTypeFSK, this->syncWordLength, this->addrComp, this->whitening, this->packetType);
-
-  return(state);
+  return(RADIOLIB_ERR_WRONG_MODEM);
 }
 
 int16_t SX126x::setSyncBits(uint8_t *syncWord, uint8_t bitsLen) {
@@ -1381,6 +1453,25 @@ uint32_t SX126x::getTimeOnAir(size_t len) {
   }
 }
 
+uint32_t SX126x::calculateRxTimeout(uint32_t timeoutUs) {
+  // the timeout value is given in units of 15.625 microseconds
+  // the calling function should provide some extra width, as this number of units is truncated to integer
+  uint32_t timeout = timeoutUs / 15.625;
+  return(timeout);
+}
+
+int16_t SX126x::irqRxDoneRxTimeout(uint16_t &irqFlags, uint16_t &irqMask) {
+  irqFlags = RADIOLIB_SX126X_IRQ_RX_DEFAULT;  // flags that can appear in the IRQ register
+  irqMask  = RADIOLIB_SX126X_IRQ_RX_DONE | RADIOLIB_SX126X_IRQ_TIMEOUT; // flags that will trigger DIO0
+  return(RADIOLIB_ERR_NONE);
+}
+
+bool SX126x::isRxTimeout() {
+  uint16_t irq = getIrqStatus();
+  bool rxTimedOut = irq & RADIOLIB_SX126X_IRQ_TIMEOUT;
+  return(rxTimedOut);
+}
+
 int16_t SX126x::implicitHeader(size_t len) {
   return(setHeaderType(RADIOLIB_SX126X_LORA_HEADER_IMPLICIT, len));
 }
@@ -1473,7 +1564,7 @@ int16_t SX126x::invertIQ(bool enable) {
   return(setPacketParams(this->preambleLengthLoRa, this->crcTypeLoRa, this->implicitLen, this->headerType, this->invertIQEnabled));
 }
 
-#if !defined(RADIOLIB_EXCLUDE_DIRECT_RECEIVE)
+#if !RADIOLIB_EXCLUDE_DIRECT_RECEIVE
 void SX126x::setDirectAction(void (*func)(void)) {
   setDio1Action(func);
 }
@@ -1489,7 +1580,7 @@ int16_t SX126x::uploadPatch(const uint32_t* patch, size_t len, bool nonvolatile)
   RADIOLIB_ASSERT(state);
 
   // check the version
-  #if defined(RADIOLIB_DEBUG)
+  #if RADIOLIB_DEBUG
   char ver_pre[16];
   this->mod->SPIreadRegisterBurst(RADIOLIB_SX126X_REG_VERSION_STRING, 16, (uint8_t*)ver_pre);
   RADIOLIB_DEBUG_PRINTLN("Pre-update version string: %s", ver_pre);
@@ -1521,7 +1612,7 @@ int16_t SX126x::uploadPatch(const uint32_t* patch, size_t len, bool nonvolatile)
   this->mod->SPIwriteStream(RADIOLIB_SX126X_CMD_PRAM_UPDATE, NULL, 0);
 
   // check the version again
-  #if defined(RADIOLIB_DEBUG)
+  #if RADIOLIB_DEBUG
   char ver_post[16];
   this->mod->SPIreadRegisterBurst(RADIOLIB_SX126X_REG_VERSION_STRING, 16, (uint8_t*)ver_post);
   RADIOLIB_DEBUG_PRINTLN("Post-update version string: %s", ver_post);
@@ -1647,27 +1738,41 @@ int16_t SX126x::setRx(uint32_t timeout) {
   return(this->mod->SPIwriteStream(RADIOLIB_SX126X_CMD_SET_RX, data, 3, true, false));
 }
 
+ 
 int16_t SX126x::setCad(uint8_t symbolNum, uint8_t detPeak, uint8_t detMin) {
-  // default CAD parameters for assigned SF as per Semtech AN1200.48, Rev 2.1, Page 50
-  uint8_t detPeakValues[8] = { 22, 22, 22, 22, 23, 24, 25, 28};
-  uint8_t symbolNumValues[8] = { RADIOLIB_SX126X_CAD_ON_2_SYMB,
-                                 RADIOLIB_SX126X_CAD_ON_2_SYMB,
-                                 RADIOLIB_SX126X_CAD_ON_2_SYMB,
-                                 RADIOLIB_SX126X_CAD_ON_2_SYMB,
-                                 RADIOLIB_SX126X_CAD_ON_4_SYMB,
-                                 RADIOLIB_SX126X_CAD_ON_4_SYMB,
-                                 RADIOLIB_SX126X_CAD_ON_4_SYMB,
-                                 RADIOLIB_SX126X_CAD_ON_4_SYMB };
+  // default CAD parameters are shown in Semtech AN1200.48, page 41.
+  uint8_t detPeakValues[6] = { 22, 22, 24, 25, 26, 30};
+
+  // CAD parameters aren't available for SF-6. Just to be safe.
+  if(this->spreadingFactor < 7) {
+    this->spreadingFactor = 7;
+  } else if(this->spreadingFactor > 12) {
+    this->spreadingFactor = 12;
+  }
+
   // build the packet
   uint8_t data[7];
-  data[0] = symbolNumValues[this->spreadingFactor - 5];
-  data[1] = detPeakValues[this->spreadingFactor - 5];
+  data[0] = RADIOLIB_SX126X_CAD_ON_2_SYMB;
+  data[1] = detPeakValues[this->spreadingFactor - 7];
   data[2] = RADIOLIB_SX126X_CAD_PARAM_DET_MIN;
   data[3] = RADIOLIB_SX126X_CAD_GOTO_STDBY;
   data[4] = 0x00;
   data[5] = 0x00;
   data[6] = 0x00;
 
+
+ /*
+  CAD Configuration Note:
+  The default CAD configuration applied by `scanChannel` overrides the optimal SF-specific configurations, leading to suboptimal detection.
+  I.e., anything that is not RADIOLIB_SX126X_CAD_PARAM_DEFAULT is overridden. But CAD settings are SF specific.
+  To address this, the user override has been commented out, ensuring consistent application of the optimal CAD settings as 
+    per Semtech's Application Note AN1200.48 (page 41) for the 125KHz setting. This approach significantly reduces false CAD occurrences.
+    Testing has shown that there is no reason for a user to change CAD settings for anything other than most optimal ones described in AN1200.48 .
+  However, this change does not respect CAD configs from the LoRaWAN layer. Future considerations or use cases might require revisiting this decision.
+  Hence this note.
+*/
+
+/*
   // set user-provided values
   if(symbolNum != RADIOLIB_SX126X_CAD_PARAM_DEFAULT) {
     data[0] = symbolNum;
@@ -1681,7 +1786,12 @@ int16_t SX126x::setCad(uint8_t symbolNum, uint8_t detPeak, uint8_t detMin) {
     data[2] = detMin;
   }
 
-  // configure paramaters
+*/
+  (void)symbolNum;
+  (void)detPeak;
+  (void)detMin;
+
+  // configure parameters
   int16_t state = this->mod->SPIwriteStream(RADIOLIB_SX126X_CMD_SET_CAD_PARAMS, data, 7);
   RADIOLIB_ASSERT(state);
 
@@ -1742,11 +1852,12 @@ int16_t SX126x::setRfFrequency(uint32_t frf) {
   return(this->mod->SPIwriteStream(RADIOLIB_SX126X_CMD_SET_RF_FREQUENCY, data, 4));
 }
 
-int16_t SX126x::calibrateImage(uint8_t* data) {
+int16_t SX126x::calibrateImage(float freqMin, float freqMax) {
+  uint8_t data[] = { (uint8_t)floor((freqMin - 1.0f) / 4.0f), (uint8_t)ceil((freqMax + 1.0f) / 4.0f) };
   int16_t state = this->mod->SPIwriteStream(RADIOLIB_SX126X_CMD_CALIBRATE_IMAGE, data, 2);
 
   // if something failed, show the device errors
-  #if defined(RADIOLIB_DEBUG)
+  #if RADIOLIB_DEBUG
   if(state != RADIOLIB_ERR_NONE) {
     // unless mode is forced to standby, device errors will be 0
     standby();
@@ -1804,7 +1915,6 @@ int16_t SX126x::setModulationParams(uint8_t sf, uint8_t bw, uint8_t cr, uint8_t 
   // calculate symbol length and enable low data rate optimization, if auto-configuration is enabled
   if(this->ldroAuto) {
     float symbolLength = (float)(uint32_t(1) << this->spreadingFactor) / (float)this->bandwidthKhz;
-    RADIOLIB_DEBUG_PRINTLN("Symbol length: %f ms", symbolLength);
     if(symbolLength >= 16.0) {
       this->ldrOptimize = RADIOLIB_SX126X_LORA_LOW_DATA_RATE_OPTIMIZE_ON;
     } else {
@@ -1852,7 +1962,7 @@ int16_t SX126x::setRegulatorMode(uint8_t mode) {
 
 uint8_t SX126x::getStatus() {
   uint8_t data = 0;
-  this->mod->SPIreadStream(RADIOLIB_SX126X_CMD_GET_STATUS, &data, 1);
+  this->mod->SPIreadStream(RADIOLIB_SX126X_CMD_GET_STATUS, &data, 0);
   return(data);
 }
 
@@ -1960,6 +2070,10 @@ int16_t SX126x::fixInvertedIQ(uint8_t iqConfig) {
   return(writeRegister(RADIOLIB_SX126X_REG_IQ_CONFIG, &iqConfigCurrent, 1));
 }
 
+Module* SX126x::getMod() {
+  return(this->mod);
+}
+
 int16_t SX126x::config(uint8_t modem) {
   // reset buffer base address
   int16_t state = setBufferBaseAddress();
@@ -1976,7 +2090,7 @@ int16_t SX126x::config(uint8_t modem) {
   state = this->mod->SPIwriteStream(RADIOLIB_SX126X_CMD_SET_RX_TX_FALLBACK_MODE, data, 1);
   RADIOLIB_ASSERT(state);
 
-  // set some CAD parameters - will be overwritten whel calling CAD anyway
+  // set some CAD parameters - will be overwritten when calling CAD anyway
   data[0] = RADIOLIB_SX126X_CAD_ON_8_SYMB;
   data[1] = this->spreadingFactor + 13;
   data[2] = RADIOLIB_SX126X_CAD_PARAM_DET_MIN;
@@ -2007,7 +2121,7 @@ int16_t SX126x::config(uint8_t modem) {
   state = this->mod->SPIcheckStream();
 
   // if something failed, show the device errors
-  #if defined(RADIOLIB_DEBUG)
+  #if RADIOLIB_DEBUG
   if(state != RADIOLIB_ERR_NONE) {
     // unless mode is forced to standby, device errors will be 0
     standby();
@@ -2046,13 +2160,13 @@ bool SX126x::findChip(const char* verStr) {
     // check version register
     if(strncmp(verStr, version, 6) == 0) {
       RADIOLIB_DEBUG_PRINTLN("Found SX126x: RADIOLIB_SX126X_REG_VERSION_STRING:");
-      this->mod->hexdump((uint8_t*)version, 16, RADIOLIB_SX126X_REG_VERSION_STRING);
+      RADIOLIB_DEBUG_HEXDUMP((uint8_t*)version, 16, RADIOLIB_SX126X_REG_VERSION_STRING);
       RADIOLIB_DEBUG_PRINTLN();
       flagFound = true;
     } else {
-      #if defined(RADIOLIB_DEBUG)
+      #if RADIOLIB_DEBUG
         RADIOLIB_DEBUG_PRINTLN("SX126x not found! (%d of 10 tries) RADIOLIB_SX126X_REG_VERSION_STRING:", i + 1);
-        this->mod->hexdump((uint8_t*)version, 16, RADIOLIB_SX126X_REG_VERSION_STRING);
+        RADIOLIB_DEBUG_HEXDUMP((uint8_t*)version, 16, RADIOLIB_SX126X_REG_VERSION_STRING);
         RADIOLIB_DEBUG_PRINTLN("Expected string: %s", verStr);
       #endif
       this->mod->hal->delay(10);

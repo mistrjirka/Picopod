@@ -17,7 +17,6 @@ on:
           - none
           - arduino:avr:uno
           - arduino:avr:mega
-          - arduino:avr:leonardo
           - arduino:mbed:nano33ble
           - arduino:mbed:envie_m4
           - arduino:megaavr:uno2018
@@ -38,6 +37,7 @@ on:
           - CubeCell:CubeCell:CubeCell-Board
           - MegaCore:avr:1281
           - teensy:avr:teensy41
+          - arduino:renesas_uno:minima
 
 jobs:
   build:
@@ -46,21 +46,26 @@ jobs:
         # platform-dependent settings - extra board options, board index URLs, skip patterns etc.
         include:
           - id: arduino:avr:uno
-            run: echo "skip-pattern=(STM32WL|SSTV)" >> $GITHUB_OUTPUT
+            run: echo "skip-pattern=(STM32WL|SSTV|LoRaWAN)" >> $GITHUB_OUTPUT
           - id: arduino:avr:mega
             run: echo "options=':cpu=atmega2560'" >> $GITHUB_OUTPUT
-          - id: arduino:avr:leonardo
-            run: echo "skip-pattern=(STM32WL|SSTV|Pager)" >> $GITHUB_OUTPUT
           - id: arduino:mbed:nano33ble
+            run: echo "skip-pattern=(STM32WL|LoRaWAN_End_Device_Persistent)" >> $GITHUB_OUTPUT
           - id: arduino:mbed:envie_m4
+            run: echo "skip-pattern=(STM32WL|LoRaWAN_End_Device_Persistent)" >> $GITHUB_OUTPUT
           - id: arduino:megaavr:uno2018
-            run: echo "options=':mode=on'" >> $GITHUB_OUTPUT
+            run: |
+              echo "options=':mode=on'" >> $GITHUB_OUTPUT
+              echo "skip-pattern=(STM32WL|LoRaWAN)" >> $GITHUB_OUTPUT
           - id: arduino:sam:arduino_due_x
+            run: echo "skip-pattern=(STM32WL|LoRaWAN_End_Device_Persistent)" >> $GITHUB_OUTPUT
           - id: arduino:samd:arduino_zero_native
+            run: echo "skip-pattern=(STM32WL|LoRaWAN_End_Device_Persistent)" >> $GITHUB_OUTPUT
           - id: adafruit:samd:adafruit_feather_m0
             run: |
               echo "options=':usbstack=arduino,debug=off'" >> $GITHUB_OUTPUT
               echo "index-url=--additional-urls https://adafruit.github.io/arduino-board-index/package_adafruit_index.json" >> $GITHUB_OUTPUT
+              echo "skip-pattern=(STM32WL|LoRaWAN_End_Device_Persistent)" >> $GITHUB_OUTPUT
           - id: adafruit:nrf52:feather52832
             run: |
               sudo apt-get update
@@ -70,6 +75,7 @@ jobs:
               echo "/home/runner/.local/bin" >> $GITHUB_PATH
               echo "options=':softdevice=s132v6,debug=l0'" >> $GITHUB_OUTPUT
               echo "index-url=--additional-urls https://adafruit.github.io/arduino-board-index/package_adafruit_index.json" >> $GITHUB_OUTPUT
+              echo "skip-pattern=(STM32WL|LoRaWAN_End_Device_Persistent)" >> $GITHUB_OUTPUT
           - id: esp32:esp32:esp32
             run: |
               python -m pip install pyserial
@@ -95,16 +101,18 @@ jobs:
               echo "options=':bootloader_version=original,cpu_speed=speed_72mhz'" >> $GITHUB_OUTPUT
               echo "index-url=--additional-urls http://dan.drown.org/stm32duino/package_STM32duino_index.json" >> $GITHUB_OUTPUT
           - id: MegaCoreX:megaavr:4809
-            run: echo "index-url=--additional-urls https://mcudude.github.io/MegaCoreX/package_MCUdude_MegaCoreX_index.json" >> $GITHUB_OUTPUT
+            run: |
+              echo "skip-pattern=(STM32WL|LoRaWAN)" >> $GITHUB_OUTPUT
+              echo "index-url=--additional-urls https://mcudude.github.io/MegaCoreX/package_MCUdude_MegaCoreX_index.json" >> $GITHUB_OUTPUT
           - id: arduino:mbed_rp2040:pico
+            run: echo "skip-pattern=(STM32WL|LoRaWAN_End_Device_Persistent)" >> $GITHUB_OUTPUT
           - id: rp2040:rp2040:rpipico
             run: echo "index-url=--additional-urls https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json" >> $GITHUB_OUTPUT
           - id: CubeCell:CubeCell:CubeCell-Board
             run: echo "index-url=--additional-urls https://resource.heltec.cn/download/package_CubeCell_index.json" >> $GITHUB_OUTPUT
           - id: MegaCore:avr:1281
             run: echo "index-url=--additional-urls https://mcudude.github.io/MegaCore/package_MCUdude_MegaCore_index.json" >> $GITHUB_OUTPUT
-          - id: teensy:avr:teensy41
-            run: echo "index-url=--additional-urls https://www.pjrc.com/teensy/td_156/package_teensy_index.json" >> $GITHUB_OUTPUT
+          - id: arduino:renesas_uno:minima
 
     runs-on: ubuntu-latest
     name: ${{ matrix.id }}
@@ -174,6 +182,53 @@ jobs:
             fi
           done
 
+  esp-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: sudo apt-get install -y git wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
+
+      - name: Clone ESP-IDF
+        run: |
+          mkdir -p ~/esp
+          cd ~/esp
+          git clone --recursive https://github.com/espressif/esp-idf.git
+      
+      - name: Install ESP-IDF
+        run: |
+          cd ~/esp/esp-idf
+          ./install.sh esp32
+      
+      - name: Build the example
+        run: |
+          cd $PWD/examples/NonArduino/ESP-IDF
+          . ~/esp/esp-idf/export.sh
+          idf.py build
+
+  tock-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y gcc-arm-none-eabi
+          cargo install elf2tab
+
+      - name: Build the example
+        run: |
+          cd $PWD/examples/NonArduino/Tock
+          ./build.sh
+
   rpi-build:
     runs-on: [self-hosted, ARM64]
     steps:
@@ -208,3 +263,27 @@ jobs:
           ./clean.sh
           ./build.sh
           sudo ./build/rpi-sx1261
+
+  rpi-pico-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install git cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
+        
+      - name: Clone the SDK
+        run: |
+          mkdir -p ~/rpi-pico
+          cd ~/rpi-pico
+          git clone https://github.com/raspberrypi/pico-sdk.git
+          cd pico-sdk && git checkout 1.5.1
+      
+      - name: Build the example
+        run: |
+          export PICO_SDK_PATH=~/rpi-pico/pico-sdk
+          cd $PWD/examples/NonArduino/Pico
+          ./build.sh

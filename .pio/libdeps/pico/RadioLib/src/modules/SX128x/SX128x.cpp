@@ -1,13 +1,9 @@
 #include "SX128x.h"
 #include <math.h>
-#if !defined(RADIOLIB_EXCLUDE_SX128X)
+#if !RADIOLIB_EXCLUDE_SX128X
 
 SX128x::SX128x(Module* mod) : PhysicalLayer(RADIOLIB_SX128X_FREQUENCY_STEP_SIZE, RADIOLIB_SX128X_MAX_PACKET_LENGTH) {
   this->mod = mod;
-}
-
-Module* SX128x::getMod() {
-  return(this->mod);
 }
 
 int16_t SX128x::begin(float freq, float bw, uint8_t sf, uint8_t cr, uint8_t syncWord, int8_t pwr, uint16_t preambleLength) {
@@ -1333,7 +1329,7 @@ int16_t SX128x::invertIQ(bool enable) {
   return(setPacketParamsLoRa(this->preambleLengthLoRa, this->headerType, this->payloadLen, this->crcLoRa, this->invertIQEnabled));
 }
 
-#if !defined(RADIOLIB_EXCLUDE_DIRECT_RECEIVE)
+#if !RADIOLIB_EXCLUDE_DIRECT_RECEIVE
 void SX128x::setDirectAction(void (*func)(void)) {
   // SX128x is unable to perform direct mode reception
   // this method is implemented only for PhysicalLayer compatibility
@@ -1347,9 +1343,13 @@ void SX128x::readBit(uint32_t pin) {
 }
 #endif
 
+Module* SX128x::getMod() {
+  return(this->mod);
+}
+
 uint8_t SX128x::getStatus() {
   uint8_t data = 0;
-  this->mod->SPIreadStream(RADIOLIB_SX128X_CMD_GET_STATUS, &data, 1);
+  this->mod->SPIreadStream(RADIOLIB_SX128X_CMD_GET_STATUS, &data, 0);
   return(data);
 }
 
@@ -1499,11 +1499,11 @@ int16_t SX128x::config(uint8_t modem) {
 }
 
 int16_t SX128x::SPIparseStatus(uint8_t in) {
-  if((in & 0b00001110) == RADIOLIB_SX128X_STATUS_CMD_TIMEOUT) {
+  if((in & 0b00011100) == RADIOLIB_SX128X_STATUS_CMD_TIMEOUT) {
     return(RADIOLIB_ERR_SPI_CMD_TIMEOUT);
-  } else if((in & 0b00001110) == RADIOLIB_SX128X_STATUS_CMD_ERROR) {
+  } else if((in & 0b00011100) == RADIOLIB_SX128X_STATUS_CMD_ERROR) {
     return(RADIOLIB_ERR_SPI_CMD_INVALID);
-  } else if((in & 0b00001110) == RADIOLIB_SX128X_STATUS_CMD_FAILED) {
+  } else if((in & 0b00011100) == RADIOLIB_SX128X_STATUS_CMD_FAILED) {
     return(RADIOLIB_ERR_SPI_CMD_FAILED);
   } else if((in == 0x00) || (in == 0xFF)) {
     return(RADIOLIB_ERR_CHIP_NOT_FOUND);

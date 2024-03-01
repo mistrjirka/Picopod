@@ -2,6 +2,12 @@
 
 #if defined(RADIOLIB_BUILD_ARDUINO)
 
+#define RADIOLIB_EEPROM_UNSUPPORTED
+
+#if !defined(RADIOLIB_EEPROM_UNSUPPORTED)
+#include <EEPROM.h>
+#endif
+
 ArduinoHal::ArduinoHal(): RadioLibHal(INPUT, OUTPUT, LOW, HIGH, RISING, FALLING), spi(&RADIOLIB_DEFAULT_SPI), initInterface(true) {}
 
 ArduinoHal::ArduinoHal(SPIClass& spi, SPISettings spiSettings): RadioLibHal(INPUT, OUTPUT, LOW, HIGH, RISING, FALLING), spi(&spi), spiSettings(spiSettings) {}
@@ -54,19 +60,35 @@ void inline ArduinoHal::detachInterrupt(uint32_t interruptNum) {
 }
 
 void inline ArduinoHal::delay(unsigned long ms) {
+#if !defined(RADIOLIB_CLOCK_DRIFT_MS)
   ::delay(ms);
+#else
+  ::delay(ms * 1000 / (1000 + RADIOLIB_CLOCK_DRIFT_MS));
+#endif
 }
 
 void inline ArduinoHal::delayMicroseconds(unsigned long us) {
+#if !defined(RADIOLIB_CLOCK_DRIFT_MS)
   ::delayMicroseconds(us);
+#else
+  ::delayMicroseconds(us * 1000 / (1000 + RADIOLIB_CLOCK_DRIFT_MS));
+#endif
 }
 
 unsigned long inline ArduinoHal::millis() {
+#if !defined(RADIOLIB_CLOCK_DRIFT_MS)
   return(::millis());
+#else
+  return(::millis() * 1000 / (1000 + RADIOLIB_CLOCK_DRIFT_MS));
+#endif
 }
 
 unsigned long inline ArduinoHal::micros() {
+#if !defined(RADIOLIB_CLOCK_DRIFT_MS)
   return(::micros());
+#else
+  return(::micros() * 1000 / (1000 + RADIOLIB_CLOCK_DRIFT_MS));
+#endif
 }
 
 long inline ArduinoHal::pulseIn(uint32_t pin, uint32_t state, unsigned long timeout) {
@@ -98,20 +120,67 @@ void inline ArduinoHal::spiEnd() {
   spi->end();
 }
 
+void ArduinoHal::readPersistentStorage(uint32_t addr, uint8_t* buff, size_t len) {
+  #if !defined(RADIOLIB_EEPROM_UNSUPPORTED)
+    #if defined(RADIOLIB_ESP32) || defined(ARDUINO_ARCH_RP2040)
+      EEPROM.begin(RADIOLIB_HAL_PERSISTENT_STORAGE_SIZE);
+    #elif defined(ARDUINO_ARCH_APOLLO3)
+      EEPROM.init();
+    #endif
+    for(size_t i = 0; i < len; i++) {
+      buff[i] = EEPROM.read(addr + i);
+    }
+    #if defined(RADIOLIB_ESP32) || defined(ARDUINO_ARCH_RP2040)
+      EEPROM.end();
+    #endif
+  #else
+    (void)addr;
+    (void)buff;
+    (void)len;
+  #endif
+}
+
+void ArduinoHal::writePersistentStorage(uint32_t addr, uint8_t* buff, size_t len) {
+  #if !defined(RADIOLIB_EEPROM_UNSUPPORTED)
+    #if defined(RADIOLIB_ESP32) || defined(ARDUINO_ARCH_RP2040)
+      EEPROM.begin(RADIOLIB_HAL_PERSISTENT_STORAGE_SIZE);
+    #elif defined(ARDUINO_ARCH_APOLLO3)
+      EEPROM.init();
+    #endif
+    for(size_t i = 0; i < len; i++) {
+      EEPROM.write(addr + i, buff[i]);
+    }
+    #if defined(RADIOLIB_ESP32) || defined(ARDUINO_ARCH_RP2040)
+      EEPROM.commit();
+      EEPROM.end();
+    #endif
+  #else
+    (void)addr;
+    (void)buff;
+    (void)len;
+  #endif
+}
+
 void inline ArduinoHal::tone(uint32_t pin, unsigned int frequency, unsigned long duration) {
   #if !defined(RADIOLIB_TONE_UNSUPPORTED)
     if(pin == RADIOLIB_NC) {
       return;
     }
     ::tone(pin, frequency, duration);
-  #elif defined(ESP32)
+  #elif defined(RADIOLIB_ESP32)
     // ESP32 tone() emulation
     (void)duration;
     if(prev == -1) {
+      #if !defined(ESP_IDF_VERSION) || (ESP_IDF_VERSION < ESP_IDF_VERSION_VAL(5,0,0))
       ledcAttachPin(pin, RADIOLIB_TONE_ESP32_CHANNEL);
+      #endif
     }
     if(prev != frequency) {
+      #if !defined(ESP_IDF_VERSION) || (ESP_IDF_VERSION < ESP_IDF_VERSION_VAL(5,0,0))
       ledcWriteTone(RADIOLIB_TONE_ESP32_CHANNEL, frequency);
+      #else
+      ledcWriteTone(pin, frequency);
+      #endif
     }
     prev = frequency;
   #elif defined(RADIOLIB_MBED_TONE_OVERRIDE)
@@ -122,6 +191,10 @@ void inline ArduinoHal::tone(uint32_t pin, unsigned int frequency, unsigned long
     }
     pwmPin->period(1.0 / frequency);
     pwmPin->write(0.5);
+  #else
+    (void)pin;
+    (void)frequency;
+    (void)duration;
   #endif
 }
 
@@ -136,13 +209,18 @@ void inline ArduinoHal::noTone(uint32_t pin) {
       return;
     }
     ::noTone(pin);
-  #elif defined(ESP32)
+  #elif defined(RADIOLIB_ESP32)
     if(pin == RADIOLIB_NC) {
       return;
     }
     // ESP32 tone() emulation
+    #if !defined(ESP_IDF_VERSION) || (ESP_IDF_VERSION < ESP_IDF_VERSION_VAL(5,0,0))
     ledcDetachPin(pin);
     ledcWrite(RADIOLIB_TONE_ESP32_CHANNEL, 0);
+    #else
+    ledcDetach(pin);
+    ledcWrite(pin, 0);
+    #endif
     prev = -1;
   #elif defined(RADIOLIB_MBED_TONE_OVERRIDE)
     if(pin == RADIOLIB_NC) {
@@ -151,6 +229,8 @@ void inline ArduinoHal::noTone(uint32_t pin) {
     // better tone for mbed OS boards
     (void)pin;
     pwmPin->suspend();
+  #else
+    (void)pin;
   #endif
 }
 

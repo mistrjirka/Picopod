@@ -64,6 +64,11 @@ MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, 
   }
 };
 */
+
+DTPK::PacketReceivedCallback dataCallback(DTPKPacketGenericReceive *packet, size_t size)
+{
+  printf("packetdata: %s", packet->data);
+}
 void setup()
 {
 
@@ -86,7 +91,7 @@ void setup()
       ;
   }
   // MAC::initialize(radio, 1, 2);
-  uint16_t id = 2;
+  uint16_t id = 4;
   uint8_t NAPInterval = 20;
   MAC::initialize(
       radio,
@@ -116,7 +121,14 @@ void loop()
 {
   static int count = 0;
   DTPK::getInstance()->loop();
-  if (count++ % 1000 == 0){
+  if (count++ % 10000 == 0){
+    vector<NeighborRecord> neighbors = DTPK::getInstance()->getNeighbours();
+
+    for (int i = 0; i < neighbors.size(); i++)
+    {
+      printf("Neighbor %d: id: %d, distance: %d, from: %d\n", i, neighbors[i].id, neighbors[i].distance, neighbors[i].from);
+      Serial.println("Neighbor " + String(i) + ": target: " + String(neighbors[i].id) + ", distance: " + String(neighbors[i].distance) + ", through: " + String(neighbors[i].from) + "\n");
+    }
     //LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"hello there general kenobi shit sda", strlen("hello there general kenobi shit sda") + 1, ackCallback);
     //MAC::getInstance()->sendData(2, (unsigned char *)"hello there general kenobi shit sda", strlen("hello there general kenobi shit sda") + 1, false);
   }
