@@ -4,20 +4,35 @@
 #include <lcmm.h>
 #include <DTPK.h>
 #include <RadioLib.h>
-// put function declarations here:
 
-// SX1262 has the following connections:
-// NSS pin:   10
-// DIO1 pin:  2
-// NRST pin:  3
-// BUSY pin:  9
+#define SPREAD_FACTOR 9
+#define BANDWIDTH 125.0
+#define CODING_RATE 7
+#define OUTPUT_POWER 22
+#define PREAMBLE_LENGTH 8
 
-#define SPI1_MISO 12
-#define SPI1_MOSI 11
-#define SPI1_SCLK 10
-arduino::MbedSPI spiint = MbedSPI(SPI1_MISO, SPI1_MOSI, SPI1_SCLK);
-SPISettings spiSettings(200000, MSBFIRST, SPI_MODE0);
-LLCC68 radio = new Module(13, 9, 14, 19, spiint, spiSettings);
+
+#define LORA_DEFAULT_NSS_PIN    8
+#define LORA_DEFAULT_RESET_PIN  12
+#define LORA_DEFAULT_DIO1_PIN   14
+#define LORA_DEFAULT_BUSY_PIN   13
+// Define custom SPI pins
+#define CUSTOM_SPI_MISO 11
+#define CUSTOM_SPI_MOSI 10
+#define CUSTOM_SPI_SCK 9
+
+#define SX126X_DIO2_AS_RF_SWITCH
+#define SX126X_DIO3_TCXO_VOLTAGE 1.8
+
+//arduino::MbedSPI spiint = MbedSPI(SPI1_MISO, SPI1_MOSI, SPI1_SCLK);
+//SPISettings spiSettings(200000, MSBFIRST, SPI_MODE0);
+//LLCC68 radio = new Module(13, 9, 14, 19, spiint, spiSettings);
+SPISettings customSPISettings(200000, MSBFIRST, SPI_MODE0);
+SX1262 radio = new Module(
+  LORA_DEFAULT_NSS_PIN, 
+  LORA_DEFAULT_DIO1_PIN, 
+  LORA_DEFAULT_RESET_PIN, 
+  LORA_DEFAULT_BUSY_PIN);
 /*
 LCMM::DataReceivedCallback dataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
 {
@@ -71,13 +86,13 @@ DTPK::PacketReceivedCallback dataCallback(DTPKPacketGenericReceive *packet, size
 }
 void setup()
 {
-
-  spiint.begin();
-  Serial.begin(115200);
+  //customSPI.begin(CUSTOM_SPI_SCK, CUSTOM_SPI_MISO, CUSTOM_SPI_MOSI);
+  //spiint.begin();
+  Serial.begin(9600);
   delay(5000);
   // initialize SX1262 with default settingsRADIOLIB_SX126X_SYNC_WORD_PRIVATE
   Serial.print(F("[SX1262] Initializing ... "));
-  int state = radio.begin(433.30, 125.0, 9, 7, RADIOLIB_SX126X_SYNC_WORD_PRIVATE, 22, 8, 0);
+  int state = radio.begin(433.30, 125.0, 9, 7, RADIOLIB_SX126X_SYNC_WORD_PRIVATE, 10, 8, SX126X_DIO3_TCXO_VOLTAGE);
 
   if (state == RADIOLIB_ERR_NONE)
   {
@@ -90,18 +105,17 @@ void setup()
     while (true)
       ;
   }
-  // MAC::initialize(radio, 1, 2);
-  uint16_t id = 4;
+  uint16_t id = 12;
   uint8_t NAPInterval = 20;
   MAC::initialize(
       radio,
       id,
       2,
-      9,
-      125.0,
+      SPREAD_FACTOR,
+      BANDWIDTH,
       15,
-      22,
-      7);
+      OUTPUT_POWER,
+      CODING_RATE);
   DTPK::initialize(NAPInterval);
   //MAC::getInstance()->setRXCallback(dataCallback);
   Serial.print(F("After init"));
