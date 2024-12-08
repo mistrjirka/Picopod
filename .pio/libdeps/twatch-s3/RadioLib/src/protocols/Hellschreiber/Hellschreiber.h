@@ -3,7 +3,7 @@
 
 #include "../../TypeDef.h"
 
-#if !defined(RADIOLIB_EXCLUDE_HELLSCHREIBER)
+#if !RADIOLIB_EXCLUDE_HELLSCHREIBER
 
 #include "../PhysicalLayer/PhysicalLayer.h"
 #include "../AFSK/AFSK.h"
@@ -95,7 +95,7 @@ class HellClient: public RadioLibPrint {
     */
     explicit HellClient(PhysicalLayer* phy);
 
-    #if !defined(RADIOLIB_EXCLUDE_AFSK)
+    #if !RADIOLIB_EXCLUDE_AFSK
     /*!
       \brief Constructor for AFSK mode.
       \param audio Pointer to the AFSK instance providing audio.
@@ -117,7 +117,7 @@ class HellClient: public RadioLibPrint {
       \param buff Buffer of pixels to send, in a 7x7 pixel array.
       \returns Always returns the number of printed glyphs (1).
     */
-    size_t printGlyph(uint8_t* buff);
+    size_t printGlyph(const uint8_t* buff);
 
     /*!
       \brief Invert text color.
@@ -130,13 +130,13 @@ class HellClient: public RadioLibPrint {
       \param b Byte to write.
       \returns 1 if the byte was written, 0 otherwise.
     */
-    size_t write(uint8_t b);
+    size_t write(uint8_t b) override;
 
-#if !defined(RADIOLIB_GODMODE)
+#if !RADIOLIB_GODMODE
   private:
 #endif
     PhysicalLayer* phyLayer;
-    #if !defined(RADIOLIB_EXCLUDE_AFSK)
+    #if !RADIOLIB_EXCLUDE_AFSK
     AFSKClient* audioClient;
     #endif
 

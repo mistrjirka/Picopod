@@ -1,13 +1,9 @@
 #include "RF69.h"
 #include <math.h>
-#if !defined(RADIOLIB_EXCLUDE_RF69)
+#if !RADIOLIB_EXCLUDE_RF69
 
 RF69::RF69(Module* module) : PhysicalLayer(RADIOLIB_RF69_FREQUENCY_STEP_SIZE, RADIOLIB_RF69_MAX_PACKET_LENGTH)  {
   this->mod = module;
-}
-
-Module* RF69::getMod() {
-  return(this->mod);
 }
 
 int16_t RF69::begin(float freq, float br, float freqDev, float rxBw, int8_t pwr, uint8_t preambleLen) {
@@ -27,18 +23,18 @@ int16_t RF69::begin(float freq, float br, float freqDev, float rxBw, int8_t pwr,
     if(version == RADIOLIB_RF69_CHIP_VERSION) {
       flagFound = true;
     } else {
-      RADIOLIB_DEBUG_PRINTLN("RF69 not found! (%d of 10 tries) RADIOLIB_RF69_REG_VERSION == 0x%04X, expected 0x0024", i + 1, version);
+      RADIOLIB_DEBUG_BASIC_PRINTLN("RF69 not found! (%d of 10 tries) RADIOLIB_RF69_REG_VERSION == 0x%04X, expected 0x0024", i + 1, version);
       this->mod->hal->delay(10);
       i++;
     }
   }
 
   if(!flagFound) {
-    RADIOLIB_DEBUG_PRINTLN("No RF69 found!");
+    RADIOLIB_DEBUG_BASIC_PRINTLN("No RF69 found!");
     this->mod->term();
     return(RADIOLIB_ERR_CHIP_NOT_FOUND);
   } else {
-    RADIOLIB_DEBUG_PRINTLN("M\tRF69");
+    RADIOLIB_DEBUG_BASIC_PRINTLN("M\tRF69");
   }
 
   // configure settings not accessible by API
@@ -102,20 +98,20 @@ void RF69::reset() {
   this->mod->hal->delay(10);
 }
 
-int16_t RF69::transmit(uint8_t* data, size_t len, uint8_t addr) {
+int16_t RF69::transmit(const uint8_t* data, size_t len, uint8_t addr) {
   // calculate timeout (5ms + 500 % of expected time-on-air)
-  uint32_t timeout = 5000000 + (uint32_t)((((float)(len * 8)) / (this->bitRate * 1000.0)) * 5000000.0);
+  RadioLibTime_t timeout = 5 + (RadioLibTime_t)((((float)(len * 8)) / this->bitRate) * 5);
 
   // start transmission
   int16_t state = startTransmit(data, len, addr);
   RADIOLIB_ASSERT(state);
 
   // wait for transmission end or timeout
-  uint32_t start = this->mod->hal->micros();
+  RadioLibTime_t start = this->mod->hal->millis();
   while(!this->mod->hal->digitalRead(this->mod->getIrq())) {
     this->mod->hal->yield();
 
-    if(this->mod->hal->micros() - start > timeout) {
+    if(this->mod->hal->millis() - start > timeout) {
       finishTransmit();
       return(RADIOLIB_ERR_TX_TIMEOUT);
     }
@@ -126,18 +122,18 @@ int16_t RF69::transmit(uint8_t* data, size_t len, uint8_t addr) {
 
 int16_t RF69::receive(uint8_t* data, size_t len) {
   // calculate timeout (500 ms + 400 full 64-byte packets at current bit rate)
-  uint32_t timeout = 500000 + (1.0/(this->bitRate*1000.0))*(RADIOLIB_RF69_MAX_PACKET_LENGTH*400.0);
+  RadioLibTime_t timeout = 500 + (1.0/(this->bitRate))*(RADIOLIB_RF69_MAX_PACKET_LENGTH*400.0);
 
   // start reception
   int16_t state = startReceive();
   RADIOLIB_ASSERT(state);
 
   // wait for packet reception or timeout
-  uint32_t start = this->mod->hal->micros();
+  RadioLibTime_t start = this->mod->hal->millis();
   while(!this->mod->hal->digitalRead(this->mod->getIrq())) {
     this->mod->hal->yield();
 
-    if(this->mod->hal->micros() - start > timeout) {
+    if(this->mod->hal->millis() - start > timeout) {
       standby();
       clearIRQFlags();
       return(RADIOLIB_ERR_RX_TIMEOUT);
@@ -263,7 +259,7 @@ int16_t RF69::startReceive() {
   return(state);
 }
 
-int16_t RF69::startReceive(uint32_t timeout, uint16_t irqFlags, uint16_t irqMask, size_t len) {
+int16_t RF69::startReceive(uint32_t timeout, uint32_t irqFlags, uint32_t irqMask, size_t len) {
   (void)timeout;
   (void)irqFlags;
   (void)irqMask;
@@ -375,7 +371,7 @@ bool RF69::fifoGet(volatile uint8_t* data, int totalLen, volatile int* rcvLen) {
 
   // get the data
   this->mod->SPIreadRegisterBurst(RADIOLIB_RF69_REG_FIFO, len, dataPtr);
-  (*rcvLen) += (len);
+  *rcvLen = *rcvLen + len;
 
   // check if we're done
   if(*rcvLen >= totalLen) {
@@ -384,7 +380,7 @@ bool RF69::fifoGet(volatile uint8_t* data, int totalLen, volatile int* rcvLen) {
   return(false);
 }
 
-int16_t RF69::startTransmit(uint8_t* data, size_t len, uint8_t addr) {
+int16_t RF69::startTransmit(const uint8_t* data, size_t len, uint8_t addr) {
   // set mode to standby
   int16_t state = setMode(RADIOLIB_RF69_STANDBY);
   RADIOLIB_ASSERT(state);
@@ -417,7 +413,7 @@ int16_t RF69::startTransmit(uint8_t* data, size_t len, uint8_t addr) {
     packetLen = RADIOLIB_RF69_FIFO_THRESH - 1;
     this->mod->SPIsetRegValue(RADIOLIB_RF69_REG_FIFO_THRESH, RADIOLIB_RF69_TX_START_CONDITION_FIFO_NOT_EMPTY, 7, 7);
   }
-  this->mod->SPIwriteRegisterBurst(RADIOLIB_RF69_REG_FIFO, data, packetLen);
+  this->mod->SPIwriteRegisterBurst(RADIOLIB_RF69_REG_FIFO, const_cast<uint8_t*>(data), packetLen);
 
   // this is a hack, but it seems than in Stream mode, Rx FIFO level is getting triggered 1 byte before it should
   // just add a padding byte that can be dropped without consequence
@@ -570,9 +566,9 @@ int16_t RF69::setBitRate(float br) {
   setMode(RADIOLIB_RF69_STANDBY);
 
   // set bit rate
-  uint16_t bitRate = 32000 / br;
-  int16_t state = this->mod->SPIsetRegValue(RADIOLIB_RF69_REG_BITRATE_MSB, (bitRate & 0xFF00) >> 8, 7, 0);
-  state |= this->mod->SPIsetRegValue(RADIOLIB_RF69_REG_BITRATE_LSB, bitRate & 0x00FF, 7, 0);
+  uint16_t bitRateRaw = 32000 / br;
+  int16_t state = this->mod->SPIsetRegValue(RADIOLIB_RF69_REG_BITRATE_MSB, (bitRateRaw & 0xFF00) >> 8, 7, 0);
+  state |= this->mod->SPIsetRegValue(RADIOLIB_RF69_REG_BITRATE_LSB, bitRateRaw & 0x00FF, 7, 0);
   if(state == RADIOLIB_ERR_NONE) {
     this->bitRate = br;
   }
@@ -593,7 +589,7 @@ int16_t RF69::setRxBandwidth(float rxBw) {
   for(int8_t e = 7; e >= 0; e--) {
     for(int8_t m = 2; m >= 0; m--) {
       float point = (RADIOLIB_RF69_CRYSTAL_FREQ * 1000000.0)/(((4 * m) + 16) * ((uint32_t)1 << (e + (this->ookEnabled ? 3 : 2))));
-      if(fabs(rxBw - (point / 1000.0)) <= 0.1) {
+      if(fabsf(rxBw - (point / 1000.0)) <= 0.1) {
         // set Rx bandwidth
         state = this->mod->SPIsetRegValue(RADIOLIB_RF69_REG_RX_BW, (m << 3) | e, 4, 0);
         if(state == RADIOLIB_ERR_NONE) {
@@ -960,7 +956,7 @@ uint8_t RF69::randomByte() {
   return(randByte);
 }
 
-#if !defined(RADIOLIB_EXCLUDE_DIRECT_RECEIVE)
+#if !RADIOLIB_EXCLUDE_DIRECT_RECEIVE
 void RF69::setDirectAction(void (*func)(void)) {
   setDio1Action(func);
 }
@@ -980,6 +976,10 @@ int16_t RF69::setDIOMapping(uint32_t pin, uint32_t value) {
   }
 
   return(this->mod->SPIsetRegValue(RADIOLIB_RF69_REG_DIO_MAPPING_2, value, 15 - 2 * pin, 14 - 2 * pin));
+}
+
+Module* RF69::getMod() {
+  return(this->mod);
 }
 
 int16_t RF69::getChipVersion() {

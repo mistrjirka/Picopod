@@ -1,16 +1,16 @@
 #include "Hellschreiber.h"
 
-#if !defined(RADIOLIB_EXCLUDE_HELLSCHREIBER)
+#if !RADIOLIB_EXCLUDE_HELLSCHREIBER
 
 HellClient::HellClient(PhysicalLayer* phy) {
   phyLayer = phy;
   lineFeed = " ";
-  #if !defined(RADIOLIB_EXCLUDE_AFSK)
+  #if !RADIOLIB_EXCLUDE_AFSK
   audioClient = nullptr;
   #endif
 }
 
-#if !defined(RADIOLIB_EXCLUDE_AFSK)
+#if !RADIOLIB_EXCLUDE_AFSK
 HellClient::HellClient(AFSKClient* audio) {
   phyLayer = audio->phyLayer;
   lineFeed = " ";
@@ -30,13 +30,13 @@ int16_t HellClient::begin(float base, float rate) {
   return(phyLayer->startDirect());
 }
 
-size_t HellClient::printGlyph(uint8_t* buff) {
+size_t HellClient::printGlyph(const uint8_t* buff) {
   // print the character
   Module* mod = phyLayer->getMod();
   bool transmitting = false;
   for(uint8_t mask = 0x40; mask >= 0x01; mask >>= 1) {
     for(int8_t i = RADIOLIB_HELL_FONT_HEIGHT - 1; i >= 0; i--) {
-        uint32_t start = mod->hal->micros();
+        RadioLibTime_t start = mod->hal->micros();
         if((buff[i] & mask) && (!transmitting)) {
           transmitting = true;
           transmitDirect(baseFreq, baseFreqHz);
@@ -82,7 +82,7 @@ size_t HellClient::write(uint8_t b) {
 }
 
 int16_t HellClient::transmitDirect(uint32_t freq, uint32_t freqHz) {
-  #if !defined(RADIOLIB_EXCLUDE_AFSK)
+  #if !RADIOLIB_EXCLUDE_AFSK
   if(audioClient != nullptr) {
     return(audioClient->tone(freqHz));
   }
@@ -91,7 +91,7 @@ int16_t HellClient::transmitDirect(uint32_t freq, uint32_t freqHz) {
 }
 
 int16_t HellClient::standby() {
-  #if !defined(RADIOLIB_EXCLUDE_AFSK)
+  #if !RADIOLIB_EXCLUDE_AFSK
   if(audioClient != nullptr) {
     return(audioClient->noTone(invert));
   }

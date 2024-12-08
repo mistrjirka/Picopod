@@ -3,7 +3,7 @@
 
 #include "../../TypeDef.h"
 
-#if !defined(RADIOLIB_EXCLUDE_SX128X)
+#if !RADIOLIB_EXCLUDE_SX128X
 
 #include "../../Module.h"
 #include "SX128x.h"
@@ -19,7 +19,7 @@ class SX1280: public SX1281 {
       \brief Default constructor.
       \param mod Instance of Module that will be used to communicate with the radio.
     */
-    SX1280(Module* mod);
+    SX1280(Module* mod); // cppcheck-suppress noExplicitConstructor
 
     /*!
       \brief Blocking ranging method.
@@ -45,7 +45,7 @@ class SX1280: public SX1281 {
     */
     float getRangingResult();
 
-#if !defined(RADIOLIB_GODMODE)
+#if !RADIOLIB_GODMODE
   private:
 #endif
 

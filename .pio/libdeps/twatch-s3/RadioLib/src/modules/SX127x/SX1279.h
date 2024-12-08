@@ -3,7 +3,7 @@
 
 #include "../../TypeDef.h"
 
-#if !defined(RADIOLIB_EXCLUDE_SX127X)
+#if !RADIOLIB_EXCLUDE_SX127X
 
 #include "SX1278.h"
 
@@ -20,7 +20,7 @@ class SX1279: public SX1278 {
       \brief Default constructor. Called from Arduino sketch when creating new LoRa instance.
       \param mod Instance of Module that will be used to communicate with the %LoRa chip.
     */
-    SX1279(Module* mod);
+    SX1279(Module* mod); // cppcheck-suppress noExplicitConstructor
 
     // basic methods
 
@@ -61,9 +61,17 @@ class SX1279: public SX1278 {
       \param freq Carrier frequency to be set in MHz.
       \returns \ref status_codes
     */
-    int16_t setFrequency(float freq);
+    int16_t setFrequency(float freq) override;
+    
+    /*!
+      \brief Set modem for the radio to use. Will perform full reset and reconfigure the radio
+      using its default parameters.
+      \param modem Modem type to set - FSK or LoRa.
+      \returns \ref status_codes
+    */
+    int16_t setModem(ModemType_t modem) override;
 
-#if !defined(RADIOLIB_GODMODE)
+#if !RADIOLIB_GODMODE
   private:
 #endif
 

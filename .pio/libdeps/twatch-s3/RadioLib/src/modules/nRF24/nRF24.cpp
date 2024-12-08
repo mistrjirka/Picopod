@@ -1,19 +1,15 @@
 #include "nRF24.h"
 #include <string.h>
-#if !defined(RADIOLIB_EXCLUDE_NRF24)
+#if !RADIOLIB_EXCLUDE_NRF24
 
 nRF24::nRF24(Module* mod) : PhysicalLayer(RADIOLIB_NRF24_FREQUENCY_STEP_SIZE, RADIOLIB_NRF24_MAX_PACKET_LENGTH) {
   this->mod = mod;
 }
 
-Module* nRF24::getMod() {
-  return(this->mod);
-}
-
 int16_t nRF24::begin(int16_t freq, int16_t dr, int8_t pwr, uint8_t addrWidth) {
   // set module properties
-  this->mod->SPIreadCommand = RADIOLIB_NRF24_CMD_READ;
-  this->mod->SPIwriteCommand = RADIOLIB_NRF24_CMD_WRITE;
+  this->mod->spiConfig.cmds[RADIOLIB_MODULE_SPI_COMMAND_READ] = RADIOLIB_NRF24_CMD_READ;
+  this->mod->spiConfig.cmds[RADIOLIB_MODULE_SPI_COMMAND_WRITE] = RADIOLIB_NRF24_CMD_WRITE;
   this->mod->init();
   this->mod->hal->pinMode(this->mod->getIrq(), this->mod->hal->GpioModeInput);
 
@@ -27,11 +23,11 @@ int16_t nRF24::begin(int16_t freq, int16_t dr, int8_t pwr, uint8_t addrWidth) {
   // check SPI connection
   int16_t val = this->mod->SPIgetRegValue(RADIOLIB_NRF24_REG_SETUP_AW);
   if(!((val >= 0) && (val <= 3))) {
-    RADIOLIB_DEBUG_PRINTLN("No nRF24 found!");
+    RADIOLIB_DEBUG_BASIC_PRINTLN("No nRF24 found!");
     this->mod->term();
     return(RADIOLIB_ERR_CHIP_NOT_FOUND);
   }
-  RADIOLIB_DEBUG_PRINTLN("M\tnRF24");
+  RADIOLIB_DEBUG_BASIC_PRINTLN("M\tnRF24");
 
   // configure settings inaccessible by public API
   int16_t state = config();
@@ -86,13 +82,13 @@ int16_t nRF24::standby(uint8_t mode) {
   return(this->mod->SPIsetRegValue(RADIOLIB_NRF24_REG_CONFIG, mode, 1, 1));
 }
 
-int16_t nRF24::transmit(uint8_t* data, size_t len, uint8_t addr) {
+int16_t nRF24::transmit(const uint8_t* data, size_t len, uint8_t addr) {
   // start transmission
   int16_t state = startTransmit(data, len, addr);
   RADIOLIB_ASSERT(state);
 
   // wait until transmission is finished
-  uint32_t start = this->mod->hal->micros();
+  uint32_t start = this->mod->hal->millis();
   while(this->mod->hal->digitalRead(this->mod->getIrq())) {
     this->mod->hal->yield();
 
@@ -102,8 +98,8 @@ int16_t nRF24::transmit(uint8_t* data, size_t len, uint8_t addr) {
       return(RADIOLIB_ERR_ACK_NOT_RECEIVED);
     }
 
-    // check timeout: 15 retries * 4ms (max Tx time as per datasheet)
-    if(this->mod->hal->micros() - start >= 60000) {
+    // check timeout: 15 retries * 4ms (max Tx time as per datasheet) + 10 ms
+    if(this->mod->hal->millis() - start >= ((15 * 4) + 10)) {
       finishTransmit();
       return(RADIOLIB_ERR_TX_TIMEOUT);
     }
@@ -118,12 +114,12 @@ int16_t nRF24::receive(uint8_t* data, size_t len) {
   RADIOLIB_ASSERT(state);
 
   // wait for Rx_DataReady or timeout
-  uint32_t start = this->mod->hal->micros();
+  uint32_t start = this->mod->hal->millis();
   while(this->mod->hal->digitalRead(this->mod->getIrq())) {
     this->mod->hal->yield();
 
-    // check timeout: 15 retries * 4ms (max Tx time as per datasheet)
-    if(this->mod->hal->micros() - start >= 60000) {
+    // check timeout: 15 retries * 4ms (max Tx time as per datasheet) + 10 ms
+    if(this->mod->hal->millis() - start >= ((15 * 4) + 10)) {
       standby();
       clearIRQ();
       return(RADIOLIB_ERR_RX_TIMEOUT);
@@ -179,7 +175,7 @@ void nRF24::clearPacketSentAction() {
   this->clearIrqAction();
 }
 
-int16_t nRF24::startTransmit(uint8_t* data, size_t len, uint8_t addr) {
+int16_t nRF24::startTransmit(const uint8_t* data, size_t len, uint8_t addr) {
   // suppress unused variable warning
   (void)addr;
 
@@ -209,7 +205,7 @@ int16_t nRF24::startTransmit(uint8_t* data, size_t len, uint8_t addr) {
   uint8_t buff[32];
   memset(buff, 0x00, 32);
   memcpy(buff, data, len);
-  SPIwriteTxPayload(data, len);
+  SPIwriteTxPayload(const_cast<uint8_t*>(data), len);
 
   // CE high to start transmitting
   this->mod->hal->digitalWrite(this->mod->getRst(), this->mod->hal->GpioLevelHigh);
@@ -253,7 +249,7 @@ int16_t nRF24::startReceive() {
   return(state);
 }
 
-int16_t nRF24::startReceive(uint32_t timeout, uint16_t irqFlags, uint16_t irqMask, size_t len) {
+int16_t nRF24::startReceive(uint32_t timeout, uint32_t irqFlags, uint32_t irqMask, size_t len) {
   (void)timeout;
   (void)irqFlags;
   (void)irqMask;
@@ -302,14 +298,14 @@ int16_t nRF24::setBitRate(float br) {
   RADIOLIB_ASSERT(state);
 
   // set data rate
-  uint16_t dataRate = (uint16_t)br;
-  if(dataRate == 250) {
+  uint16_t bitRate = (uint16_t)br;
+  if(bitRate == 250) {
     state = this->mod->SPIsetRegValue(RADIOLIB_NRF24_REG_RF_SETUP, RADIOLIB_NRF24_DR_250_KBPS, 5, 5);
     state |= this->mod->SPIsetRegValue(RADIOLIB_NRF24_REG_RF_SETUP, RADIOLIB_NRF24_DR_250_KBPS, 3, 3);
-  } else if(dataRate == 1000) {
+  } else if(bitRate == 1000) {
     state = this->mod->SPIsetRegValue(RADIOLIB_NRF24_REG_RF_SETUP, RADIOLIB_NRF24_DR_1_MBPS, 5, 5);
     state |= this->mod->SPIsetRegValue(RADIOLIB_NRF24_REG_RF_SETUP, RADIOLIB_NRF24_DR_1_MBPS, 3, 3);
-  } else if(dataRate == 2000) {
+  } else if(bitRate == 2000) {
     state = this->mod->SPIsetRegValue(RADIOLIB_NRF24_REG_RF_SETUP, RADIOLIB_NRF24_DR_2_MBPS, 5, 5);
     state |= this->mod->SPIsetRegValue(RADIOLIB_NRF24_REG_RF_SETUP, RADIOLIB_NRF24_DR_2_MBPS, 3, 3);
   } else {
@@ -317,7 +313,7 @@ int16_t nRF24::setBitRate(float br) {
   }
   
   if(state == RADIOLIB_ERR_NONE) {
-    this->dataRate = dataRate;
+    this->dataRate = bitRate;
   }
 
 
@@ -606,6 +602,10 @@ int16_t nRF24::config() {
   return(state);
 }
 
+Module* nRF24::getMod() {
+  return(this->mod);
+}
+
 void nRF24::SPIreadRxPayload(uint8_t* data, uint8_t numBytes) {
   SPItransfer(RADIOLIB_NRF24_CMD_READ_RX_PAYLOAD, false, NULL, data, numBytes);
 }
@@ -617,7 +617,7 @@ void nRF24::SPIwriteTxPayload(uint8_t* data, uint8_t numBytes) {
 void nRF24::SPItransfer(uint8_t cmd, bool write, uint8_t* dataOut, uint8_t* dataIn, uint8_t numBytes) {
   // prepare the buffers
   size_t buffLen = 1 + numBytes;
-  #if defined(RADIOLIB_STATIC_ONLY)
+  #if RADIOLIB_STATIC_ONLY
     uint8_t buffOut[RADIOLIB_STATIC_ARRAY_SIZE];
     uint8_t buffIn[RADIOLIB_STATIC_ARRAY_SIZE];
   #else
@@ -648,7 +648,7 @@ void nRF24::SPItransfer(uint8_t cmd, bool write, uint8_t* dataOut, uint8_t* data
     memcpy(dataIn, &buffIn[1], numBytes);
   }
 
-  #if !defined(RADIOLIB_STATIC_ONLY)
+  #if !RADIOLIB_STATIC_ONLY
     delete[] buffOut;
     delete[] buffIn;
   #endif

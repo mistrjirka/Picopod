@@ -1,6 +1,6 @@
 #include "SX1280.h"
 #include <string.h>
-#if !defined(RADIOLIB_EXCLUDE_SX128X)
+#if !RADIOLIB_EXCLUDE_SX128X
 
 SX1280::SX1280(Module* mod) : SX1281(mod) {
 
@@ -12,10 +12,11 @@ int16_t SX1280::range(bool master, uint32_t addr, uint16_t calTable[3][6]) {
   RADIOLIB_ASSERT(state);
 
   // wait until ranging is finished
-  uint32_t start = this->mod->hal->millis();
-  while(!this->mod->hal->digitalRead(this->mod->getIrq())) {
-    this->mod->hal->yield();
-    if(this->mod->hal->millis() - start > 10000) {
+  Module* mod = this->getMod();
+  RadioLibTime_t start = mod->hal->millis();
+  while(!mod->hal->digitalRead(mod->getIrq())) {
+    mod->hal->yield();
+    if(mod->hal->millis() - start > 10000) {
       clearIrqStatus();
       standby();
       return(RADIOLIB_ERR_RANGING_TIMEOUT);
@@ -175,7 +176,8 @@ float SX1280::getRangingResult() {
   RADIOLIB_ASSERT(state);
 
   // calculate the real result
-  uint32_t raw = ((uint32_t)data[0] << 16) | ((uint32_t)data[1] << 8) | data[2];
+  uint32_t uraw = ((uint32_t)data[0] << 16) | ((uint32_t)data[1] << 8) | data[2];
+  int32_t raw = (uraw & ((1UL << 23) - 1)) | (uraw >> 23 << 31);
   return((float)raw * 150.0 / (4.096 * this->bandwidthKhz));
 }
 

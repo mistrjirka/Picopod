@@ -3,7 +3,7 @@
 
 #include "../../TypeDef.h"
 
-#if !defined(RADIOLIB_EXCLUDE_SI443X)
+#if !RADIOLIB_EXCLUDE_SI443X
 
 #include "../../Module.h"
 #include "Si4432.h"
@@ -21,7 +21,7 @@ class Si4430: public Si4432 {
       \brief Default constructor.
       \param mod Instance of Module that will be used to communicate with the radio chip.
     */
-    Si4430(Module* mod);
+    Si4430(Module* mod); // cppcheck-suppress noExplicitConstructor
 
     // basic methods
 
@@ -44,20 +44,20 @@ class Si4430: public Si4432 {
       \param freq Carrier frequency to be set in MHz.
       \returns \ref status_codes
     */
-    int16_t setFrequency(float freq);
+    int16_t setFrequency(float freq) override;
 
     /*!
       \brief Sets output power. Allowed values range from -8 to 13 dBm in 3 dBm steps.
       \param power Output power to be set in dBm.
       \returns \ref status_codes
     */
-    int16_t setOutputPower(int8_t power);
+    int16_t setOutputPower(int8_t power) override;
 
-#if !defined(RADIOLIB_GODMODE)
+#if !RADIOLIB_GODMODE
   protected:
 #endif
 
-#if !defined(RADIOLIB_GODMODE)
+#if !RADIOLIB_GODMODE
   private:
 #endif
 };

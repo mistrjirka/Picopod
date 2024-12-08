@@ -1,20 +1,15 @@
-#if !defined(_RADIOLIB_RADIOLIB_AX25_H)
-#define _RADIOLIB_RADIOLIB_AX25_H
+#if !defined(_RADIOLIB_AX25_H)
+#define _RADIOLIB_AX25_H
 
 #include "../../TypeDef.h"
 
-#if !defined(RADIOLIB_EXCLUDE_AX25)
+#if !RADIOLIB_EXCLUDE_AX25
 
 #include "../PhysicalLayer/PhysicalLayer.h"
 #include "../AFSK/AFSK.h"
 #include "../BellModem/BellModem.h"
 #include "../../utils/CRC.h"
-
-// macros to access bits in byte array, from http://www.mathcs.emory.edu/~cheung/Courses/255/Syllabus/1-C-intro/bit-array.html
-#define SET_BIT_IN_ARRAY(A, k)                                  ( A[(k/8)] |= (1 << (k%8)) )
-#define CLEAR_BIT_IN_ARRAY(A, k)                                ( A[(k/8)] &= ~(1 << (k%8)) )
-#define TEST_BIT_IN_ARRAY(A, k)                                 ( A[(k/8)] & (1 << (k%8)) )
-#define GET_BIT_IN_ARRAY(A, k)                                  ( (A[(k/8)] & (1 << (k%8))) ? 1 : 0 )
+#include "../../utils/FEC.h"
 
 // maximum callsign length in bytes
 #define RADIOLIB_AX25_MAX_CALLSIGN_LEN                          6
@@ -125,7 +120,7 @@ class AX25Frame {
     */
     uint16_t sendSeqNumber;
 
-    #if !defined(RADIOLIB_STATIC_ONLY)
+    #if !RADIOLIB_STATIC_ONLY
       /*!
         \brief The info field.
       */
@@ -243,12 +238,24 @@ class AX25Client {
     */
     explicit AX25Client(PhysicalLayer* phy);
 
-    #if !defined(RADIOLIB_EXCLUDE_AFSK)
+    #if !RADIOLIB_EXCLUDE_AFSK
     /*!
       \brief Constructor for AFSK mode.
-      \param audio Pointer to the AFSK instance providing audio.
+      \param aud Pointer to the AFSK instance providing audio.
     */
-    explicit AX25Client(AFSKClient* audio);
+    explicit AX25Client(AFSKClient* aud);
+
+    /*!
+      \brief Copy constructor.
+      \param ax25 AX25Client instance to copy.
+    */
+    AX25Client(const AX25Client& ax25);
+    
+    /*!
+      \brief Overload for assignment operator.
+      \param ax25 rvalue AX25Client.
+    */
+    AX25Client& operator=(const AX25Client& ax25);
 
     /*!
       \brief Set AFSK tone correction offset. On some platforms, this is required to get the audio produced
@@ -303,17 +310,18 @@ class AX25Client {
     */
     int16_t sendFrame(AX25Frame* frame);
 
-#if !defined(RADIOLIB_GODMODE)
+#if !RADIOLIB_GODMODE
   private:
 #endif
     friend class APRSClient;
 
     PhysicalLayer* phyLayer;
-    #if !defined(RADIOLIB_EXCLUDE_AFSK)
+    #if !RADIOLIB_EXCLUDE_AFSK
+    AFSKClient* audio;
     BellClient* bellModem;
     #endif
 
-    char sourceCallsign[RADIOLIB_AX25_MAX_CALLSIGN_LEN + 1] = {0, 0, 0, 0, 0, 0, 0};
+    char sourceCallsign[RADIOLIB_AX25_MAX_CALLSIGN_LEN + 1] = { 0 };
     uint8_t sourceSSID = 0;
     uint16_t preambleLen = 0;
 

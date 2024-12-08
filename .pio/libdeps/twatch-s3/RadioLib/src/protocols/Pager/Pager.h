@@ -1,4 +1,4 @@
-#if !defined(_RADIOLIB_PAGER_H) && !defined(RADIOLIB_EXCLUDE_PAGER)
+#if !defined(_RADIOLIB_PAGER_H) && !RADIOLIB_EXCLUDE_PAGER
 #define _RADIOLIB_PAGER_H
 
 #include "../../TypeDef.h"
@@ -119,7 +119,7 @@ class PagerClient {
     */
     int16_t transmit(uint8_t* data, size_t len, uint32_t addr, uint8_t encoding = RADIOLIB_PAGER_BCD, uint8_t function = RADIOLIB_PAGER_FUNC_AUTO);
 
-    #if !defined(RADIOLIB_EXCLUDE_DIRECT_RECEIVE)
+    #if !RADIOLIB_EXCLUDE_DIRECT_RECEIVE
     /*!
       \brief Start reception of POCSAG packets.
       \param pin Pin to receive digital data on (e.g., DIO2 for SX127x).
@@ -131,6 +131,16 @@ class PagerClient {
     int16_t startReceive(uint32_t pin, uint32_t addr, uint32_t mask = 0xFFFFF);
 
     /*!
+      \brief Start reception of POCSAG packets for multiple addresses and masks.
+      \param pin Pin to receive digital data on (e.g., DIO2 for SX127x).
+      \param addrs Array of addresses to receive.
+      \param masks Array of address masks to use for filtering. Masks will be applied to corresponding addresses in addr array.
+      \param numAddress Number of addresses/masks to match.
+      \returns \ref status_codes
+    */
+    int16_t startReceive(uint32_t pin, uint32_t *addrs, uint32_t *masks, size_t numAddress);
+
+    /*!
       \brief Get the number of POCSAG batches available in buffer. Limited by the size of direct mode buffer!
       \returns Number of available batches.
     */
@@ -140,7 +150,7 @@ class PagerClient {
     /*!
       \brief Reads data that was received after calling startReceive method.
       \param str Address of Arduino String to save the received data.
-      \param len Expected number of characters in the message. When set to 0, the message lengthwill be retreived
+      \param len Expected number of characters in the message. When set to 0, the message length will be retrieved
       automatically. When more bytes than received are requested, only the number of bytes requested will be returned.
       \param addr Pointer to variable holding the address of the received pager message.
       Set to NULL to not retrieve address.
@@ -153,7 +163,7 @@ class PagerClient {
       \brief Reads data that was received after calling startReceive method.
       \param data Pointer to array to save the received message.
       \param len Pointer to variable holding the number of bytes that will be read. When set to 0, the packet length
-      will be retreived automatically. When more bytes than received are requested, only the number of bytes
+      will be retrieved automatically. When more bytes than received are requested, only the number of bytes
       requested will be returned. Upon completion, the number of bytes received will be written to this variable.
       \param addr Pointer to variable holding the address of the received pager message.
       Set to NULL to not retrieve address.
@@ -162,25 +172,30 @@ class PagerClient {
     int16_t readData(uint8_t* data, size_t* len, uint32_t* addr = NULL);
 #endif
 
-#if !defined(RADIOLIB_GODMODE)
+#if !RADIOLIB_GODMODE
   private:
 #endif
     PhysicalLayer* phyLayer;
 
-    float baseFreq;
-    float dataRate;
-    uint32_t baseFreqRaw;
-    uint16_t shiftFreq;
-    uint16_t shiftFreqHz;
-    uint16_t bitDuration;
-    uint32_t filterAddr;
-    uint32_t filterMask;
+    float baseFreq = 0;
+    float dataRate = 0;
+    uint32_t baseFreqRaw = 0;
+    uint16_t shiftFreq = 0;
+    uint16_t shiftFreqHz = 0;
+    RadioLibTime_t bitDuration = 0;
+    uint32_t filterAddr = 0;
+    uint32_t filterMask = 0;
+    uint32_t *filterAddresses = nullptr;
+    uint32_t *filterMasks = nullptr;
+    size_t filterNumAddresses = 0;
     bool inv = false;
 
     void write(uint32_t* data, size_t len);
     void write(uint32_t codeWord);
+    int16_t startReceiveCommon();
+    bool addressMatched(uint32_t addr);
 
-#if !defined(RADIOLIB_EXCLUDE_DIRECT_RECEIVE)
+#if !RADIOLIB_EXCLUDE_DIRECT_RECEIVE
     uint32_t read();
 #endif
 

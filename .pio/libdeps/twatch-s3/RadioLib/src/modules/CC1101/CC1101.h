@@ -1,4 +1,4 @@
-#if !defined(_RADIOLIB_CC1101_H) && !defined(RADIOLIB_EXCLUDE_CC1101)
+#if !defined(_RADIOLIB_CC1101_H) && !RADIOLIB_EXCLUDE_CC1101
 #define _RADIOLIB_CC1101_H
 
 #include "../../TypeDef.h"
@@ -8,10 +8,9 @@
 
 // CC1101 physical layer properties
 #define RADIOLIB_CC1101_FREQUENCY_STEP_SIZE                     396.7285156
-#define RADIOLIB_CC1101_MAX_PACKET_LENGTH                       255
+#define RADIOLIB_CC1101_MAX_PACKET_LENGTH                       63
 #define RADIOLIB_CC1101_CRYSTAL_FREQ                            26.0
 #define RADIOLIB_CC1101_DIV_EXPONENT                            16
-#define RADIOLIB_CC1101_FIFO_SIZE                               64
 
 // CC1101 SPI commands
 #define RADIOLIB_CC1101_CMD_READ                                0b10000000
@@ -116,8 +115,8 @@
 #define RADIOLIB_CC1101_GDO2_INV                                0b01000000  //  6     6                active low
 
 // RADIOLIB_CC1101_REG_IOCFG1
-#define RADIOLIB_CC1101_GDO1_DS_LOW                             0b00000000  //  7     7   GDO1 output drive strength: low (default)
-#define RADIOLIB_CC1101_GDO1_DS_HIGH                            0b10000000  //  7     7                               high
+#define RADIOLIB_CC1101_GDO_DS_LOW                              0b00000000  //  7     7   GDOx output drive strength: low (default)
+#define RADIOLIB_CC1101_GDO_DS_HIGH                             0b10000000  //  7     7                               high
 #define RADIOLIB_CC1101_GDO1_NORM                               0b00000000  //  6     6   GDO1 output: active high (default)
 #define RADIOLIB_CC1101_GDO1_INV                                0b01000000  //  6     6                active low
 
@@ -518,7 +517,7 @@
 #define RADIOLIB_CC1101_DEFAULT_FREQ                            434.0
 #define RADIOLIB_CC1101_DEFAULT_BR                              4.8
 #define RADIOLIB_CC1101_DEFAULT_FREQDEV                         5.0
-#define RADIOLIB_CC1101_DEFAULT_RXBW                            135.0
+#define RADIOLIB_CC1101_DEFAULT_RXBW                            58.0
 #define RADIOLIB_CC1101_DEFAULT_POWER                           10
 #define RADIOLIB_CC1101_DEFAULT_PREAMBLELEN                     16
 #define RADIOLIB_CC1101_DEFAULT_SW                              {0x12, 0xAD}
@@ -538,11 +537,10 @@ class CC1101: public PhysicalLayer {
 
     /*!
       \brief Default constructor.
-      \param mod Instance of Module that will be used to communicate with the radio.
+      \param module Instance of Module that will be used to communicate with the radio.
     */
+    // cppcheck-suppress noExplicitConstructor
     CC1101(Module* module);
-
-    Module* getMod();
 
     // basic methods
 
@@ -577,7 +575,7 @@ class CC1101: public PhysicalLayer {
       \param addr Address to send the data to. Will only be added if address filtering was enabled.
       \returns \ref status_codes
     */
-    int16_t transmit(uint8_t* data, size_t len, uint8_t addr = 0) override;
+    int16_t transmit(const uint8_t* data, size_t len, uint8_t addr = 0) override;
 
     /*!
       \brief Blocking binary receive method.
@@ -602,14 +600,14 @@ class CC1101: public PhysicalLayer {
     int16_t standby(uint8_t mode) override;
 
     /*!
-      \brief Starts direct mode transmission.
+      \brief Starts synchronous direct mode transmission.
       \param frf Raw RF frequency value. Defaults to 0, required for quick frequency shifts in RTTY.
       \returns \ref status_codes
     */
     int16_t transmitDirect(uint32_t frf = 0) override;
 
     /*!
-      \brief Starts direct mode reception.
+      \brief Starts synchronous direct mode reception.
       \returns \ref status_codes
     */
     int16_t receiveDirect() override;
@@ -663,23 +661,23 @@ class CC1101: public PhysicalLayer {
       \brief Sets interrupt service routine to call when a packet is received.
       \param func ISR to call.
     */
-    void setPacketReceivedAction(void (*func)(void));
+    void setPacketReceivedAction(void (*func)(void)) override;
 
     /*!
       \brief Clears interrupt service routine to call when a packet is received.
     */
-    void clearPacketReceivedAction();
+    void clearPacketReceivedAction() override;
 
     /*!
       \brief Sets interrupt service routine to call when a packet is sent.
       \param func ISR to call.
     */
-    void setPacketSentAction(void (*func)(void));
+    void setPacketSentAction(void (*func)(void)) override;
 
     /*!
       \brief Clears interrupt service routine to call when a packet is sent.
     */
-    void clearPacketSentAction();
+    void clearPacketSentAction() override;
 
     /*!
       \brief Interrupt-driven binary transmit method.
@@ -689,7 +687,7 @@ class CC1101: public PhysicalLayer {
       \param addr Address to send the data to. Will only be added if address filtering was enabled.
       \returns \ref status_codes
     */
-    int16_t startTransmit(uint8_t* data, size_t len, uint8_t addr = 0) override;
+    int16_t startTransmit(const uint8_t* data, size_t len, uint8_t addr = 0) override;
 
     /*!
       \brief Clean up after transmission is done.
@@ -701,7 +699,7 @@ class CC1101: public PhysicalLayer {
       \brief Interrupt-driven receive method. GDO0 will be activated when full packet is received.
       \returns \ref status_codes
     */
-    int16_t startReceive();
+    int16_t startReceive() override;
 
     /*!
       \brief Interrupt-driven receive method, implemented for compatibility with PhysicalLayer.
@@ -711,10 +709,11 @@ class CC1101: public PhysicalLayer {
       \param len Ignored.
       \returns \ref status_codes
     */
-    int16_t startReceive(uint32_t timeout, uint16_t irqFlags, uint16_t irqMask, size_t len);
+    int16_t startReceive(uint32_t timeout, uint32_t irqFlags, uint32_t irqMask, size_t len) override;
 
     /*!
-      \brief Reads data received after calling startReceive method.
+      \brief Reads data received after calling startReceive method. When the packet length is not known in advance,
+      getPacketLength method must be called BEFORE calling readData!
       \param data Pointer to array to save the received binary data.
       \param len Number of bytes that will be read. When set to 0, the packet length will be retreived automatically.
       When more bytes than received are requested, only the number of bytes requested will be returned.
@@ -730,21 +729,37 @@ class CC1101: public PhysicalLayer {
       \param freq Carrier frequency to be set in MHz.
       \returns \ref status_codes
     */
-    int16_t setFrequency(float freq);
+    int16_t setFrequency(float freq) override;
 
     /*!
       \brief Sets bit rate. Allowed values range from 0.025 to 600.0 kbps.
       \param br Bit rate to be set in kbps.
       \returns \ref status_codes
     */
-    int16_t setBitRate(float br);
+    int16_t setBitRate(float br) override;
 
     /*!
-      \brief Sets receiver bandwidth. Allowed values range from 58.0 to 812.0 kHz.
+      \brief Sets bit rate tolerance in BSCFG register. Allowed values are 0:(0%), 1(3,125%), 2:(6,25%) and 3:(12,5%).
+      \param brt Bit rate tolerance to be set.
+      \returns \ref status_codes
+    */
+    int16_t setBitRateTolerance(uint8_t brt);
+
+    /*!
+      \brief Sets receiver bandwidth. Allowed values are 58, 68, 81, 102, 116, 135, 162,
+      203, 232, 270, 325, 406, 464, 541, 650 and 812 kHz.
       \param rxBw Receiver bandwidth to be set in kHz.
       \returns \ref status_codes
     */
     int16_t setRxBandwidth(float rxBw);
+
+     /*!
+      \brief calculates and sets Rx bandwidth based on the freq, baud and freq uncertainty.
+      Reimplement of atlas0fd00m's (RfCat) CalculatePktChanBw function. 
+      Modified for worse ppm with the CC1101, and adjusted for the supportted CC1101 bw.
+      \returns \ref status_codes
+    */
+    int16_t autoSetRxBandwidth();
 
     /*!
       \brief Sets frequency deviation. Allowed values range from 1.587 to 380.8 kHz.
@@ -765,7 +780,25 @@ class CC1101: public PhysicalLayer {
       \param pwr Output power to be set in dBm.
       \returns \ref status_codes
     */
-    int16_t setOutputPower(int8_t pwr);
+    int16_t setOutputPower(int8_t pwr) override;
+
+    /*!
+      \brief Check if output power is configurable.
+      This method is needed for compatibility with PhysicalLayer::checkOutputPower.
+      \param power Output power in dBm.
+      \param clipped Clipped output power value to what is possible within the module's range.
+      \returns \ref status_codes
+    */
+    int16_t checkOutputPower(int8_t power, int8_t* clipped) override;
+
+    /*!
+      \brief Check if output power is configurable.
+      \param power Output power in dBm.
+      \param clipped Clipped output power value to what is possible within the module's range.
+      \param raw Raw internal value.
+      \returns \ref status_codes
+    */
+    int16_t checkOutputPower(int8_t power, int8_t* clipped, uint8_t* raw);
 
     /*!
       \brief Sets 16-bit sync word as a two byte value.
@@ -790,6 +823,7 @@ class CC1101: public PhysicalLayer {
     /*!
       \brief Sets preamble length.
       \param preambleLength Preamble length to be set (in bits), allowed values: 16, 24, 32, 48, 64, 96, 128 and 192.
+      \param qualityThreshold Preamble quality threshold (PQT) to set.
       \returns \ref status_codes
     */
     int16_t setPreambleLength(uint8_t preambleLength, uint8_t qualityThreshold);
@@ -818,68 +852,69 @@ class CC1101: public PhysicalLayer {
 
     /*!
       \brief Gets RSSI (Recorded Signal Strength Indicator) of the last received packet.
-      In asynchronous direct mode, returns the current RSSI level.
+      In direct or asynchronous direct mode, returns the current RSSI level.
       \returns RSSI in dBm.
     */
-    float getRSSI();
+    float getRSSI() override;
 
     /*!
       \brief Gets LQI (Link Quality Indicator) of the last received packet.
       \returns Last packet LQI (lower is better).
     */
-   uint8_t getLQI() const;
+    uint8_t getLQI() const;
 
-     /*!
+    /*!
       \brief Query modem for the packet length of received payload.
       \param update Update received packet length. Will return cached value when set to false.
       \returns Length of last received packet in bytes.
     */
     size_t getPacketLength(bool update = true) override;
 
-     /*!
+    /*!
       \brief Set modem in fixed packet length mode.
       \param len Packet length.
       \returns \ref status_codes
     */
     int16_t fixedPacketLengthMode(uint8_t len = RADIOLIB_CC1101_MAX_PACKET_LENGTH);
 
-     /*!
+    /*!
       \brief Set modem in variable packet length mode.
-      \param len Maximum packet length.
+      \param maxLen Maximum packet length.
       \returns \ref status_codes
     */
     int16_t variablePacketLengthMode(uint8_t maxLen = RADIOLIB_CC1101_MAX_PACKET_LENGTH);
 
-     /*!
+    /*!
       \brief Enable sync word filtering and generation.
-      \param numBits Sync word length in bits.
+      \param maxErrBits Maximum number of allowed error bits in sync word.
       \param requireCarrierSense Require carrier sense above threshold in addition to sync word.
       \returns \ref status_codes
     */
     int16_t enableSyncWordFiltering(uint8_t maxErrBits = 0, bool requireCarrierSense = false);
 
-     /*!
+    /*!
       \brief Disable preamble and sync word filtering and generation.
       \param requireCarrierSense Require carrier sense above threshold.
       \returns \ref status_codes
     */
     int16_t disableSyncWordFiltering(bool requireCarrierSense = false);
 
-     /*!
+    /*!
       \brief Enable CRC filtering and generation.
       \param enable Set or unset CRC generation and filtering.
       \returns \ref status_codes
     */
     int16_t setCrcFiltering(bool enable = true);
 
-     /*!
+    /*!
       \brief Set modem in "sniff" mode: no packet filtering (e.g., no preamble, sync word, address, CRC).
       \param enable Set or unset promiscuous mode.
+      \param requireCarrierSense Set carriersense required above threshold, defaults to false.
       \returns \ref status_codes
     */
-    int16_t setPromiscuousMode(bool enable = true);
+    int16_t setPromiscuousMode(bool enable = true, bool requireCarrierSense = false);
 
-     /*!
+    /*!
       \brief Get whether the modem is in promiscuous mode: no packet filtering 
       (e.g., no preamble, sync word, address, CRC).
       \returns Whether the modem is in promiscuous mode.
@@ -909,30 +944,30 @@ class CC1101: public PhysicalLayer {
     void setRfSwitchTable(const uint32_t (&pins)[Module::RFSWITCH_MAX_PINS], const Module::RfSwitchMode_t table[]);
 
     /*!
-     \brief Get one truly random byte from RSSI noise.
-     \returns TRNG byte.
-   */
-    uint8_t randomByte();
+      \brief Get one truly random byte from RSSI noise.
+      \returns TRNG byte.
+    */
+    uint8_t randomByte() override;
 
     /*!
-     \brief Read version SPI register. Should return CC1101_VERSION_LEGACY (0x04) or
-    CC1101_VERSION_CURRENT (0x14) if CC1101 is connected and working.
-     \returns Version register contents or \ref status_codes
-   */
+      \brief Read version SPI register. Should return CC1101_VERSION_LEGACY (0x04) or
+      CC1101_VERSION_CURRENT (0x14) if CC1101 is connected and working.
+      \returns Version register contents or \ref status_codes
+    */
     int16_t getChipVersion();
 
-    #if !defined(RADIOLIB_EXCLUDE_DIRECT_RECEIVE)
+    #if !RADIOLIB_EXCLUDE_DIRECT_RECEIVE
     /*!
       \brief Set interrupt service routine function to call when data bit is receveid in direct mode.
       \param func Pointer to interrupt service routine.
     */
-    void setDirectAction(void (*func)(void));
+    void setDirectAction(void (*func)(void)) override;
 
     /*!
       \brief Function to read and process data bit in direct reception mode.
       \param pin Pin on which to read.
     */
-    void readBit(uint32_t pin);
+    void readBit(uint32_t pin) override;
     #endif
 
     /*!
@@ -941,26 +976,27 @@ class CC1101: public PhysicalLayer {
       \param value The value that indicates which function to place on that pin. See chip datasheet for details.
       \returns \ref status_codes
     */
-    int16_t setDIOMapping(uint32_t pin, uint32_t value);
+    int16_t setDIOMapping(uint32_t pin, uint32_t value) override;
 
-  #if !defined(RADIOLIB_GODMODE) && !defined(RADIOLIB_LOW_LEVEL)
+  #if !RADIOLIB_GODMODE && !RADIOLIB_LOW_LEVEL
     protected:
   #endif
-      Module* mod;
+    Module* getMod() override;
 
-      // SPI read overrides to set bit for burst write and status registers access
-      int16_t SPIgetRegValue(uint8_t reg, uint8_t msb = 7, uint8_t lsb = 0);
-      int16_t SPIsetRegValue(uint8_t reg, uint8_t value, uint8_t msb = 7, uint8_t lsb = 0, uint8_t checkInterval = 2);
-      void SPIreadRegisterBurst(uint8_t reg, uint8_t numBytes, uint8_t* inBytes);
-      uint8_t SPIreadRegister(uint8_t reg);
-      void SPIwriteRegisterBurst(uint8_t reg, uint8_t* data, size_t len);
-      void SPIwriteRegister(uint8_t reg, uint8_t data);
+    // SPI read overrides to set bit for burst write and status registers access
+    int16_t SPIgetRegValue(uint8_t reg, uint8_t msb = 7, uint8_t lsb = 0);
+    int16_t SPIsetRegValue(uint8_t reg, uint8_t value, uint8_t msb = 7, uint8_t lsb = 0, uint8_t checkInterval = 2);
+    void SPIreadRegisterBurst(uint8_t reg, uint8_t numBytes, uint8_t* inBytes);
+    uint8_t SPIreadRegister(uint8_t reg);
+    void SPIwriteRegisterBurst(uint8_t reg, uint8_t* data, size_t len);
+    void SPIwriteRegister(uint8_t reg, uint8_t data);
 
-      void SPIsendCommand(uint8_t cmd);
+    void SPIsendCommand(uint8_t cmd);
 
-  #if !defined(RADIOLIB_GODMODE)
-    protected:
+  #if !RADIOLIB_GODMODE
+    private:
   #endif
+    Module* mod;
 
     float frequency = RADIOLIB_CC1101_DEFAULT_FREQ;
     float bitRate = RADIOLIB_CC1101_DEFAULT_BR;
@@ -974,7 +1010,7 @@ class CC1101: public PhysicalLayer {
 
     bool promiscuous = false;
     bool crcOn = true;
-    bool directModeEnabled = true;
+    bool directModeEnabled = false;
 
     int8_t power = RADIOLIB_CC1101_DEFAULT_POWER;
 
