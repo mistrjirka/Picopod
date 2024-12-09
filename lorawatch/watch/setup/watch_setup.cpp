@@ -1,7 +1,7 @@
 #include "watch_setup.h"
 #define ID 3
-const char *ssid = "highground";
-const char *password = "hellothere";
+const char *ssid = "Bagr";
+const char *password = "Bagroviste";
 
 const char *ntpServer1 = "pool.ntp.org";
 const char *ntpServer2 = "time.nist.gov";
@@ -41,6 +41,106 @@ LV_IMG_DECLARE(watch_if_5);
 LV_IMG_DECLARE(watch_if_6);
 
 LV_IMG_DECLARE(watch_if_8);
+
+SX1262 module = newModule();
+
+BLEServer* pServer = nullptr;
+BLECharacteristic* pMsgCharacteristic = nullptr;
+BLECharacteristic* pNeighCountCharacteristic = nullptr;
+bool deviceConnected = false;
+bool oldDeviceConnected = false;
+
+// Make 'selected' accessible by declaring it at the top of the file
+uint16_t selected = -1;
+
+// Forward declaration of 'recievedAck' function
+static void recievedAck(uint8_t result, uint16_t ping);
+
+class WatchServerCallbacks: public BLEServerCallbacks {
+    void onConnect(BLEServer* pServer) {
+
+        deviceConnected = true;
+        updateNeighborCount();
+
+        printf("Device connected\n");
+    };
+
+    void onDisconnect(BLEServer* pServer) {
+        deviceConnected = false;
+    }
+};
+
+
+class MsgCharacteristicCallbacks: public BLECharacteristicCallbacks {
+    void onWrite(BLECharacteristic *pCharacteristic) {
+        std::string value = pCharacteristic->getValue();
+        if (value.length() > 0) {
+            // Forward received message to LORA network
+            DTPK::getInstance()->sendPacket(
+                selected,
+                (unsigned char*)value.c_str(), 
+                value.length(), 
+                10000, 
+                true, 
+                recievedAck
+            );
+        }
+    }
+};
+
+void setupBLE() {
+    BLEDevice::init("LoraWatch");
+    pServer = BLEDevice::createServer();
+    pServer->setCallbacks(new WatchServerCallbacks());
+
+    BLEService *pService = pServer->createService(WATCH_SERVICE_UUID);
+
+    // Message characteristic - read/write
+    pMsgCharacteristic = pService->createCharacteristic(
+        MSG_CHAR_UUID,
+        BLECharacteristic::PROPERTY_READ |
+        BLECharacteristic::PROPERTY_WRITE
+    );
+    pMsgCharacteristic->setCallbacks(new MsgCharacteristicCallbacks());
+
+    // Neighbor count characteristic - read only
+    pNeighCountCharacteristic = pService->createCharacteristic(
+        NEIGHCOUNT_CHAR_UUID,
+        BLECharacteristic::PROPERTY_READ
+    );
+
+    pService->start();
+    startBLEAdvertising();
+}
+
+void startBLEAdvertising() {
+    BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+    pAdvertising->addServiceUUID(WATCH_SERVICE_UUID);
+    pAdvertising->setScanResponse(true);
+    pAdvertising->setMinPreferred(0x06);  
+    pAdvertising->setMinPreferred(0x12);
+    BLEDevice::startAdvertising();
+}
+
+void stopBLEAdvertising() {
+    BLEDevice::stopAdvertising();
+}
+
+void updateNeighborCount() {
+    if (deviceConnected) {
+        uint8_t count = DTPK::getInstance()->getNeighbours().size();
+        pNeighCountCharacteristic->setValue(&count, 1);
+        pNeighCountCharacteristic->notify();
+    }
+}
+
+void sendBLEMessage(const char* message) {
+    if (deviceConnected) {
+        pMsgCharacteristic->setValue((uint8_t*)message, strlen(message));
+        pMsgCharacteristic->notify();
+    }
+}
+
 void timeavailable(struct timeval *t)
 {
     watch.hwClockWrite();
@@ -73,12 +173,16 @@ void synchronize()
     }
 }
 
+// Create an instance of the derived watch class
+
+// Use the derived watch object instead of the original 'watch'
 void watchSetup()
 {
     // Serial.begin(115200);
 
     // Stop wifi
     watch.begin();
+    module.begin();
     WiFi.mode(WIFI_MODE_NULL);
 
     btStop();
@@ -89,8 +193,7 @@ void watchSetup()
 
     settingSensor();
 
-    SX1262 module = watch.getMod();
-    // MAC::initialize(module, 1, 2);
+
     MAC::initialize(
         module,
         ID,
@@ -109,9 +212,11 @@ void watchSetup()
 
     factory_ui();
 
-    // synchronize();
+    //synchronize();
 
     usbPlugIn = watch.isVbusIn();
+
+    setupBLE();  // Add BLE setup
 }
 
 void SensorHandler()
@@ -566,7 +671,7 @@ LCMM::DataReceivedCallback lcmmDataCallback = [](LCMMPacketDataReceive *packet, 
     // For example, print the packet data to the console
     // Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
 
-    String messageText = " Received at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " FROM:" + String(packet->mac.sender) + " Type: " + (packet->type == PACKET_TYPE_DATA_ACK ? "ACK" : "NOACK") + "data: " + String((char *)packet->data);
+    String messageText = " Received at:" + String(watch.strftime(1)) + " " + String(module.getRSSI()) + " FROM:" + String(packet->mac.sender) + " Type: " + (packet->type == PACKET_TYPE_DATA_ACK ? "ACK" : "NOACK") + "data: " + String((char *)packet->data);
 
     // Serial.println(messageText);
     lv_label_set_text(message, NULL);
@@ -583,7 +688,7 @@ LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
 {
     if (success)
     {
-        String messageText = " Received at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " " + "packet succesfully sent " + String(packet) + " " + "\n PING: " + String(LCMM::getInstance()->currentPing) + " \n";
+        String messageText = " Received at:" + String(watch.strftime(1)) + " " + String(module.getRSSI()) + " " + "packet succesfully sent " + String(packet) + " " + "\n PING: " + String(LCMM::getInstance()->currentPing) + " \n";
         // Serial.println(messageText);
         lv_label_set_text(message, NULL);
 
@@ -734,7 +839,6 @@ void radioPingPong(lv_obj_t *parent)
     lv_obj_center(label);
 }
 
-uint16_t selected = -1;
 lv_obj_t *dd;
 lv_obj_t *responseMessage;
 bool sending = false;
@@ -774,19 +878,23 @@ void updateDropdown()
 }
 static void recievedAck(uint8_t result, uint16_t ping)
 {
-    sending = false;
-    if (result)
-    {
-        printf("packet succeeded at getting into destination");
-        String messageText = " Received at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " " + "packet succesfully sent " + String(result) + " " + "\n PING: " + String(ping) + " \n";
-        lv_label_set_text(responseMessage,  messageText.c_str());
-    }
-    else
-    {
-        printf("packet failed at getting to destination");
-        String messageText = " Received at:" + String(watch.strftime(1)) + " " + "packet failed to send " + String(result);
+    String messageText; // Declare 'messageText' before the if-else blocks
+
+    if (result) {
+        sending = false;
+        messageText = "Received at:" + String(watch.strftime(1)) + " " + String(module.getRSSI()) +
+                      " packet successfully sent " + String(result) +
+                      "\nPING: " + String(ping) + "\n";
+        lv_label_set_text(responseMessage, messageText.c_str());
+    } else {
+        sending = false;
+        messageText = "Received at:" + String(watch.strftime(1)) +
+                      " packet failed to send " + String(result);
         lv_label_set_text(responseMessage, messageText.c_str());
     }
+
+    // Send status via BLE
+    sendBLEMessage(messageText.c_str());
 }
 
 static void sendDTPMessage(lv_event_t *e)
@@ -935,4 +1043,23 @@ void analogclock(lv_obj_t *parent)
                                     ////Serial.println("*C");
                                     lv_label_set_text_fmt(weather_celsius, "%d°C", (int)temp); },
                                  1000, NULL);
+}
+
+void watchLoop() {
+    // Handle BLE connection events
+    if (!deviceConnected && oldDeviceConnected) {
+        delay(500); // Give the bluetooth stack time to get ready
+        startBLEAdvertising();
+        oldDeviceConnected = deviceConnected;
+    }
+    if (deviceConnected && !oldDeviceConnected) {
+        oldDeviceConnected = deviceConnected;
+    }
+    
+    // Update neighbor count periodically when connected
+    static uint32_t lastUpdate = 0;
+    if (deviceConnected && (millis() - lastUpdate > 5000)) {
+        updateNeighborCount();
+        lastUpdate = millis();
+    }
 }

@@ -44,4 +44,6 @@ void loop()
     {
         lowPowerEnergyHandler();
     }
+
+    watchLoop();
 }
