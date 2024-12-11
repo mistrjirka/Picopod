@@ -4,6 +4,7 @@
 #include <lcmm.h>
 #include <DTPK.h>
 #include <RadioLib.h>
+#include "bluetooth.h"  // Add this include
 
 #define SPREAD_FACTOR 9
 #define BANDWIDTH 125.0
@@ -120,6 +121,11 @@ void setup()
   //MAC::getInstance()->setRXCallback(dataCallback);
   Serial.print(F("After init"));
 
+  // Initialize Bluetooth functionality
+  Bluetooth::initialize();
+  Bluetooth::getInstance()->setDeviceName("Stick1"); // Set custom name here
+  Bluetooth::getInstance()->setup();
+
   // some modules have an external RF switch
   // controlled via two pins (RX enable, TX enable)
   // to enable automatic control of the switch,
@@ -135,6 +141,10 @@ void loop()
 {
   static int count = 0;
   DTPK::getInstance()->loop();
+  
+  // Add Bluetooth loop handling
+  Bluetooth::getInstance()->loop();
+
   if (count++ % 10000 == 0){
     vector<NeighborRecord> neighbors = DTPK::getInstance()->getNeighbours();
 
