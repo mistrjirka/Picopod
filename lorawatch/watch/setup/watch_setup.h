@@ -21,10 +21,9 @@ IRsend irsend(BOARD_IR_PIN);
 #include <AudioOutputI2S.h>
 #include <AudioFileSourceSPIFFS.h>
 #endif
+#include "bluetooth.h"
 
-#include <BLEDevice.h>
-#include <BLEServer.h>
-#include <BLEUtils.h>
+// ...existing code...
 
 #ifndef WATCH_SETUP_H
 #define WATCH_SETUP_H
@@ -40,7 +39,7 @@ IRsend irsend(BOARD_IR_PIN);
 #define DEFAULT_COLOR                           (lv_color_make(252, 218, 72))
 #define VAD_FRAME_LENGTH_MS                     30
 #define VAD_BUFFER_LENGTH                       (VAD_FRAME_LENGTH_MS * MIC_I2S_SAMPLE_RATE / 1000)
-#define RADIOLIB_LOW_LEVEL
+
 void createChargeUI();
 void updateTableDTP();
 void updateDropdown();
@@ -84,11 +83,7 @@ void PMUHandler();
 void lowPowerEnergyHandler();
 void destoryChargeUI();
 
-void setupBLE();
-void startBLEAdvertising();
-void stopBLEAdvertising();
-void updateNeighborCount();
-void sendBLEMessage(const char* message);
+// ...existing code...
 
 void watchLoop();
 
@@ -146,9 +141,5 @@ const size_t vad_buffer_size = VAD_BUFFER_LENGTH * sizeof(short);
 static lv_obj_t *vad_btn_label;
 static lv_obj_t *vad_btn;
 static uint32_t vad_detected_counter = 0;
-
-#define WATCH_SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
-#define MSG_CHAR_UUID            "beb5483e-36e1-4688-b7f5-ea07361b26a8"
-#define NEIGHCOUNT_CHAR_UUID     "beb5483e-36e1-4688-b7f5-ea07361b26a9"
 
 #endif

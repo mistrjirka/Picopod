@@ -1,4 +1,5 @@
 #include "watch_setup.h"
+#include "bluetooth.h"
 #define ID 3
 const char *ssid = "Bagr";
 const char *password = "Bagroviste";
@@ -44,138 +45,24 @@ LV_IMG_DECLARE(watch_if_8);
 
 SX1262 module = newModule();
 
-BLEServer* pServer = nullptr;
-BLECharacteristic* pMsgCharacteristic = nullptr;
-BLECharacteristic* pNeighCountCharacteristic = nullptr;
-bool deviceConnected = false;
-bool oldDeviceConnected = false;
-
-// Make 'selected' accessible by declaring it at the top of the file
+// Remove these global variables as they're now handled in Bluetooth class
+// bool deviceConnected = false;
+// bool oldDeviceConnected = false;
 uint16_t selected = -1;
 
-// Forward declaration of 'recievedAck' function
-static void recievedAck(uint8_t result, uint16_t ping);
+// Remove all BLE-related classes and methods:
+// - WatchServerCallbacks class
+// - MsgCharacteristicCallbacks class 
+// - setupBLE()
+// - startBLEAdvertising()
+// - stopBLEAdvertising()
+// - updateNeighborCount()
+// - sendBLEOutboundMessage()
+// - sendBLEInboundMessage()
+// - sendBLEAckMessage()
+// - sendBLENeighborsUpdate()
+// - sendBLEMessage()
 
-class WatchServerCallbacks: public BLEServerCallbacks {
-    void onConnect(BLEServer* pServer) {
-
-        deviceConnected = true;
-        updateNeighborCount();
-
-        printf("Device connected\n");
-    };
-
-    void onDisconnect(BLEServer* pServer) {
-        deviceConnected = false;
-    }
-};
-
-
-class MsgCharacteristicCallbacks: public BLECharacteristicCallbacks {
-    void onWrite(BLECharacteristic *pCharacteristic) {
-        std::string value = pCharacteristic->getValue();
-        if (value.length() > 0) {
-            // Forward received message to LORA network
-            DTPK::getInstance()->sendPacket(
-                selected,
-                (unsigned char*)value.c_str(), 
-                value.length(), 
-                10000, 
-                true, 
-                recievedAck
-            );
-        }
-    }
-};
-
-void setupBLE() {
-    BLEDevice::init("LoraWatch");
-    pServer = BLEDevice::createServer();
-    pServer->setCallbacks(new WatchServerCallbacks());
-
-    BLEService *pService = pServer->createService(WATCH_SERVICE_UUID);
-
-    // Message characteristic - read/write
-    pMsgCharacteristic = pService->createCharacteristic(
-        MSG_CHAR_UUID,
-        BLECharacteristic::PROPERTY_READ |
-        BLECharacteristic::PROPERTY_WRITE
-    );
-    pMsgCharacteristic->setCallbacks(new MsgCharacteristicCallbacks());
-
-    // Neighbor count characteristic - read only
-    pNeighCountCharacteristic = pService->createCharacteristic(
-        NEIGHCOUNT_CHAR_UUID,
-        BLECharacteristic::PROPERTY_READ
-    );
-
-    pService->start();
-    startBLEAdvertising();
-}
-
-void startBLEAdvertising() {
-    BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
-    pAdvertising->addServiceUUID(WATCH_SERVICE_UUID);
-    pAdvertising->setScanResponse(true);
-    pAdvertising->setMinPreferred(0x06);  
-    pAdvertising->setMinPreferred(0x12);
-    BLEDevice::startAdvertising();
-}
-
-void stopBLEAdvertising() {
-    BLEDevice::stopAdvertising();
-}
-
-void updateNeighborCount() {
-    if (deviceConnected) {
-        uint8_t count = DTPK::getInstance()->getNeighbours().size();
-        pNeighCountCharacteristic->setValue(&count, 1);
-        pNeighCountCharacteristic->notify();
-    }
-}
-
-void sendBLEMessage(const char* message) {
-    if (deviceConnected) {
-        pMsgCharacteristic->setValue((uint8_t*)message, strlen(message));
-        pMsgCharacteristic->notify();
-    }
-}
-
-void timeavailable(struct timeval *t)
-{
-    watch.hwClockWrite();
-    time_ready = true;
-}
-void synchronize()
-{
-    // const char *time_zone = "CET-1CEST,M3.5.0,M10.5.0/3"; // TimeZone rule for Europe/Rome including daylight adjustment rules (optional)
-
-    sntp_set_time_sync_notification_cb(timeavailable);
-
-    sntp_servermode_dhcp(1); // (optional)
-
-    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer1, ntpServer2);
-
-    // configTzTime(time_zone, ntpServer1, ntpServer2);
-
-    WiFi.begin(ssid, password);
-    int i = 0;
-    while (WiFi.status() != WL_CONNECTED && i < 8)
-    {
-        delay(500);
-        // //Serial.print(".");
-    }
-    if (i >= 7)
-    {
-        // //Serial.println("timeout turning wifi off");
-        WiFi.mode(WIFI_MODE_NULL);
-        wifi_turned_on = false;
-    }
-}
-
-// Create an instance of the derived watch class
-
-// Use the derived watch object instead of the original 'watch'
 void watchSetup()
 {
     // Serial.begin(115200);
@@ -216,12 +103,27 @@ void watchSetup()
 
     usbPlugIn = watch.isVbusIn();
 
-    setupBLE();  // Add BLE setup
+    Bluetooth::initialize();
+    Bluetooth::getInstance()->setup();
 }
 
 void SensorHandler()
 {
+    static int lastChecksum = 0;
     DTPK::getInstance()->loop();
+    
+    // Calculate checksum of current neighbor list
+    int currentChecksum = 0;
+    for (const auto& neighbor : DTPK::getInstance()->getNeighbours()) {
+        currentChecksum += neighbor.id * neighbor.distance;
+    }
+    
+    // Update BLE neighbors if changed
+    if (currentChecksum != lastChecksum) {
+        Bluetooth::getInstance()->sendNeighborsUpdate();
+        lastChecksum = currentChecksum;
+    }
+
     updateDropdown();
 
     if (sportsIrq)
@@ -878,23 +780,8 @@ void updateDropdown()
 }
 static void recievedAck(uint8_t result, uint16_t ping)
 {
-    String messageText; // Declare 'messageText' before the if-else blocks
-
-    if (result) {
-        sending = false;
-        messageText = "Received at:" + String(watch.strftime(1)) + " " + String(module.getRSSI()) +
-                      " packet successfully sent " + String(result) +
-                      "\nPING: " + String(ping) + "\n";
-        lv_label_set_text(responseMessage, messageText.c_str());
-    } else {
-        sending = false;
-        messageText = "Received at:" + String(watch.strftime(1)) +
-                      " packet failed to send " + String(result);
-        lv_label_set_text(responseMessage, messageText.c_str());
-    }
-
-    // Send status via BLE
-    sendBLEMessage(messageText.c_str());
+    sending = false;
+    Bluetooth::getInstance()->sendAckMessage(selected, result != 0, ping);
 }
 
 static void sendDTPMessage(lv_event_t *e)
@@ -1046,20 +933,5 @@ void analogclock(lv_obj_t *parent)
 }
 
 void watchLoop() {
-    // Handle BLE connection events
-    if (!deviceConnected && oldDeviceConnected) {
-        delay(500); // Give the bluetooth stack time to get ready
-        startBLEAdvertising();
-        oldDeviceConnected = deviceConnected;
-    }
-    if (deviceConnected && !oldDeviceConnected) {
-        oldDeviceConnected = deviceConnected;
-    }
-    
-    // Update neighbor count periodically when connected
-    static uint32_t lastUpdate = 0;
-    if (deviceConnected && (millis() - lastUpdate > 5000)) {
-        updateNeighborCount();
-        lastUpdate = millis();
-    }
+    Bluetooth::getInstance()->loop();
 }
