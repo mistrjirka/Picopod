@@ -2,3 +2,4 @@ build
 .pio 
 .pioenvs
 .pioenvs/*
+lib/*
