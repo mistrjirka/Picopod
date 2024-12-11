@@ -104,6 +104,7 @@ void watchSetup()
     usbPlugIn = watch.isVbusIn();
 
     Bluetooth::initialize();
+    Bluetooth::getInstance()->setDeviceName("LoraWatch");
     Bluetooth::getInstance()->setup();
 }
 
