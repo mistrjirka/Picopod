@@ -67,6 +67,7 @@
         "watch_setup.h": "c",
         "lilygolib.h": "c",
         "spiffs.h": "c",
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "wifi.h": "c"
     }
 }
