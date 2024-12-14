@@ -36,7 +36,7 @@
             "projectEnvName": "pico",
             "toolchainBinDir": "/home/jirka/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "/home/jirka/.platformio/platforms/raspberrypi@src-ff76a3915224135aafad379817f41edd/misc/svd/rp2040.svd",
+            "svdPath": "/home/jirka/.platformio/platforms/raspberrypi/misc/svd/rp2040.svd",
             "preLaunchTask": {
                 "type": "PlatformIO",
                 "task": "Pre-Debug"
@@ -50,7 +50,7 @@
             "projectEnvName": "pico",
             "toolchainBinDir": "/home/jirka/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "/home/jirka/.platformio/platforms/raspberrypi@src-ff76a3915224135aafad379817f41edd/misc/svd/rp2040.svd"
+            "svdPath": "/home/jirka/.platformio/platforms/raspberrypi/misc/svd/rp2040.svd"
         },
         {
             "type": "platformio-debug",
@@ -60,7 +60,7 @@
             "projectEnvName": "pico",
             "toolchainBinDir": "/home/jirka/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "/home/jirka/.platformio/platforms/raspberrypi@src-ff76a3915224135aafad379817f41edd/misc/svd/rp2040.svd",
+            "svdPath": "/home/jirka/.platformio/platforms/raspberrypi/misc/svd/rp2040.svd",
             "loadMode": "manual"
         }
     ]
