@@ -85,7 +85,7 @@ void watchSetup()
         module,
         ID,
         2,
-        9,
+        8,
         125.0,
         15,
         22,
