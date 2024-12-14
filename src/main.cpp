@@ -6,7 +6,7 @@
 #include <RadioLib.h>
 #include "bluetooth.h"  // Add this include
 
-#define SPREAD_FACTOR 9
+#define SPREAD_FACTOR 8
 #define BANDWIDTH 125.0
 #define CODING_RATE 7
 #define OUTPUT_POWER 22
@@ -106,7 +106,7 @@ void setup()
     while (true)
       ;
   }
-  uint16_t id = 11;
+  uint16_t id = 12;
   uint8_t NAPInterval = 20;
   MAC::initialize(
       radio,
@@ -123,7 +123,7 @@ void setup()
 
   // Initialize Bluetooth functionality
   Bluetooth::initialize();
-  Bluetooth::getInstance()->setDeviceName("Stick1"); // Set custom name here
+  Bluetooth::getInstance()->setDeviceName("Stick2"); // Set custom name here
   Bluetooth::getInstance()->setup();
 
   // some modules have an external RF switch
@@ -140,7 +140,6 @@ void setup()
 void loop()
 {
   static int count = 0;
-  DTPK::getInstance()->loop();
   
   // Add Bluetooth loop handling
   Bluetooth::getInstance()->loop();
