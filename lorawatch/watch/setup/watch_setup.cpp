@@ -111,7 +111,6 @@ void watchSetup()
 void SensorHandler()
 {
     static int lastChecksum = 0;
-    DTPK::getInstance()->loop();
     
     // Calculate checksum of current neighbor list
     int currentChecksum = 0;
