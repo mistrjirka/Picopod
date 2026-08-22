@@ -1,9 +1,9 @@
 #include "watch_setup.h"
 #include "bluetooth.h"
-#define ID 3
-const char *ssid = "Bagr";
-const char *password = "Bagroviste";
+#include <Preferences.h>
+#include <limits.h>
 
+#define ID 3
 const char *ntpServer1 = "pool.ntp.org";
 const char *ntpServer2 = "time.nist.gov";
 
@@ -11,7 +11,6 @@ const long gmtOffset_sec = 3600;
 const int daylightOffset_sec = 3600;
 
 bool time_ready = false;
-bool wifi_turned_on = true;
 LV_IMG_DECLARE(clock_face);
 LV_IMG_DECLARE(clock_hour_hand);
 LV_IMG_DECLARE(clock_minute_hand);
@@ -43,12 +42,33 @@ LV_IMG_DECLARE(watch_if_6);
 
 LV_IMG_DECLARE(watch_if_8);
 
-SX1262 module = newModule();
+// LilyGoLib already owns and initializes the on-board SX1262. Use the same
+// object for MAC instead of constructing an undefined second radio instance.
+SX1262 &module = watch;
+
+static uint16_t nextBootSequence()
+{
+    Preferences preferences;
+    if (!preferences.begin("dtpk", false))
+    {
+        uint16_t fallback = static_cast<uint16_t>(esp_random());
+        return fallback == 0 ? 1 : fallback;
+    }
+    uint16_t sequence = preferences.getUShort("boot-seq", 0);
+    ++sequence;
+    if (sequence == 0)
+        sequence = 1;
+    preferences.putUShort("boot-seq", sequence);
+    preferences.end();
+    return sequence;
+}
+
+static void handleDTPKInbound(DTPKPacketGeneric *packet, uint16_t size);
 
 // Remove these global variables as they're now handled in Bluetooth class
 // bool deviceConnected = false;
 // bool oldDeviceConnected = false;
-uint16_t selected = -1;
+uint16_t selected = UINT16_MAX;
 
 // Remove all BLE-related classes and methods:
 // - WatchServerCallbacks class
@@ -69,10 +89,7 @@ void watchSetup()
 
     // Stop wifi
     watch.begin();
-    module.begin();
     WiFi.mode(WIFI_MODE_NULL);
-
-    btStop();
 
     setCpuFrequencyMhz(160);
 
@@ -84,14 +101,16 @@ void watchSetup()
     MAC::initialize(
         module,
         ID,
-        2,
+        MACRegion::EU868,
+        0,
         8,
-        125.0,
+        125.0f,
         15,
-        22,
+        13,
         7);
+    DTPK::initialize(20, nextBootSequence(), true);
 
-    // //Serial.println("setup MAC");
+    // //Serial.println("setup MAC/DTPK");
 
     beginLvglHelper(false);
 
@@ -104,8 +123,10 @@ void watchSetup()
     usbPlugIn = watch.isVbusIn();
 
     Bluetooth::initialize();
-    Bluetooth::getInstance()->setDeviceName("LoraWatch");
-    Bluetooth::getInstance()->setup();
+    Bluetooth::getInstance()->setDeviceName("DTPK-LoraWatch");
+    Bluetooth::getInstance()->setDTPKPacketCallback(handleDTPKInbound);
+    if (!Bluetooth::getInstance()->setup())
+        Serial.println("BLE initialization failed");
 }
 
 void SensorHandler()
@@ -534,6 +555,20 @@ void settingPMU()
 
 lv_obj_t *message;
 
+static void handleDTPKInbound(DTPKPacketGeneric *packet, uint16_t size)
+{
+    if (!message || !packet || size < sizeof(DTPKPacketGeneric))
+        return;
+    const size_t payloadSize = size - sizeof(DTPKPacketGeneric);
+    String text = "From " + String(packet->originalSender) + ": ";
+    for (size_t index = 0; index < payloadSize; ++index)
+    {
+        const char value = static_cast<char>(packet->data[index]);
+        text += (value >= 32 && value < 127) ? value : '.';
+    }
+    lv_label_set_text(message, text.c_str());
+}
+
 void updateTableDTP()
 {
 
@@ -567,68 +602,41 @@ MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, 
     }
 };
 */
-LCMM::DataReceivedCallback lcmmDataCallback = [](LCMMPacketDataReceive *packet, uint32_t size)
+static void pageAckCallback(uint8_t result, uint16_t ping)
 {
-    // Perform actions with the received packet and size
-    // For example, print the packet data to the console
-    // Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
-
-    String messageText = " Received at:" + String(watch.strftime(1)) + " " + String(module.getRSSI()) + " FROM:" + String(packet->mac.sender) + " Type: " + (packet->type == PACKET_TYPE_DATA_ACK ? "ACK" : "NOACK") + "data: " + String((char *)packet->data);
-
-    // Serial.println(messageText);
-    lv_label_set_text(message, NULL);
-
-    lv_label_set_text(message, messageText.c_str());
-    if (packet != NULL)
-    {
-        free(packet);
-        packet = NULL;
-    }
-};
-
-LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
-{
-    if (success)
-    {
-        String messageText = " Received at:" + String(watch.strftime(1)) + " " + String(module.getRSSI()) + " " + "packet succesfully sent " + String(packet) + " " + "\n PING: " + String(LCMM::getInstance()->currentPing) + " \n";
-        // Serial.println(messageText);
-        lv_label_set_text(message, NULL);
-
-        lv_label_set_text(message, messageText.c_str());
-    }
-    else
-    {
-        String messageText = " Received at:" + String(watch.strftime(1)) + " " + "packet failed to send " + String(packet);
-        // Serial.println(messageText);
-        lv_label_set_text(message, NULL);
-
-        lv_label_set_text(message, messageText.c_str());
-    }
-};
+    if (!message)
+        return;
+    String text = result != 0
+                      ? "Sent successfully, ping " + String(ping) + " ms"
+                      : "Send failed";
+    lv_label_set_text(message, text.c_str());
+}
 
 static void sendmessage(lv_event_t *e)
 {
-    static bool sending = false;
-    lv_event_code_t code = lv_event_get_code(e);
-    // //Serial.println("event detected");
-    if (!sending && code == LV_EVENT_CLICKED)
-    {
-        sending = true;
-        // Serial.println("start sending");
-        LCMM::getInstance()->sendPacketSingle(true, 2,
-                                              (unsigned char *)"This is some important data",
-                                              strlen("This is some important data") + 1, ackCallback);
-        // Serial.println("end sending");
+    static bool pageSending = false;
+    if (lv_event_get_code(e) != LV_EVENT_CLICKED || pageSending)
+        return;
 
-        sending = false;
-    }
+    const uint16_t target = selected != UINT16_MAX ? selected : 2;
+    pageSending = true;
+    const char payload[] = "This is some important data";
+    const uint16_t packetId = DTPK::getInstance()->sendPacket(
+        target,
+        reinterpret_cast<unsigned char *>(const_cast<char *>(payload)),
+        sizeof(payload) - 1,
+        60000,
+        true,
+        [](uint8_t result, uint16_t ping) {
+            pageAckCallback(result, ping);
+            pageSending = false;
+        });
+    if (packetId == 0)
+        pageSending = false;
 }
 
 static void radioSendAndReceivePage(lv_obj_t *parent)
 {
-    // MAC::getInstance()->setRXCallback(dataCallback);
-    DTPK::initialize(20);
-
     lv_obj_t *label;
     lv_obj_t *sendbutton = lv_btn_create(parent);
     lv_obj_set_pos(sendbutton, 20, 15);
@@ -762,18 +770,21 @@ void updateDropdown()
         lv_dropdown_clear_options(dd);
 
         devices.clear();
+        selected = UINT16_MAX;
 
         for (NeighborRecord tableItem : DTPK::getInstance()->getNeighbours())
         {
-            char *text = (char *)malloc(32);
+            char text[32];
             devices.push_back(tableItem.id);
-            snprintf(text, 32, "%d distance %d", tableItem.id, tableItem.distance);
-
+            snprintf(text, sizeof(text), "%d distance %d", tableItem.id, tableItem.distance);
             lv_dropdown_add_option(dd, text, LV_DROPDOWN_POS_LAST);
         }
 
-        if(DTPK::getInstance()->getNeighbours().size() > 0){
+        if (!devices.empty()) {
             lv_dropdown_set_selected(dd, 0);
+            selected = devices.front();
+        } else {
+            lv_dropdown_add_option(dd, "No devices", LV_DROPDOWN_POS_LAST);
         }
     }
     checksum = calculatedCheckSum;
@@ -781,7 +792,13 @@ void updateDropdown()
 static void recievedAck(uint8_t result, uint16_t ping)
 {
     sending = false;
-    Bluetooth::getInstance()->sendAckMessage(selected, result != 0, ping);
+    if (responseMessage)
+    {
+        String text = result != 0
+                          ? "Sent successfully, ping " + String(ping) + " ms"
+                          : "Send failed";
+        lv_label_set_text(responseMessage, text.c_str());
+    }
 }
 
 static void sendDTPMessage(lv_event_t *e)
@@ -791,7 +808,13 @@ static void sendDTPMessage(lv_event_t *e)
     {
         sending = true;
         printf("selected message %d\n", selected);
-        DTPK::getInstance()->sendPacket(selected,(unsigned char *)"This is some important data", strlen("This is some important data") + 1, 10000, true, recievedAck);
+        DTPK::getInstance()->sendPacket(
+            selected,
+            reinterpret_cast<unsigned char *>(const_cast<char *>("This is some important data")),
+            strlen("This is some important data"),
+            60000,
+            true,
+            recievedAck);
     }else if(code == LV_EVENT_CLICKED){
             lv_label_set_text(responseMessage, "Cannot send not valid value selected or already sending");
 
@@ -803,10 +826,11 @@ static void selected_device(lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     lv_obj_t *obj = lv_event_get_target(e);
-    if (code == LV_EVENT_VALUE_CHANGED)
+    if (code == LV_EVENT_VALUE_CHANGED && !devices.empty())
     {
-        selected = devices.at(lv_dropdown_get_selected(obj));
-
+        const uint16_t index = lv_dropdown_get_selected(obj);
+        if (index < devices.size())
+            selected = devices[index];
         printf("selected object: %d", selected);
     }
 }
@@ -894,12 +918,6 @@ void analogclock(lv_obj_t *parent)
 
     clockTimer = lv_timer_create([](lv_timer_t *timer)
                                  {
-                                    /*if(time_ready){
-                                        if(wifi_turned_on){
-                                            WiFi.mode(WIFI_MODE_NULL);
-                                            wifi_turned_on = false;
-                                        }*/
-
                                     struct tm timeinfo;
                                     watch.getDateTime(&timeinfo);
                                     

@@ -3,7 +3,6 @@
 #include <WiFi.h>
 #include <sntp.h>
 #include "SensorCommon.tpp"
-#include <lcmm.h>
 #include <mac.h>
 #include <DTPK.h>
 #ifdef ENABLE_IR_SENDER
