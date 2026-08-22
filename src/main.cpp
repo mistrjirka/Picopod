@@ -1,160 +1,139 @@
 #include <Arduino.h>
-#include <SPI.h>
-#include <mac.h>
-#include <lcmm.h>
-#include <DTPK.h>
+#include <Preferences.h>
 #include <RadioLib.h>
-#include "bluetooth.h"  // Add this include
+#include <SPI.h>
 
-#define SPREAD_FACTOR 8
-#define BANDWIDTH 125.0
-#define CODING_RATE 7
-#define OUTPUT_POWER 22
-#define PREAMBLE_LENGTH 8
+#include <DTPK.h>
+#include <bluetooth.h>
+#include <mac.h>
 
+namespace
+{
+constexpr uint16_t NODE_ID = 12;
+constexpr int RADIO_CS = 8;
+constexpr int RADIO_RESET = 12;
+constexpr int RADIO_DIO1 = 14;
+constexpr int RADIO_BUSY = 13;
+constexpr int RADIO_MISO = 11;
+constexpr int RADIO_MOSI = 10;
+constexpr int RADIO_SCK = 9;
+constexpr float RADIO_TCXO_VOLTAGE = 1.8f;
 
-#define LORA_DEFAULT_NSS_PIN    8
-#define LORA_DEFAULT_RESET_PIN  12
-#define LORA_DEFAULT_DIO1_PIN   14
-#define LORA_DEFAULT_BUSY_PIN   13
-// Define custom SPI pins
-#define CUSTOM_SPI_MISO 11
-#define CUSTOM_SPI_MOSI 10
-#define CUSTOM_SPI_SCK 9
-
-#define SX126X_DIO2_AS_RF_SWITCH
-#define SX126X_DIO3_TCXO_VOLTAGE 1.8
-
-//arduino::MbedSPI spiint = MbedSPI(SPI1_MISO, SPI1_MOSI, SPI1_SCLK);
-//SPISettings spiSettings(200000, MSBFIRST, SPI_MODE0);
-//LLCC68 radio = new Module(13, 9, 14, 19, spiint, spiSettings);
-SPISettings customSPISettings(200000, MSBFIRST, SPI_MODE0);
+SPIClass radioBus(FSPI);
 SX1262 radio = new Module(
-  LORA_DEFAULT_NSS_PIN, 
-  LORA_DEFAULT_DIO1_PIN, 
-  LORA_DEFAULT_RESET_PIN, 
-  LORA_DEFAULT_BUSY_PIN);
-/*
-LCMM::DataReceivedCallback dataCallback = [](LCMMPacketDataRecieve *packet, uint32_t size)
-{
-  // Perform actions with the received packet and size
-  // For example, print the packet data to the console
-  Serial.println("Received packet from " + String(packet->mac.sender) + " to " + String(packet->mac.target) + " with packet type: " + String(packet->type) + ": \n");
-  for (unsigned int i = 0; i < (int)size-sizeof(LCMMPacketDataRecieve); i++)
-  {
-    Serial.println(packet->data[i] );
-  }
-  Serial.println();
-  if (packet)
-  {
-    free(packet);
-    packet = NULL;
-  }
-};
-LCMM::AcknowledgmentCallback ackCallback = [](uint16_t packet, bool success)
-{
-  if (success)
-  {
-    Serial.println("packet succesfully sent " + packet);
-  }
-  else
-  {
-    Serial.println("packet failed to send "+ packet);
-  }
-};*/
-/*
-MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, uint32_t crcCalculated)
-{
-  // Perform actions with the received packet and size
-  // For example, print the packet data to the console
-  Serial.print("Received packet from " + String(packet->sender) + " to " + String(packet->target) + " with packet type: \n");
-  for (int i = 0; i < size; i++)
-  {
-    printf("%c \n", packet->data[i]);
-  }
-  printf("\n");
-  if (packet)
-  {
-    free(packet);
-    packet = NULL;
-  }
-};
-*/
+    RADIO_CS,
+    RADIO_DIO1,
+    RADIO_RESET,
+    RADIO_BUSY,
+    radioBus);
 
-DTPK::PacketReceivedCallback dataCallback(DTPKPacketGenericReceive *packet, size_t size)
+uint16_t nextBootSequence()
 {
-  printf("packetdata: %s", packet->data);
+    Preferences preferences;
+    if (!preferences.begin("dtpk", false))
+    {
+        uint16_t fallback = static_cast<uint16_t>(esp_random());
+        return fallback == 0 ? 1 : fallback;
+    }
+    uint16_t sequence = preferences.getUShort("boot-seq", 0);
+    ++sequence;
+    if (sequence == 0)
+        sequence = 1;
+    preferences.putUShort("boot-seq", sequence);
+    preferences.end();
+    return sequence;
 }
+
+void receivedDTPKPacket(DTPKPacketGeneric *packet, uint16_t size)
+{
+    if (!packet || size < sizeof(DTPKPacketGeneric))
+        return;
+
+    const size_t payloadSize = size - sizeof(DTPKPacketGeneric);
+    Serial.printf(
+        "DTPK message from %u (%u bytes): ",
+        packet->originalSender,
+        static_cast<unsigned>(payloadSize));
+    for (size_t index = 0; index < payloadSize; ++index)
+    {
+        const char value = static_cast<char>(packet->data[index]);
+        Serial.print(value >= 32 && value < 127 ? value : '.');
+    }
+    Serial.println();
+}
+
+[[noreturn]] void haltWithRadioError(int16_t state)
+{
+    Serial.printf("SX1262 initialization failed: %d\n", state);
+    while (true)
+        delay(1000);
+}
+} // namespace
+
 void setup()
 {
-  //customSPI.begin(CUSTOM_SPI_SCK, CUSTOM_SPI_MISO, CUSTOM_SPI_MOSI);
-  //spiint.begin();
-  Serial.begin(9600);
-  delay(5000);
-  // initialize SX1262 with default settingsRADIOLIB_SX126X_SYNC_WORD_PRIVATE
-  Serial.print(F("[SX1262] Initializing ... "));
-  int state = radio.begin(433.30, 125.0, 9, 7, RADIOLIB_SX126X_SYNC_WORD_PRIVATE, 10, 8, SX126X_DIO3_TCXO_VOLTAGE);
+    Serial.begin(115200);
+    delay(500);
 
-  if (state == RADIOLIB_ERR_NONE)
-  {
-    Serial.println(F("success!"));
-  }
-  else
-  {
-    Serial.print(F("failed, code "));
-    Serial.println(state);
-    while (true)
-      ;
-  }
-  uint16_t id = 12;
-  uint8_t NAPInterval = 20;
-  MAC::initialize(
-      radio,
-      id,
-      2,
-      SPREAD_FACTOR,
-      BANDWIDTH,
-      15,
-      OUTPUT_POWER,
-      CODING_RATE);
-  DTPK::initialize(NAPInterval);
-  //MAC::getInstance()->setRXCallback(dataCallback);
-  Serial.print(F("After init"));
+    // Wireless Stick Lite V3 wiring: SCK9/MISO11/MOSI10, NSS8, RST12,
+    // DIO1 14, BUSY13. DIO2 controls the on-board RF switch and DIO3 the
+    // 1.8 V TCXO through RadioLib's SX1262 initialization.
+    radioBus.begin(RADIO_SCK, RADIO_MISO, RADIO_MOSI, RADIO_CS);
+    const int16_t state = radio.begin(
+        868.100f,
+        125.0f,
+        9,
+        7,
+        RADIOLIB_SX126X_SYNC_WORD_PRIVATE,
+        13,
+        8,
+        RADIO_TCXO_VOLTAGE,
+        false);
+    if (state != RADIOLIB_ERR_NONE)
+        haltWithRadioError(state);
 
-  // Initialize Bluetooth functionality
-  Bluetooth::initialize();
-  Bluetooth::getInstance()->setDeviceName("Stick2"); // Set custom name here
-  Bluetooth::getInstance()->setup();
+    MAC::initialize(
+        radio,
+        NODE_ID,
+        MACRegion::EU868,
+        0,
+        9,
+        125.0f,
+        15,
+        13,
+        7);
+    DTPK::initialize(20, nextBootSequence(), false);
 
-  // some modules have an external RF switch
-  // controlled via two pins (RX enable, TX enable)
-  // to enable automatic control of the switch,
-  // call the following method
-  // RX enable:   4
-  // TX enable:   5
-  /*
-    radio.setRfSwitchPins(4, 5);
-  */
+    Bluetooth::initialize();
+    Bluetooth *bluetooth = Bluetooth::getInstance();
+    bluetooth->setDeviceName("DTPK-StickLiteV3");
+    bluetooth->setDTPKPacketCallback(receivedDTPKPacket);
+    if (!bluetooth->setup())
+        Serial.println("BLE initialization failed");
+
+    Serial.printf("DTPK v3 node %u ready on EU868\n", NODE_ID);
 }
 
 void loop()
 {
-  static int count = 0;
-  
-  // Add Bluetooth loop handling
-  Bluetooth::getInstance()->loop();
+    Bluetooth::getInstance()->loop();
 
-  if (count++ % 10000 == 0){
-    vector<NeighborRecord> neighbors = DTPK::getInstance()->getNeighbours();
-
-    for (int i = 0; i < neighbors.size(); i++)
+    static uint32_t lastPrint = 0;
+    const uint32_t now = millis();
+    if (static_cast<uint32_t>(now - lastPrint) >= 5000u)
     {
-      printf("Neighbor %d: id: %d, distance: %d, from: %d\n", i, neighbors[i].id, neighbors[i].distance, neighbors[i].from);
-      Serial.println("Neighbor " + String(i) + ": target: " + String(neighbors[i].id) + ", distance: " + String(neighbors[i].distance) + ", through: " + String(neighbors[i].from) + "\n");
+        lastPrint = now;
+        const std::vector<NeighborRecord> neighbors =
+            DTPK::getInstance()->getNeighbours();
+        Serial.printf("Routes: %u\n", static_cast<unsigned>(neighbors.size()));
+        for (const NeighborRecord &neighbor : neighbors)
+        {
+            Serial.printf(
+                "  destination=%u next=%u distance=%u\n",
+                neighbor.id,
+                neighbor.from,
+                neighbor.distance);
+        }
     }
-    //LCMM::getInstance()->sendPacketSingle(true, 2, (unsigned char *)"hello there general kenobi shit sda", strlen("hello there general kenobi shit sda") + 1, ackCallback);
-    //MAC::getInstance()->sendData(2, (unsigned char *)"hello there general kenobi shit sda", strlen("hello there general kenobi shit sda") + 1, false);
-  }
-  // wait for a second before transmitting again
-  delay(1);
+    delay(1);
 }

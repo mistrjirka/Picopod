@@ -3,3 +3,4 @@ build
 .pioenvs
 .pioenvs/*
 lib/*
+!lib/DTProtocol
