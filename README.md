@@ -5,8 +5,9 @@ T-Watch S3, Heltec Wireless Stick Lite V3, and a custom RP2040 board.
 
 ## Build and flash from Arch Linux
 
-The local browser UI selects the device type, node ID, upload port, and optional
-debug echo mode:
+The localhost browser UI selects the device type, node ID, upload port,
+Build-only/Flash action, and optional debug echo mode. It streams bounded logs
+and can cancel the active PlatformIO process:
 
 ```bash
 sudo pacman -S --needed git python

@@ -20,7 +20,9 @@ from pathlib import Path
 import queue
 import re
 import secrets
+import shlex
 import shutil
+import signal
 import subprocess
 import sys
 import threading
@@ -40,6 +42,7 @@ DEFAULT_REPOSITORY = "https://github.com/mistrjirka/Picopod.git"
 DEFAULT_SUFFIX = " [echo]"
 MAX_SUFFIX_BYTES = 64
 MAX_LOG_LINES = 6000
+TERMINAL_JOB_STATES = {"succeeded", "failed", "cancelled"}
 
 
 @dataclasses.dataclass(frozen=True)
@@ -84,11 +87,19 @@ class UserInputError(ValueError):
     pass
 
 
+class JobCancelled(RuntimeError):
+    pass
+
+
 def validate_node_id(value: Any) -> int:
-    try:
-        node_id = int(value)
-    except (TypeError, ValueError) as exc:
-        raise UserInputError("Node ID must be an integer from 1 to 65535.") from exc
+    if isinstance(value, bool):
+        raise UserInputError("Node ID must be an integer from 1 to 65535.")
+    if isinstance(value, int):
+        node_id = value
+    elif isinstance(value, str) and re.fullmatch(r"[0-9]+", value.strip()):
+        node_id = int(value.strip(), 10)
+    else:
+        raise UserInputError("Node ID must be an integer from 1 to 65535.")
     if not 1 <= node_id <= 65535:
         raise UserInputError("Node ID 0 is broadcast; choose a unique ID from 1 to 65535.")
     return node_id
@@ -96,9 +107,12 @@ def validate_node_id(value: Any) -> int:
 
 def validate_suffix(value: Any, debug_echo: bool) -> str:
     suffix = str(value if value is not None else DEFAULT_SUFFIX)
-    encoded = suffix.encode("utf-8")
+    try:
+        encoded = suffix.encode("utf-8")
+    except UnicodeEncodeError as exc:
+        raise UserInputError("The echo suffix must be valid UTF-8 text.") from exc
     if debug_echo and not encoded:
-        raise UserInputError("Debug echo needs a non-empty suffix to prevent echo loops.")
+        raise UserInputError("Debug echo needs a non-empty suffix.")
     if b"\x00" in encoded:
         raise UserInputError("The echo suffix cannot contain a NUL byte.")
     if len(encoded) > MAX_SUFFIX_BYTES:
@@ -112,17 +126,32 @@ def validate_upload_port(value: Any) -> str:
     port = str(value or "").strip()
     if not port or port == "auto":
         return ""
-    if len(port) > 240 or "\x00" in port or "\n" in port or "\r" in port:
+    if len(port) > 240 or any(ord(char) < 32 or ord(char) == 127 for char in port):
         raise UserInputError("Invalid upload-port value.")
-    if os.name == "posix" and not port.startswith("/dev/"):
-        raise UserInputError("On Linux, an explicit upload port must be under /dev/.")
+    if os.name == "posix":
+        allowed = re.fullmatch(
+            r"/dev/(?:tty(?:ACM|USB|S)[0-9]+|cu\.[A-Za-z0-9._-]+|serial/by-id/[A-Za-z0-9._:+-]+)",
+            port,
+        )
+        if not allowed or os.path.normpath(port) != port:
+            raise UserInputError(
+                "On Linux, choose an enumerated /dev/tty*, /dev/cu.* or /dev/serial/by-id port."
+            )
     return port
 
 
-def parse_bool(value: Any) -> bool:
+def parse_bool(value: Any, field_name: str) -> bool:
     if isinstance(value, bool):
         return value
-    return str(value).strip().lower() in {"1", "true", "yes", "on"}
+    if isinstance(value, int) and not isinstance(value, bool) and value in (0, 1):
+        return bool(value)
+    if isinstance(value, str):
+        normalized = value.strip().lower()
+        if normalized in {"1", "true", "yes", "on"}:
+            return True
+        if normalized in {"0", "false", "no", "off"}:
+            return False
+    raise UserInputError(f"{field_name} must be a boolean.")
 
 
 def find_pio(explicit: str | None = None) -> str:
@@ -165,7 +194,7 @@ def run_checked(command: list[str], cwd: Path | None = None) -> str:
     )
     if completed.returncode != 0:
         raise RuntimeError(
-            f"Command failed ({completed.returncode}): {' '.join(command)}\n{completed.stdout}"
+            f"Command failed ({completed.returncode}): {shlex.join(command)}\n{completed.stdout}"
         )
     return completed.stdout
 
@@ -223,13 +252,22 @@ class BuildRequest:
 
     @classmethod
     def from_json(cls, payload: dict[str, Any]) -> "BuildRequest":
+        allowed_fields = {
+            "device", "node_id", "debug_echo", "suffix",
+            "action", "upload_port", "clean",
+        }
+        unknown_fields = sorted(set(payload) - allowed_fields)
+        if unknown_fields:
+            raise UserInputError(
+                "Unknown request field(s): " + ", ".join(unknown_fields)
+            )
         device_key = str(payload.get("device", ""))
         if device_key not in DEVICES:
             raise UserInputError("Unknown device type.")
         action = str(payload.get("action", "flash"))
         if action not in {"build", "flash"}:
             raise UserInputError("Action must be build or flash.")
-        debug_echo = parse_bool(payload.get("debug_echo", False))
+        debug_echo = parse_bool(payload.get("debug_echo", False), "debug_echo")
         return cls(
             device=DEVICES[device_key],
             node_id=validate_node_id(payload.get("node_id")),
@@ -237,7 +275,7 @@ class BuildRequest:
             suffix=validate_suffix(payload.get("suffix", DEFAULT_SUFFIX), debug_echo),
             action=action,
             upload_port=validate_upload_port(payload.get("upload_port", "")),
-            clean=parse_bool(payload.get("clean", False)),
+            clean=parse_bool(payload.get("clean", False), "clean"),
         )
 
     def environment(self) -> dict[str, str]:
@@ -311,8 +349,6 @@ class WorkspaceManager:
                     "-ffd",
                     "-e",
                     ".pio/",
-                    "-e",
-                    "include/PicopodGeneratedConfig.h",
                 ]
             )
         else:
@@ -337,6 +373,11 @@ class WorkspaceManager:
                 "--recursive",
             ]
         )
+        for generated in (
+            worktree / "include" / "PicopodGeneratedConfig.h",
+            worktree / "include" / "PicopodGeneratedConfig.tmp",
+        ):
+            generated.unlink(missing_ok=True)
         return worktree, commit
 
 
@@ -360,24 +401,68 @@ class BuildJob:
         self.commit: str | None = None
         self.artifact: str | None = None
         self._logs: list[str] = []
+        self._log_base = 0
         self._lock = threading.Lock()
+        self._process_lock = threading.Lock()
+        self._process: subprocess.Popen[str] | None = None
+        self._cancel_requested = threading.Event()
         self._thread = threading.Thread(target=self._run, daemon=True)
 
     def log(self, line: str) -> None:
         normalized = line.rstrip("\r\n")
         with self._lock:
             self._logs.append(normalized)
-            if len(self._logs) > MAX_LOG_LINES:
-                del self._logs[: len(self._logs) - MAX_LOG_LINES]
+            excess = len(self._logs) - MAX_LOG_LINES
+            if excess > 0:
+                del self._logs[:excess]
+                self._log_base += excess
 
     def start(self) -> None:
         self._thread.start()
 
+    def cancel(self) -> None:
+        self._cancel_requested.set()
+        with self._process_lock:
+            process = self._process
+        if process is None or process.poll() is not None:
+            return
+        try:
+            if os.name == "posix":
+                os.killpg(process.pid, signal.SIGTERM)
+            else:  # pragma: no cover - supported deployment is Arch Linux
+                process.terminate()
+        except (OSError, ProcessLookupError):
+            return
+
+        def force_kill_if_needed() -> None:
+            try:
+                process.wait(timeout=3)
+                return
+            except subprocess.TimeoutExpired:
+                pass
+            try:
+                if os.name == "posix":
+                    os.killpg(process.pid, signal.SIGKILL)
+                else:  # pragma: no cover
+                    process.kill()
+            except (OSError, ProcessLookupError):
+                pass
+
+        threading.Thread(target=force_kill_if_needed, daemon=True).start()
+
+    def _check_cancelled(self) -> None:
+        if self._cancel_requested.is_set():
+            raise JobCancelled("Cancelled by user.")
+
     def snapshot(self, offset: int = 0) -> dict[str, Any]:
         with self._lock:
-            safe_offset = max(0, min(int(offset), len(self._logs)))
-            logs = self._logs[safe_offset:]
-            next_offset = len(self._logs)
+            requested = max(0, int(offset))
+            first_available = self._log_base
+            last_available = first_available + len(self._logs)
+            log_reset = requested < first_available
+            start = 0 if log_reset else min(requested - first_available, len(self._logs))
+            logs = self._logs[start:]
+            next_offset = last_available
         return {
             "id": self.identifier,
             "state": self.state,
@@ -389,11 +474,13 @@ class BuildJob:
             "commit": self.commit,
             "artifact": self.artifact,
             "logs": logs,
+            "log_reset": log_reset,
             "next_offset": next_offset,
         }
 
     def _stream(self, command: list[str], cwd: Path, environment: dict[str, str]) -> int:
-        self.log("$ " + " ".join(command))
+        self._check_cancelled()
+        self.log("$ " + shlex.join(command))
         process = subprocess.Popen(
             command,
             cwd=str(cwd),
@@ -402,11 +489,21 @@ class BuildJob:
             stderr=subprocess.STDOUT,
             text=True,
             bufsize=1,
+            start_new_session=os.name == "posix",
         )
-        assert process.stdout is not None
-        for line in process.stdout:
-            self.log(line)
-        return process.wait()
+        with self._process_lock:
+            self._process = process
+        try:
+            assert process.stdout is not None
+            for line in process.stdout:
+                self.log(line)
+            code = process.wait()
+        finally:
+            with self._process_lock:
+                if self._process is process:
+                    self._process = None
+        self._check_cancelled()
+        return code
 
     def _run(self) -> None:
         self.state = "preparing"
@@ -414,6 +511,11 @@ class BuildJob:
         try:
             with self.workspace_manager.operation_lock():
                 self._run_locked()
+        except JobCancelled as exc:
+            self.error = str(exc)
+            self.log(str(exc))
+            self.state = "cancelled"
+            self.exit_code = 130
         except Exception as exc:  # surfaced verbatim in the local UI
             self.error = str(exc)
             self.log("ERROR: " + str(exc))
@@ -424,47 +526,66 @@ class BuildJob:
             self.finished_at = time.time()
 
     def _run_locked(self) -> None:
+        self._check_cancelled()
         worktree, commit = self.workspace_manager.prepare(self.request.device, self.log)
         self.commit = commit
         environment = self.request.environment()
-        self.log(
-            f"Configuration: device={self.request.device.label}, node={self.request.node_id}, "
-            f"debug_echo={'on' if self.request.debug_echo else 'off'}"
-        )
-        if self.request.debug_echo:
-            self.log(f"Echo suffix: {self.request.suffix!r}")
-        if self.request.clean:
-            self.state = "cleaning"
-            code = self._stream(
-                [self.pio, "run", "-e", self.request.device.environment, "-t", "clean"],
-                worktree,
-                environment,
-            )
-            if code != 0:
-                raise RuntimeError(f"PlatformIO clean failed with exit code {code}.")
-
-        self.state = "building" if self.request.action == "build" else "flashing"
-        command = [self.pio, "run", "-e", self.request.device.environment]
-        if self.request.action == "flash":
-            command.extend(["-t", "upload"])
-            if self.request.upload_port:
-                command.extend(["--upload-port", self.request.upload_port])
-        code = self._stream(command, worktree, environment)
-        self.exit_code = code
-        if code != 0:
-            raise RuntimeError(f"PlatformIO exited with status {code}.")
-
+        generated = worktree / "include" / "PicopodGeneratedConfig.h"
+        generated_tmp = worktree / "include" / "PicopodGeneratedConfig.tmp"
+        generated.unlink(missing_ok=True)
+        generated_tmp.unlink(missing_ok=True)
         build_dir = worktree / ".pio" / "build" / self.request.device.environment
-        candidates = [
+        for stale_artifact in (
             build_dir / "firmware.bin",
             build_dir / "firmware.uf2",
             build_dir / "firmware.elf",
-        ]
-        artifact = next((candidate for candidate in candidates if candidate.exists()), None)
-        if artifact:
-            self.artifact = str(artifact)
-            self.log(f"Built artifact: {artifact} ({artifact.stat().st_size} bytes)")
-        self.state = "succeeded"
+        ):
+            stale_artifact.unlink(missing_ok=True)
+        try:
+            self.log(
+                f"Configuration: device={self.request.device.label}, node={self.request.node_id}, "
+                f"debug_echo={'on' if self.request.debug_echo else 'off'}"
+            )
+            if self.request.debug_echo:
+                self.log(
+                    f"Echo suffix: {len(self.request.suffix.encode('utf-8'))} UTF-8 bytes"
+                )
+            self._check_cancelled()
+            if self.request.clean:
+                self.state = "cleaning"
+                code = self._stream(
+                    [self.pio, "run", "-e", self.request.device.environment, "-t", "clean"],
+                    worktree,
+                    environment,
+                )
+                if code != 0:
+                    raise RuntimeError(f"PlatformIO clean failed with exit code {code}.")
+
+            self._check_cancelled()
+            self.state = "building" if self.request.action == "build" else "flashing"
+            command = [self.pio, "run", "-e", self.request.device.environment]
+            if self.request.action == "flash":
+                command.extend(["-t", "upload"])
+                if self.request.upload_port:
+                    command.extend(["--upload-port", self.request.upload_port])
+            code = self._stream(command, worktree, environment)
+            self.exit_code = code
+            if code != 0:
+                raise RuntimeError(f"PlatformIO exited with status {code}.")
+
+            candidates = [
+                build_dir / "firmware.bin",
+                build_dir / "firmware.uf2",
+                build_dir / "firmware.elf",
+            ]
+            artifact = next((candidate for candidate in candidates if candidate.exists()), None)
+            if artifact:
+                self.artifact = str(artifact)
+                self.log(f"Built artifact: {artifact} ({artifact.stat().st_size} bytes)")
+            self.state = "succeeded"
+        finally:
+            generated.unlink(missing_ok=True)
+            generated_tmp.unlink(missing_ok=True)
 
 
 class JobManager:
@@ -476,11 +597,19 @@ class JobManager:
 
     def start(self, request: BuildRequest) -> BuildJob:
         with self._lock:
-            if self._current and self._current.state not in {"succeeded", "failed"}:
+            if self._current and self._current.state not in TERMINAL_JOB_STATES:
                 raise UserInputError("Another build or flash operation is still running.")
             self._current = BuildJob(request, self.workspace_manager, self.pio)
             self._current.start()
             return self._current
+
+    def cancel(self) -> BuildJob:
+        with self._lock:
+            if not self._current or self._current.state in TERMINAL_JOB_STATES:
+                raise UserInputError("There is no active build or flash operation.")
+            job = self._current
+            job.cancel()
+            return job
 
     def current(self) -> BuildJob | None:
         with self._lock:
@@ -505,7 +634,7 @@ label { display: block; font-weight: 650; margin-bottom: 5px; }
 input, select, button { box-sizing: border-box; width: 100%; font: inherit; border-radius: 9px; border: 1px solid #3a4b67; background: #0b1526; color: #eef5ff; padding: 10px; }
 input[type=checkbox] { width: auto; margin-right: 8px; }
 .inline { display: flex; align-items: center; min-height: 42px; }
-.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.actions { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
 button { cursor: pointer; border: 0; background: #3f7ee8; font-weight: 700; }
 button.secondary { background: #34445d; }
 button:disabled { opacity: .55; cursor: progress; }
@@ -531,7 +660,7 @@ pre { white-space: pre-wrap; word-break: break-word; background: #07101e; border
 <label for="suffix">Echo suffix</label><input id="suffix" value=" [echo]" maxlength="64"><small>Maximum 64 UTF-8 bytes; the uploader validates this exactly.</small>
 </div>
 <div class="card actions">
-<button id="build" class="secondary">Build only</button><button id="flash">Build and flash</button>
+<button id="build" class="secondary">Build only</button><button id="flash">Build and flash</button><button id="cancel" class="secondary" disabled>Cancel</button>
 </div>
 <div class="card">
 <div id="status">Ready</div>
@@ -553,6 +682,7 @@ const statusEl = document.getElementById('status');
 const commitEl = document.getElementById('commit');
 const logEl = document.getElementById('log');
 const buttons = [document.getElementById('build'), document.getElementById('flash')];
+const cancelButton = document.getElementById('cancel');
 let logOffset = 0;
 for (const item of devices) {
   const option = document.createElement('option'); option.value = item.key; option.textContent = item.label; device.appendChild(option);
@@ -574,7 +704,7 @@ async function refreshPorts() {
   } catch (error) { console.warn(error); }
 }
 refreshPorts();
-function setBusy(value) { for (const button of buttons) button.disabled = value; }
+function setBusy(value) { for (const button of buttons) button.disabled = value; cancelButton.disabled = !value; }
 async function start(action) {
   logEl.textContent=''; logOffset=0; commitEl.textContent=''; setBusy(true); statusEl.className=''; statusEl.textContent='Starting…';
   try {
@@ -585,15 +715,23 @@ async function start(action) {
 async function poll() {
   try {
     const data = await api(`/api/status?offset=${logOffset}`); logOffset=data.next_offset;
+    if (data.log_reset) logEl.textContent='';
     if (data.logs.length) { logEl.textContent += data.logs.join('\n') + '\n'; logEl.scrollTop=logEl.scrollHeight; }
     statusEl.textContent = data.state; commitEl.textContent = data.commit ? `Source commit ${data.commit}` : '';
     if (data.state === 'succeeded') { statusEl.className='success'; setBusy(false); return; }
     if (data.state === 'failed') { statusEl.className='failure'; if(data.error) statusEl.textContent=`Failed: ${data.error}`; setBusy(false); return; }
+    if (data.state === 'cancelled') { statusEl.className='warning'; statusEl.textContent='Cancelled'; setBusy(false); return; }
     setTimeout(poll, 600);
   } catch (error) { statusEl.textContent=error.message; statusEl.className='failure'; setBusy(false); }
 }
+async function cancelJob() {
+  cancelButton.disabled=true;
+  try { await api('/api/cancel', {method:'POST', body:'{}'}); statusEl.textContent='Cancelling…'; }
+  catch (error) { statusEl.textContent=error.message; statusEl.className='failure'; }
+}
 document.getElementById('build').addEventListener('click', () => start('build'));
 document.getElementById('flash').addEventListener('click', () => start('flash'));
+cancelButton.addEventListener('click', cancelJob);
 </script></body></html>"""
 
 
@@ -683,10 +821,19 @@ class RequestHandler(BaseHTTPRequestHandler):
         if not self._authorized():
             self._error("Unauthorized local request.", HTTPStatus.FORBIDDEN)
             return
+        if parsed.path == "/api/cancel":
+            try:
+                job = self.app.manager.cancel()
+                self._json({"job_id": job.identifier, "state": "cancelling"})
+            except UserInputError as exc:
+                self._error(str(exc))
+            return
         if parsed.path != "/api/start":
             self._error("Not found.", HTTPStatus.NOT_FOUND)
             return
         try:
+            if self.headers.get_content_type() != "application/json":
+                raise UserInputError("Content-Type must be application/json.")
             length = int(self.headers.get("Content-Length", "0"))
             if length <= 0 or length > 16384:
                 raise UserInputError("Invalid request size.")
