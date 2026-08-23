@@ -9,8 +9,6 @@
 #pragma once
 
 #include <Arduino.h>
-#include <SPIFFS.h>
-#include <FS.h>
 #include <Wire.h>
 #include <TFT_eSPI.h>
 #include <lvgl.h>
@@ -46,11 +44,6 @@
 #if LV_SPRINTF_USE_FLOAT != 1
 #warning "Lvgl floating point support is not enabled, and some examples may not be available"
 #endif
-
-#if LV_USE_FS_POSIX != 1 || LV_FS_POSIX_LETTER != 'A'
-#warning "Lvgl fs mismatch, may not be able to use fs function"
-#endif
-
 
 #ifdef I2C_SDA
 #undef I2C_SDA
@@ -116,13 +109,12 @@ public:
     void attachPMU(void (*cb)(void));
     void attachBMA(void(*cb)(void));
     void attachRTC(void(*cb)(void));
-    void nonBlockingDelay(u_int32_t milsec);
 
     void setBrightness(uint8_t level);
     uint8_t getBrightness();
 
-    void decrementBrightness(uint8_t target_level, uint32_t delay_ms = 5);
-    void incrementalBrightness(uint8_t target_level, uint32_t delay_ms = 5);
+    void decrementBrightness(uint8_t target_level);
+    void incrementalBrightness(uint8_t target_level);
 
     uint16_t readBMA();
     uint64_t readPMU();

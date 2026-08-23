@@ -1,52 +1,142 @@
 #include "watch_setup.h"
-#include "bluetooth.h"
+
+#include <Arduino.h>
 #include <Preferences.h>
-#include <limits.h>
+#include <algorithm>
+#include <array>
+#include <atomic>
+#include <climits>
+#include <cstdio>
+#include <cstring>
+#include <string>
+#include <vector>
 
-#define ID 3
-const char *ntpServer1 = "pool.ntp.org";
-const char *ntpServer2 = "time.nist.gov";
+#include <DTPK.h>
+#include <LV_Helper.h>
+#include <LilyGoLib.h>
+#include <bluetooth.h>
+#include <mac.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/queue.h>
 
-const long gmtOffset_sec = 3600;
-const int daylightOffset_sec = 3600;
+namespace
+{
+constexpr uint16_t NODE_ID = 3;
+constexpr uint8_t RADIO_CHANNEL = 0;
+constexpr uint8_t RADIO_SF = 9;
+constexpr float RADIO_BANDWIDTH_KHZ = 125.0f;
+constexpr int8_t RADIO_SQUELCH_DB = 15;
+constexpr int8_t RADIO_POWER_DBM = 13;
+constexpr uint8_t RADIO_CODING_RATE = 7;
+constexpr uint32_t ROUTE_REFRESH_MS = 1000;
+constexpr uint32_t SENSOR_REFRESH_MS = 1000;
+constexpr uint32_t DIAGNOSTIC_REFRESH_MS = 2000;
+constexpr uint32_t DISPLAY_OFF_SERVICE_MS = 50;
+constexpr uint8_t SETTINGS_BRIGHTNESS_MIN = 5;
+constexpr size_t MAX_UI_MESSAGE_BYTES = 112;
+constexpr size_t MAX_TABLE_ROUTES = 32;
 
-bool time_ready = false;
-LV_IMG_DECLARE(clock_face);
-LV_IMG_DECLARE(clock_hour_hand);
-LV_IMG_DECLARE(clock_minute_hand);
-LV_IMG_DECLARE(clock_second_hand);
+constexpr std::array<uint32_t, 5> SCREEN_TIMEOUTS = {
+    30000u, 60000u, 120000u, 300000u, UINT32_MAX};
+constexpr std::array<const char *, 5> QUICK_MESSAGES = {
+    "Hello", "OK", "Need help", "Where are you?", "I am safe"};
 
-LV_IMG_DECLARE(watch_if);
-LV_IMG_DECLARE(watch_bg);
-LV_IMG_DECLARE(watch_if_hour);
-LV_IMG_DECLARE(watch_if_min);
-LV_IMG_DECLARE(watch_if_sec);
+SX1262 &radio = watch;
 
-LV_IMG_DECLARE(watch_if_bg2);
-LV_IMG_DECLARE(watch_if_hour2);
-LV_IMG_DECLARE(watch_if_min2);
-LV_IMG_DECLARE(watch_if_sec2);
+struct UiEvent
+{
+    enum class Type : uint8_t
+    {
+        Incoming,
+        SendResult,
+        System
+    } type = Type::System;
+    uint16_t sender = 0;
+    uint16_t ping = 0;
+    bool success = false;
+    char text[MAX_UI_MESSAGE_BYTES]{};
+};
 
-LV_FONT_DECLARE(font_siegra);
-LV_FONT_DECLARE(font_sandbox);
-LV_FONT_DECLARE(font_jetBrainsMono);
-LV_FONT_DECLARE(font_firacode_60);
-LV_FONT_DECLARE(font_ununtu_18);
+struct AppSettings
+{
+    uint8_t brightness = 55;
+    uint8_t timeoutIndex = 2;
+    bool haptic = true;
+};
 
-LV_IMG_DECLARE(img_usb_plug);
+QueueHandle_t uiQueue = nullptr;
+std::atomic<bool> wakeRequested{false};
+portMUX_TYPE irqMux = portMUX_INITIALIZER_UNLOCKED;
+volatile bool pmuIrq = false;
+volatile bool motionIrq = false;
 
-LV_IMG_DECLARE(charge_done_battery);
+AppSettings settings;
+bool displayOn = true;
+bool usbConnected = false;
+bool sending = false;
+uint32_t lastRouteRefresh = 0;
+uint32_t lastSensorRefresh = 0;
+uint32_t lastDiagnosticRefresh = 0;
+uint32_t lastDisplayService = 0;
+bool settingsDirty = false;
+uint32_t settingsSaveAt = 0;
+uint32_t stepCount = 0;
+uint16_t selectedTarget = UINT16_MAX;
+uint8_t selectedQuickMessage = 0;
+std::vector<NeighborRecord> routes;
 
-LV_IMG_DECLARE(watch_if_5);
-LV_IMG_DECLARE(watch_if_6);
+lv_obj_t *tileview = nullptr;
+lv_obj_t *homeTime = nullptr;
+lv_obj_t *homeDate = nullptr;
+lv_obj_t *homeStatus = nullptr;
+lv_obj_t *homeMetrics = nullptr;
+lv_obj_t *homeEvent = nullptr;
+lv_obj_t *targetDropdown = nullptr;
+lv_obj_t *quickMessageDropdown = nullptr;
+lv_obj_t *sendButton = nullptr;
+lv_obj_t *sendStatus = nullptr;
+lv_obj_t *inboxLabel = nullptr;
+lv_obj_t *meshSummary = nullptr;
+lv_obj_t *meshTable = nullptr;
+lv_obj_t *scanButton = nullptr;
+lv_obj_t *scanStatus = nullptr;
+lv_obj_t *brightnessSlider = nullptr;
+lv_obj_t *brightnessValue = nullptr;
+lv_obj_t *timeoutDropdown = nullptr;
+lv_obj_t *hapticSwitch = nullptr;
+lv_obj_t *diagnosticLabel = nullptr;
 
-LV_IMG_DECLARE(watch_if_8);
+lv_style_t pageStyle;
+lv_style_t cardStyle;
+lv_style_t titleStyle;
+lv_style_t primaryButtonStyle;
 
-// LilyGoLib already owns and initializes the on-board SX1262. Use the same
-// object for MAC instead of constructing an undefined second radio instance.
-SX1262 &module = watch;
+bool routeLess(const NeighborRecord &left, const NeighborRecord &right)
+{
+    if (left.id != right.id)
+        return left.id < right.id;
+    if (left.distance != right.distance)
+        return left.distance < right.distance;
+    return left.from < right.from;
+}
 
-static uint16_t nextBootSequence()
+bool routesEqual(
+    const std::vector<NeighborRecord> &left,
+    const std::vector<NeighborRecord> &right)
+{
+    if (left.size() != right.size())
+        return false;
+    for (size_t index = 0; index < left.size(); ++index)
+    {
+        if (left[index].id != right[index].id ||
+            left[index].from != right[index].from ||
+            left[index].distance != right[index].distance)
+            return false;
+    }
+    return true;
+}
+
+uint16_t nextBootSequence()
 {
     Preferences preferences;
     if (!preferences.begin("dtpk", false))
@@ -55,7 +145,7 @@ static uint16_t nextBootSequence()
         return fallback == 0 ? 1 : fallback;
     }
     uint16_t sequence = preferences.getUShort("boot-seq", 0);
-    ++sequence;
+    sequence = static_cast<uint16_t>(sequence + 1u);
     if (sequence == 0)
         sequence = 1;
     preferences.putUShort("boot-seq", sequence);
@@ -63,893 +153,876 @@ static uint16_t nextBootSequence()
     return sequence;
 }
 
-static void handleDTPKInbound(DTPKPacketGeneric *packet, uint16_t size);
-
-// Remove these global variables as they're now handled in Bluetooth class
-// bool deviceConnected = false;
-// bool oldDeviceConnected = false;
-uint16_t selected = UINT16_MAX;
-
-// Remove all BLE-related classes and methods:
-// - WatchServerCallbacks class
-// - MsgCharacteristicCallbacks class 
-// - setupBLE()
-// - startBLEAdvertising()
-// - stopBLEAdvertising()
-// - updateNeighborCount()
-// - sendBLEOutboundMessage()
-// - sendBLEInboundMessage()
-// - sendBLEAckMessage()
-// - sendBLENeighborsUpdate()
-// - sendBLEMessage()
-
-void watchSetup()
+void loadSettings()
 {
-    // Serial.begin(115200);
-
-    // Stop wifi
-    watch.begin();
-    WiFi.mode(WIFI_MODE_NULL);
-
-    setCpuFrequencyMhz(160);
-
-    settingPMU();
-
-    settingSensor();
-
-
-    MAC::initialize(
-        module,
-        ID,
-        MACRegion::EU868,
-        0,
-        8,
-        125.0f,
-        15,
-        13,
-        7);
-    DTPK::initialize(20, nextBootSequence(), true);
-
-    // //Serial.println("setup MAC/DTPK");
-
-    beginLvglHelper(false);
-
-    settingButtonStyle();
-
-    factory_ui();
-
-    //synchronize();
-
-    usbPlugIn = watch.isVbusIn();
-
-    Bluetooth::initialize();
-    Bluetooth::getInstance()->setDeviceName("DTPK-LoraWatch");
-    Bluetooth::getInstance()->setDTPKPacketCallback(handleDTPKInbound);
-    if (!Bluetooth::getInstance()->setup())
-        Serial.println("BLE initialization failed");
-}
-
-void SensorHandler()
-{
-    static int lastChecksum = 0;
-    
-    // Calculate checksum of current neighbor list
-    int currentChecksum = 0;
-    for (const auto& neighbor : DTPK::getInstance()->getNeighbours()) {
-        currentChecksum += neighbor.id * neighbor.distance;
-    }
-    
-    // Update BLE neighbors if changed
-    if (currentChecksum != lastChecksum) {
-        Bluetooth::getInstance()->sendNeighborsUpdate();
-        lastChecksum = currentChecksum;
-    }
-
-    updateDropdown();
-
-    if (sportsIrq)
-    {
-        sportsIrq = false;
-        // The interrupt status must be read after an interrupt is detected
-        uint16_t status = watch.readBMA();
-        // //Serial.printf("Accelerometer interrupt mask : 0x%x\n", status);
-
-        if (watch.isPedometer())
-        {
-            stepCounter = watch.getPedometerCounter();
-            // //Serial.printf("Step count interrupt,step Counter:%u\n", stepCounter);
-        }
-        if (watch.isActivity())
-        {
-            // //Serial.println("Activity interrupt");
-        }
-        if (watch.isTilt())
-        {
-            // //Serial.println("Tilt interrupt");
-        }
-        if (watch.isDoubleTap())
-        {
-            // //Serial.println("DoubleTap interrupt");
-        }
-        if (watch.isAnyNoMotion())
-        {
-            // //Serial.println("Any motion / no motion interrupt");
-        }
-    }
-    updateTableDTP();
-}
-
-static void charge_anim_cb(void *obj, int32_t v)
-{
-    lv_obj_t *arc = (lv_obj_t *)obj;
-    static uint32_t last_check_inteval;
-    static int battery_percent;
-    if (last_check_inteval < millis())
-    {
-        battery_percent = watch.getBatteryPercent();
-        lv_obj_t *label_percent = (lv_obj_t *)lv_obj_get_user_data(arc);
-        lv_label_set_text_fmt(label_percent, "%d%%", battery_percent);
-        if (battery_percent == 100)
-        {
-            lv_obj_t *img = (lv_obj_t *)lv_obj_get_user_data(label_percent);
-            lv_anim_del(arc, charge_anim_cb);
-            lv_arc_set_value(arc, 100);
-            lv_img_set_src(img, &charge_done_battery);
-        }
-        last_check_inteval = millis() + 2000;
-    }
-    if (v >= battery_percent)
-    {
+    Preferences preferences;
+    if (!preferences.begin("picopod", true))
         return;
-    }
-    lv_arc_set_value(arc, v);
+    settings.brightness = std::max<uint8_t>(
+        SETTINGS_BRIGHTNESS_MIN,
+        std::min<uint8_t>(100, preferences.getUChar("brightness", 55)));
+    settings.timeoutIndex = std::min<uint8_t>(
+        SCREEN_TIMEOUTS.size() - 1,
+        preferences.getUChar("timeout", 2));
+    settings.haptic = preferences.getBool("haptic", true);
+    preferences.end();
 }
 
-void tileview_change_cb(lv_event_t *e)
+void saveSettings()
 {
-    static uint16_t lastPageID = 0;
-    lv_obj_t *tileview = lv_event_get_target(e);
-    pageId = lv_obj_get_index(lv_tileview_get_tile_act(tileview));
-    lv_event_code_t c = lv_event_get_code(e);
-    uint32_t count = lv_obj_get_child_cnt(tileview);
-    // //Serial.print(" Count:");
-    // //Serial.print(count);
-    // //Serial.print(" pageId:");
-    // //Serial.println(pageId);
-
-    switch (pageId)
-    {
-    case RADIO_TRANSMIT_PAGE_ID:
-        canScreenOff = false;
-        break;
-    default:
-        canScreenOff = true;
-        break;
-    }
-    lastPageID = pageId;
-    // //Serial.print(" pageId:");
+    Preferences preferences;
+    if (!preferences.begin("picopod", false))
+        return;
+    preferences.putUChar("brightness", settings.brightness);
+    preferences.putUChar("timeout", settings.timeoutIndex);
+    preferences.putBool("haptic", settings.haptic);
+    preferences.end();
 }
 
-void lowPowerEnergyHandler()
+void markSettingsDirty()
 {
-    // //Serial.println("Enter light sleep mode!");
-    brightnessLevel = watch.getBrightness();
-    watch.decrementBrightness(0);
+    settingsDirty = true;
+    settingsSaveAt = millis() + 1500u;
+}
 
-    // //Serial.println("DEcremented brigtness!");
+void saveSettingsWhenDue(uint32_t now)
+{
+    if (!settingsDirty || static_cast<int32_t>(now - settingsSaveAt) < 0)
+        return;
+    saveSettings();
+    settingsDirty = false;
+}
 
-    watch.clearPMU();
-    // //Serial.println("Cleared pmu!");
-
-    watch.configreFeatureInterrupt(
-        SensorBMA423::INT_STEP_CNTR |    // Pedometer interrupt
-            SensorBMA423::INT_ACTIVITY | // Activity interruption
-            SensorBMA423::INT_TILT |     // Tilt interrupt
-            // SensorBMA423::INT_WAKEUP |      // DoubleTap interrupt
-            SensorBMA423::INT_ANY_NO_MOTION, // Any  motion / no motion interrupt
-        false);
-
-    sportsIrq = false;
-    pmuIrq = false;
-    // TODO: Low power consumption not debugged
-    if (lightSleep)
+void postUiEvent(const UiEvent &event)
+{
+    if (!uiQueue)
+        return;
+    if (xQueueSend(uiQueue, &event, 0) != pdTRUE)
     {
-        esp_sleep_pd_config(ESP_PD_DOMAIN_RTC_PERIPH, ESP_PD_OPTION_ON);
-        // esp_sleep_enable_ext1_wakeup(1ULL << BOARD_BMA423_INT1, ESP_EXT1_WAKEUP_ANY_HIGH);
-        // esp_sleep_enable_ext1_wakeup(1ULL << BOARD_PMU_INT, ESP_EXT1_WAKEUP_ALL_LOW);
-
-        gpio_wakeup_enable((gpio_num_t)BOARD_PMU_INT, GPIO_INTR_LOW_LEVEL);
-        gpio_wakeup_enable((gpio_num_t)BOARD_BMA423_INT1, GPIO_INTR_HIGH_LEVEL);
-        esp_sleep_enable_gpio_wakeup();
-        esp_light_sleep_start();
+        UiEvent discarded;
+        (void)xQueueReceive(uiQueue, &discarded, 0);
+        (void)xQueueSend(uiQueue, &event, 0);
     }
+    wakeRequested.store(true, std::memory_order_release);
+}
+
+void postSystemMessage(const char *text)
+{
+    UiEvent event;
+    event.type = UiEvent::Type::System;
+    snprintf(event.text, sizeof(event.text), "%s", text ? text : "");
+    postUiEvent(event);
+}
+
+void onDTPKPacket(DTPKPacketGeneric *packet, uint16_t size)
+{
+    if (!packet || size < sizeof(DTPKPacketGeneric))
+        return;
+    UiEvent event;
+    event.type = UiEvent::Type::Incoming;
+    event.sender = packet->originalSender;
+    const size_t payloadSize = size - sizeof(DTPKPacketGeneric);
+    const size_t count = std::min(payloadSize, sizeof(event.text) - 1u);
+    for (size_t index = 0; index < count; ++index)
+    {
+        const uint8_t value = packet->data[index];
+        event.text[index] = value >= 32 && value < 127
+                                ? static_cast<char>(value)
+                                : '.';
+    }
+    event.text[count] = '\0';
+    postUiEvent(event);
+}
+
+void onSendResult(uint8_t result, uint16_t ping)
+{
+    UiEvent event;
+    event.type = UiEvent::Type::SendResult;
+    event.success = result != 0;
+    event.ping = ping;
+    snprintf(event.text, sizeof(event.text),
+             result ? "Delivered in %u ms" : "Delivery failed", ping);
+    postUiEvent(event);
+}
+
+void IRAM_ATTR onPmuInterrupt()
+{
+    portENTER_CRITICAL_ISR(&irqMux);
+    pmuIrq = true;
+    portEXIT_CRITICAL_ISR(&irqMux);
+}
+
+void IRAM_ATTR onMotionInterrupt()
+{
+    portENTER_CRITICAL_ISR(&irqMux);
+    motionIrq = true;
+    portEXIT_CRITICAL_ISR(&irqMux);
+}
+
+bool takeIrqFlag(volatile bool &flag)
+{
+    portENTER_CRITICAL(&irqMux);
+    const bool value = flag;
+    flag = false;
+    portEXIT_CRITICAL(&irqMux);
+    return value;
+}
+
+void wakeDisplay()
+{
+    wakeRequested.store(false, std::memory_order_release);
+    if (!displayOn)
+    {
+        watch.setBrightness(settings.brightness);
+        displayOn = true;
+    }
+    lv_disp_trig_activity(nullptr);
+}
+
+void turnDisplayOff()
+{
+    if (!displayOn)
+        return;
+    watch.setBrightness(0);
+    displayOn = false;
+}
+
+void vibrateNotification()
+{
+    if (!settings.haptic)
+        return;
+    watch.setWaveform(0, 15);
+    watch.setWaveform(1, 0);
+    watch.run();
+}
+
+lv_obj_t *makePage(uint8_t column, uint8_t total)
+{
+    lv_dir_t direction = LV_DIR_NONE;
+    if (column > 0)
+        direction = static_cast<lv_dir_t>(direction | LV_DIR_LEFT);
+    if (column + 1 < total)
+        direction = static_cast<lv_dir_t>(direction | LV_DIR_RIGHT);
+    lv_obj_t *page = lv_tileview_add_tile(tileview, column, 0, direction);
+    lv_obj_add_style(page, &pageStyle, LV_PART_MAIN);
+    lv_obj_clear_flag(page, LV_OBJ_FLAG_SCROLLABLE);
+    return page;
+}
+
+lv_obj_t *makeTitle(lv_obj_t *parent, const char *text)
+{
+    lv_obj_t *label = lv_label_create(parent);
+    lv_label_set_text(label, text);
+    lv_obj_add_style(label, &titleStyle, LV_PART_MAIN);
+    lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 3);
+    return label;
+}
+
+lv_obj_t *makeCard(lv_obj_t *parent, int x, int y, int width, int height)
+{
+    lv_obj_t *card = lv_obj_create(parent);
+    lv_obj_set_pos(card, x, y);
+    lv_obj_set_size(card, width, height);
+    lv_obj_add_style(card, &cardStyle, LV_PART_MAIN);
+    lv_obj_clear_flag(card, LV_OBJ_FLAG_SCROLLABLE);
+    return card;
+}
+
+void updateSendButtonState()
+{
+    if (!sendButton)
+        return;
+    if (routes.empty() || selectedTarget == UINT16_MAX || sending)
+        lv_obj_add_state(sendButton, LV_STATE_DISABLED);
     else
-    {
-
-        setCpuFrequencyMhz(10);
-        // setCpuFrequencyMhz(80);
-        while (!pmuIrq && !sportsIrq && !watch.getTouched())
-        {
-            delay(300);
-            // gpio_wakeup_enable ((gpio_num_t)BOARD_TOUCH_INT, GPIO_INTR_LOW_LEVEL);
-            // esp_sleep_enable_timer_wakeup(3 * 1000);
-            // esp_light_sleep_start();
-        }
-
-        setCpuFrequencyMhz(160);
-    }
-
-    // Clear Interrupts in Loop
-    // watch.readBMA();
-    // watch.clearPMU();
-
-    watch.configreFeatureInterrupt(
-        SensorBMA423::INT_STEP_CNTR |    // Pedometer interrupt
-            SensorBMA423::INT_ACTIVITY | // Activity interruption
-            SensorBMA423::INT_TILT |     // Tilt interrupt
-            // SensorBMA423::INT_WAKEUP |      // DoubleTap interrupt
-            SensorBMA423::INT_ANY_NO_MOTION, // Any  motion / no motion interrupt
-        true);
-
-    lv_disp_trig_activity(NULL);
-    // Run once
-    lv_task_handler();
-
-    watch.incrementalBrightness(brightnessLevel);
+        lv_obj_clear_state(sendButton, LV_STATE_DISABLED);
 }
 
-void createChargeUI()
+void updateRouteWidgets()
 {
-    if (charge_cont)
+    size_t direct = 0;
+    for (const NeighborRecord &route : routes)
+        if (route.distance == 1)
+            ++direct;
+
+    if (homeMetrics)
+        lv_label_set_text_fmt(
+            homeMetrics, "%u routes  •  %u direct  •  node %u",
+            static_cast<unsigned>(routes.size()),
+            static_cast<unsigned>(direct), NODE_ID);
+    if (meshSummary)
+        lv_label_set_text_fmt(
+            meshSummary, "%u reachable  •  %u direct",
+            static_cast<unsigned>(routes.size()),
+            static_cast<unsigned>(direct));
+
+    if (targetDropdown)
     {
+        uint16_t previous = selectedTarget;
+        std::string options;
+        for (const NeighborRecord &route : routes)
+        {
+            char option[48];
+            snprintf(option, sizeof(option), "Node %u  ·  %u hop%s",
+                     route.id, route.distance, route.distance == 1 ? "" : "s");
+            if (!options.empty())
+                options.push_back('\n');
+            options += option;
+        }
+        if (options.empty())
+            options = "No reachable nodes";
+        lv_dropdown_set_options(targetDropdown, options.c_str());
+
+        selectedTarget = UINT16_MAX;
+        for (size_t index = 0; index < routes.size(); ++index)
+        {
+            if (routes[index].id == previous)
+            {
+                selectedTarget = previous;
+                lv_dropdown_set_selected(targetDropdown, index);
+                break;
+            }
+        }
+        if (selectedTarget == UINT16_MAX && !routes.empty())
+        {
+            selectedTarget = routes.front().id;
+            lv_dropdown_set_selected(targetDropdown, 0);
+        }
+    }
+
+    if (meshTable)
+    {
+        const size_t visible = std::min(routes.size(), MAX_TABLE_ROUTES);
+        lv_table_set_row_cnt(meshTable, visible + 1);
+        lv_table_set_cell_value(meshTable, 0, 0, "Node");
+        lv_table_set_cell_value(meshTable, 0, 1, "Via");
+        lv_table_set_cell_value(meshTable, 0, 2, "Hop");
+        for (size_t index = 0; index < visible; ++index)
+        {
+            char id[12], via[12], hops[8];
+            snprintf(id, sizeof(id), "%u", routes[index].id);
+            snprintf(via, sizeof(via), "%u", routes[index].from);
+            snprintf(hops, sizeof(hops), "%u", routes[index].distance);
+            lv_table_set_cell_value(meshTable, index + 1, 0, id);
+            lv_table_set_cell_value(meshTable, index + 1, 1, via);
+            lv_table_set_cell_value(meshTable, index + 1, 2, hops);
+        }
+    }
+    updateSendButtonState();
+}
+
+void refreshRoutes(bool force)
+{
+    DTPK *dtpk = DTPK::getInstance();
+    if (!dtpk)
         return;
-    }
-
-    static lv_style_t cont_style;
-    lv_style_init(&cont_style);
-    lv_style_set_bg_opa(&cont_style, LV_OPA_100);
-    lv_style_set_bg_color(&cont_style, lv_color_black());
-    lv_style_set_radius(&cont_style, 0);
-    lv_style_set_border_width(&cont_style, 0);
-
-    charge_cont = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(charge_cont, lv_disp_get_hor_res(NULL), lv_disp_get_ver_res(NULL));
-    lv_obj_add_style(charge_cont, &cont_style, LV_PART_MAIN);
-    lv_obj_center(charge_cont);
-
-    lv_obj_add_event_cb(
-        charge_cont, [](lv_event_t *e)
-        { destoryChargeUI(); },
-        LV_EVENT_PRESSED, NULL);
-
-    int battery_percent = watch.getBatteryPercent();
-    static int last_battery_percent = 0;
-
-    lv_obj_t *arc = lv_arc_create(charge_cont);
-    lv_obj_set_size(arc, LV_PCT(90), LV_PCT(90));
-    lv_arc_set_rotation(arc, 0);
-    lv_arc_set_bg_angles(arc, 0, 360);
-    lv_obj_set_style_arc_color(arc, lv_color_make(19, 161, 14), LV_PART_INDICATOR);
-    lv_obj_remove_style(arc, NULL, LV_PART_KNOB);  /*Be sure the knob is not displayed*/
-    lv_obj_clear_flag(arc, LV_OBJ_FLAG_CLICKABLE); /*To not allow adjusting by click*/
-    lv_obj_center(arc);
-
-    lv_obj_t *img_chg = lv_img_create(charge_cont);
-    lv_obj_set_style_bg_opa(img_chg, LV_OPA_TRANSP, LV_PART_MAIN);
-    lv_obj_set_style_img_recolor(img_chg, lv_color_make(19, 161, 14), LV_PART_ANY);
-
-    lv_obj_t *label_percent = lv_label_create(charge_cont);
-    lv_obj_set_style_text_font(label_percent, &lv_font_montserrat_28, LV_PART_MAIN);
-    lv_obj_set_style_text_color(label_percent, lv_color_white(), LV_PART_MAIN);
-    lv_label_set_text_fmt(label_percent, "%d%%", battery_percent);
-
-    // set user data
-    lv_obj_set_user_data(arc, label_percent);
-    lv_obj_set_user_data(label_percent, img_chg);
-
-    lv_img_set_src(img_chg, &charge_done_battery);
-
-    if (battery_percent == 100)
-    {
-        lv_arc_set_value(arc, 100);
-        lv_img_set_src(img_chg, &charge_done_battery);
-    }
-    else
-    {
-        lv_img_set_src(img_chg, &img_usb_plug);
-        lv_anim_t a;
-        lv_anim_init(&a);
-        lv_anim_set_var(&a, arc);
-        lv_anim_set_start_cb(&a, [](lv_anim_t *a)
-                             {
-            lv_obj_t *arc = (lv_obj_t *)a->var;
-            lv_arc_set_value(arc, 0); });
-
-        lv_anim_set_exec_cb(&a, charge_anim_cb);
-        lv_anim_set_time(&a, 1000);
-        lv_anim_set_repeat_count(&a, LV_ANIM_REPEAT_INFINITE);
-        lv_anim_set_repeat_delay(&a, 500);
-        lv_anim_set_values(&a, 0, 100);
-        lv_anim_start(&a);
-    }
-    lv_obj_center(img_chg);
-    lv_obj_align_to(label_percent, img_chg, LV_ALIGN_OUT_BOTTOM_MID, 0, 5);
-
-    lv_task_handler();
-}
-
-void destoryChargeUI()
-{
-    if (!charge_cont)
-    {
+    std::vector<NeighborRecord> current = dtpk->getNeighbours();
+    std::sort(current.begin(), current.end(), routeLess);
+    if (!force && routesEqual(routes, current))
         return;
-    }
-    lv_obj_del(charge_cont);
-    charge_cont = NULL;
+    routes = std::move(current);
+    updateRouteWidgets();
+    Bluetooth::getInstance()->sendNeighborsUpdate();
 }
 
-void PMUHandler()
+void processUiEvents()
 {
-    if (pmuIrq)
+    if (!uiQueue)
+        return;
+    UiEvent event;
+    while (xQueueReceive(uiQueue, &event, 0) == pdTRUE)
     {
-        pmuIrq = false;
-        watch.readPMU();
-        if (watch.isVbusInsertIrq())
+        wakeDisplay();
+        if (event.type == UiEvent::Type::Incoming)
         {
-            // //Serial.println("isVbusInsert");
-            createChargeUI();
-            watch.incrementalBrightness(brightnessLevel);
-            usbPlugIn = true;
+            if (homeEvent)
+                lv_label_set_text_fmt(homeEvent, "From %u: %s",
+                                      event.sender, event.text);
+            if (inboxLabel)
+                lv_label_set_text_fmt(inboxLabel, "Latest from %u\n%s",
+                                      event.sender, event.text);
+            vibrateNotification();
         }
-        if (watch.isVbusRemoveIrq())
+        else if (event.type == UiEvent::Type::SendResult)
         {
-            // //Serial.println("isVbusRemove");
-            destoryChargeUI();
-            watch.incrementalBrightness(brightnessLevel);
-            usbPlugIn = false;
+            sending = false;
+            if (sendStatus)
+                lv_label_set_text(sendStatus, event.text);
+            if (homeEvent)
+                lv_label_set_text(homeEvent, event.text);
+            if (event.success)
+                vibrateNotification();
+            updateSendButtonState();
         }
-        if (watch.isBatChagerDoneIrq())
+        else
         {
-            // //Serial.println("isBatChagerDone");
+            if (homeEvent)
+                lv_label_set_text(homeEvent, event.text);
         }
-        if (watch.isBatChagerStartIrq())
-        {
-            // //Serial.println("isBatChagerStart");
-        }
-        // Clear watch Interrupt Status Register
+    }
+}
+
+void processPmu()
+{
+    if (!takeIrqFlag(pmuIrq))
+        return;
+    watch.readPMU();
+    if (watch.isVbusInsertIrq())
+    {
+        usbConnected = true;
+        postSystemMessage("USB power connected");
+    }
+    if (watch.isVbusRemoveIrq())
+    {
+        usbConnected = false;
+        postSystemMessage("Running on battery");
+    }
+    if (watch.isPekeyShortPressIrq())
+    {
+        if (displayOn)
+            turnDisplayOff();
+        else
+            wakeDisplay();
+    }
+    if (watch.isPekeyLongPressIrq())
+    {
+        if (settingsDirty)
+            saveSettings();
         watch.clearPMU();
+        watch.shutdown();
+    }
+    watch.clearPMU();
+}
+
+void processMotion()
+{
+    if (!takeIrqFlag(motionIrq))
+        return;
+    (void)watch.readBMA();
+    stepCount = watch.getPedometerCounter();
+    if (watch.isDoubleTap())
+        wakeDisplay();
+}
+
+void updateHomeAndDiagnostics()
+{
+    struct tm timeInfo{};
+    watch.getDateTime(&timeInfo);
+    char timeText[12];
+    char dateText[28];
+    strftime(timeText, sizeof(timeText), "%H:%M", &timeInfo);
+    strftime(dateText, sizeof(dateText), "%a, %d %b", &timeInfo);
+    lv_label_set_text(homeTime, timeText);
+    lv_label_set_text(homeDate, dateText);
+
+    int battery = watch.getBatteryPercent();
+    if (battery < 0)
+        battery = 0;
+    const bool ble = Bluetooth::getInstance()->deviceIsConnected();
+    lv_label_set_text_fmt(homeStatus, "%s  %d%%  •  BLE %s",
+                          usbConnected ? "USB" : "BAT", battery,
+                          ble ? "connected" : "ready");
+
+    stepCount = watch.getPedometerCounter();
+    const int temperature = static_cast<int>(watch.readAccelTemp());
+    lv_label_set_text_fmt(homeMetrics,
+                          "%u routes  •  %u steps  •  %d°C sensor",
+                          static_cast<unsigned>(routes.size()),
+                          static_cast<unsigned>(stepCount), temperature);
+
+    MAC *mac = MAC::getInstance();
+    Bluetooth *bleGateway = Bluetooth::getInstance();
+    if (mac && diagnosticLabel)
+    {
+        const MAC::Diagnostics &radioDiagnostics = mac->getDiagnostics();
+        const BluetoothDiagnostics bluetoothDiagnostics =
+            bleGateway->getDiagnostics();
+        lv_label_set_text_fmt(
+            diagnosticLabel,
+            "Radio %s E%ld C%lu RX%lu/%lu\n"
+            "BLE %s MTU%u D%lu/%lu/%lu\n"
+            "Node%u C%u SF%u BW%.0f",
+            mac->isReady() ? "ready" : "fault",
+            static_cast<long>(mac->getLastRadioError()),
+            static_cast<unsigned long>(radioDiagnostics.radioCommandErrors),
+            static_cast<unsigned long>(radioDiagnostics.rxReadErrors),
+            static_cast<unsigned long>(radioDiagnostics.rxTooShort),
+            bleGateway->deviceIsConnected() ? "connected" : "advertising",
+            bleGateway->negotiatedMtu(),
+            static_cast<unsigned long>(bluetoothDiagnostics.droppedWrites),
+            static_cast<unsigned long>(bluetoothDiagnostics.droppedInboundMessages),
+            static_cast<unsigned long>(bluetoothDiagnostics.droppedControlNotifications),
+            NODE_ID, RADIO_CHANNEL, RADIO_SF, RADIO_BANDWIDTH_KHZ);
     }
 }
 
-void factory_ui()
+void onTargetChanged(lv_event_t *event)
 {
+    if (lv_event_get_code(event) != LV_EVENT_VALUE_CHANGED || routes.empty())
+        return;
+    const uint16_t index = lv_dropdown_get_selected(lv_event_get_target(event));
+    if (index < routes.size())
+        selectedTarget = routes[index].id;
+    updateSendButtonState();
+}
 
-    static lv_style_t bgStyle;
-    lv_style_init(&bgStyle);
-    lv_style_set_bg_color(&bgStyle, lv_color_black());
-    lv_style_set_text_color(&bgStyle, lv_color_white());
+void onQuickMessageChanged(lv_event_t *event)
+{
+    if (lv_event_get_code(event) == LV_EVENT_VALUE_CHANGED)
+        selectedQuickMessage = std::min<uint8_t>(
+            QUICK_MESSAGES.size() - 1,
+            lv_dropdown_get_selected(lv_event_get_target(event)));
+}
 
+void onSendClicked(lv_event_t *event)
+{
+    if (lv_event_get_code(event) != LV_EVENT_CLICKED || sending ||
+        selectedTarget == UINT16_MAX || !DTPK::getInstance())
+        return;
+
+    const char *payload = QUICK_MESSAGES[selectedQuickMessage];
+    sending = true;
+    updateSendButtonState();
+    lv_label_set_text_fmt(sendStatus, "Sending to node %u…", selectedTarget);
+    const uint16_t id = DTPK::getInstance()->sendPacket(
+        selectedTarget,
+        reinterpret_cast<unsigned char *>(const_cast<char *>(payload)),
+        strlen(payload), 60000, true, onSendResult);
+    if (id == 0)
+    {
+        sending = false;
+        lv_label_set_text(sendStatus, "Protocol is busy");
+        updateSendButtonState();
+    }
+}
+
+void onRefreshClicked(lv_event_t *event)
+{
+    if (lv_event_get_code(event) == LV_EVENT_CLICKED)
+    {
+        refreshRoutes(true);
+        lv_label_set_text(scanStatus, "Route table refreshed");
+    }
+}
+
+void onScanClicked(lv_event_t *event)
+{
+    if (lv_event_get_code(event) != LV_EVENT_CLICKED)
+        return;
+    MAC *mac = MAC::getInstance();
+    if (!mac)
+        return;
+
+    // MAC calibrates every configured channel during initialization. Show that
+    // snapshot without retuning the live radio and dropping mesh traffic.
+    const uint8_t channels = mac->getNumberOfChannels();
+    if (channels == 0)
+    {
+        lv_label_set_text(scanStatus, "No channels");
+        return;
+    }
+    int minimum = INT_MAX;
+    int maximum = INT_MIN;
+    for (uint8_t channel = 0; channel < channels; ++channel)
+    {
+        const int noise = mac->getNoiseFloorOfChannel(channel);
+        minimum = std::min(minimum, noise);
+        maximum = std::max(maximum, noise);
+    }
+    lv_label_set_text_fmt(
+        scanStatus, "Noise\n%d..%d dBm", minimum, maximum);
+}
+
+void onBrightnessChanged(lv_event_t *event)
+{
+    if (lv_event_get_code(event) != LV_EVENT_VALUE_CHANGED)
+        return;
+    settings.brightness = static_cast<uint8_t>(
+        lv_slider_get_value(lv_event_get_target(event)));
+    watch.setBrightness(settings.brightness);
+    lv_label_set_text_fmt(brightnessValue, "%u%%", settings.brightness);
+    markSettingsDirty();
+}
+
+void onTimeoutChanged(lv_event_t *event)
+{
+    if (lv_event_get_code(event) != LV_EVENT_VALUE_CHANGED)
+        return;
+    settings.timeoutIndex = std::min<uint8_t>(
+        SCREEN_TIMEOUTS.size() - 1,
+        lv_dropdown_get_selected(lv_event_get_target(event)));
+    markSettingsDirty();
+}
+
+void onHapticChanged(lv_event_t *event)
+{
+    if (lv_event_get_code(event) != LV_EVENT_VALUE_CHANGED)
+        return;
+    settings.haptic = lv_obj_has_state(
+        lv_event_get_target(event), LV_STATE_CHECKED);
+    markSettingsDirty();
+    if (settings.haptic)
+        vibrateNotification();
+}
+
+void onScreenOffClicked(lv_event_t *event)
+{
+    if (lv_event_get_code(event) == LV_EVENT_CLICKED)
+        turnDisplayOff();
+}
+
+void initializeStyles()
+{
+    lv_style_init(&pageStyle);
+    lv_style_set_bg_color(&pageStyle, lv_color_hex(0x07111f));
+    lv_style_set_bg_opa(&pageStyle, LV_OPA_COVER);
+    lv_style_set_text_color(&pageStyle, lv_color_hex(0xe8f0ff));
+    lv_style_set_border_width(&pageStyle, 0);
+    lv_style_set_pad_all(&pageStyle, 8);
+
+    lv_style_init(&cardStyle);
+    lv_style_set_bg_color(&cardStyle, lv_color_hex(0x10233a));
+    lv_style_set_bg_opa(&cardStyle, LV_OPA_COVER);
+    lv_style_set_radius(&cardStyle, 12);
+    lv_style_set_border_width(&cardStyle, 1);
+    lv_style_set_border_color(&cardStyle, lv_color_hex(0x24496d));
+    lv_style_set_pad_all(&cardStyle, 8);
+    lv_style_set_text_color(&cardStyle, lv_color_hex(0xe8f0ff));
+
+    lv_style_init(&titleStyle);
+    lv_style_set_text_font(&titleStyle, &lv_font_montserrat_18);
+    lv_style_set_text_color(&titleStyle, lv_color_hex(0x7cc8ff));
+
+    lv_style_init(&primaryButtonStyle);
+    lv_style_set_bg_color(&primaryButtonStyle, lv_color_hex(0x1769aa));
+    lv_style_set_bg_opa(&primaryButtonStyle, LV_OPA_COVER);
+    lv_style_set_radius(&primaryButtonStyle, 10);
+    lv_style_set_text_color(&primaryButtonStyle, lv_color_white());
+}
+
+void createHomePage(lv_obj_t *page)
+{
+    makeTitle(page, "PICOPOD  •  1/4");
+    homeTime = lv_label_create(page);
+    lv_obj_set_style_text_font(homeTime, &lv_font_montserrat_36, LV_PART_MAIN);
+    lv_obj_align(homeTime, LV_ALIGN_TOP_MID, 0, 29);
+
+    homeDate = lv_label_create(page);
+    lv_obj_set_style_text_color(homeDate, lv_color_hex(0x9db4cc), LV_PART_MAIN);
+    lv_obj_align(homeDate, LV_ALIGN_TOP_MID, 0, 72);
+
+    lv_obj_t *statusCard = makeCard(page, 8, 98, 224, 52);
+    homeStatus = lv_label_create(statusCard);
+    lv_obj_set_width(homeStatus, 206);
+    lv_label_set_long_mode(homeStatus, LV_LABEL_LONG_CLIP);
+    lv_obj_align(homeStatus, LV_ALIGN_TOP_LEFT, 0, 0);
+    homeMetrics = lv_label_create(statusCard);
+    lv_obj_set_width(homeMetrics, 206);
+    lv_label_set_long_mode(homeMetrics, LV_LABEL_LONG_CLIP);
+    lv_obj_set_style_text_font(homeMetrics, &lv_font_montserrat_14, LV_PART_MAIN);
+    lv_obj_align(homeMetrics, LV_ALIGN_BOTTOM_LEFT, 0, 0);
+
+    lv_obj_t *eventCard = makeCard(page, 8, 157, 224, 72);
+    homeEvent = lv_label_create(eventCard);
+    lv_obj_set_width(homeEvent, 206);
+    lv_label_set_long_mode(homeEvent, LV_LABEL_LONG_WRAP);
+    lv_label_set_text(homeEvent, "Mesh ready. Swipe for messages and routes.");
+}
+
+void createMessagesPage(lv_obj_t *page)
+{
+    makeTitle(page, "MESSAGES  •  2/4");
+
+    targetDropdown = lv_dropdown_create(page);
+    lv_obj_set_pos(targetDropdown, 8, 29);
+    lv_obj_set_size(targetDropdown, 224, 38);
+    lv_dropdown_set_options(targetDropdown, "No reachable nodes");
+    lv_obj_add_event_cb(targetDropdown, onTargetChanged,
+                        LV_EVENT_VALUE_CHANGED, nullptr);
+
+    quickMessageDropdown = lv_dropdown_create(page);
+    lv_obj_set_pos(quickMessageDropdown, 8, 73);
+    lv_obj_set_size(quickMessageDropdown, 224, 38);
+    lv_dropdown_set_options(
+        quickMessageDropdown,
+        "Hello\nOK\nNeed help\nWhere are you?\nI am safe");
+    lv_obj_add_event_cb(quickMessageDropdown, onQuickMessageChanged,
+                        LV_EVENT_VALUE_CHANGED, nullptr);
+
+    sendButton = lv_btn_create(page);
+    lv_obj_set_pos(sendButton, 8, 118);
+    lv_obj_set_size(sendButton, 88, 42);
+    lv_obj_add_style(sendButton, &primaryButtonStyle, LV_PART_MAIN);
+    lv_obj_add_event_cb(sendButton, onSendClicked, LV_EVENT_CLICKED, nullptr);
+    lv_obj_t *sendLabel = lv_label_create(sendButton);
+    lv_label_set_text(sendLabel, "SEND");
+    lv_obj_center(sendLabel);
+
+    sendStatus = lv_label_create(page);
+    lv_obj_set_pos(sendStatus, 106, 121);
+    lv_obj_set_size(sendStatus, 126, 38);
+    lv_label_set_long_mode(sendStatus, LV_LABEL_LONG_WRAP);
+    lv_label_set_text(sendStatus, "Select a node");
+
+    lv_obj_t *inboxCard = makeCard(page, 8, 166, 224, 63);
+    inboxLabel = lv_label_create(inboxCard);
+    lv_obj_set_width(inboxLabel, 206);
+    lv_label_set_long_mode(inboxLabel, LV_LABEL_LONG_WRAP);
+    lv_label_set_text(inboxLabel,
+                      "No messages yet. Use the phone BLE client for arbitrary text.");
+}
+
+void createMeshPage(lv_obj_t *page)
+{
+    makeTitle(page, "MESH  •  3/4");
+    meshSummary = lv_label_create(page);
+    lv_obj_align(meshSummary, LV_ALIGN_TOP_LEFT, 10, 29);
+    lv_label_set_text(meshSummary, "0 reachable");
+
+    meshTable = lv_table_create(page);
+    lv_obj_set_pos(meshTable, 8, 51);
+    lv_obj_set_size(meshTable, 224, 126);
+    lv_table_set_col_cnt(meshTable, 3);
+    lv_table_set_row_cnt(meshTable, 1);
+    lv_table_set_col_width(meshTable, 0, 75);
+    lv_table_set_col_width(meshTable, 1, 75);
+    lv_table_set_col_width(meshTable, 2, 55);
+
+    lv_obj_t *refresh = lv_btn_create(page);
+    lv_obj_set_pos(refresh, 8, 184);
+    lv_obj_set_size(refresh, 82, 38);
+    lv_obj_add_event_cb(refresh, onRefreshClicked, LV_EVENT_CLICKED, nullptr);
+    lv_obj_t *refreshLabel = lv_label_create(refresh);
+    lv_label_set_text(refreshLabel, "REFRESH");
+    lv_obj_center(refreshLabel);
+
+    scanButton = lv_btn_create(page);
+    lv_obj_set_pos(scanButton, 96, 184);
+    lv_obj_set_size(scanButton, 64, 38);
+    lv_obj_add_event_cb(scanButton, onScanClicked, LV_EVENT_CLICKED, nullptr);
+    lv_obj_t *scanLabel = lv_label_create(scanButton);
+    lv_label_set_text(scanLabel, "NOISE");
+    lv_obj_center(scanLabel);
+
+    scanStatus = lv_label_create(page);
+    lv_obj_set_pos(scanStatus, 166, 181);
+    lv_obj_set_size(scanStatus, 68, 46);
+    lv_obj_set_style_text_font(scanStatus, &lv_font_montserrat_12, LV_PART_MAIN);
+    lv_label_set_long_mode(scanStatus, LV_LABEL_LONG_WRAP);
+    lv_label_set_text(scanStatus, "Noise\nsnapshot");
+}
+
+void createSettingsPage(lv_obj_t *page)
+{
+    makeTitle(page, "SETTINGS  •  4/4");
+
+    lv_obj_t *brightnessLabel = lv_label_create(page);
+    lv_label_set_text(brightnessLabel, "Brightness");
+    lv_obj_set_pos(brightnessLabel, 10, 31);
+    brightnessValue = lv_label_create(page);
+    lv_obj_set_pos(brightnessValue, 188, 31);
+    lv_label_set_text_fmt(brightnessValue, "%u%%", settings.brightness);
+
+    brightnessSlider = lv_slider_create(page);
+    lv_obj_set_pos(brightnessSlider, 10, 53);
+    lv_obj_set_size(brightnessSlider, 220, 12);
+    lv_slider_set_range(brightnessSlider, SETTINGS_BRIGHTNESS_MIN, 100);
+    lv_slider_set_value(brightnessSlider, settings.brightness, LV_ANIM_OFF);
+    lv_obj_add_event_cb(brightnessSlider, onBrightnessChanged,
+                        LV_EVENT_VALUE_CHANGED, nullptr);
+
+    lv_obj_t *timeoutLabel = lv_label_create(page);
+    lv_label_set_text(timeoutLabel, "Screen timeout");
+    lv_obj_set_pos(timeoutLabel, 10, 76);
+    timeoutDropdown = lv_dropdown_create(page);
+    lv_obj_set_pos(timeoutDropdown, 116, 70);
+    lv_obj_set_size(timeoutDropdown, 114, 38);
+    lv_dropdown_set_options(timeoutDropdown,
+                            "30 sec\n1 min\n2 min\n5 min\nAlways on");
+    lv_dropdown_set_selected(timeoutDropdown, settings.timeoutIndex);
+    lv_obj_add_event_cb(timeoutDropdown, onTimeoutChanged,
+                        LV_EVENT_VALUE_CHANGED, nullptr);
+
+    lv_obj_t *hapticLabel = lv_label_create(page);
+    lv_label_set_text(hapticLabel, "Message vibration");
+    lv_obj_set_pos(hapticLabel, 10, 121);
+    hapticSwitch = lv_switch_create(page);
+    lv_obj_set_pos(hapticSwitch, 178, 114);
+    if (settings.haptic)
+        lv_obj_add_state(hapticSwitch, LV_STATE_CHECKED);
+    lv_obj_add_event_cb(hapticSwitch, onHapticChanged,
+                        LV_EVENT_VALUE_CHANGED, nullptr);
+
+    lv_obj_t *offButton = lv_btn_create(page);
+    lv_obj_set_pos(offButton, 10, 151);
+    lv_obj_set_size(offButton, 94, 35);
+    lv_obj_add_event_cb(offButton, onScreenOffClicked, LV_EVENT_CLICKED, nullptr);
+    lv_obj_t *offLabel = lv_label_create(offButton);
+    lv_label_set_text(offLabel, "SCREEN OFF");
+    lv_obj_center(offLabel);
+
+    diagnosticLabel = lv_label_create(page);
+    lv_obj_set_pos(diagnosticLabel, 10, 190);
+    lv_obj_set_size(diagnosticLabel, 224, 46);
+    lv_obj_set_style_text_font(diagnosticLabel, &lv_font_montserrat_12,
+                               LV_PART_MAIN);
+    lv_label_set_long_mode(diagnosticLabel, LV_LABEL_LONG_CLIP);
+    lv_label_set_text(diagnosticLabel, "Diagnostics starting…");
+}
+
+void createUi()
+{
+    initializeStyles();
     tileview = lv_tileview_create(lv_scr_act());
-    lv_obj_add_style(tileview, &bgStyle, LV_PART_MAIN);
-    lv_obj_set_size(tileview, lv_disp_get_hor_res(NULL), lv_disp_get_ver_res(NULL));
-    lv_obj_add_event_cb(tileview, tileview_change_cb, LV_EVENT_VALUE_CHANGED, NULL);
+    lv_obj_set_size(tileview, 240, 240);
+    lv_obj_set_style_bg_color(tileview, lv_color_hex(0x07111f), LV_PART_MAIN);
+    lv_obj_set_style_border_width(tileview, 0, LV_PART_MAIN);
 
-    lv_obj_t *t2 = lv_tileview_add_tile(tileview, 0, 0, LV_DIR_HOR);
-    lv_obj_t *t4 = lv_tileview_add_tile(tileview, 1, 0, LV_DIR_HOR | LV_DIR_BOTTOM);
-    lv_obj_t *t4_1 = lv_tileview_add_tile(tileview, 1, 1, LV_DIR_TOP);
-    lv_obj_t *t5 = lv_tileview_add_tile(tileview, 2, 0, LV_DIR_HOR);
-    analogclock(t2);
-
-    radioPingPong(t4);
-    radioSendAndReceivePage(t4_1);
-    radioSendMessage(t5);
-    lv_disp_trig_activity(NULL);
-
-    lv_obj_set_tile(tileview, t2, LV_ANIM_OFF);
+    constexpr uint8_t pageCount = 4;
+    createHomePage(makePage(0, pageCount));
+    createMessagesPage(makePage(1, pageCount));
+    createMeshPage(makePage(2, pageCount));
+    createSettingsPage(makePage(3, pageCount));
+    lv_obj_set_tile(tileview, lv_obj_get_child(tileview, 0), LV_ANIM_OFF);
 }
 
-void settingButtonStyle()
+void configureSensors()
 {
-    /*Init the button_default_style for the default state*/
-    lv_style_init(&button_default_style);
-
-    lv_style_set_radius(&button_default_style, 3);
-
-    lv_style_set_bg_opa(&button_default_style, LV_OPA_100);
-    lv_style_set_bg_color(&button_default_style, lv_palette_main(LV_PALETTE_YELLOW));
-    lv_style_set_bg_grad_color(&button_default_style, lv_palette_darken(LV_PALETTE_YELLOW, 2));
-    lv_style_set_bg_grad_dir(&button_default_style, LV_GRAD_DIR_VER);
-
-    lv_style_set_border_opa(&button_default_style, LV_OPA_40);
-    lv_style_set_border_width(&button_default_style, 2);
-    lv_style_set_border_color(&button_default_style, lv_palette_main(LV_PALETTE_GREY));
-
-    lv_style_set_shadow_width(&button_default_style, 8);
-    lv_style_set_shadow_color(&button_default_style, lv_palette_main(LV_PALETTE_GREY));
-    lv_style_set_shadow_ofs_y(&button_default_style, 8);
-
-    lv_style_set_outline_opa(&button_default_style, LV_OPA_COVER);
-    lv_style_set_outline_color(&button_default_style, lv_palette_main(LV_PALETTE_YELLOW));
-
-    lv_style_set_text_color(&button_default_style, lv_color_white());
-    lv_style_set_pad_all(&button_default_style, 10);
-
-    /*Init the pressed button_default_style*/
-    lv_style_init(&button_press_style);
-
-    /*Add a large outline when pressed*/
-    lv_style_set_outline_width(&button_press_style, 30);
-    lv_style_set_outline_opa(&button_press_style, LV_OPA_TRANSP);
-
-    lv_style_set_translate_y(&button_press_style, 5);
-    lv_style_set_shadow_ofs_y(&button_press_style, 3);
-    lv_style_set_bg_color(&button_press_style, lv_palette_darken(LV_PALETTE_YELLOW, 2));
-    lv_style_set_bg_grad_color(&button_press_style, lv_palette_darken(LV_PALETTE_YELLOW, 4));
-
-    /*Add a transition to the outline*/
-    static lv_style_transition_dsc_t trans;
-    static lv_style_prop_t props[] = {LV_STYLE_OUTLINE_WIDTH, LV_STYLE_OUTLINE_OPA, LV_STYLE_PROP_INV};
-    lv_style_transition_dsc_init(&trans, props, lv_anim_path_linear, 300, 0, NULL);
-
-    lv_style_set_transition(&button_press_style, &trans);
-}
-/*
- ************************************
- *      HARDWARE SETTING            *
- ************************************
- */
-void setSportsFlag()
-{
-    sportsIrq = true;
-}
-
-void settingSensor()
-{
-
-    // Default 4G ,200HZ
     watch.configAccelerometer();
-
     watch.enableAccelerometer();
-
     watch.enablePedometer();
-
     watch.configInterrupt();
-
-    watch.enableFeature(SensorBMA423::FEATURE_STEP_CNTR |
-                            SensorBMA423::FEATURE_ANY_MOTION |
-                            SensorBMA423::FEATURE_NO_MOTION |
-                            SensorBMA423::FEATURE_ACTIVITY |
-                            SensorBMA423::FEATURE_TILT |
-                            SensorBMA423::FEATURE_WAKEUP,
-                        true);
-
+    watch.enableFeature(
+        SensorBMA423::FEATURE_STEP_CNTR |
+            SensorBMA423::FEATURE_ANY_MOTION |
+            SensorBMA423::FEATURE_NO_MOTION |
+            SensorBMA423::FEATURE_ACTIVITY |
+            SensorBMA423::FEATURE_TILT |
+            SensorBMA423::FEATURE_WAKEUP,
+        true);
     watch.enablePedometerIRQ();
     watch.enableTiltIRQ();
     watch.enableWakeupIRQ();
     watch.enableAnyNoMotionIRQ();
     watch.enableActivityIRQ();
-
-    watch.attachBMA(setSportsFlag);
+    watch.attachBMA(onMotionInterrupt);
 }
 
-void setPMUFlag()
-{
-    pmuIrq = true;
-}
-
-void settingPMU()
+void configurePmu()
 {
     watch.clearPMU();
-
     watch.disableIRQ(XPOWERS_AXP2101_ALL_IRQ);
-    // Enable the required interrupt function
     watch.enableIRQ(
-        // XPOWERS_AXP2101_BAT_INSERT_IRQ    | XPOWERS_AXP2101_BAT_REMOVE_IRQ      |   //BATTERY
-        XPOWERS_AXP2101_VBUS_INSERT_IRQ | XPOWERS_AXP2101_VBUS_REMOVE_IRQ |  // VBUS
-        XPOWERS_AXP2101_PKEY_SHORT_IRQ | XPOWERS_AXP2101_PKEY_LONG_IRQ |     // POWER KEY
-        XPOWERS_AXP2101_BAT_CHG_DONE_IRQ | XPOWERS_AXP2101_BAT_CHG_START_IRQ // CHARGE
-        // XPOWERS_AXP2101_PKEY_NEGATIVE_IRQ | XPOWERS_AXP2101_PKEY_POSITIVE_IRQ   |   //POWER KEY
-    );
-    watch.attachPMU(setPMUFlag);
+        XPOWERS_AXP2101_VBUS_INSERT_IRQ |
+        XPOWERS_AXP2101_VBUS_REMOVE_IRQ |
+        XPOWERS_AXP2101_PKEY_SHORT_IRQ |
+        XPOWERS_AXP2101_PKEY_LONG_IRQ |
+        XPOWERS_AXP2101_BAT_CHG_DONE_IRQ |
+        XPOWERS_AXP2101_BAT_CHG_START_IRQ);
+    watch.attachPMU(onPmuInterrupt);
 }
+} // namespace
 
-lv_obj_t *message;
-
-static void handleDTPKInbound(DTPKPacketGeneric *packet, uint16_t size)
+bool watchSetup()
 {
-    if (!message || !packet || size < sizeof(DTPKPacketGeneric))
-        return;
-    const size_t payloadSize = size - sizeof(DTPKPacketGeneric);
-    String text = "From " + String(packet->originalSender) + ": ";
-    for (size_t index = 0; index < payloadSize; ++index)
+    if (!watch.begin(&Serial))
     {
-        const char value = static_cast<char>(packet->data[index]);
-        text += (value >= 32 && value < 127) ? value : '.';
+        Serial.println("T-Watch hardware initialization failed");
+        return false;
     }
-    lv_label_set_text(message, text.c_str());
-}
+    setCpuFrequencyMhz(160);
+    loadSettings();
+    watch.setBrightness(settings.brightness);
+    usbConnected = watch.isVbusIn();
 
-void updateTableDTP()
-{
+    configurePmu();
+    configureSensors();
 
-    String messageText = "Availible devices: \n";
-    for (NeighborRecord tableItem : DTPK::getInstance()->getNeighbours())
+    if (!MAC::initialize(
+            radio, NODE_ID, MACRegion::EU868, RADIO_CHANNEL, RADIO_SF,
+            RADIO_BANDWIDTH_KHZ, RADIO_SQUELCH_DB, RADIO_POWER_DBM,
+            RADIO_CODING_RATE))
     {
-        // printf(("ID: " + String(tableItem.first) + " Routing ways: \n").c_str());
-        messageText += "ID: " + String(tableItem.id) + " Routing ways: " + "\n";
-        
-        messageText += "    " + String(tableItem.from) + " distance: " + String(tableItem.distance) + "\n";
-        
+        Serial.printf("MAC initialization failed: %d\n",
+                      MAC::getInstance()
+                          ? MAC::getInstance()->getLastRadioError()
+                          : INT16_MIN);
+        return false;
     }
-    lv_label_set_text(message, NULL);
-
-    lv_label_set_text(message, messageText.c_str());
-}
-
-/*
-MAC::PacketReceivedCallback dataCallback = [](MACPacket *packet, uint16_t size, uint32_t crcCalculated)
-{
-    //Serial.println(String((char *)packet->data));
-    String messageText = "#ffffff Received at:" + String(watch.strftime(1)) + " " + String(watch.getRSSI()) + " #ffffff " + String((char *)packet->data);
-    //Serial.println(messageText);
-    lv_label_set_text(message, NULL);
-
-    lv_label_set_text(message, messageText.c_str());
-    if (packet != NULL)
+    if (!DTPK::initialize(20, nextBootSequence(), true))
     {
-        free(packet);
-        packet = NULL;
-    }
-};
-*/
-static void pageAckCallback(uint8_t result, uint16_t ping)
-{
-    if (!message)
-        return;
-    String text = result != 0
-                      ? "Sent successfully, ping " + String(ping) + " ms"
-                      : "Send failed";
-    lv_label_set_text(message, text.c_str());
-}
-
-static void sendmessage(lv_event_t *e)
-{
-    static bool pageSending = false;
-    if (lv_event_get_code(e) != LV_EVENT_CLICKED || pageSending)
-        return;
-
-    const uint16_t target = selected != UINT16_MAX ? selected : 2;
-    pageSending = true;
-    const char payload[] = "This is some important data";
-    const uint16_t packetId = DTPK::getInstance()->sendPacket(
-        target,
-        reinterpret_cast<unsigned char *>(const_cast<char *>(payload)),
-        sizeof(payload) - 1,
-        60000,
-        true,
-        [](uint8_t result, uint16_t ping) {
-            pageAckCallback(result, ping);
-            pageSending = false;
-        });
-    if (packetId == 0)
-        pageSending = false;
-}
-
-static void radioSendAndReceivePage(lv_obj_t *parent)
-{
-    lv_obj_t *label;
-    lv_obj_t *sendbutton = lv_btn_create(parent);
-    lv_obj_set_pos(sendbutton, 20, 15);
-    lv_obj_add_event_cb(sendbutton, sendmessage, LV_EVENT_ALL, NULL);
-    label = lv_label_create(sendbutton);
-    lv_label_set_text(label, "Send message");
-    message = lv_label_create(parent);
-    lv_obj_set_width(message, 220);
-    lv_label_set_long_mode(message, LV_LABEL_LONG_WRAP);
-    lv_label_set_recolor(message, true); /*Enable re-coloring by commands in the text*/
-    lv_label_set_text(message, "#ffffff empty message");
-    lv_obj_set_style_text_font(message, &lv_font_montserrat_14, LV_PART_MAIN);
-
-    lv_obj_set_pos(message, 10, 50);
-
-    lv_obj_center(label);
-}
-
-static lv_chart_series_t *ser1;
-
-static void updateTheChart(lv_obj_t *chart)
-{
-    int minval = infinity();
-    int maxval = -infinity();
-    for (uint8_t i = 0; i < MAC::getInstance()->getNumberOfChannels(); i++)
-    {
-        int power = MAC::getInstance()->getNoiseFloorOfChannel(i);
-        minval = (power < minval) ? power : minval;
-        maxval = (power > maxval) ? power : maxval;
-        ser1->y_points[i] = power;
-        // //Serial.printf("noise floor of channel %d: %d\n", i, power);
-    }
-    maxval += 3;
-    minval -= 3;
-    lv_chart_set_range(chart, LV_CHART_AXIS_PRIMARY_Y, minval, maxval);
-    lv_chart_refresh(chart); /*Required after direct set*/
-}
-lv_obj_t *setupChart(lv_obj_t *obj)
-{
-    lv_obj_t *chart;
-    chart = lv_chart_create(obj);
-    lv_obj_align_to(chart, obj, LV_ALIGN_TOP_MID, 0, 5);
-    lv_obj_set_size(chart, 170, 150);
-    lv_chart_set_point_count(chart, MAC::getInstance()->getNumberOfChannels());
-    lv_obj_center(chart);
-    lv_chart_set_type(chart, LV_CHART_TYPE_BAR);
-    lv_chart_set_axis_tick(chart, LV_CHART_AXIS_PRIMARY_Y, 6, 3, 9, 1, true, 40);
-    ser1 = lv_chart_add_series(chart, lv_palette_main(LV_PALETTE_RED), LV_CHART_AXIS_PRIMARY_Y);
-    updateTheChart(chart);
-
-    return chart;
-}
-lv_obj_t *btn1;
-static void scan_channels(lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    // //Serial.println("event detected");
-    if (code == LV_EVENT_CLICKED)
-    {
-        lv_color_t prevColor = lv_obj_get_style_bg_color(btn1, LV_PART_MAIN);
-        lv_obj_set_style_bg_color(btn1, lv_palette_main(LV_PALETTE_RED), LV_PART_MAIN);
-        lv_obj_refresh_style(btn1, LV_PART_ANY, LV_STYLE_PROP_ANY);
-        MAC::getInstance()->LORANoiseCalibrateAllChannels(true);
-        // //Serial.println("scanning done");
-        lv_obj_t *chart = (lv_obj_t *)lv_event_get_user_data(e);
-        updateTheChart(chart);
-
-        lv_obj_set_style_bg_color(btn1, prevColor, LV_PART_MAIN);
-        lv_obj_refresh_style(btn1, LV_PART_ANY, LV_STYLE_PROP_ANY);
-    }
-}
-
-static void power_save(lv_event_t *e)
-{
-    static bool toggled = false;
-    lv_event_code_t code = lv_event_get_code(e);
-
-    if (code == LV_EVENT_VALUE_CHANGED)
-    {
-        toggled = !toggled;
-        if (toggled)
-        {
-            MAC::getInstance()->setMode(SLEEPING);
-        }
-        else
-        {
-            MAC::getInstance()->setMode(RECEIVING);
-        }
-    }
-}
-void radioPingPong(lv_obj_t *parent)
-{
-    lv_obj_t *next_parent = setupChart(parent);
-    lv_obj_t *label;
-    btn1 = lv_btn_create(parent);
-    lv_obj_align_to(btn1, next_parent, LV_ALIGN_OUT_BOTTOM_MID, 45, 5);
-    lv_obj_add_event_cb(btn1, scan_channels, LV_EVENT_ALL, next_parent);
-    label = lv_label_create(btn1);
-    lv_label_set_text(label, "Scan");
-    lv_obj_center(label);
-
-    lv_obj_t *btn2 = lv_btn_create(parent);
-    lv_obj_add_event_cb(btn2, power_save, LV_EVENT_ALL, NULL);
-    lv_obj_align_to(btn2, next_parent, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 5);
-    lv_obj_add_flag(btn2, LV_OBJ_FLAG_CHECKABLE);
-    lv_obj_set_height(btn2, LV_SIZE_CONTENT);
-
-    label = lv_label_create(btn2);
-    lv_label_set_text(label, "Power save");
-    lv_obj_center(label);
-}
-
-lv_obj_t *dd;
-lv_obj_t *responseMessage;
-bool sending = false;
-vector<uint16_t> devices;
-static int checksum = 0;
-void updateDropdown()
-{
-    int calculatedCheckSum = 0;
-    int i = -1;
-    for (NeighborRecord tableItem : DTPK::getInstance()->getNeighbours())
-    {
-        calculatedCheckSum += tableItem.from *tableItem.distance * i;
-        i *= -1 * tableItem.id;
+        Serial.println("DTProtocol initialization failed");
+        return false;
     }
 
-    if (calculatedCheckSum != checksum)
+    if (!beginLvglHelper(false))
+        return false;
+    uiQueue = xQueueCreate(8, sizeof(UiEvent));
+    if (!uiQueue)
     {
-        lv_dropdown_close(dd);
-        lv_dropdown_clear_options(dd);
-
-        devices.clear();
-        selected = UINT16_MAX;
-
-        for (NeighborRecord tableItem : DTPK::getInstance()->getNeighbours())
-        {
-            char text[32];
-            devices.push_back(tableItem.id);
-            snprintf(text, sizeof(text), "%d distance %d", tableItem.id, tableItem.distance);
-            lv_dropdown_add_option(dd, text, LV_DROPDOWN_POS_LAST);
-        }
-
-        if (!devices.empty()) {
-            lv_dropdown_set_selected(dd, 0);
-            selected = devices.front();
-        } else {
-            lv_dropdown_add_option(dd, "No devices", LV_DROPDOWN_POS_LAST);
-        }
+        Serial.println("UI event queue allocation failed");
+        return false;
     }
-    checksum = calculatedCheckSum;
+    createUi();
+
+    Bluetooth::initialize();
+    Bluetooth *bluetooth = Bluetooth::getInstance();
+    bluetooth->setDeviceName("DTPK-LoraWatch");
+    bluetooth->setDTPKPacketCallback(onDTPKPacket);
+    if (!bluetooth->setup())
+        postSystemMessage("BLE unavailable; LoRa remains active");
+
+    refreshRoutes(true);
+    updateHomeAndDiagnostics();
+    lv_disp_trig_activity(nullptr);
+    Serial.printf("Picopod watch node %u ready: EU868 C%u SF%u BW%.0f\n",
+                  NODE_ID, RADIO_CHANNEL, RADIO_SF, RADIO_BANDWIDTH_KHZ);
+    return true;
 }
-static void recievedAck(uint8_t result, uint16_t ping)
+
+void watchLoop()
 {
-    sending = false;
-    if (responseMessage)
-    {
-        String text = result != 0
-                          ? "Sent successfully, ping " + String(ping) + " ms"
-                          : "Send failed";
-        lv_label_set_text(responseMessage, text.c_str());
-    }
-}
-
-static void sendDTPMessage(lv_event_t *e)
-{
-        lv_event_code_t code = lv_event_get_code(e);
-    if (selected != 65535 && !sending && code == LV_EVENT_CLICKED)
-    {
-        sending = true;
-        printf("selected message %d\n", selected);
-        DTPK::getInstance()->sendPacket(
-            selected,
-            reinterpret_cast<unsigned char *>(const_cast<char *>("This is some important data")),
-            strlen("This is some important data"),
-            60000,
-            true,
-            recievedAck);
-    }else if(code == LV_EVENT_CLICKED){
-            lv_label_set_text(responseMessage, "Cannot send not valid value selected or already sending");
-
-        printf("selected message %d sending %d\n", selected, sending);
-    }
-}
-
-static void selected_device(lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    lv_obj_t *obj = lv_event_get_target(e);
-    if (code == LV_EVENT_VALUE_CHANGED && !devices.empty())
-    {
-        const uint16_t index = lv_dropdown_get_selected(obj);
-        if (index < devices.size())
-            selected = devices[index];
-        printf("selected object: %d", selected);
-    }
-}
-
-void radioSendMessage(lv_obj_t *parent)
-{
-    lv_obj_t *label;
-    lv_obj_t *sendbutton = lv_btn_create(parent);
-    lv_obj_set_pos(sendbutton, 20, 15);
-    lv_obj_add_event_cb(sendbutton, sendDTPMessage, LV_EVENT_ALL, NULL);
-    label = lv_label_create(sendbutton);
-    lv_label_set_text(label, "Send message");
-    responseMessage = lv_label_create(parent);
-    lv_obj_set_width(responseMessage, 220);
-    lv_label_set_long_mode(responseMessage, LV_LABEL_LONG_WRAP);
-    lv_label_set_recolor(responseMessage, true); /*Enable re-coloring by commands in the text*/
-    lv_label_set_text(responseMessage, "#ffffff empty message");
-    lv_obj_set_style_text_font(responseMessage, &lv_font_montserrat_14, LV_PART_MAIN);
-    lv_obj_set_pos(responseMessage, 10, 50);
-    lv_obj_center(label);
-
-    /*Create a normal drop down list*/
-    dd = lv_dropdown_create(parent);
-    lv_dropdown_set_options(dd, "No devices found yes\n");
-    lv_dropdown_add_option(dd, "No devices found yes\n", 0);
-
-    lv_obj_set_pos(dd, 10, 90);
-    lv_obj_add_event_cb(dd, selected_device, LV_EVENT_ALL, NULL);
-}
-
-void analogclock(lv_obj_t *parent)
-{
-    bool antialias = true;
-    lv_img_header_t header;
-
-    const void *clock_filename = &clock_face;
-    const void *hour_filename = &clock_hour_hand;
-    const void *min_filename = &clock_minute_hand;
-    const void *sec_filename = &clock_second_hand;
-
-    lv_obj_t *clock_bg = lv_img_create(parent);
-    lv_img_set_src(clock_bg, clock_filename);
-    lv_obj_set_size(clock_bg, 240, 240);
-    lv_obj_center(clock_bg);
-
-    hour_img = lv_img_create(parent);
-    lv_img_decoder_get_info(hour_filename, &header);
-    lv_img_set_src(hour_img, hour_filename);
-    lv_obj_center(hour_img);
-    lv_img_set_pivot(hour_img, header.w / 2, header.h / 2);
-    lv_img_set_antialias(hour_img, antialias);
-
-    lv_img_decoder_get_info(min_filename, &header);
-    min_img = lv_img_create(parent);
-    lv_img_set_src(min_img, min_filename);
-    lv_obj_center(min_img);
-    lv_img_set_pivot(min_img, header.w / 2, header.h / 2);
-    lv_img_set_antialias(min_img, antialias);
-
-    lv_img_decoder_get_info(sec_filename, &header);
-    sec_img = lv_img_create(parent);
-    lv_img_set_src(sec_img, sec_filename);
-    lv_obj_center(sec_img);
-    lv_img_set_pivot(sec_img, header.w / 2, header.h / 2);
-    lv_img_set_antialias(sec_img, antialias);
-
-    static lv_style_t label_style;
-    lv_style_init(&label_style);
-    lv_style_set_text_color(&label_style, lv_color_white());
-
-    battery_percent = lv_label_create(parent);
-    lv_label_set_text(battery_percent, "100");
-    lv_obj_align(battery_percent, LV_ALIGN_LEFT_MID, 68, -10);
-    lv_obj_add_style(battery_percent, &label_style, LV_PART_MAIN);
-
-    weather_celsius = lv_label_create(parent);
-    lv_label_set_text(weather_celsius, "23°C");
-    lv_obj_align(weather_celsius, LV_ALIGN_RIGHT_MID, -62, -2);
-    lv_obj_add_style(weather_celsius, &label_style, LV_PART_MAIN);
-
-    step_counter = lv_label_create(parent);
-    lv_label_set_text(step_counter, "6688");
-    lv_obj_align(step_counter, LV_ALIGN_BOTTOM_MID, 0, -55);
-    lv_obj_add_style(step_counter, &label_style, LV_PART_MAIN);
-
-    clockTimer = lv_timer_create([](lv_timer_t *timer)
-                                 {
-                                    struct tm timeinfo;
-                                    watch.getDateTime(&timeinfo);
-                                    
-                                    ////Serial.println(watch.strftime());
-                                    lv_img_set_angle(
-                                        hour_img, ((timeinfo.tm_hour) * 300 + ((timeinfo.tm_min) * 5)) % 3600);
-                                    lv_img_set_angle(min_img, (timeinfo.tm_min) * 60);
-
-                                    lv_anim_t a;
-                                    lv_anim_init(&a);
-                                    lv_anim_set_var(&a, sec_img);
-                                    lv_anim_set_exec_cb(&a, (lv_anim_exec_xcb_t)lv_img_set_angle);
-                                    lv_anim_set_values(&a, (timeinfo.tm_sec * 60) % 3600,
-                                                        (timeinfo.tm_sec + 1) * 60);
-                                    lv_anim_set_time(&a, 1000);
-                                    lv_anim_start(&a);
-                                    //}
-
-                                     // Update step counter
-                                     lv_label_set_text_fmt(step_counter, "%u", stepCounter);
-
-                                     // Update battery percent
-                                     int percent = watch.getBatteryPercent();
-                                     lv_label_set_text_fmt(battery_percent, "%d", percent == -1 ? 0 : percent);
-
-                                    float  temp = watch.readAccelTemp();
-                                    ////Serial.print(temp);
-                                    ////Serial.println("*C");
-                                    lv_label_set_text_fmt(weather_celsius, "%d°C", (int)temp); },
-                                 1000, NULL);
-}
-
-void watchLoop() {
     Bluetooth::getInstance()->loop();
+    processPmu();
+    processMotion();
+    processUiEvents();
+
+    const uint32_t now = millis();
+    if (static_cast<uint32_t>(now - lastRouteRefresh) >= ROUTE_REFRESH_MS)
+    {
+        lastRouteRefresh = now;
+        refreshRoutes(false);
+    }
+    if (static_cast<uint32_t>(now - lastSensorRefresh) >= SENSOR_REFRESH_MS)
+    {
+        lastSensorRefresh = now;
+        updateHomeAndDiagnostics();
+    }
+    if (static_cast<uint32_t>(now - lastDiagnosticRefresh) >=
+        DIAGNOSTIC_REFRESH_MS)
+    {
+        lastDiagnosticRefresh = now;
+        updateHomeAndDiagnostics();
+    }
+
+    if (wakeRequested.exchange(false, std::memory_order_acq_rel))
+        wakeDisplay();
+
+    saveSettingsWhenDue(now);
+
+    const uint32_t timeout = SCREEN_TIMEOUTS[settings.timeoutIndex];
+    if (displayOn && timeout != UINT32_MAX &&
+        lv_disp_get_inactive_time(nullptr) >= timeout && !sending)
+        turnDisplayOff();
+
+    if (!displayOn && watch.getTouched())
+        wakeDisplay();
+
+    if (displayOn ||
+        static_cast<uint32_t>(now - lastDisplayService) >= DISPLAY_OFF_SERVICE_MS)
+    {
+        lastDisplayService = now;
+        (void)lv_timer_handler();
+    }
+    delay(displayOn ? 2 : 10);
 }

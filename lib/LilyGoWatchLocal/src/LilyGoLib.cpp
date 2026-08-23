@@ -45,13 +45,19 @@ void deviceScan(TwoWire *_port, Stream *stream)
 }
 
 LilyGoLib::LilyGoLib()
-
 #ifdef USING_TWATCH_S3
     : SX1262(new Module(BOARD_RADIO_SS,
                         BOARD_RADIO_DI01,
                         BOARD_RADIO_RST,
                         BOARD_RADIO_BUSY,
-                        radioBus))
+                        radioBus)),
+      brightness(0),
+      stream(nullptr),
+      sleepMode(PMU_BTN_WAKEUP)
+#else
+    : brightness(0),
+      stream(nullptr),
+      sleepMode(PMU_BTN_WAKEUP)
 #endif
 {
     // Default use SX1262
@@ -107,15 +113,8 @@ bool LilyGoLib::begin(Stream *stream)
     setTextDatum(MC_DATUM);
     setTextFont(2);
 
-    log_println("Init SPIFFS");
-    if (!SPIFFS.begin()) {
-        fillScreen(TFT_BLACK);
-        drawString("Format SPIFFS...", 120, 120);
-        SPIFFS.format();
-    }
-
     fillScreen(TFT_BLACK);
-    drawString("Hello T-Watch", 120, 120);
+    drawString("Starting Picopod", 120, 120);
 
     setBrightness(50);
 
@@ -179,7 +178,7 @@ bool LilyGoLib::begin(Stream *stream)
 
     beginCore();
 
-    delay(1000);
+    delay(50);
 
     return true;
 }
@@ -294,26 +293,16 @@ void LilyGoLib::setBrightness(uint8_t level)
     ledcWrite(LEDC_BACKLIGHT_CHANNEL, brightness);
 }
 
-void LilyGoLib::decrementBrightness(uint8_t target_level, uint32_t delay_ms)
+void LilyGoLib::decrementBrightness(uint8_t target_level)
 {
-    if (target_level > brightness)
-        return;
-    for (int i = brightness; i >= target_level; i--)
-    {
-        setBrightness(i);
-        delay(delay_ms);
-    }
+    if (target_level <= brightness)
+        setBrightness(target_level);
 }
 
-void LilyGoLib::incrementalBrightness(uint8_t target_level, uint32_t delay_ms)
+void LilyGoLib::incrementalBrightness(uint8_t target_level)
 {
-    if (target_level < brightness)
-        return;
-    for (int i = brightness; i < target_level; i++)
-    {
-        setBrightness(i);
-        delay(delay_ms);
-    }
+    if (target_level >= brightness)
+        setBrightness(target_level);
 }
 
 bool LilyGoLib::beginPower()
@@ -329,9 +318,10 @@ bool LilyGoLib::beginPower()
     // below this value will turn off the PMU
     setVbusVoltageLimit(XPOWERS_AXP2101_VBUS_VOL_LIM_4V36);
 
-    // Set the maximum current of the PMU VBUS input,
-    // higher than this value will turn off the PMU
-    setVbusCurrentLimit(XPOWERS_AXP2101_VBUS_CUR_LIM_100MA);
+    // The T-Watch S3 is specified for a 5 V / 500 mA USB input. A 100 mA
+    // clamp can make the battery mask USB brownouts while display, BLE and LoRa
+    // are active, so use the board-rated input limit.
+    setVbusCurrentLimit(XPOWERS_AXP2101_VBUS_CUR_LIM_500MA);
 
     // Set VSY off voltage as 2600mV , Adjustment range 2600mV ~ 3300mV
     setSysPowerDownVoltage(2600);
@@ -518,16 +508,6 @@ bool LilyGoLib::readMicrophone(void *dest, size_t size, size_t *bytes_read, Tick
 void LilyGoLib::setSleepMode(SleepMode_t mode)
 {
     sleepMode = mode;
-}
-
-void LilyGoLib::nonBlockingDelay(u_int32_t milsec)
-{
-    uint32_t time_start = millis();
-    while (millis() - time_start < milsec)
-    {
-        delay(2);
-        lv_task_handler();
-    }
 }
 
 void LilyGoLib::sleepLora(bool config)
